@@ -1,0 +1,176 @@
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Conciliation Mediation Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div id="downloads" class="tab-pane fade active in">
+						<form role="form" id="clientDetailsForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Client Details</h2>
+									</div>
+								</div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Customer Type</label>
+									<p><input type="text" class="form-control" name="client_Type" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Name</label>
+									<p><input type="text" class="form-control" name="name"  readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Mobile</label>
+									<p><input type="text" class="form-control" name="phone_Mobile"  readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Email Id</label>
+									<p><input type="text" class="form-control" name="email_Id" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div></div>
+								<!-- <div class="form-group text-right">
+
+
+									
+
+								</div> -->
+
+							</div>
+							</form>
+							 <form role="form" id="conciliationDetails">
+							<div class="col-md-6">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Conciliation Mediation Details</h2>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Id</label>
+									<p><input type="text" class="form-control" name="conciliation_Id"  id="ConciliationId"
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Category</label>
+									<p><input type="text" class="form-control" name="conciliation_Category" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Sub Category</label>
+									<p><input type="text" class="form-control" name="conciliation_SubCategory" 
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>BriefDescription</label>
+									<p><div class="col-sm-12" id="conciliation_BriefDescription" style="opacity:0.7;"></div> </p>
+								</div>
+							</div>
+								<div class="col-md-6">
+									<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Conciliation Mediation Description</h2>
+									</div>
+									</div>
+									<div id="ConciliationDescription" class="form-group">
+									<label>Adversory Name</label>
+									<p><input type="text" class="form-control" name="adversory_Name"  id="adversoryName"
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Email</label>
+									<p><input type="text" class="form-control" name="adversory_Email" id="AdversoryEmail" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Mobile</label>
+									<p><input type="text" class="form-control" name="adversory_Mobile" id="adversoryMobile" 
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Address</label>
+									<p><input type="text" class="form-control" name="adversory_Address"  id="adversoryAddress"
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								
+								<!-- <div id="ServiceDescription" class="page-title">
+										<h4>Conciliation Description</h4>
+									</div> -->
+								
+                          		<div>
+									<label>File Information</label>
+									<table class="table table-striped custab" id="ServiceFileHandlerInReview">
+													<thead>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+									
+
+								</div>
+								<div><input type="hidden" name="client_Id" id="ClientId"/>
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+									<input type="button" onclick="getConciliationPdf('ClientId','ConciliationId')" value="Download PDF" class="btn btn-blue">
+									<input type="button" value="Edit"
+												onclick="ajaxPost('conciliationDetails','/updateConciliation');" value="Edit" class="btn btn-blue">
+									<input type="button" value="Next" onclick="ajaxPost('conciliationDetails','/finalSaveConciliation');" class="btn btn-blue">
+
+								</div>
+							</div>
+							</div>
+						</form>
+
+					
+					<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+
+			

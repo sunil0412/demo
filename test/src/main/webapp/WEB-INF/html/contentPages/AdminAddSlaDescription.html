@@ -1,0 +1,171 @@
+
+
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				
+				<div class="tab-content" id="processTab">
+
+					<div id="query-type" class="tab-pane fade active in">
+							<form role="form" id="adminAddSlaDescriptionForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Add New Sla Description</h2>
+									</div>
+								</div>
+							</div>
+						<div class="col-sm-6" style="margin-top:5px;">
+						<div class="form-group">
+						<label>Sla Hours*</label>
+						
+							<select id="SlaHour" required="required" onblur="return onblurAdminAddSlaForm();"
+								onchange="changeSlaHour(this.id);" class="form-control">
+								<option value="" label="---Select---" />
+								<option value="General" label="General" />
+								<option value="Urgent" label="Urgent" />
+								<option value="3Hrs" label="3Hrs" />
+								<option value="6Hrs" label="6Hrs" />
+								<option value="9Hrs" label="9Hrs" />
+								<option value="12Hrs" label="12Hrs" />
+								<option value="24Hrs" label="24Hrs" />
+							</select> <span id="slaHourSpan" style="color: red"></span> <input
+								name="sla" type="hidden" id="hiddenSla" />
+						
+					    </div>
+					    
+					    
+					    <div class="form-group">
+					    <label class="control-label">BaseRate</label>
+						<!-- <label class="control-label"><input type="text"
+							name="transaction_Properties" value="BaseRate"></label></div> -->
+						
+							<input name="rate" type="number" min="0" id="Rate_BaseRate"
+								class="form-control" placeholder="Base Rate"
+								onblur="return onblurAdminAddSlaForm();"/>
+						
+						<span id=rate_BaseRateSpan style="color: red"></span>
+					</div>
+					
+					
+					<div class="form-group">
+					<label class="control-label">Discount</label>
+					<!-- <div class="col-sm-2" ><label class="control-label"><input type="text"
+							name="transaction_Properties" value="Discount"></label></div> -->
+						
+							<input name="rate" type="number" min="0" id="Rate_Discount"
+								class="form-control" placeholder="Discount"
+								onblur="return onblurAdminAddSlaForm();" />
+						
+						<span id=rate_DiscountSpan style="color: red"></span>
+					</div>	
+					
+					
+					<div class="form-group">
+					<label class="control-label">ServiceTax</label>
+					<!-- <div class="col-sm-2" ><label class="control-label"><input type="text"
+							name="transaction_Properties" value="ServiceTax"></label></div> -->
+						
+							<input name="rate" type="number" min="0" id="Rate_ServiceTax"
+								class="form-control" placeholder="Service Tax"
+								onblur="return onblurAdminAddSlaForm();" />
+						
+						<span id=rate_ServiceTaxSpan style="color: red"></span>
+					</div>	
+					</div>
+					<div class="col-sm-6" style="margin-top:5px;">
+					<div class="form-group">
+					<label class="control-label">Cess</label>
+					<!-- <div class="col-sm-2" ><label class="control-label"><input type="text"
+							name="transaction_Properties" value="Cess"></label></div> -->
+						
+							<input name="rate" type="number" min="0" id="Rate_Cess"
+								class="form-control" placeholder="Cess"
+								onblur="return onblurAdminAddSlaForm();" />
+						
+						<span id=rate_CessSpan style="color: red"></span>
+					</div>	
+					
+					<div class="form-group">
+					<label class="control-label">Loyality</label>
+					<!-- <div class="col-sm-2" ><label class="control-label"><input type="text"
+							name="transaction_Properties" value="Loyality"></label></div> -->
+						
+							<input name="rate" type="number" min="0" id="Rate_Loyality"
+								class="form-control" placeholder="Loyality"
+								onblur="return onblurAdminAddSlaForm();" />
+						
+						<span id=rate_LoyalitySpan style="color: red"></span>
+					</div>	
+					
+					
+					<div class="form-group">
+					<label for="ContractId">Valid
+							From*</label>
+						
+							<input name="valid_From" id="Valid_From" class="form-control"
+								placeholder="DD-MM-YYYY"
+								onblur="return onblurAdminAddSlaForm();" />
+						
+						<span id=valid_FromSpan style="color: red"></span> 
+					</div>
+					<div class="form-group">	
+					<label for="ContractId" >Valid To*</label>
+						
+							<input name="valid_To" id="Valid_To" class="form-control"
+								placeholder="DD-MM-YYYY"
+								onblur="return onblurAdminAddSlaForm();"/>
+						
+						<span id=valid_ToSpan style="color: red"></span>
+					</div>		
+							
+					</div>		
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+
+									<input type="button" id="adminAddSlaButton"
+										onclick="validateAdminAddSla();" value="Add"
+										class="btn btn-blue">
+									<input type="button" id="CounselDashboard"
+										 value="Cancel" class="btn btn-blue">	
+
+								</div>
+							</div>
+						</form>
+
+					</div> 
+					
+					
+					
+					
+					
+					
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<script>
+	$(function() {
+		$("#Valid_From").datepicker({
+			dateFormat : 'dd-mm-yy',
+			minDate : '0'
+		});
+		$("#Valid_To").datepicker({
+			dateFormat : 'dd-mm-yy',
+			minDate : '0'
+		});
+	});
+	function changeSlaHour(id) {
+		var hour = document.getElementById(id).value;
+		$("#hiddenSla").val(hour);
+	}
+</script>

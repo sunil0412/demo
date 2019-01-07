@@ -1,0 +1,130 @@
+<!-- <div class="stp_frms">
+	<section>
+		<h2 id="headerContract1" align="center"></h2>
+		<div class="wizard"> -->
+		<div class="row" id="form_area">
+		<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Retainership Agreement Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Agreement Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Agreement Generation</p>
+						</div>
+					</div>
+				</div>
+			<!-- <div class="wizard-inner">
+				<div class="connecting-line"></div>
+				<ul class="nav nav-tabs" role="tablist">
+
+					<li class="disabled"><a><span class="round-tab"> <i
+								id="iconContract1"></i></span></a>
+						<p id="flowContract1"></p></li>
+
+					<li class="disabled"><a> <span class="round-tab"> <i
+								id="iconContract2"></i></span>
+					</a><p id="flowContract2"></p></li>
+					
+					<li id="review" class="disabled"><a> <span class="round-tab"> <i
+								id="iconContract4"></i></span>
+					</a><p id="flowContract4"></p></li>
+					
+					<li class="active"><a> <span class="round-tab"> <i
+								id="iconContract3" class="fa fa-download" aria-hidden="true"></i></span>
+					</a><p id="flowContract3"></p></li>
+				</ul>
+			</div> -->
+
+			<!-- <div class="tab-content">
+				<div class="tab-pane active" role="tabpanel" id="step1">
+					<div class="step1">
+
+						<div class="row">
+						<div class="scroll_inner_page">
+							<div class="col-lg-12">
+								<div class="showback">
+								<h4>
+										<i id="boxTitle" class="fa fa-angle-right"></i>
+
+									</h4> -->
+									<form id="corporateContractSuccessForm">
+										<div style="text-align: center;">
+											<h2>Congratulations!</h2>
+											<h5 id="headerContract2"></h5>
+										</div>
+										<br />
+										<br />
+										<div class="form-group">
+										<div class="col-sm-12"><label>Retainership Agreement ID</label></div>
+											<div class="col-sm-12">
+												<input type="text" name="contract_Id" id="Contract_Id" class="form-control"
+												style="border: none; width: 30%; opacity:0.7;background-color:#eee;" 
+												readonly="readonly"/>
+											</div>
+											<div class="col-sm-12 text-right">
+												<input id="corporateContractPdfButton" type="button"
+													class="btn btn-blue" value="Download Copy Of Agreement" />
+											<!-- </div>
+											<div class="col-sm-4"> -->
+												<input id="ClientDashboard" type="button"
+													class="btn btn-blue" value="Go To Dashboard" />
+											</div>
+										</div>
+									</form>
+								<!-- </div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	<!-- </section> -->
+</div>
+<script type="text/javascript">
+var typContract=localStorage.getItem("typContract");
+if(typContract.localeCompare("ContractUpdate")==0)
+	{
+	//document.getElementById("headerContract1").innerHTML="Update Retainership Agreement";
+	//document.getElementById("flowContract1").innerHTML="Select Retainership Agreement";
+	//document.getElementById("iconContract1").className="fa fa-check-square-o";
+	//document.getElementById("flowContract2").innerHTML="Update Retainership Agreement";
+	//document.getElementById("iconContract2").className="fa fa-pencil-square-o";
+	//document.getElementById("review").style.display="block";
+	//document.getElementById("flowContract4").innerHTML="Retainership Agreement Review";
+	//document.getElementById("iconContract4").className="glyphicon glyphicon-list-alt";
+	//document.getElementById("flowContract3").innerHTML="Generate Updated Retainership Agreement";
+	
+	//document.getElementById("boxTitle").innerHTML="Retainership Agreement Successfully Updated";
+	document.getElementById("headerContract2").innerHTML="Your Retainership Agreement has been successfully Updated. Please download the copy of your agreement from below button";
+	}
+else
+	{
+	//document.getElementById("headerContract1").innerHTML="New Retainership Agreement";
+	//document.getElementById("flowContract1").innerHTML="Fill Retainership Agreement Details";
+	//document.getElementById("iconContract1").className="fa fa-pencil-square-o";
+	//document.getElementById("flowContract2").innerHTML="Retainership Agreement Review";
+	//document.getElementById("iconContract2").className="glyphicon glyphicon-list-alt";
+	//document.getElementById("review").style.display="none";
+	//document.getElementById("flowContract3").innerHTML="Retainership Agreement Generation";
+	//document.getElementById("boxTitle").innerHTML="Retainership Agreement Successfully Created";
+	document.getElementById("headerContract2").innerHTML="Your Retainership Agreement has been successfully Created. Please download the copy of your agreement from below button";
+	}
+
+</script>

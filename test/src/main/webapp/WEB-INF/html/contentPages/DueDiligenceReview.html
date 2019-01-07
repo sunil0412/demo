@@ -1,0 +1,159 @@
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Create Due Diligence</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Due Diligence Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div id="downloads" class="tab-pane fade active in">
+						
+							<div class="col-md-6">
+							<form role="form" id="clientDetailsForm">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Client Details</h2>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Customer Type</label>
+									<p><input type="text" name="client_Type"  class="form-control"
+															readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div>
+								<div class="form-group">
+									<label>Name</label>
+									<p><input type="text" name="name" class="form-control" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div>
+								<div class="form-group">
+									<label>Mobile</label>
+									<p><input type="text" name="phone_Mobile" class="form-control" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Email Id</label>
+									<p><input type="text" name="email_Id" class="form-control" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<!-- <div class="form-group text-right">
+
+
+									<input type="button"  value="Download PDF" on-click="getDueDiligencePdf('ClientId','DiligenceId')" class="btn btn-blue">
+
+								</div> -->
+</form>
+							</div>
+							
+							
+							<div class="col-md-6">
+							<form role="form" id="diligenceDetails">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Due Diligence Details</h2>
+										
+									</div>
+								</div>
+
+								<div id="queryDetails" class="form-group">
+									<label>DueDiligence ID</label>
+									<p><input type="text" name="diligence_Id"  id="DiligenceId" class="form-control"
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Diligence Category</label>
+									<p><input type="text" name="diligence_Category" class="form-control" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Organisation Name</label>
+									<p><input type="text" name="organisation_Name" class="form-control"
+													readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								
+								<div class="form-group">
+									<label>Diligence BriefDescription</label>
+									
+									<p><div class="col-sm-12" id="diligence_Brief"
+												style="height: 100%; width: 100%" style="opacity:0.7;"></div></p>
+									
+								</div>
+
+								<div class="form-group">
+									<label>Query Description</label>
+									<p><div class="col-sm-12" id="ServiceDescription"
+												style="height: 100%; width: 100%" style="opacity:0.7;"></div></p>
+								</div>
+
+								<div class="">
+									<label>File Information</label>
+									<table class="table-bordered" id="ServiceFileHandlerInReview">
+													<thead>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+									
+
+								</div>
+								<input type="hidden" name="client_Id" id="ClientId"/>
+							
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+									<input type="button"  value="Download PDF" on-click="getDueDiligencePdf('ClientId','DiligenceId')" class="btn btn-blue">
+									<!-- <input type="button" onclick="" value="Back" class="btn btn-blue">
+									 --><input type="button" value="Edit"
+												onclick="ajaxPost('diligenceDetails','/updateDueDiligence');" value="Edit" class="btn btn-blue">
+									<input type="button" value="Submit" onclick="ajaxPost('diligenceDetails','/finalSaveDueDiligence');" class="btn btn-blue">
+
+								</div>
+								</div>
+								</form>
+							</div>
+						
+
+					</div>
+					<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+
+			

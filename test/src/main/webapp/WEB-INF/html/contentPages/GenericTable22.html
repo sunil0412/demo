@@ -1,0 +1,321 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+			
+     <div id="document-upload" class="tab-pane fade active in">
+
+      <form id="newLegalNoticeForm">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Report Table</h2>
+            </div>
+            </div>
+          
+        </div>
+       
+        	<div class="col-sm-12" style="margin-top: 7px;">
+        	<div class=" table-responsive">
+            <table class="table table-striped custab" id="genericDataTable" >
+    <thead style="background:#323f3f; color:#fff;">
+
+						<tr>
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						</tr>
+					</thead>
+            
+            
+    </table>
+</div>
+           </div>
+        	<span id="editSpan" style="color: red;"></span>
+            <div class="col-md-12 text-right">
+              	<div class="form-group">
+             <input type="button" id="approveLegalNoticeByAdminButton" value="Approve" class="btn btn-blue">
+                  <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+                 
+             
+            </div>
+              </div>
+          
+          
+          
+       
+        </form>
+      
+</div>
+             <div class="clearfix"></div>
+			</div>
+		</div>
+
+
+<a data-toggle="modal" href="SolvedQueryAdmin.html#displayReviewQryDetails"><button
+		id="displayLegalNoticeDetailsAdminLink" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displayReviewQryDetails" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-dialog modal-lg"><!--  class="modal-content" -->
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Legal Notice Details</h4>
+							</div>
+							<div class="modal-body">
+						<div class=" table-responsive">
+
+
+				<form id="showLegalNoticeResponseForm" class="modal-scroller">
+				<input type="hidden" id="editedResponse" name="editedResponse"
+								readonly="readonly" size=35 />
+					<br />
+					
+					
+					
+					<div class="col-sm-12">
+						<table border="1" class="table table-striped custab" style="width: 100%">
+						
+						<thead>
+    
+        				<tr>
+            			<th>Label</th>
+            			<th>Value</th>
+            			<th>Label</th>
+            			<th>Value</th>
+            
+        				</tr>
+    				</thead>
+						
+						<tr>
+						<td>
+						<label for="noticeIdR" class="control-label-head">Notice
+							Id</label>
+							</td>
+						<td>
+							<label><input type="text" id="noticeIdR" name="notice_Id"
+								readonly="readonly" /></label>
+						</td>
+						
+						<td>
+						<label for="noticeResponseDateR" class="control-label-head">Closed
+							Date</label>
+						</td>
+						<td>
+							<label><input type="text" id="noticeResponseDateR"
+								readonly="readonly" /></label>
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+					
+											
+							
+						</tr>
+
+				
+					<tr>
+					
+						<td>
+						<label for="clientId" class="control-label-head">Client
+							Id</label>
+							</td>
+						<td>
+							<label><input type="text" id="clientIdR" name="client_Id"
+								readonly="readonly"  /></label>
+						</td>
+						</tr>
+						
+
+				
+					
+
+					<tr>
+						<td>
+						<label for="assignedLawyerR" class="control-label-head">Assigned
+							Counsel</label>
+						</td>
+						<td>
+							<label><input type="text" id="assignedLawyerR"
+								readonly="readonly"/></label>
+						</td>
+						<td>
+						<label for="assignedByR" class="control-label-head">Assigned
+							By</label>
+						</td>
+						<td>
+							<label><input type="text" id="assignedByR"
+								readonly="readonly" /></label>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>
+						<label for="noticeCreatedDateR" class="control-label-head">Notice
+							Created Date</label>
+						</td>
+						<td>
+							<label><input type="text" id="noticeCreatedDateR"
+								readonly="readonly"/></label>
+						</td>
+						<td>
+						<label for="assignedDateR" class="control-label-head">Assigned
+							Date</label>
+						</td>
+						<td>
+							<label><input type="text" id="assignedDateR"
+								readonly="readonly" /></label>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+						<label for="noticeStatusR" class="control-label-head">Notice
+							Status</label>
+						</td>
+						<td>
+							<label><input type="text" id="noticeStatusR"
+								readonly="readonly" /></label>
+						</td>
+						<td>
+						<label for="slaR" class="control-label-head">SLA</label>
+						</td>
+						<td>
+							<label><input type="text" id="slaR" readonly="readonly"
+								 /></label>
+						</td>
+					</tr>
+					
+					
+					</table>
+					<table border="1" class="table table-striped custab" style="width: 100%">
+						<thead>
+    					<tr>
+            			<th>Label</th>
+           				<th>Value</th>
+       					</tr>
+    					</thead>
+						
+						<tr>
+						<td>
+						<label for="noticeBriefDescriptionR" class="control-label-head">Notice
+							BriefDescription</label>
+						</td>
+						<td>
+							<label><textarea id="noticeBriefDescriptionR" 
+									readonly="readonly"></textarea></label> <!-- rows="5" cols="200" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;" -->
+						</td>
+						</tr>
+						
+						<tr>
+						<td>
+					<label for="noticeCommentR" class="control-label-head">Notice
+							Comment</label>
+						</td>
+						<td>
+							<label><textarea id="noticeCommentR" 
+									readonly="readonly" ></textarea></label> <!-- rows="4" cols="70" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;" -->
+						</td>
+						</tr>
+						
+						<tr>
+						<td>
+						<label for="NoticeDescriptionR" class="control-label-head">Notice
+							Description</label>
+						</td>
+						<td>
+							<div id="NoticeDescriptionR" style="height: 100%; width: 100%"></div>
+						</td>
+						</tr>
+					
+					<tr>
+						<td>
+                    <label for="uploadedFileDetails" class="control-label-head">
+						File Informations</label>
+						</td>
+						<td>
+							<table class="table-bordered" id="uploadedFileDetailsR" style="width: 100%">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					<tr>
+					<td>
+                    <label for="uploadedFileDetails" class="col-sm-2 control-label-head">
+						Responded File Informations</label>
+						</td>
+						<td>
+							<table border="1" class="table table-striped custab" style="width: 100%" id="responseFileDetailsDIV">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						     </td>
+				</tr>
+                    
+                    <tr>
+						<td>
+						<label for="queryResponse" class="control-label-head">Notice
+							Response</label>
+						</td>
+						<td>
+						<textarea id="editor" placeholder="Please enter your case related text here..."> <!-- rows="10" cols="80" -->
+						</textarea>
+						<script>$("#editor").Editor();</script>
+					<br />
+				<button  class="btn btn-primary" type="button" id ="editResponseButton" onclick="getEditorText()">Save</button>
+				</td>
+				</tr>
+				</table>
+				</div>
+				</form>
+			
+			
+			</div>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+ <script>
+function getEditorText(){
+	var data=$("#editor").Editor("getText");
+	//var data = CKEDITOR.instances.editor.getData();
+	document.getElementById("editedResponse").value=data;
+	
+		 //$('#loaderModal').show();
+		ajaxPost('showLegalNoticeResponseForm','/updateResponseLegalNotice');
+			
+}
+</script>

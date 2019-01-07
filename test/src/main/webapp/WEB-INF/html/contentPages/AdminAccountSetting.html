@@ -1,0 +1,115 @@
+<!-- <div class="row col-lg-6">
+
+	<div class="col-lg-12">
+		<div class="showback">
+			<input type="hidden" id="Id" /> -->
+			<input type="hidden" name="user_Id" id="Id" />
+			<input type="hidden" id="ps" name="password"/>
+			<input type="hidden" id="lId" name="lawyer_Id"/>
+			
+	<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+			<form role="form" id="profileImageForm">
+			<div class="col-sm-12">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Upload Profile Image:</h2>
+            </div>
+            </div>
+        	</div>	
+				<div class="form-group">
+				    <div class="col-sm-8">
+				        <div class="col-sm-8"><img class="img-circle" src="assets/img/default.png" alt="sumit kumar" id="dp" width="140" height="140"></div>
+					 </div>
+					 <div class="col-sm-12">
+					 <div class="col-sm-6"><input type="file" id="Profile_Image" class="form-control"
+							accept=".jpg" />
+						</div>	
+						<div class="col-sm-3">
+						<input type="button" onclick="redirectToDashBoard()" style="background:#323f3f; color:#fff;" value="Back" class="btn btn-blue">
+						
+						<input class="btn btn-blue" id="proImageUpload" style="background:#323f3f; color:#fff;"
+							type="button" value="Upload" onclick="uploadProfileImage()" />
+						
+					  </div>
+					  </div>
+					<div class="col-sm-12">
+					<div id="myProgress" style="display: none">
+						<label id="progressLabel"><b>Your Profile Image Uploaded Successfully</b></label>
+					</div>
+					</div>
+					<span id="msgSpan" style="color: red;"></span>
+				</div>
+			</form>
+			<br /> <br />
+		</div>
+		<div id="lawyeracc">
+		<nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addLawyerAccount" onclick="loadPage('pageContentLoad','AddLawyerAccount')" align="center">Add Lawyer Account</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>
+		</div>
+		<div class="col-sm-12"><span id="msgAlreadyCreated" style="color: red;"></span></div>
+	</div>
+	 <div class="clearfix"></div>
+</div>
+</div>
+<script>
+function uploadProfileImage(){
+		 var objFormData = new FormData();
+		    // GET FILE OBJECT 
+		    
+		    var image = document.getElementById('Profile_Image');
+            if (!image) {
+            	$("#msgSpan").text("Um, couldn't find the fileinput element.");
+            }
+           else if (!image.files) {
+        	   $("#msgSpan").text("This browser doesn't seem to support the `files` property of file inputs.");
+           }
+           else if (!image.files[0]) {
+        	   $("#msgSpan").text("Please select a file before clicking 'Load'");
+           }
+          else {
+		    var objFile =image.files[0];
+		    // APPEND FILE TO POST DATA
+		    objFormData.append('file', objFile);
+		    objFormData.append('Id', $("#Id").val());
+		    $.ajax({
+		        url: '/LegalBell/uploadProfileImage',
+		        type: 'POST',
+		        contentType: false,
+		        data: objFormData,
+		        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+		        processData: false,
+		        success: function(data) {}
+		    });
+		    document.getElementById("myProgress").style.display = "block";
+		    getProfileImage("Id");
+		}
+}
+
+function validateUser(){
+	var userDetails = [];
+	userDetails.push($("#Client_Id").val());
+	userDetails.push($("#OldPassword").val());
+	$.ajax({
+        url: '/LegalBell/validateUser',
+        type: 'POST',
+        data : {
+			Value : userDetails,
+		},
+        success: function(data) {
+        	
+        }
+    });
+}
+</script>

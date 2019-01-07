@@ -1,0 +1,2655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- <link rel="icon" href="assets/img/favicon.ico"> -->
+<title>LegalBell</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+<script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+</head>
+
+<body role="document">
+<!-- Navbar Start -->
+<div id="pageHeader">
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="#"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="pull-left hidden-xs"><a href="#"><img src="assets/img/logo.png" alt=""></a></li>
+        <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                    	<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                    	<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                       
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+        <li class="login_area pull-right"><!-- <a href="#" class="btn btn-log"> Login</a> --> <a href="#" class="btn btn-log" onclick="loadRegistrationPage();"> Sign Up</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+ 
+
+
+
+
+<div id="contentPage">
+<div class="container-fluid" id="cont_section"> 
+
+    	<div class="row"> 
+        	
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 main_area">
+            	<div class="col-sm-12">
+                	<div class="headline"><h1>A faster, safer way to get Legal help online.</h1></div>
+                </div>
+            	<div class="col-sm-12 landing_panel_area">
+                	<div class="row">
+                    	<div class="col-sm-4">
+                        	<div class="landing_panel">
+                	<div class="ico_area"><img src="assets/img/Individual.png" alt=""></div>
+                   			<h2>Individual</h2>
+                            <p>Login to your Individual Dashboard</p>
+							<div class="btn-more"><input type="button" value="LogIn" onclick="clientLoginForm();" class="btn btn-log"></div>
+                   
+                </div>
+                        </div>
+                <div class="col-sm-4">
+                	<div class="landing_panel">
+                	<div class="ico_area"><img src="assets/img/Corporate.png" alt=""></div>
+                   			<h2>Corporate</h2>
+                            <p>Login to your Corporate Dashboard</p>
+							<div class="btn-more"><input type="button" value="LogIn" onclick="clientLoginForm();" class="btn btn-log"></div>
+                   
+                </div>
+                </div>
+                <div class="col-sm-4">
+                	<div class="landing_panel">
+                	<div class="ico_area"><img src="assets/img/Councel.png" alt=""></div>
+                   			<h2>Counsel</h2>
+                            <p>Login to your Counsel Dashboard</p>
+							<div class="btn-more"><input type="button" onclick="councelLoginForm();" value="LogIn" class="btn btn-log"></div>
+                   
+                </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            
+        </div>
+
+</div>
+</div>
+
+
+
+<div id="footer">
+<div class="container-fluid" id="footer_area"> 
+<span id="userToken" style="display:none;">123</span>
+    	<div class="row">
+        	<div class="col-sm-12 text-right">
+            	<p>Powered by <a href="#">Kirat IT Solutions</a>. 2016 © All right reserved.</p>
+            </div>
+        </div>
+</div>
+</div>
+
+
+ <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="forgotModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Forgot Password ?</h4>
+			</div>
+			<form id="forgotPasswordForm">
+				<div class="modal-body">
+					<p>Enter your e-mail address below to reset your password.</p>
+					<input type="hidden" name="user_Identity" placeholder="Email"
+						required="required" autocomplete="off" id="user_Identityf"
+						class="form-control placeholder-no-fix">
+					<input type="text" name="user_Id" placeholder="Email"
+						required="required" autocomplete="off" id="forgotPassword"
+						class="form-control placeholder-no-fix">
+						<span id="forgotPasswordSpan" style="color:red;"></span>
+				</div>
+				<div class="modal-footer">
+				<span id="userToken" style="display:none;">123</span>
+					<button data-dismiss="modal" class="btn btn-theme" type="button">Cancel</button>
+					<button class="btn btn-theme" id="forgotPasswordButton"
+						type="button" onClick="validateForgotPassword();">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div> 
+
+
+<div aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+		id="loaderModal" class="modal fade"
+		style="background: white; opacity: 0.9;">
+		<div class="cssload-container">
+					<div class="cssload-loading">
+						<div class="cssload-ani1"><i></i><i></i><i></i></div>
+						<div class="cssload-ani2"><i></i><i></i><i></i></div>
+						<div class="cssload-ani3"><i></i><i></i><i></i></div>
+						<div class="cssload-ani4"><i></i><i></i><i></i></div>
+					</div>
+		</div>
+	</div>
+
+
+
+
+
+					
+
+			
+						
+<a data-toggle="modal" href="AdminProfileMenu.html#AdminSLA"><button id="hiddenSLAPopUpAdmin" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="AdminSLA" class="modal fade">
+					<div class="modal-dialog" style="width: 33%">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Choose Your SLA Action</h4>
+							</div>
+							<div class="modal-body" align="center">
+							 <button data-dismiss="modal" id="createSlaLink" class="btn btn-theme" 
+								type="button">Create SLA</button>
+								<button data-dismiss="modal" id="updateSlaLink" class="btn btn-theme"
+								type="button">Update SLA</button>
+								<button data-dismiss="modal" id="removeSlaLink" class="btn btn-theme"
+								type="button">Remove SLA</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+<a data-toggle="modal" href="AdminProfileMenu.html#AdminSERVICE"><button id="hiddenSERVICEPopUpAdmin" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="AdminSERVICE" class="modal fade">
+					<div class="modal-dialog" style="width: 49%;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Choose Your Corporate Service Action</h4>
+							</div>
+							<div class="modal-body" align="center">
+							 <button data-dismiss="modal" id="createCorporateServiceLink" class="btn btn-theme" 
+								type="button">Create Corporate Service</button>
+								<button data-dismiss="modal" id="updateCorporateServiceLink" class="btn btn-theme"
+								type="button">Update Corporate Service</button>
+								<button data-dismiss="modal" id="removeCorporateServiceLink" class="btn btn-theme"
+								type="button">Remove Corporate Service</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+<a data-toggle="modal" href="CorporateProfileMenu.html#CorporateContract"><button id="hiddenCONTRACTPopUpCorporate" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="CorporateContract" class="modal fade">
+					<div class="modal-dialog" style="width: 42%;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Choose Your Corporate Service Action</h4>
+							</div>
+							<div class="modal-body" align="center">
+							 <button data-dismiss="modal" id="createCorporateContractLink" class="btn btn-theme" 
+								type="button">New Retainership Agreement</button>
+								<button data-dismiss="modal" id="updateCorporateContractLink" class="btn btn-theme"
+										type="button">Update Retainership Agreement</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+<!-- -------------Unconfirmed popup Data table Starts here--------------------------- -->
+<a data-toggle="modal" href="Home.html#displaySelectedQryDetails"><button id="displayQueryDetailsPopup" style="display: none;">sdfsdf</button></a>
+
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displaySelectedQryDetails" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-dialog modal-lg"> class="modal-content"
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Query Details</h4>
+							</div>
+							<div class="modal-body">
+						
+					<form id="showSelectedQueryDetailsForm" class="modal-scroller">
+					<div class="modal-body"> <!-- class="col-sm-12" -->
+				<table border="1" class="table table-striped custab" style="width: 100%">  <!-- class="modal_top" --> 
+				<thead>
+    
+        <tr>
+            <th>Label</th>
+            <th>Value</th>
+            <th>Label</th>
+            <th>Value</th>
+            
+        </tr>
+    </thead>
+				<tr>
+				<td >
+					
+						<label for="queryId" class="control-label-head">Query
+							Id</label></td>
+						<td >
+						<label class="control-label"><input type="text" id="queryId" readonly="readonly" /></label>
+						</td>
+						<td >
+						<label for="caseId" class="control-label-head">Case Id</label>
+						</td>
+						<td>
+						<label class="control-label">
+						<input type="text" id="caseId" value="N.A." readonly="readonly"/></label>			
+						</td>
+						
+								
+					</tr>
+					
+					
+		<tr>
+		<td>
+						<label for="queryType" class="control-label-head">Query
+							Type</label>
+							</td>
+							<td>
+						
+						<label class="control-label"><input type="text" id="queryType" readonly="readonly" /></label>
+						</td>
+					<td>
+					<label for="clientId"
+							class="control-label-head">Client </label>
+					</td>
+						<td>
+							<label class="control-label"><input type="hidden" name="client_Id" id="clientId" readonly="readonly" />
+							<input type="text" name="client" id="client" readonly="readonly"/></label>
+						</td>		
+			</tr>
+				<tr>
+					
+					<td>
+						<label for="queryCategory" class="control-label-head">Query Category</label>
+						</td>
+						<td>
+						<label class="control-label"><input type="text" id="queryCategory" readonly="readonly" /></label>
+						</td>
+						<td>
+						<label for="querySubCategory" class="control-label-head">Query SubCategory</label>
+						</td>
+						<td>
+						<label class="control-label"><input type="text" id="querySubCategory" readonly="readonly" /></label>
+						</td>
+					
+					</tr>
+			
+			<tr>
+				        <td>
+						<label for="assignedLawyer" class=" control-label-head">Assigned Counsel</label>
+						</td>
+						<td>
+						<label class="control-label"><input type="text" id="assignedLawyer" readonly="readonly" value="N.A"/></label>
+						</td>
+						<td>
+						<label for="assignedBy" class=" control-label-head">Assigned By</label>
+						</td>
+						<td>
+						<label class="control-label"><input type="text" id="assignedBy" readonly="readonly" value="N.A"/></label>
+						</td>
+				
+				</tr>
+			
+			
+				<tr>
+				
+						<td>
+						<label for="queryCreatedDate" class=" control-label-head">Query Created Date</label>
+						</td>
+						<td>
+						<label  class="control-label"><input type="text" id="queryCreatedDate" readonly="readonly" value="N.A" /></label>
+						</td>
+						
+						
+						<td>
+						<label for="assignedDate" class="control-label-head" >Assigned Date</label>
+						</td>
+						<td>
+						<label  class="control-label" id="aDate"><input type="text" id="assignedDate" readonly="readonly" value="N.A" /></label>
+						</td>	
+				
+				</tr>
+				
+				<tr>
+				
+						<td>
+						<label for="queryStatus" class="control-label-head">Query Status</label>
+						</td>
+						<td>
+						<label  class="control-label"><input type="text" id="queryStatus" readonly="readonly" /></label>
+						</td>
+				
+						<td>
+						<label for="sla" class="control-label-head">SLA</label>
+						</td>
+						<td>
+						<label class="control-label"><input type="text" id="sla" readonly="readonly" size="35"/></label>
+						</td>
+				
+				</tr>
+				<tr>
+										
+						<td>						
+						<label for="queryResponseDate" class="control-label-head">Response Date</label>
+						</td>
+						<td>
+						<label  class="control-label"><input type="text" id="queryResponseDate" readonly="readonly" value="N.A" size="35"/></label>
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+						
+				
+				</tr>
+				
+				</table>
+				<table border="1" class="table table-striped custab" style="width: 100%">  <!-- class="modal_top" --> 
+				<thead>
+    
+        <tr>
+            <th>Label</th>
+            <th>Value</th>
+            
+        </tr>
+    </thead>
+				 <tr>
+					<td>
+					<label for="queryComment" class="control-label-head">Query Comment</label>
+					</td>
+					<td>
+					<label class="control-label"><textarea id="queryComment" class="form-control">N.A</textarea></label>
+					</td>
+				</tr>
+				<tr>
+				<td>
+						<label for="queryBriefDescription" class="control-label-head">Query BriefDescription</label>
+						</td>
+						<td>
+						<label class="control-label"><textarea  id="queryBriefDescription" class="form-control"></textarea></label>
+				</td>
+				</tr>
+				<tr>
+					<td>
+					<label for="QueryDescription" class="control-label-head">Query Description</label>
+						</td>
+						<td class="col-sm-10">
+						<div id="QueryDescription"></div>
+						</td>
+				</tr>
+				<tr>
+					<td>
+					<label for="QueryResponse" class="control-label-head">Query Response</label>
+						</td>
+						<td >
+						<div id="QueryResponse"></div>
+						</td>
+				</tr>
+				 <tr>
+					<td>
+                    <label for="uploadedFileDetails" class="col-sm-2 control-label-head">
+						File Informations</label>
+						</td>
+						<td>
+							<table border="1" class="table table-striped custab" style="width: 100%" id="uploadedFileDetails">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						     </td>
+				</tr> 
+				</table>
+				</div>
+         
+			</form>
+					
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+<!-- ----------------------- Unconfirmed popup Data table Ends here---------------------------- -->
+				<a data-toggle="modal" href="Home.html#displaySelectedCseDetails"><button id="displayCaseDetailsPopup" style="display: none;">sdfsdf</button></a>
+
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displaySelectedCseDetails" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Case Details</h4>
+							</div>
+							<div class="modal-body">
+					
+					
+					<form id="showSelectedQueryDetailsForm" class="modal-scroller">
+				<div class="col-sm-12">
+				<table border="1" class="modal_top" style="width: 100%">
+				<tr>
+				<td class="col-sm-2">
+					<label for="caseId" class="control-label-head">Case Id</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="CaseId" readonly="readonly" size="35"/></label>		
+						</td>
+						<td class="col-sm-2">
+						<label for="clientId" class="control-label-head">Client</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="cclient" readonly="readonly" size="35"/></label>
+							<input type="hidden" id="cClientId" readonly="readonly" size="35"/>
+						</td>
+				</tr>
+				<tr>
+				<td class="col-sm-2">
+						<label for="caseCategory" class="control-label-head">Case Category</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="caseCategory" readonly="readonly" size="35"/></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="caseSubCategory" class="control-label-head">Case SubCategory</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="caseSubCategory" readonly="readonly" size="35"/></label>
+						</td>
+				</tr>
+				<tr>
+				<td class="col-sm-2">
+						<label for="caseStatus" class="control-label-head">Case Status</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="caseStatus" readonly="readonly" size="35"/></label>
+				</td>
+				
+				<td class="col-sm-2">
+						<label for="caseCreatedDate" class="control-label-head"> Created Date</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="caseCreatedDate" readonly="readonly" size="35"/></label>
+						</td>
+				</tr>
+				<tr>
+				<td class="col-sm-2">
+				<label for="assignedLawyer" class="control-label-head">Assigned Lawyer</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="cassignedLawyer" readonly="readonly" value="N.A" size="35"/></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="assignedBy" class="control-label-head">Assigned By</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="cassignedBy" readonly="readonly" value="N.A" size="35"/></label>
+						</td>		
+				</tr>
+				
+					<tr>
+					<td class="col-sm-2">
+						<label for="assignedDate" class="col-sm-2 control-label-head">Assigned Date</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label col-sm-4"><input type="text" id="cassignedDate" readonly="readonly" value="N.A" size="35"/></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="completedOn" class="col-sm-2 control-label-head">Closed Date</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label col-sm-4"><input type="text" id="completedOn" readonly="readonly" value="N.A" size="35"/></label>
+						</td>
+						
+				</tr>
+				</table>
+				<table border="1" class="modal_bottom" style="width: 100%">
+				<tr>
+				<td class="col-sm-2">
+			<label for="caseBriefDescription" class="control-label-head">Case BriefDescription</label>
+					</td>
+					<td class="col-sm-10">
+						<textarea class="form-control" id="caseBriefDescription" readonly="readonly" rows="4" cols="50" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea>
+					</td>
+					</tr>
+				<tr>
+				<td class="col-sm-2">
+				<label for="CaseDescription" class="control-label-head">Case Description</label>
+				</td>
+				<td class="col-sm-10">
+						<div id="CaseDescription" class="cseDescription" style="height:100%; width: 100%"></div>
+				</td>
+				</tr>
+				
+				<tr>
+				        
+                    <td class="col-sm-2">
+                    <label for="allCaseFileDetails" class="control-label-head">
+						File Informations</label>
+					</td>
+					<td class="col-sm-10">
+							<table class="table-bordered" id="allCaseFileDetails" style="width: 100%">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+					</td>
+				</tr>
+			</table>
+			
+			</div>     
+			</form>
+								</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+					</div>
+
+<a data-toggle="modal"
+	href="Home.html#displaySelectedCaseCommentDetails"><button
+		id="displayCaseCommentDetailsPopup" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displaySelectedCaseCommentDetails" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Case Details</h4>
+			</div>
+			<div class="modal-body">
+			
+
+				<form id="showSelectedQueryDetailsForm" class="modal-scroller">
+					<div class="col-sm-12">
+				<table border="1" class="modal_top" style="width: 100%">
+				<thead><tr><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th></tr></thead>
+				<tr>
+				<td class="col-sm-2">
+						<label for="caseId" class="control-label-head">Case Id</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ccCaseId" readonly="readonly"
+								size="35" /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="clientId" class="control-label-head">Client
+							</label>
+							</td>
+							<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ccclient" readonly="readonly" size="35"/></label>
+							<input type="hidden" id="ccClientId" readonly="readonly" size="35"/>
+						</td>
+					</tr>
+					
+					<tr>
+					<td class="col-sm-2">
+						<label for="caseCategory" class="control-label-head">Case
+							Category</label>
+							</td>
+					<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="cccaseCategory"
+								readonly="readonly" size="35" /></label>
+					</td>
+					<td class="col-sm-2">
+						<label for="caseSubCategory" class="control-label-head">Case
+							SubCategory</label>
+							</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="cccaseSubCategory"
+								readonly="readonly" size="35" /></label>
+						</td>
+					</tr>
+					
+
+					
+				
+					<tr>
+					<td class="col-sm-2">
+						<label for="assignedLawyer" class="control-label-head">Assigned
+							Counsel</label>
+						</td>
+					<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ccassignedLawyer"
+								readonly="readonly" size="35" /></label>
+						</td>
+					<td class="col-sm-2">
+						<label for="assignedBy" class="control-label-head">Assigned
+							By</label>
+						</td>
+						<td class="col-sm-4">
+						
+							<label class="control-label"><input type="text" id="ccassignedBy"
+								readonly="readonly" size="35" /></label>
+						</td>
+					</tr>
+					
+					<tr>
+					<td class="col-sm-2">
+						<label for="caseCreatedDate" class="control-label-head">
+							Created Date</label>
+						</td>
+					<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="cccaseCreatedDate"
+								readonly="readonly" size="35" /></label>
+						</td>
+					<td class="col-sm-2">
+						<label for="assignedDate" class="control-label-head">Assigned
+							Date</label>
+						</td>
+					<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ccAssignedDate"
+								readonly="readonly" size="35" /></label>
+						</td>
+						</tr>
+
+					<tr>
+					<td class="col-sm-2">
+
+						<label for="caseStatus" class="control-label-head">Case
+							Status</label>
+						</td>
+					<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="cccaseStatus"
+								readonly="readonly" size="35" /></label>
+						</td>
+						<td class="col-sm-2">
+							</td>
+						<td class="col-sm-4">
+						</td>
+						</tr>
+						
+						</table>
+						<table border="1" class="modal_topbottom" style="width: 100%">
+					<tr>
+					<td class="col-sm-2">
+						<label for="caseBriefDescription" class="control-label-head">Case
+							BriefDescription</label>
+						</td>
+					<td class="col-sm-10">
+							<label class="control-label"><textarea class="form-control" id="cccaseBriefDescription"
+								readonly="readonly" rows="4" cols="75" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea></label>
+						</td>
+					</tr>
+					<tr>
+					<td class="col-sm-2">
+					<label for="caseComment" class="control-label-head">Assignment
+							Comment</label>
+						</td>
+					<td class="col-sm-10">
+							<label class="control-label"><textarea id="cccaseComment"
+								readonly="readonly" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea></label>
+						</td>
+						</tr>
+						
+					<tr>
+					<td class="col-sm-2">
+						<label for="CaseDescription" class="control-label-head">Case
+							Description</label>
+						</td>
+					<td class="col-sm-10">
+							<div id="CaseDescription" class="cseDescription" style="height: 100%; width: 100%"></div>
+					</td>
+					</tr>
+					             
+                    <tr>
+					<td class="col-sm-2">
+                    <label for="caseCommentFileDetails" class="col-sm-2 control-label-head">
+						File Informations</label>
+						</td>
+						<td class="col-sm-10">
+							<table class="table-bordered" id="caseCommentFileDetails">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							</td>
+						</tr>
+						</table>   
+				<br />
+				
+					<h4 style="font-family: sans-serif;font-style: oblique;color:#414d4d">Comment Table<br> <br></h4>
+		<div class="datatable-scroller">
+		<table class="table" style="width:100%; border: 3px; background: rgb(243, 244, 248);">
+			<tr>
+				<td>
+					<table id="cccommenttable" class="display" style="cellspacing:1; width:100%">
+						<thead>
+							<tr>
+								<th>Comment ID</th>
+								<th>Comment Category</th>
+								<th>Comment By</th>
+								<th>Comment Text</th>
+								<th>Created Date</th>
+								
+							</tr>
+						</thead>
+					</table>
+				</td>
+			</tr>
+		</table>
+		</div>
+		</div>	
+		</form>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div> 
+
+<a data-toggle="modal" href="Home.html#displaySelectedTaskDetails"><button id="displayTaskDetailsPopup" style="display: none;">sdfsdf</button></a>
+
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displaySelectedTaskDetails" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Task Details</h4>
+							</div>
+							<div class="modal-body">
+					
+					
+					<form id="showSelectedTaskDetailsForm" class="modal-scroller">
+			<div class="col-sm-12">
+				<table border="1" class="modal_top" style="width: 100%">
+				<thead><tr><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th></tr></thead>
+				<tr>
+				<td class="col-sm-2">
+						<label for="taskId" class="control-label-head">Task
+							Id</label>
+							</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="taskId" readonly="readonly" size="35"/></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="caseId" class="control-label-head">Case Id</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="tcaseId" readonly="readonly" size="35"/></label>			
+						</td>
+						</tr>
+					
+					
+					<tr>
+				<td class="col-sm-2">
+		                
+						<label for="taskName" class="control-label-head">Task Name</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="taskName" readonly="readonly" size="35"/></label>
+						</td>
+						<td class="col-sm-2">
+					<label for="ClientId"
+							class="control-label-head">Client </label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="tClient" readonly="readonly" size="35"/></label>
+						
+					   <input type="hidden" id="tClientId" readonly="readonly" size="35"/>
+					</td>
+					</tr>
+				<tr>
+				<td class="col-sm-2">
+					
+						<label for="assignBy" class="control-label-head">Assign By</label>
+						</td>
+				<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="tassignBy" readonly="readonly" size="35"/></label>
+						</td>
+						
+				<td class="col-sm-2">
+						<label for="assignTo" class="control-label-head">Assign To</label>
+						</td>
+				<td class="col-sm-4">
+						<label class="control-label"><input type="text"  id="tassignTo" readonly="readonly" size="35"/></label>
+						</td>
+					</tr>
+		
+				<tr>
+				<td class="col-sm-2">
+						<label for="createdDate" class="control-label-head">Task Created Date</label>
+						</td>
+				<td class="col-sm-4">
+						<label class="control-label"><input type="text"  id="tcreatedDate" readonly="readonly" size="35"/></label>
+						</td>
+				<td class="col-sm-2">
+						<label for="taskStatus" class="control-label-head">Task Status</label>
+						</td>
+				<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="taskStatus" readonly="readonly" size="35"/></label>
+						</td>
+				        </tr>
+					</table>
+				
+				<table border="1" class="modal_bottom" style="width: 100%">
+                    <tr>
+                     <td class="col-sm-2">
+                    <label for="uploadedFileDetails" class="col-sm-2 control-label-head">
+						File Informations</label>
+					</td>	
+						<td class="col-sm-10">
+							<table class="table-bordered" id="taskFileDetails">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							</td>
+							</tr>  
+							</table>
+				
+			
+			<tr>
+				<td class="col-sm-2" >
+						<label for="closedDate" class="control-label-head">Task Closed Date</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" value="N.A" id="tclosedDate" readonly="readonly" size="35"/></label>
+						</td>
+						<td class="col-sm-2" >
+						</td>
+						<td class="col-sm-4">
+						</td>
+						</tr>
+				</table>
+				
+				
+				<table border="1" class="modal_bottom" style="width: 100%">
+				<thead><tr><th class="col-sm-2 thd"></th><th class="col-sm-10 thd"></th></tr></thead>
+				<tr>
+				<td class="col-sm-2">
+						<label for="taskComments" class="control-label-head">Task Comments</label>
+						</td>
+				<td class="col-sm-10">
+						<textarea class="form-control" id="taskComments" rows="4" cols="50" readonly="readonly" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea>
+						</td>
+						</tr>
+				
+					
+						
+				<tr>
+				<td class="col-sm-2">
+				<label for="taskDescription" class="control-label-head">Task Description</label>
+						</td>
+				<td class="col-sm-10">
+						<textarea class="form-control" id="taskDescription" rows="7" cols="100" readonly="readonly" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea>
+						</td>
+						</tr>
+				
+				
+				 <tr>
+				<td class="col-sm-2">
+				<label for="taskResponse" class="control-label-head">Task Response</label>
+						</td>
+				<td class="col-sm-10">
+						<textarea class="form-control" id="taskResponse" rows="7" cols="100" readonly="readonly" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea>
+						</td>
+						</tr>
+				</table>
+				</div>
+			</form>
+					
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				<a data-toggle="modal" href="AdminProfileMenu.html#AdminScheme"><button id="hiddenSchemePopUpAdmin" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="AdminScheme" class="modal fade">
+					<div class="modal-dialog" style="width: 33%">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Choose Your Scheme Action</h4>
+							</div>
+							<div class="modal-body" align="center">
+							 <button data-dismiss="modal" id="createSchemeLink" class="btn btn-theme" 
+								type="button">Create Scheme</button>
+								<button data-dismiss="modal" id="updateSchemeLink" class="btn btn-theme"
+								type="button">Update Scheme</button>
+								<button data-dismiss="modal" id="removeSchemeLink" class="btn btn-theme"
+								type="button">Remove Scheme</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+
+<a data-toggle="modal" href="Home.html#PaymentInvoice"><button id="hiddenPaymentInvoice" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="PaymentInvoice" class="modal fade">
+					<form id="hello">
+					<input type="hidden" name="case_Id" id="case_Id">
+					<input type="hidden" name="invoice_Id" id="invoice_Id">
+					</form>
+					<div class="modal-dialog" style="width: 33%">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Choose Your Payment GateWay</h4>
+							</div>
+							<div class="modal-body" align="center">
+							 <button data-dismiss="modal" id="paytmInvoiceLink" class="btn btn-theme" 
+								type="button">PayTm</button>
+								<button data-dismiss="modal" id="hdfcInvoiceLink" class="btn btn-theme"
+								type="button">Payment Gateway (HDFC)</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+
+<a data-toggle="modal" href="AdminProfileMenu.html#AdminSERVICE"><button id="hiddenSERVICEPopUpAdmin" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="AdminSERVICE" class="modal fade">
+					<div class="modal-dialog" style="width: 49%;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Choose Your Corporate Service Action</h4>
+							</div>
+							<div class="modal-body" align="center">
+							 <button data-dismiss="modal" id="createCorporateServiceLink" class="btn btn-theme" 
+								type="button">Create Corporate Service</button>
+								<button data-dismiss="modal" id="updateCorporateServiceLink" class="btn btn-theme"
+								type="button">Update Corporate Service</button>
+								<button data-dismiss="modal" id="removeCorporateServiceLink" class="btn btn-theme"
+								type="button">Remove Corporate Service</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>		
+				
+				<a data-toggle="modal" href="Home.html#fileDetails"><button id="fileDetailsPopUp" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="fileDetails" class="modal fade">
+					<div class="modal-dialog modal-docview">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">File Description</h4>
+							</div>
+							<div class="modal-body" align="center" style="height: 430px;" id="fileDetailsDiv">
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>	
+				
+				
+				
+				
+				
+				<a data-toggle="modal" href="Home.html#displayRequestedClosedModal"><button id="displayRequestedClosedDetailsButton" style="display: none;">sdfsdf</button></a>
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displayRequestedClosedModal" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Request Details</h4>
+							</div>
+							<div class="modal-body">
+					
+					
+					<form id="displayRequestedClosedForm" class="modal-scroller">
+				
+				<div class="col-sm-12">
+				<table border="1" class="modal_top" style="width: 100%">
+					<tr>
+						<td class="col-sm-2">
+						<label for="requestId" class="control-label-head">Request Id</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="requestId" readonly="readonly" size="35"/></label>		
+						</td>
+						<td class="col-sm-2">
+						<label for="requestItem"
+							class="control-label-head">Request Item</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="requestItem" readonly="readonly" size="35"/></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="col-sm-2">
+						<label for="requestType" class="control-label-head">Request Type</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="requestType" readonly="readonly" size="35"/></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="requestTo" class="control-label-head">Request To</label>
+						</td>
+						<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="requestTo" readonly="readonly" size="35"/></label>
+						</td>
+					</tr>
+
+
+					<tr>
+					<td class="col-sm-2">
+						<label for="requestDate" class="control-label-head">Request Date</label>
+					</td>
+					<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="requestDate" readonly="readonly" size="35"/></label>
+					</td>
+					<td class="col-sm-2">
+						<label for="responseDate" class="control-label-head">Response Date</label>
+					</td>
+					<td class="col-sm-4">
+						<label class="control-label"><input type="text" id="responseDate" readonly="readonly" size="35"/></label>
+					</td>		
+				</tr>
+
+			    <tr>
+		             <td class="col-sm-2">	
+						<label for="requestMessage" class="control-label-head">Request Message</label>
+					</td>
+					 <td class="col-sm-4">	
+						<label class="control-label"><textarea id="requestMessage" readonly="readonly" rows="7" cols="100" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;" rows="7"></textarea></label>
+						</td>
+						<td class="col-sm-2">				
+						<label for="responseMessage" class="control-label-head">Response Message</label>
+					</td>
+					<td class="col-sm-4">
+						<label class="control-label"><textarea id="responseMessage" readonly="readonly" rows="7" cols="100" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;" ></textarea></label>
+						</td>
+				    </tr>
+					</table>
+					<table border="1" class="modal_bottom" style="width: 100%">
+                    <tr>
+                     <td class="col-sm-2">
+                    <label for="uploadedFileDetails" class="col-sm-2 control-label-head">
+						File Informations</label>
+					</td>	
+						<td class="col-sm-10">
+							<table class="table-bordered" id="uploadedFileDetailsRequested">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							</td>
+							</tr>  
+							</table>
+							</div>    
+			</form>
+										</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				
+				
+				<!-- contract popup -->
+				<a data-toggle="modal"
+	href="Home.html#selectedContractDetailsModal"><button
+		id="displayContractModalButton" style="display: none;"
+		aria-hidden="true">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="selectedContractDetailsModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Retainership Agreement Details</h4>
+			</div>
+			<div class="modal-body">
+				<form id="showSelectedContractDetailsForm" class="modal-scroller">
+					<input type="hidden" name="contract_Id" id="Contract_Id" />
+					<div class="col-sm-12">
+					<table border="1" class="modal_top" style="width: 100%">
+					<tr>
+						<td class="col-sm-2">
+						<label for="CompanyName" class="control-label-head">Company
+							Name</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="CompanyName" name="company_Name"
+								readonly="readonly" /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="PhoneLandNumber" class="control-label-head">Company
+							Phone Number</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="PhoneLandNumber"
+								name="phone_Number" readonly="readonly" /></label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="col-sm-2">
+						<label for="CompanyAddress" class="control-label-head">Company
+							Address</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="CompanyAddress" 
+								name="company_Address" readonly="readonly" size="40%"/></label>
+						</td>
+						<td class="col-sm-2"></td>
+						<td class="col-sm-4"></td>
+					</tr>
+					</table>
+					
+					<h5 align=center><b>Managing Director/CEO:</b></h5>
+					<table border="1" class="modal_top" style="width: 100%">
+					<tr>
+						<td class="col-sm-2">
+						<label for="DirectorFname" class="control-label-head">First
+							Name*</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="DirectorFname"
+								name="director_Fname" readonly="readonly" /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="DirectorLname" class="control-label-head">Last
+							Name*</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="DirectorLname" 
+								name="director_Lname" readonly="readonly" /></label>
+						</td>
+					</tr>
+					</table>
+					
+					<h5 align=center><b>Authorized Officer Details:</b></h5>
+					<table border="1" class="modal_top" style="width: 100%">
+					<tr>
+						<td class="col-sm-2">
+						<label for="FirstName" class="control-label-head">First
+							Name*</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="FirstName" 
+								name="first_Name" readonly="readonly" /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="LastName" class="control-label-head">Last
+							Name*</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="LastName" 
+								name="last_Name" readonly="readonly" /></label>
+						</td>
+					</tr>
+					<tr>
+						<td class="col-sm-2">
+						<label for="EMail" class="control-label-head">E-Mail*</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="EMail" 
+								name="email_Id" readonly="readonly" size="40%"/></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="PhoneNumber" class="control-label-head">Mobile
+							Number*</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="PhoneNumber" name="phone_Mobile"
+								 readonly="readonly" /></label>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="col-sm-2">
+						<label for="PaymentTerm" class="control-label-head">Payment
+							Terms</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="PaymentTerm" name="payment_Term"
+								 readonly="readonly" /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="PaymentMethod" class="control-label-head">Payment
+							Method</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="PaymentMethod" name="payment_Method"
+								readonly="readonly" /></label>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<td class="col-sm-2">
+						<label for="ContractCreationDate" class="col-sm-2 control-label-head">Agreement
+							Creation Date</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ContractCreationDate"
+								name="contract_Creation_Date" readonly="readonly" size="28"/></label>
+						</td>
+						<td class="col-sm-2">
+						</td>
+						<td class="col-sm-4">
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="col-sm-2">
+						<label for="ContractStartDate" class="col-sm-2 control-label-head">Agreement
+							Start Date</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ContractStartDate"
+								name="contract_Start_Date" readonly="readonly" /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="ContractEndDate" class="col-sm-2 control-label-head">Agreement
+							End Date</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="ContractEndDate" name="contract_End_Date"
+								readonly="readonly" /></label>
+						</td>
+					</tr>
+					</table>
+					<table border="1" class="modal_bottom" style="width: 100%">
+					<tr>
+						<td class="col-sm-2">
+						<label for="Corporate_BriefDescription"
+							class="control-label-head">Agreement Brief
+							Description</label>
+						</td>
+						<td class="col-sm-10">
+							<textarea id="Corporate_BriefDescription"
+								name="contract_BriefDescription" class="form-control"
+								readonly="readonly" rows="4" cols="98" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="col-sm-2">
+						<label for="CorporateServices" class="col-sm-2 control-label-head">
+							Services</label>
+						</td>
+						<td class="col-sm-10">
+							<table class="table-bordered" id="contractServiceDetails">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					</table>
+					</div>
+				</form>
+			</div>
+			<div id="inReviewFooterAdminDiv" style="display:none" class="modal-footer">
+				<div class="col-sm-4">
+					<input id="contractActivateButton" class="btn btn-primary"
+						type="button" value="Activate" />
+				</div>
+				<div class="col-sm-4">
+					<input id="contractSuggestionButton" class="btn btn-primary"
+						type="button" value="Edit" />
+				</div>
+				<div class="col-sm-4">
+					<button data-dismiss="modal" class="btn btn-primary" type="button">Cancel</button>
+				</div>
+			</div>
+			<div id="inReviewFooterClientDiv" style="display:none" class="modal-footer">
+				<div class="col-sm-4">
+					<input id="inReviewContractClientButton" class="btn btn-primary"
+						type="button" value="Edit" />
+				</div>
+				<div class="col-sm-4">
+					<button data-dismiss="modal" class="btn btn-primary" type="button">Cancel</button>
+				</div>
+			</div>
+			<div id="inProgressContrcatFooterDiv" style="display:none" class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a data-toggle="modal"
+	href="Home.html#sendContractRevisedSuggestionModal"><button
+		id="displayTextModalButton" style="display: none;" aria-hidden="true">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="sendContractRevisedSuggestionModal"
+	class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Retainership Agreement Suggestion</h4>
+			</div>
+			<div class="modal-body">
+				<form id="ReviewContractSuggestionForm" class="modal-scroller">
+					<input type="hidden" name=contract_Id id="Contract_Id" /> <input
+						type="hidden" id="EMail" name="email_Id">
+					<div class="form-group">
+						<label for="ContractRevisedSuggestion"
+							class="col-sm-3 control-label-head">Enter Retainership Agreement Suggestion</label>
+						<textarea rows="21" cols="75" name="contract_BriefDescription"
+							maxlength="150" id=contractRevisedSuggestion style="resize: none"
+							onblur="contractRevisedSuggestion()"></textarea>
+					</div>
+					<span id="contractRevisedSuggestionSpan" style="color: red;"></span>
+				</form>
+			</div>
+			<div class="modal-footer">
+			<div class="col-sm-4">
+				<input id="sendContractSuggestionMailButton" class="btn btn-primary"
+					type="button" value="Send Mail" />
+			</div>
+			<div class="col-sm-4">
+				<button data-dismiss="modal" class="btn btn-primary" type="button">Cancel</button>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="addclientModal" class="modal fade">
+	<div class="modal-dialog" style="right: -160px;">
+		<div class="modal-content" align="center" style="width: 800px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Choose User Type</h4>
+			</div>
+			<div class="modal-body">
+				<button data-dismiss="modal" class="btn btn-default" type="button" id="addCorporate" onClick="addCorporate();">Add Corporate</button>
+				<button data-dismiss="modal" class="btn btn-default" type="button" id="addIndividual" onClick="addIndividual();">Add Individual</button>
+				<!-- <button data-dismiss="modal" class="btn btn-default" type="button" id="employeeRegistration" onclick="employeeRegistration();">Counsel</button> -->
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="modal fade" id="laModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Legal Advisory</h3>
+      </div>
+      <div class="modal-body">
+      
+        <ul class="list-unstyled">
+            <li><a href="#"id="createLegalAdvisory"  data-dismiss="modal"> Submit a New Legal Advisory</a></li>
+        	<li><a href="#"id="newLegalAdvisory" onclick="loadClientQueryDataInTable(this.id,'Legal Advisory','newQuery')"  data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressLegalAdvisory" onclick="loadClientQueryDataInTable(this.id,'Legal Advisory','progressQuery')"  data-dismiss="modal"> </a></li>
+            <li><a href="#"id="solvedLegalAdvisory" onclick="loadClientQueryDataInTable(this.id,'Legal Advisory','solvedQuery')"  data-dismiss="modal"> </a></li>
+            <li><a href="#"id="unConfirmedLegalAdvisory" onclick="loadClientQueryDataInTable(this.id,'Legal Advisory','unConfirmedQuery')"  data-dismiss="modal"> </a></li>
+           <li><a href="#"id="queryDocRequested"  data-dismiss="modal"></a></li>
+            <li><a href="#"id="queryDocRequestClosed"  data-dismiss="modal"></a></li>
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="taModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Legal Tax Advisory</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+        	
+ <li id="createTaxAdvisory"  data-dismiss="modal"><a href="#"> Submit a New Query</a> </li>
+ <li><a href="#" id="newTaxAdvisory" onclick="loadClientQueryDataInTable(this.id,'Tax Advisory','newQuery')" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="progressTaxAdvisory" onclick="loadClientQueryDataInTable(this.id,'Tax Advisory','progressQuery')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="solvedTaxAdvisory" onclick="loadClientQueryDataInTable(this.id,'Tax Advisory','solvedQuery')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li><a href="#" id="unConfirmedTaxAdvisory" onclick="loadClientQueryDataInTable(this.id,'Tax Advisory','unConfirmedQuery')" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="queryDocRequested"  data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li><a href="#" id="queryDocRequestClosed"  data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="adminlaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Legal Advisory</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+        	<li><a href="#"id="newLegalAdvisoryAdmin" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','newQueryAdmin')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressLegalAdvisoryAdmin" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','progressQueryAdmin')" data-dismiss="modal"> </a></li>
+            <li><a href="#" id="pendingLegalAdvisoryApprovalAdmin" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','pendingQueryAdmin')" data-dismiss="modal"> </a></li>
+            <li><a href="#" id="solvedLegalAdvisoryAdmin" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','solvedQueryAdmin')" data-dismiss="modal"> </a></li>
+            
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="admintaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Legal Tax Advisory</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+   <li><a href="#" id="newTaskAdvisoryAdmin" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','newQueryAdmin')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressTaskAdvisoryAdmin" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','progressQueryAdmin')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="pendingTaskAdvisoryApprovalAdmin" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','pendingQueryAdmin')" data-dismiss="modal"></a></li>
+ <li><a href="#" id="solvedTaskAdvisoryAdmin" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','solvedQueryAdmin')" data-dismiss="modal"></a> </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="lawyerlaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Legal Advisory</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+        	<li><a href="#"id="newLegalAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','newQueryLawyer')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressLegalAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','progressQueryLawyer')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="notifiedLegalAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','notifiedQueryLawyer')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="pendingLegalAdvisoryApprovalLawyer" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','pendingQueryLawyer')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="solvedLegalAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Legal Advisory','solvedQueryLawyer')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="queryReqDocsByLawyer"  data-dismiss="modal"></a></li>
+            <li><a href="#"id="closedQueryReqDocsByLawyer"  data-dismiss="modal"></a></li> 
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="lawyertaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Tax Advisory</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+ <li><a href="#" id="newTaxAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','newQueryLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressTaxAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','progressQueryLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="notifiedTaxAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','notifiedQueryLawyer')" data-dismiss="modal"></a></li>
+ <li><a href="#" id="pendingTaxAdvisoryApprovalLawyer" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','pendingQueryLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedTaxAdvisoryLawyer" onclick="loadAdminQueryDataInTable(this.id,'Tax Advisory','solvedQueryLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="queryReqDocsByLawyer"  data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li><a href="#" id="closedQueryReqDocsByLawyer"  data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+ 
+ <div class="modal fade" id="diligenceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Due Diligence</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+           <li id="CreateDiligence"  data-dismiss="modal"><a href="#">Submit a New Due Diligence</a></li>
+        	<li><a href="#"id="newDueDiligence" onclick="loadClientDataInTable(this.id,'','newDueDiligence')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressDueDiligence" onclick="loadClientDataInTable(this.id,'','progressDueDiligence')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="solvedDueDiligence" onclick="loadClientDataInTable(this.id,'','solvedDueDiligence')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="ddDocRequested"  data-dismiss="modal"></a></li>
+            <li><a href="#"id="ddDocRequestClosed"  data-dismiss="modal"></a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal fade" id="contractModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Contract Management</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+            <li id="CreateContract" data-dismiss="modal"><a hef="#">Procede to Contract </a></li>
+        	<li><a href="#"id="newContractManagement" onclick="loadClientDataInTable(this.id,'','newContractManagement')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressContractManagement" onclick="loadClientDataInTable(this.id,'','progressContractManagement')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="solvedContractManagement" onclick="loadClientDataInTable(this.id,'','solvedContractManagement')" data-dismiss="modal"> </a></li>
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="modal fade" id="diligenceModalAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Due Diligence</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+   <li><a href="#" id="newDueDiligenceAdmin"  data-dismiss="modal"></a> </li>
+  <li><a href="#" id="progressDueDiligenceAdmin"  data-dismiss="modal"></a> </li>
+  <li><a href="#" id="solvedDueDiligenceAdmin"  data-dismiss="modal"></a> </li>
+  <li><a href="#" id="closeDueDiligenceRequest"  data-dismiss="modal"></a> </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="disputeResolutionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Legal Advisory</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+            <li id="CreateDR" data-dismiss="modal"><a href="#">Submit a New Dispute Resolution </a></li>
+        	<li><a href="#"id="newDisputeResolution" onclick="loadClientDataInTable(this.id,'','newDisputeResolution')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressDisputeResolution" onclick="loadClientDataInTable(this.id,'','progressDisputeResolution')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="solvedDisputeResolution" onclick="loadClientDataInTable(this.id,'','solvedDisputeResolution')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="drDocRequested" data-dismiss="modal"></a></li>
+            <li><a href="#"id="drDocRequestClosed" data-dismiss="modal"></a></li>
+           
+         </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+ <div class="modal fade" id="conciliationMediationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Conciliation Mediation</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+            <li id="CreateCMD" data-dismiss="modal"><a href="#">Submit a New Conciliation Mediation </a></li>
+        	<li><a href="#"id="newConciliationMediation" onclick="loadClientDataInTable(this.id,'','newConciliationMediation')" data-dismiss="modal"></a></li>
+            <li><a href="#"id="progressConciliationMediation" onclick="loadClientDataInTable(this.id,'','progressConciliationMediation')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="solvedConciliationMediation" onclick="loadClientDataInTable(this.id,'','solvedConciliationMediation')" data-dismiss="modal"> </a></li>
+            <li><a href="#"id="cmdDocRequested" data-dismiss="modal"></a></li>
+            <li><a href="#"id="cmdDocRequestClosed" data-dismiss="modal"></a></li>
+           
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="adminDisputeResolutionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Dispute Resolution</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+ <li><a href="#" id="newDisputeResolutionAdmin" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressDisputeResolutionAdmin" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedDisputeResolutionAdmin" data-dismiss="modal"></a></li>
+ <li><a href="#" id="closeDisputeResolutionRequest" data-dismiss="modal"></a></li>
+ 
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cmModalAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Contract Management</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+  <li><a href="#" id="newContractManagementAdmin"  data-dismiss="modal"></a> </li>
+  <li><a href="#" id="progressContractManagementAdmin"  data-dismiss="modal"></a> </li>
+  <li><a href="#" id="solvedContractManagementAdmin"  data-dismiss="modal"></a> </li>
+  <li><a href="#" id="pendingContractManagementApprovalAdmin" data-dismiss="modal"></a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="adminConciliationMediationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Conciliation Mediation</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+   <li><a href="#" id="newConciliationMediationAdmin" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressConciliationMediationAdmin" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedConciliationMediationAdmin" data-dismiss="modal"></a></li>
+ <li><a href="#" id="pendingConciliationMediationApprovalAdmin" data-dismiss="modal"></a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="lawyerDRModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Dispute Resolution</h3>
+      </div>
+      <div class="modal-body">
+         <ul class="list-unstyled">
+ <li><a href="#" id="newDisputeResolutionLawyer" onclick="loadDataInTable(this.id,'','newDRLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressDisputeResolutionLawyer" onclick="loadDataInTable(this.id,'','progressDRLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedDisputeResolutionLawyer" onclick="loadDataInTable(this.id,'','closedDRLawyer')" data-dismiss="modal"></a></li>
+ </ul> 
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="lawyerCMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Contract Management</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+  <li><a href="#" id="newContractManagementLawyer" onclick="loadDataInTable(this.id,'','newCMLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressContractManagementLawyer" onclick="loadDataInTable(this.id,'','progressCMLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedContractManagementLawyer" data-dismiss="modal"></a></li>
+ <li><a href="#" id="pendingContractManagementApprovalLawyer" data-dismiss="modal"></a></li>
+            
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="lawyerCMDModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Conciliation Mediation</h3>
+      </div>
+      <div class="modal-body">
+         <ul class="list-unstyled">
+ <li><a href="#" id="newConciliationMediationLawyer" onclick="loadDataInTable(this.id,'','newCMDLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressConciliationMediationLawyer" onclick="loadDataInTable(this.id,'','progressCMDLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedConciliationMediationLawyer" onclick="loadDataInTable(this.id,'','closedCMDLawyer')" data-dismiss="modal"</a></li>
+ <li><a href="#" id="pendingConciliationMediationApprovalLawyer" data-dismiss="modal"></a></li>
+ </ul> 
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="new_qry_modal">
+ <div id="lawyerTaskModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Task</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="createdTaskLawyer" onclick="loadDataInTable(this.id,'','createdTaskLawyer')" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="assignToLawyer" onclick="loadDataInTable(this.id,'','TaskAssignToLawyer')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="progressTaskLawyer" onclick="loadDataInTable(this.id,'','progressTaskLawyer')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li><a href="#" id="solvedTaskLawyer" onclick="loadDataInTable(this.id,'','solvedTaskLawyer')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li id="CreateDR" data-dismiss="modal"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i> Submit a New Dispute Resolution</a> </li>
+ <li><a href="#" id="solvedTaskLawyer" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li><a href="#" id="caseDocRequestClosed" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+
+<div class="new_qry_modal">
+ <div id="lawyerDraftModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Task</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="newDraftLawyer" onclick="loadDataInTable(this.id,'','createdTaskLawyer')" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="inReviewDraftLawyer" onclick="loadDataInTable(this.id,'','TaskAssignToLawyer')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="approvedDraftLawyer" onclick="loadDataInTable(this.id,'','progressTaskLawyer')" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li id="CreateDR" data-dismiss="modal"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i> Submit a New Dispute Resolution</a> </li>
+ <li><a href="#" id="solvedTaskLawyer" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ <li><a href="#" id="caseDocRequestClosed" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+
+<div class="new_qry_modal">
+ <div id="lawyerHearingModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Task</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="upcomingHearingLawyer" onclick="loadDataInTable(this.id,'','upcomingHearingLawyer')" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+
+
+<div class="modal fade" id="lawyerDDModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Due Diligence</h3>
+      </div>
+      <div class="modal-body">
+         <ul class="list-unstyled">
+ <li><a href="#" id="newDueDiligenceLawyer" onclick="loadDataInTable(this.id,'','newDDLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="progressDueDiligenceLawyer" onclick="loadDataInTable(this.id,'','progressDDLawyer')" data-dismiss="modal"></a> </li>
+ <li><a href="#" id="solvedDueDiligenceLawyer" onclick="loadDataInTable(this.id,'','closedDDLawyer')" data-dismiss="modal"></a></li>
+ </ul> 
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="new_qry_modal">
+ <div id="feeQuoteModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Fee Quote</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="newFeeQuote" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="acceptedFeeQuote" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<div class="new_qry_modal">
+ <div id="legalSupportModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Corporate Legal Support</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="inReviewContractClient" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="inProgressContractClient" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<div class="new_qry_modal">
+ <div id="adminclsModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Corporate Legal Support</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="inProgressContract" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="inReviewContract" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+<div class="new_qry_modal">
+ <div id="paymentModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Payment</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="dueInvoices" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="closedInvoices" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<div class="new_qry_modal">
+ <div id="adminPaymentModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Payment</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="dueInvoicesAdmin" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="closedInvoicesAdmin" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="duePaymentsLwrbyAdmin" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<div class="new_qry_modal">
+ <div id="adminDraftModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Draft</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="newDraftAdmin" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="inReviewDraftAdmin" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ <li><a href="#" id="approvedDraftAdmin" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+<div class="new_qry_modal">
+ <div id="hearingModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Hearings</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <li><a href="#" id="upcomingHearingClient" data-dismiss="modal"> <i class="fa fa-angle-left" aria-hidden="true"></i></a> </li>
+ 
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+
+
+
+<div class="new_qry_modal">
+ <div id="serviceClosure" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    Modal content
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Closure Request</h4>
+      </div>
+      <div class="modal-body">
+  <ul>
+ <label for="DraftFor" class="col-sm-2 control-label">Closure For</label>
+						<div class="col-sm-10">
+							<select id="ServiceClosure" onchange="changeDraftFor(this.id,'ServiceClosureFor');"
+								class="form-control">
+								<option value="" label="---Select---" />
+								<option value="dispute_resolution_details" label="Dispute Resolution" />
+								<option value="duediligence_details" label="Due Diligence" />
+								<option value="contract_management_details" label="Contract Management" />
+								<option value="Conciliation/Mediation" label="Conciliation/Mediation" />
+							</select> 
+							<span id="AssignToSpan" style="color: red"></span>
+						</div><div><input type="hidden" name="ServiceClosureFor" id="ServiceClosureFor" /></div>
+ <div class="col-sm-10">
+							<button id="closureDetails" class="btn btn-primary next-step"
+								type="button" data-dismiss="modal">Next</button>
+								<button data-dismiss="modal" class="btn btn-primary next-step"
+								type="button">Cancel</button> 
+						</div>
+ 
+ </ul> 
+ 
+      </div>
+      <div class="modal-footer">
+  &nbsp;
+      </div>
+    </div>
+
+  </div>
+</div></div>
+
+
+<a data-toggle="modal" href="Home.html#PaymentModel"><button id="hiddenPaymentModel" style="display: none;">sdfsdf</button></a>				
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="PaymentModel" class="modal fade">
+					<div class="modal-dialog modal-lg"> 
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" align="center">Payment GateWay</h4>
+							</div>
+							<div class="modal-body">
+							 <!-- <button data-dismiss="modal" id="paytmLink" class="btn btn-theme" 
+								type="button">PayTm</button> -->
+								<button data-dismiss="modal" id="hdfcLink" class="btn btn-theme"
+								type="button">Payment Gateway (HDFC)</button>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+<a data-toggle="modal" href="Home.html#displayInvalidDetails"><button id="displayInvalidDetailsPopup" style="display: none;">sdfsdf</button></a>
+
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displayInvalidDetails" class="modal fade">
+					
+						<div class="modal-dialog modal-lg"> 
+						
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Application Message</h4>
+							</div>
+							<div class="modal-body">
+						
+					<div class="row">
+
+					<div class="col-lg-12">
+						<div class="message_bx">
+<div class="col-lg-3" align="middle"><img src="assets/img/Envelopee.png" height="140" width="120"></div>
+<div class="col-lg-9">
+
+<h3 id="code">
+</h3>
+<hr>
+
+<p id="message" style="font-size: 16px;">
+</p>
+</div>
+</div>
+					</div>
+				</div>
+					
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-blue"
+									type="button">Cancel</button>
+							</div>
+							</div>
+						</div>
+					
+					
+				</div>
+
+
+
+<a data-toggle="modal" href="Home.html#noValPopUpModal"><button id="hiddenNoValPopUpModal" style="display: none;"></button></a>				
+					
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="noValPopUpModal" class="modal fade">
+					
+						<div class="modal-dialog modal-lg"> 
+						
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Application Message</h4>
+							</div>
+							<div class="modal-body">
+						
+					<div class="row">
+
+					<div class="col-lg-12">
+						<div class="message_bx">
+<div class="col-lg-3" align="middle"><img src="assets/img/Envelopee.png" height="140" width="120"></div>
+<div class="col-lg-9">
+
+<h3 id="code">Sorry ! Nothing's here
+</h3>
+<hr>
+
+<p id="message" style="font-size: 16px;">We did't find anything here.
+</p>
+</div>
+</div>
+					</div>
+				</div>
+					
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-blue"
+									type="button">Cancel</button>
+							</div>
+							</div>
+						</div>
+					
+					
+				</div>
+				
+				
+<a data-toggle="modal" href="Home.html#serviceInvoice"><button id="hiddenserviceInvoicePopUpModal" style="display: none;"></button></a>				
+					
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="serviceInvoice" class="modal fade">
+					
+						<div class="modal-dialog modal-lg"> 
+						
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">New Invoice</h4>
+							</div>
+							<div class="modal-body">
+						
+					<ul>
+ <label for="InvoiceFor" class="col-sm-2 control-label">Invoice For</label>
+						<div class="col-sm-10">
+							<select id="ServiceInvoice" onchange="changeDraftFor(this.id,'InvoiceFor');"
+								class="form-control">
+								<option value="" label="---Select---" />
+								<option value="dispute_resolution_details" label="Dispute Resolution" />
+								<option value="duediligence_details" label="Due Diligence" />
+								<option value="contract_management_details" label="Contract Management" />
+								<option value="Conciliation/Mediation" label="Conciliation/Mediation" />
+							</select> 
+							<span id="AssignToSpan" style="color: red"></span>
+						</div><div><input type="hidden" name="invoice_For" id="InvoiceFor" /></div>
+ 
+ 
+ </ul> 
+					
+							</div>
+							<div class="modal-footer">
+								<button id="invoiceDetails" data-dismiss="modal" class="btn btn-blue"
+									type="button">Next</button>
+									<button data-dismiss="modal" class="btn btn-blue"
+									type="button">Cancel</button>
+							</div>
+							</div>
+						</div>
+					
+					
+				</div>
+				
+<a data-toggle="modal" href="Home.html#serviceDraft"><button id="hiddenserviceDraftPopUpModal" style="display: none;"></button></a>				
+					
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="serviceDraft" class="modal fade">
+					
+						<div class="modal-dialog modal-lg"> 
+						
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">New Draft</h4>
+							</div>
+							<div class="modal-body">
+						
+					<ul>
+ <label for="DraftFor" class="col-sm-2 control-label">Draft For</label>
+						<div class="col-sm-10">
+							<select id="ServiceDraft" onchange="changeDraftFor(this.id,'DraftFor');"
+								class="form-control">
+								<option value="" label="---Select---" />
+								<option value="dispute_resolution_details" label="Dispute Resolution" />
+								<option value="duediligence_details" label="Due Diligence" />
+								<option value="contract_management_details" label="Contract Management" />
+								<option value="Conciliation/Mediation" label="Conciliation/Mediation" />
+							</select> 
+							<span id="AssignToSpan" style="color: red"></span>
+						</div><div><input type="hidden" name="draft_For" id="DraftFor" /></div>
+ 
+ </ul> 
+					
+							</div>
+							<div class="modal-footer">
+								<button id="draftDetails" data-dismiss="modal" class="btn btn-blue"
+									type="button">Next</button>
+									<button data-dismiss="modal" class="btn btn-blue"
+									type="button">Cancel</button>
+							</div>
+							</div>
+						</div>
+					
+					
+				</div>
+				
+
+
+<a hidden href="#" data-toggle="modal" data-target="#timerModal" id="showtimer">Session End Popup</a>
+<div class="modal fade" id="timerModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button hidden type="button" id="hideTimer" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Alert</h3>
+        
+      </div>
+      <div class="modal-body">
+       <!-- <div class="loading-clock"></div> -->
+       <div style="float:left; margin:10px;">
+       	<img src="assets/imgs/Warning_sign.png" height="80" width="80" alt=""/>
+       	</div>
+       	<div style="margin:20px 15px;">
+       	<div>your session will be expired in <b><span id="timer">30:00</span></b></div>
+		<div>Please click <b><a id="initializeTimer">here</a></b> to extend your session, or you will be signout by the system.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Bootstrap core JavaScript --> 
+<script src="assets/js/jquery.1.11.3.min.js"></script> 
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/bootstrap.min.js"></script> 
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/Home.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/commonAjax.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/validation.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/query.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/case.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/client.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="assets/dataTableSource/datatables_export_tools.min.css"/>
+ 
+<script type="text/javascript" src="assets/dataTableSource/datatables_export_tools.min.js"></script>
+
+<link href="assets/editor_2/editor.css" type="text/css" rel="stylesheet"/>
+
+
+<!-- <style>
+/********************************************************
+				Categorie Page Start
+********************************************************/
+#categorie_area {
+	width:95%;
+	height:auto;
+	margin: 0 auto;
+}
+
+#categorie_area .tab-content{
+	width: 100%;
+    height: auto;
+    float: left;
+    position: relative;
+    top: -40px;
+}
+.process-step .btn:focus {
+	outline:none
+}
+.process {
+	display:table;
+	width:90%;
+	position:relative;
+	margin:0 auto;
+	top:-40px;
+}
+.process-row {
+	display:table-row
+}
+.process-step button[disabled] {
+	opacity:1 !important;
+	filter: alpha(opacity=100) !important
+}
+.process-row:before {
+	top:40px;
+	bottom:0;
+	position:absolute;
+	content:" ";
+	width:100%;
+	height:1px;
+	top: 40px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #85857d;
+	z-order:0
+}
+.process-step {
+	width:20%;
+	display:table-cell;
+	text-align:center;
+	position:relative
+}
+.process-step p {
+	margin-top:4px
+}
+.btn-circle {
+	width:80px;
+	height:80px;
+	text-align:center;
+	font-size:12px;
+	border-radius:50%;
+	background: #182832;
+	color:#fff;
+}
+
+.btn-circle.btn-info{
+	background:#2aabd2;
+	color:#fff;
+}
+
+
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+#categorie_area .tab-content table thead{
+	background: #182832;
+	color:#fff;
+}
+
+#categorie_area .tab-content .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+#categorie_area .tab-content .table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #efefef;
+}
+
+/********************************************************
+				Categorie Page End
+********************************************************/</style> -->
+
+
+
+<script src="assets/editor_2/editor.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+
+<!-- <script type="text/javascript"
+	src="assets/dataTableSource/jquery.dataTables.js"></script> -->
+	<script>
+	/* $(document).ready(function() {
+		$("#footer").load("/LegalBell/html/layout/GenericFooter.html");
+		$("#contentPage").load("/LegalBell/html/contentPages/LoginPage.html",function(){
+		});	
+	}); */
+	</script>
+</body>
+</html>
+
+
+
+<script>
+
+
+$(document).ready(function() {
+		var url = window.location.href;
+		$("footer").load("/LegalBell/html/layout/GenericFooter.html");
+		document.body.style.background = "url('assets/img/body_bg.png')";
+		$("#pageHeader").html("");
+		var url = window.location.search;
+		url = url.replace("?", ''); // remove the ?
+		var arr = url.split("=");		
+		var arr1 = arr[1].split('---');
+		if(arr1[0]=="error"){
+			$("#contentPage").load("/LegalBell/html/contentPages/AppError.html", function (){
+				$("textarea#msgid").val("Error");
+				$("textarea#msg").val("Time Bound Error You cant reset your password");	
+			});
+			
+		}
+		else{
+			$("#contentPage").load("/LegalBell/html/contentPages/LawyerInviteForm.html",function(){
+				$("#EMail").val(arr1[0]);
+				$("#UserCategory").val(arr1[1]);
+				
+			});	
+		}
+		//ajaxPost("NoForm", "/activateAccounts/" + arr[1]);
+	});
+</script>

@@ -1,0 +1,220 @@
+
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+			<div class="tab-pane fade active in"> 
+				
+				<div class="tab-content" id="processTab">
+				<div id="pdfHtml" class="tab-pane fade active in">
+				<form id="createAdvanceInvoiceForm"> 
+				<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            		<div class="page-title">
+             			 <h2>Fee Quote</h2>
+            		</div>  
+          			</div>
+          
+                	
+					<div class="col-sm-6">
+
+						<div class="form-group">
+						<h1>
+						<a href="#"> <img src="assets/img/CustosLegis.jpg"
+							style="width: 200px; height: 150px">
+						</a>
+					    </h1>
+						</div>
+						
+						<div class="form-group">
+							<p>
+								Custos Legis <br> 7, OLD Post Office Street, 2nd Floor,
+								<br> Room Number 27, BBD Bagh, Kolkata,
+								<br> West Bengal 700001 India 
+								<br>+91 9830 231 890 , +91 8981 242 095 <br>custoslegisonline.com
+							</p>
+							
+						</div>
+						
+
+					</div>
+
+
+					<div class="col-sm-6">
+						<div class="form-group">
+								<h2>Quotation</h2>
+						</div>
+						<div class="form-group">
+								<h5>
+								Date : <label name="quotationDate" id="quotationDate"></label><br>
+								Quotation Details : <label name="quotationIds" id="quotationId"></label><br>
+								Prepared By : <!-- <label name="creatorId" id="creatorId"></label> -->
+								<label name="creatorName" id="creatorName"></label><br>
+							   </h5>
+						</div>
+						<div class="form-group">
+								<h5>
+								Customer Details : <label name="clientName" id="clientName"></label>
+								<label name="addressLine1" id="addressLine1"></label> ;<label
+									name="addressLine2" id="addressLine2"></label><br> <label
+									name="state" id="state"></label><br>
+								<label name="pinCode" id="pinCode"></label><br> <label
+									name="country" id="country"></label><br>Mob: <label
+									name="clientPhone" id="clientPhone"></label><br> Email: <a
+									name="clientEmail" id="clientEmail"></a>
+									<h5>Comments or special instructions :</h5>
+									<p>
+										<strong id="quotaion_Notes">comments info</strong>
+					   				</p>	
+							</h5>
+						</div>
+						</div>
+						</div>
+					
+					<div class="col-sm-12">  
+                	
+                	<div class="col-sm-6" style="margin-bottom:30px;">
+                	<div class="col-md-12">
+            			<h2>Quotation Items</h2>
+            		</div>  
+          			
+          			 <div class="form-group">
+                       <table id="quoteDetails" class="table table-striped custab">
+							<thead>
+								<tr>
+									<th>Sl.No</th>
+									<th>Particulars</th>
+									<th>Ammount</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+                		</table>
+                	</div>
+                	<!-- <div class="form-group col-sm-6 text-right"> -->
+				<div class="col-sm-6">
+					<p>
+						<strong> Sub Total : <br> DISCOUNT : <br> TAX :
+							<br> Net Total : <br>
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-6">
+					<strong id="amount"></strong><br>-<strong id="discountAmount"></strong><br>+<strong
+						id="serviceTaxAmount"></strong><br>Rs. <strong
+						id="totalAmountAfterServiceTax"></strong><br>
+				</div>
+			  <!--  </div> -->
+			   </div>
+			   
+			   <div class="col-sm-6" style="margin-bottom:30px;">
+                		 
+                	<div class="col-md-12">
+            			<h2>Advance Payment Items</h2>
+            		</div>
+            		
+          			<div class="form-group">
+                		<table id="advanceDetails" class="table table-striped custab">
+							<thead>
+								<tr>
+									<th>Sl.No</th>
+									<th>Particulars</th>
+									<th>Ammount</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+                		</table>
+                	</div>
+                <div style="display:none">
+                <input type="text" name="clientId" value="" id="clientID" /> 
+                <input type="text" name="serviceId" value="" id="serviceID" />
+                <input type="text" name="createdBy" value="" id="createdBY" />
+                <input type="text" name="quotationId" value="" id="quotationID" />
+                <input type="text" name="advanceId" value="" id="advanceID" />
+               
+               </div>
+               <!-- <div class="form-group col-sm-6 text-right"> -->
+				<div class="col-sm-6">
+					<p>
+						<strong> Sub Total : <br> DISCOUNT : <br> TAX :
+							<br> Net Total : <br>
+						</strong>
+					</p>
+				</div>
+				<div class="col-sm-6">
+					<strong id="iamount"></strong><br>-<strong id="idiscountAmount"></strong><br>+<strong
+						id="iserviceTaxAmount"></strong><br>Rs. <strong
+						id="itotalAmountAfterServiceTax"></strong><br>
+				</div>
+			   <!-- </div> -->
+               </div>
+				
+			   
+			   <div class="form-group col-sm-6 ">
+				<div>
+					<p>
+						<strong> If you have any questions concerning this
+							invoice please contact : </strong>
+					</p>
+				</div>
+				<div>
+					<p>
+								Custos Legis <br> 7, OLD Post Office Street, 2nd Floor,
+								<br> Room Number 27, BBD Bagh, Kolkata,
+								<br> West Bengal 700001 India 
+								<br>+91 9830 231 890 , +91 8981 242 095 <br>custoslegisonline.com
+					</p>
+				</div>
+			</div>
+			 <div class="form-group col-sm-6 ">
+				<div>
+					<p>
+						<strong> <u>Terms & Conditions :</u>
+						</strong>
+					</p>
+				</div>
+			</div>
+			<div class="form-group col-sm-6 ">
+				<div class="col-xs-6">
+					<p id="terms_Condition">
+						<strong> </strong>
+					</p>
+				</div>
+
+			</div>  
+			   
+			 					
+					<div class="col-md-12 text-right" id="newQuote">
+              	      <div class="form-group">
+                        <div class="row"> 
+								<input type="checkbox" name="accept" value="accept" id="accept">I Accept<br>
+								<span id="checkspan"></span>
+								<button class="btn btn-blue" type="button" style="background: #323f3f; color: #fff; 
+									border: #182832 1px solid;"
+									id="advanceInvoice">Next</button>
+						</div>
+					  </div>
+					</div>
+					<div class="col-md-12 text-right" id="acceptedQuote" style="display:none;">
+              	      <div class="form-group">
+                        <div class="row"> 
+								
+								<button class="btn btn-blue" type="button" style="background: #323f3f; color: #fff; 
+									border: #182832 1px solid;"
+									id="Dashboard">Cancel</button>
+						</div>
+					  </div>
+					</div>
+					
+				<!-- </form> -->
+				</div>
+				</form>
+		</div>
+		</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>	
+		</div>	
+
+

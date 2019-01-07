@@ -1,0 +1,77 @@
+
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','UploadContractFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content" id="processTab">
+					<div class="row">
+						<p id="service_id" hidden></p>
+						<p id="service_name" hidden></p>
+						<div class="col-lg-12">
+							<div class="message_bx">
+								<div class="col-lg-3">
+									<img src="assets/img/Envelopee.png" height="140" width="120">
+								</div>
+								<div class="col-lg-9">
+
+									<h3 id="code"></h3>
+									<hr>
+
+									<p id="message" style="font-size: 16px;"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>

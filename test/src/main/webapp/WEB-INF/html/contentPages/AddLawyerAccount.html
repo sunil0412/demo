@@ -1,0 +1,81 @@
+<!-- <div class="container-2">
+	<div id="page-wrapper"> -->
+	<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        	
+		
+		<div class="row" id="form_area">
+        <div class="col-sm-12">
+				<form id="addLawyerAccountForm">
+				<div class="col-sm-12">
+					<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Add Lawyer Account</h2>
+					</div>
+					</div>
+				</div>
+						<div class="col-md-6" style="padding-top:5px;">
+							<label>User ID</label>
+							<input type="hidden" name="user_Id" id="UserId" value="" class="form-control"/>
+
+							<div class="form-group">
+								<label for="FirstName">First Name</label>
+								
+									<input name="first_Name" id="First_Name" class="form-control"
+										placeholder="First Name" />
+								
+
+							</div>
+							
+
+							<div class="form-group">
+								<label for="EMail">E-Mail</label>
+								
+									<input name="email_Id" id="Email_Id" class="form-control"
+										 placeholder="E-Mail" />
+								
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+
+						</div>
+
+
+						<div class="col-md-6" style="padding-top:5px;">
+							<label>Password</label>
+							<input type="hidden" name="password" id="Password" value="" class="form-control"/>
+							
+							<div class="form-group">
+								<label for="lastName">Last Name</label>
+								
+									<input name="last_Name" id="Last_Name" class="form-control"
+										placeholder="Last Name" />								
+							</div>
+							
+							<div class="form-group">
+								<label for="PhoneNumber">Mobile Number</label>
+								
+									<input name="phone_Mobile" id="PhoneNumber"
+										class="form-control" placeholder="Phone Number" />
+								
+
+								<div style="color: red; font-style: bold;"></div>
+							</div>							
+						</div>
+					
+					<div class="col-md-12 text-right">
+						<div class="form-group">
+						<div class="row"> 
+							<button id="AdminDashboard" class="btn btn-blue" type="button">Cancel</button>
+							<button id="updateAdminDetailsButton" class="btn btn-blue"
+								type="button"
+								onclick="ajaxPost('addLawyerAccountForm','/addLawyerAccount');">Add Account</button>
+						</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			</div>
+	 <div class="clearfix"></div>
+	</div>
+</div>

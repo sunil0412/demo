@@ -1,0 +1,230 @@
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+<!-- <div class="row">
+	<div class="scroll_inner_page">
+		<div class="col-lg-12">
+			<div class="showback"> -->
+	<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+				<form id="upcomingHearingForm">
+				<div class="col-sm-12">
+					<div class="col-md-12 navbar-dashbord">
+						<div class="page-title">
+							<h2>Upcoming Hearing</h2>
+						</div>
+					</div>
+				</div>
+					<div class="datatable-scroller">
+						<table
+							style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+							<tr>
+								<td>
+									<table id="upcominghearingtable" class="display"
+										style="cellspacing: 1; width: 100%">
+										<thead style="background: #323f3f; color: #fff;">
+											<tr>
+											<th>ID</th>
+				            				<th>Raised On</th>
+								            <th>Pending Since</th>
+								            <th>Details</th>
+								            <th>Action</th>
+												<!-- <th>Task ID</th>
+												<th>Case ID</th>
+												<th>Client ID</th>
+												<th>Assigned Lawyer</th>
+												<th>Hearing Place</th>
+												<th>Hearing Date</th>
+												<th>Created Date</th>
+												<th>Task Status</th -->
+											</tr>
+										</thead>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="col-md-12 text-right">
+						<div class="form-group">
+							<div>
+								<button id="default" class="btn btn-blue" style="background: #323f3f; color: #fff; margin:10px 0px;"
+									type="button">Back</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a data-toggle="modal"
+	href="UpcomingHearing.html#displaySelectedTaskDetails"><button
+		id="displaySelectedTaskDetailsHearingButton" style="display: none;">sdfsdf</button></a>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displaySelectedTaskDetails" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Hearing Details</h4>
+			</div>
+			<div class="modal-body">
+				<div class=" table-responsive">
+
+				<form id="showSelectedTaskDetailsForm">
+					<!-- <br/>
+					<div class="col-sm-12"> -->
+					
+				<table border="1" class="table table-striped custab" style="width: 100%">
+				<!-- <thead><tr><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th></tr></thead> -->
+				<thead>
+				<tr>
+            		<th>Label</th>
+            		<th>Value</th>
+            		<th>Label</th>
+            		<th>Value</th>
+       		   </tr>
+    		   </thead>
+				<tr>
+					<td>
+						<label for="TaskId" class="control-label-head">Task
+							Id</label>
+					</td>
+					<td>
+							<label class="control-label"><input type="text"
+								id="TaskId" readonly="readonly" /></label>
+					</td>
+					<td>
+						<label for="TaskType" class="control-label-head">Task Type</label>
+					</td>
+					<td>
+							<label class="control-label"><input type="text"
+								id="TaskType" readonly="readonly"/></label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="CaseId" class="control-label-head">Case Id</label>
+					</td>
+					<td>
+							<label class="control-label"><input type="text"
+								id="CaseId" readonly="readonly" /></label>
+					</td>
+					<td>
+						<label for="ClientId" class="control-label-head">Client</label>
+					</td>
+					<td>
+							<label class="control-label"><input type="text" id="ClientName" readonly="readonly" /></label>
+							<input type="hidden" id="ClientId" readonly="readonly"/>
+					</td>
+
+				</tr>
+
+				<tr>
+					<td>
+						<label for="HearingDate" class="control-label-head">Hearing
+							Date</label>
+					</td>
+					<td>
+							<label class="control-label"><input type="text"
+								id="HearingDate" readonly="readonly" /></label>
+					</td>
+					<td>
+						<label for="HearingPlace" class="control-label-head">Hearing
+							Place</label>
+					</td>
+					<td>
+							<label class="control-label"><input type="text"
+								id="HearingPlace" readonly="readonly" /></label>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<label for="CreatedDate" class="control-label-head">
+							Created Date</label>
+					</td>
+					<td>
+						<label class="control-label"><input type="text"
+								id="CreatedDate" readonly="readonly" /></label>
+					</td>
+
+					<td>
+						<label for="AssignedLawyer" class="control-label-head">Assigned
+							Lawyer</label>
+					</td>
+					<td>
+						<label class="control-label"><input type="text"
+								id="AssignedLawyer" readonly="readonly" /></label>
+					</td>
+				</tr>
+				</table>
+				<table border="1" class="modal_bottom" style="width:100%">
+				
+				<tr>
+					<td>
+						<label for="HearingDescription"
+							class="control-label-head">Hearing Comments</label>
+					</td>
+					<td>
+							<div class="control-label" id="hearingDescription"></div>
+					</td>
+				</tr>	
+					</table>
+					<table border="1" class="modal_bottom" style="width: 100%">
+                    <tr>
+                     <td>
+                    <label for="uploadedFileDetails" class="control-label-head">
+						File Informations</label>
+					</td>	
+						<td>
+							<table class="table-bordered" id="taskFileDetails">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							</td>
+							</tr>  
+							</table>
+					<!-- </div> -->
+				</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

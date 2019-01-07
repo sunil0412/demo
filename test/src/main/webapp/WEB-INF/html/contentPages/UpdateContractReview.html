@@ -1,0 +1,239 @@
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+
+<!-- <div class="stp_frms">
+	<section>
+		<h2 align="center">Update Retainership Agreement</h2>
+		<div class="wizard"> -->
+		<div class="row" id="form_area">
+		<div id="categorie_area" class="main_area" style="height: 730px;">
+				
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Select Retainership Agreement</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Update</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Generation</p>
+						</div>
+					</div>
+				</div>
+			<!-- <div class="wizard-inner">
+				<div class="connecting-line"></div>
+				<ul class="nav nav-tabs" role="tablist">
+
+					<li class="disabled"><a> <span class="round-tab"> <i
+								class="fa fa-check-square-o"></i>
+						</span>
+
+
+					</a>
+
+						<p>Select Retainership Agreement</p></li>
+
+					<li class="disabled"><a> <span class="round-tab"> <i
+								class="fa fa-pencil-square-o"></i>
+						</span>
+					</a>
+
+						<p>Update Retainership Agreement</p></li>
+					<li class="active"><a> <span class="round-tab"> <i
+								class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
+						</span>
+					</a>
+
+						<p>Retainership Agreement Review</p></li>
+					<li class="disabled"><a> <span class="round-tab"> <i
+								class="fa fa-download" aria-hidden="true"></i>
+						</span>
+					</a>
+						<p>Retainership Agreement Generation</p></li>
+				</ul>
+			</div> -->
+
+			<!-- <div class="tab-content">
+				<div class="tab-pane active" role="tabpanel" id="step1">
+					<div class="step1">
+						<div class="row">
+						<div class="scroll_inner_page">
+							<div class="col-lg-12">
+								<div class="showback"> -->
+			<div class="tab-content" id="processTab">
+			<div id="query-type" class="tab-pane fade active in">
+									<form id=updateContractReviewForm>
+									<div class="col-sm-12" style="padding-bottom:5px; padding-left:0px;">
+											<div class="col-md-12 navbar-dashbord">
+												<div class="page-title">
+													<h2>Update Retainership Agreement</h2>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label for="ContractId">Agreement Id</label>
+												<input type="text" name="contract_Id" class="form-control" id="ContractId" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4"> 
+													<label class="control-label"><input type="text"
+														name="contract_Id" id="ContractId" readonly="readonly" /></label>
+												 </div> -->
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label for="ClientId">Client</label>
+												<input type="text" class="form-control" id="Client" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<input type="hidden" name="client_Id" id="ClientId" readonly="readonly" />
+												<!-- <div class="col-sm-4">
+													<label class="control-label"><input type="text"
+														id="Client" readonly="readonly" /></label>
+												<input type="hidden" name="client_Id" id="ClientId" readonly="readonly" />
+												</div> -->
+										</div>
+										</div>
+											<div class="form-group">
+												<label for="ContractBriefDescription">Agreement Brief Description</label>
+												<div class="col-sm-10">
+													<label class="control-label"><textarea
+															name="contract_BriefDescription" readonly="readonly"
+															id="ContractBriefDescription" maxlength="150" rows="4"
+															style="resize: none; opacity:0.7;background-color:#eee;"
+															cols="98"></textarea></label>
+												</div>
+											</div>
+
+											<div class="col-sm-12">
+											<div class="form-group">
+												<label for="CorporateServices">Services</label>
+												
+													<table class="table-bordered" id="contractServiceDetails">
+														<thead>
+														</thead>
+														<tbody>
+
+														</tbody>
+													</table>
+												</div>
+											</div>
+
+											<div class="col-sm-6">
+											<div class="form-group">
+												<label for="PaymentTerm">Payment Terms</label>
+												<input type="text" name="payment_Term" class="form-control" id="hiddenPaymentTerm" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4"> 
+													<label class="control-label"><input type="text"
+														name="payment_Term" id="hiddenPaymentTerm"
+														readonly="readonly" /></label>
+												 </div> -->
+											</div>
+											</div>
+											
+											<div class="col-sm-6">
+											<div class="form-group">
+												<label for="PaymentMethod">Payment Method</label>
+												<input type="text" name="payment_Method" class="form-control" id="hiddenPaymentMethod" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4"> 
+													<label class="control-label"><input type="text"
+														name="payment_Method" id="hiddenPaymentMethod"
+														readonly="readonly" /></label>
+												</div> -->
+											</div>
+											
+											<input type="hidden" id="CorporateService"
+												readonly="readonly" name="corporate_Service"
+												class="form-control" />
+											</div>
+											
+											<div class="col-sm-12"><h5>Agreement Period Details:</h5></div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<label for="ContractStartDate">Agreement Start Date</label>
+												<input type="text" name="contract_Start_Date" class="form-control" id="startdatepicker" placeholder="DD-MM-YY" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4">
+													<label class="control-label"><input type="text"
+														name="contract_Start_Date" 
+														id="startdatepicker" placeholder="DD-MM-YY"
+														readonly="readonly" /></label>
+												</div> -->
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<div class="form-group">
+												<label for="ContractEndDate">Agreement End Date</label>
+												<input type="text" name="contract_End_Date" class="form-control" id="enddatepicker" placeholder="DD-MM-YY" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4">
+													<label class="control-label"><input type="text"
+														name="contract_End_Date" id="enddatepicker"
+														placeholder="DD-MM-YY" readonly="readonly" /></label>
+												</div> -->
+											</div>
+											</div>
+											<div class="col-sm-12 text-right">
+											 <!-- <div class="col-sm-3">
+											 </div> -->
+											 <!-- <div class="col-sm-3"> -->
+												<input id="updateContractReviewEditButton"
+													class="btn btn-blue" type="button" value="Edit"
+													onclick="ajaxPost('updateContractReviewForm','/getcontractdetails')" />
+											<!-- </div>  -->
+											<!-- <div class="col-sm-6"> -->
+												<input id="contractSubmitButton" class="btn btn-blue"
+													type="button" value="Update"
+													onclick="ajaxPost('updateContractReviewForm','/saveContract');" />
+											<!-- </div> -->
+											<!-- <div class="col-sm-3">
+											 </div> -->
+											</div>
+	
+	<!-- <div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b> Agreement Review </b>  </h1>
+		<p>
+		Dear Corporate Client, <br /> <br />This page contains two parts: <br />1) Client Details.<br />2) Contract Details.<br />This page gives you an overall insight of the corporate and contract details.
+		
+		
+		</p>
+		</div>
+		</div>
+	</div> -->
+									</form>
+									</div>
+									</div>
+								<!-- </div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	<!-- </section> -->
+</div>

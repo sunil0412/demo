@@ -1,0 +1,116 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+
+
+
+<style>
+td.details-control {
+    background: url('assets/imgs/plus.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('assets/imgs/minus.png') no-repeat center center;
+}
+tr.highlightExpanded {
+  background-color: #c4cff9 !important; /* #F4CCCC !important; */
+}
+
+
+</style>
+
+<!-- <style>
+td.details-control {
+    background: url('../resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('../resources/details_close.png') no-repeat center center;
+}
+
+
+</style>
+ -->
+
+
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<!-- <div class="process">
+					<div class="process-row nav nav-tabs">
+						
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						
+					</div>
+				</div> -->
+<div id="document-upload" class="tab-pane fade active in"> 
+      <form role="form" id="newQueryForm">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Roster Table</h2>
+            </div>
+            </div>
+          
+        </div>
+        <!-- <div class="row" id="legal_advisory"> -->
+        	<div class="col-sm-12" style="margin-top: 7px;">
+        	<div class=" table-responsive">
+            <table class="table table-striped custab" id="rosterDataTable" style="width: 670px; text-align: center;">
+    				<thead style="background:#323f3f; color:#fff;">
+
+						<tr>
+						   
+							<th>CLIENT NAME</th> 
+				            <th></th> 
+				        </tr>
+					</thead>
+            
+            
+    </table>
+</div>
+           </div>
+        	
+        	
+        	
+        	
+        	
+            <div class="col-md-12 text-right">
+              	<div class="form-group">
+              <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+                  
+             
+            </div>
+              </div>
+          
+          
+          
+        <!-- </div> -->
+        </form>
+      
+</div>
+             <div class="clearfix"></div>
+			</div>
+		</div>
+		

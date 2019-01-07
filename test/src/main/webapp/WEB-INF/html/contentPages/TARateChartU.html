@@ -1,0 +1,268 @@
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+
+<script type="text/javascript">
+//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+	
+	
+	
+	
+	</script>
+<div id="payment" class="tab-pane fade active in">
+						<form  role="form" id="rateChartForm">
+
+							<div class="col-md-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Fee Chart</h2>
+									</div>
+								</div>
+
+								<div class="">
+
+									<table id="slatable" class="table table-striped custab">
+										<thead>
+
+											<tr>
+												<th>SELECT</th>
+												<th>TYPE</th> <!-- SLA -->
+												<th>Others Attribute</th>
+												<th>RATE</th>
+											</tr>
+										</thead>
+
+										
+
+
+
+									</table>
+
+								</div>
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+									
+									<input type="button"  id="paymentGatewayButton" value="pay" class="btn btn-blue">
+
+								</div>
+							</div>
+						</form>
+					</div>
+
+<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+<!-- <!-- 
+<div class="stp_frms">
+	<section>
+		<h2 align="center">New Tax Advisory Flow</h2>
+		<div class="wizard">
+			<div class="wizard-inner">
+				<div class="connecting-line"></div>
+				<ul class="nav nav-tabs" role="tablist">
+
+					<li class="disabled"><a> <span class="round-tab">
+								<i class="fa fa-question"></i>
+						</span>
+
+
+					</a>
+
+						<p>Select Query Type</p></li>
+
+					<li class="disabled"><a> <span class="round-tab">
+								<i class="glyphicon glyphicon-list-alt"></i>
+						</span>
+					</a>
+
+						<p>Query Details</p></li>
+					<li class="disabled"><a> <span class="round-tab">
+								<i class="fa fa-upload" aria-hidden="true"></i>
+						</span>
+					</a>
+
+						<p>Document Upload</p></li>
+
+					<li class="disabled"><a> <span class="round-tab">
+								<i class="fa fa-download" aria-hidden="true"></i>
+						</span>
+					</a>
+
+						<p>Review and Download</p></li>
+
+
+
+					<li class="active"><a> <span class="round-tab"> <i
+								class="fa fa-money" aria-hidden="true"></i>
+						</span>
+					</a>
+
+						<p>Payment Selection</p></li>
+
+
+
+
+
+
+
+				</ul>
+			</div>
+
+			<form role="form" id="rateChartForm">
+				<div class="tab-content">
+					<div class="tab-pane active" role="tabpanel" id="step1">
+						<div class="step1">
+							<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+	
+	
+	
+	
+	</script>
+
+							<div class="row">
+								<div class="scroll_inner_page">
+									<div class="col-lg-12">
+										<div class="showback">
+
+											<h4>
+												SLACHART <br> <br>
+											</h4>
+											<div class="datatable-scroller">
+												<table
+													style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+													<tr>
+														<td>
+
+															<table id="slatable" class="display"
+																style="cellspacing: 1; width: 100%">
+																<thead>
+																	<tr>
+																		<th>SELECT</th>
+																		<th>SLA</th>
+																		<th>Others Attribute</th>
+																		<th>RATE</th>
+																	</tr>
+
+																</thead>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</div>
+											<div>
+
+												<input class="btn btn-primary next-step"
+													id="paymentGatewayButton" type="button" value="Pay" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<span id="rateChartSpan" style="color: red;"></span>
+		</div>
+
+		<div id="slideout">
+			<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+			<div id="slideout_inner">
+				<div id="mrova-form">
+					<h1>
+						<b> SLA Rate Chart </b>
+					</h1>
+					<p>
+						This contains the list of the rates available for Query.<br />
+						Select one to set your pricing.
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+
+
+ --> -->

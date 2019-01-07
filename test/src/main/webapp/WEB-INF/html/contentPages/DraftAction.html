@@ -1,0 +1,82 @@
+		<div id="categorie_area" class="main_area">
+	<!-- <div class="row"> -->
+	<div class="col-sm-12">
+	
+    <div class="col-sm-6">
+	<form id="clientDetailsForm">
+	
+	
+		<h4 style="background:#182832; color:#fff;">Client Details:</h4>
+	
+			<div class="form-group">
+                 <label>Client ID:</label>
+                 <input type="text"  name="client_Id" id="ClientId" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+             <div class="form-group">
+             	<label>Customer Type:</label>
+             	<input type="text" name="client_Type" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div> 
+             
+             <div class="form-group">
+             	<label>Name:</label>
+             	<br/>
+             	<div class="col-sm-4" style="padding-left:0px">
+             	<input type="text"  name="first_Name" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             	</div>
+             	<div class="col-sm-4">
+             	<input type="text"  name="middle_Name" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             	</div>
+             	<div class="col-sm-4" style="padding-right:0px">
+             	<input  type="text" name="last_Name" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             	</div>
+             	
+            </div> 
+            
+             <div class="form-group">
+             	<label>Mobile Number:</label>
+                <input  type="text" name="phone_Mobile" readonly="readonly"  maxlength="10"  class="form-control"  type="number" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+             <div class="form-group">
+             <label>Email Id:</label>
+                <input type="text"  name="email_Id" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div> 
+    </form> 
+	</div>           
+    
+    <div class="col-sm-6">
+	
+	<form id="queryDetails"> 
+	
+		<h4 style="background:#182832; color:#fff;" >Case Details:</h4>
+		  <div class="form-group">
+                  <label>Case ID:</label>
+                  <input type="text"  name="case_Id" id="CaseId" readonly="readonly" class="form-control"  type="number" />
+              </div>
+             
+              <div class="form-group">
+                  <label>Case Description:</label>
+                  <input type="text" name="case_Description" readonly="readonly" class="form-control"  type="number"/>
+              </div>
+               <div class="form-group">
+                  <label>Case Assigned Number:</label>
+                  <input type="text" name="case_Number" id="case_Num" readonly="readonly" class="form-control"  type="number"/>
+              </div>             
+    </form>                          
+    </div>
+               
+				<nav>
+				
+			<div class="col-sm-12">
+			<div class="inner_tabs">
+			<ul class="nav nav-tabs" style="margin-top: 30px;">
+					<li class="col-sm-6"><a data-toggle="tab" style="background:#323f3f; color:#fff;" id="generateDraft" align="center"> Create Draft</a></li>
+			</ul>
+			<div class="col-sm-12" id="pageContentLoad"></div>
+				
+				
+			</nav>			
+
+
+						</div>
+					</div>
+					

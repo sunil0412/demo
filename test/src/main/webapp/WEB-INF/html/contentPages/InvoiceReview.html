@@ -1,0 +1,186 @@
+ 
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+				<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Generate</p>
+						</div>
+							<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+                </div>
+				<div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in">
+				<form id="estimateReview">
+				<div class="col-sm-12">
+                	
+          
+                	
+					<div class="col-sm-6">
+
+						<div class="form-group">
+						<h1>
+						<a href="#"> <img src="assets/img/CustosLegis.jpg"
+							style="width: 200px; height: 150px">
+						</a>
+					    </h1>
+						</div>
+						
+						<div class="form-group">
+							<p>
+								Custos Legis <br> 7, OLD Post Office Street, 2nd Floor,
+								<br> Room Number 27, BBD Bagh, Kolkata,
+								<br> West Bengal 700001 India 
+								<br>+91 9830 231 890 , +91 8981 242 095 <br>custoslegisonline.com
+							</p>
+							
+						</div>
+						
+
+					</div>
+
+
+					<div class="col-sm-6">
+						<div class="form-group">
+								<h1>Quotation</h1>
+						</div>
+						<div class="form-group">
+						<h5>
+						Date : <label name ="invoiceDate" id="invoiceDate"></label><br>
+					    Invoice Details : <label name = "invoiceId" id="invoiceId"></label><br>
+					    Prepared By : <label name="lawerId" id="lawerId"></label><br>
+					    <label name="lawerName" id="lawerName"></label><br>
+					    </h5>
+						</div>
+						<div class="form-group">
+								<h5>
+						Customer Details : <label name="clientName" id="clientName"></label><br>
+						 <label name="addressLine1" id="addressLine1"></label> ;<label name="addressLine2" id="addressLine2"></label><br>
+						 <label name="state" id="state"></label><br><label name="pinCode" id="pinCode"></label><br>
+						 <label name="country" id="country"></label><br>Mob: <label name="clientPhone" id="clientPhone"></label><br>
+						 Email: <a name="clientEmail" id="clientEmail"></a>
+					</h5>
+						</div>
+								<b>Comments or special instructions :</b>
+						
+						<div class="form-group col-sm-6">
+					    <p id="quotaion_Notes">comments info </p>
+					   
+				       </div>
+						</div>
+						</div>
+						<div class="col-sm-12">
+						<div class="form-group">
+                       <table id="taskDetails" class="table table-striped custab">
+					<thead>
+					<tr>
+						<th>
+							Sl.No
+						</th>
+						<th>
+							Service Description
+						</th>
+						<th>
+							Rate
+						</th>
+						<th>
+							Quantity
+						</th>
+						<th>
+							Total
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+                </table>
+                <input type="hidden" name="clientId" id="clientId" />
+	            <input type="hidden" name="caseId" id="caseID" />
+	            <input type="hidden" name="invoiceID" id="invoiceID" />      
+               </div>
+               </div>
+				<div class="col-sm-12">
+				<div class="form-group col-sm-8">
+				</div>
+				<div class="form-group col-sm-2 text-right" >
+					<p>
+						<strong> Sub Total : <br> DISCOUNT : <br> TAX :
+							<br> Net Total : <br>
+						</strong>
+					</p>
+				</div>
+				<div class="form-group col-sm-2 text-right">
+					<strong id="amount"></strong><br>-<strong id="discountAmount"></strong><br>+<strong
+						id="serviceTaxAmount"></strong><br>Rs. <strong
+						id="totalAmountAfterServiceTax"></strong><br>
+				</div>
+			   </div>
+			   
+			   <div class="col-sm-12 ">
+				<div class="form-group col-sm-6">
+					<p>
+						<strong> If you have any questions concerning this
+							invoice please contact : </strong>
+					</p>
+				</div>
+				<div class="form-group col-sm-6">
+					<p>
+								Custos Legis <br> 7, OLD Post Office Street, 2nd Floor,
+								<br> Room Number 27, BBD Bagh, Kolkata,
+								<br> West Bengal 700001 India 
+								<br>+91 9830 231 890 , +91 8981 242 095 <br>custoslegisonline.com
+					</p>
+				</div>
+			</div>
+			 <div class="col-sm-12">
+				<div class="form-group col-sm-6">
+					<p>
+						<strong> <u>Terms & Conditions :</u>
+						</strong>
+					</p>
+				</div>
+			
+			<div class="form-group col-sm-6">
+				<p id="terms_Condition">
+						<strong> </strong>
+					</p>
+			
+			</div>  
+			 </div>  
+			 					
+					<div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+								<input class="btn btn-blue" type="button"
+									id="saveInvoicePDF" value="Save PDF">
+									<input class="btn btn-blue" type="button"
+									id="notifyInvoicePDF" value="Notify Client">
+								
+						</div>
+					  </div>
+					</div>
+					
+					
+				</form>
+				</div>
+		</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>		
+	
+

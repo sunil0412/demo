@@ -1,0 +1,228 @@
+
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+<!-- <div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback"> -->
+		<div class="row" id="form_area">
+		<div id="categorie_area" class="main_area">
+		<div class="row" id="form_area">
+       	<div class="col-sm-12">
+			<form id="inReviewContractClientForm">
+			<div class="col-sm-12" style="padding-left: 0px; width: 101.5%;">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>In Review Retainership Agreement List</h2>
+					</div>
+				</div>
+			</div>
+				<div class="datatable-scroller">
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="contractclienttable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead style="background:#323f3f; color:#fff;">
+										<tr>
+							
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						
+						</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-lg-12 text-right">
+				<input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
+<!-- <a data-toggle="modal"
+	href="InReviewContractClient.html#selectedContractDetailsByClientModal"><button
+		id="displayReviewModalButton" style="display: none;"
+		aria-hidden="true">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="selectedContractDetailsByClientModal"
+	class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Retainership Agreement Details</h4>
+			</div>
+			<div class="modal-body">
+				<form id="showSelectedContractDetailsForm" class="modal-scroller">
+					<input type="hidden" name=contract_Id id="Contract_Id" />
+					<div class="form-group">
+						<label for="CompanyName" class="col-sm-2 control-label-head">Company
+							Name</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="CompanyName" name="company_Name"
+								readonly="readonly" /></label>
+						</div>
+						<label for="PhoneLandNumber" class="col-sm-2 control-label-head">Company
+							Phone Number</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="PhoneLandNumber" 
+								name="phone_Number" readonly="readonly" /></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="CompanyAddress" class="col-sm-2 control-label-head">Company
+							Address</label>
+						<div class="col-sm-6">
+							<label class="control-label"><input type="text" id="CompanyAddress" 
+								name="company_Address" readonly="readonly" size="55"/></label>
+						</div>
+					</div>
+					<h5>Managing Director/CEO:</h5>
+					<div class="form-group">
+						<label for="DirectorFname" class="col-sm-2 control-label-head">First
+							Name*</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="DirectorFname" 
+								name="director_Fname" readonly="readonly" /></label>
+						</div>
+						<label for="DirectorLname" class="col-sm-2 control-label-head">Last
+							Name*</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="DirectorLname" 
+								name="director_Lname" readonly="readonly" /></label>
+						</div>
+					</div>
+					<h5>Authorized Officer Details:</h5>
+					<div class="form-group">
+						<label for="FirstName" class="col-sm-2 control-label-head">First
+							Name*</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="FirstName" 
+								name="first_Name" readonly="readonly" /></label>
+						</div>
+						<label for="LastName" class="col-sm-2 control-label-head">Last
+							Name*</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="LastName" 
+								name="last_Name" readonly="readonly" /></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="EMail" class="col-sm-2 control-label-head">E-Mail*</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="EMail" 
+								name="email_Id" readonly="readonly" size="55"/></label>
+						</div>
+						<label for="PhoneNumber" class="col-sm-2 control-label-head">Mobile
+							Number*</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="PhoneNumber" name="phone_Mobile"
+								readonly="readonly" /></label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="CorporateServices" class="col-sm-2 control-label-head">
+							Services</label>
+						<div class="col-sm-10">
+							<table class="table-bordered" id="contractServiceDetails">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="PaymentTerm" class="col-sm-2 control-label-head">Payment
+							Terms</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="PaymentTerm" name="payment_Term"
+								 readonly="readonly" /></label>
+						</div>
+						<label for="PaymentMethod" class="col-sm-2 control-label-head">Payment
+							Method</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="PaymentMethod" name="payment_Method"
+								readonly="readonly" /></label>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="ContractCreationDate" class="col-sm-2 control-label-head">Agreement
+							Creation Date</label>
+						<div class="col-sm-6">
+							<label class="control-label"><input type="text" id="ContractCreationDate"
+								name="contract_Creation_Date" readonly="readonly" size="28"/></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="ContractStartDate" class="col-sm-2 control-label-head">Agreement
+							Start Date</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="ContractStartDate"
+								name="contract_Start_Date" readonly="readonly" /></label>
+						</div>
+						<label for="ContractEndDate" class="col-sm-2 control-label-head">Agreement
+							End Date</label>
+						<div class="col-sm-4">
+							<label class="control-label"><input type="text" id="ContractEndDate" name="contract_End_Date"
+								readonly="readonly" /></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="Corporate_BriefDescription"
+							class="col-sm-2 control-label-head">Agreement Brief
+							Description</label>
+						<div class="col-sm-10">
+							<textarea id="Corporate_BriefDescription"
+								name="contract_BriefDescription" class="form-control"
+								readonly="readonly" rows="4" cols="98" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<div class="col-sm-4">
+					<input id="inReviewContractClientButton" class="btn btn-primary"
+						type="button" value="Edit" />
+				</div>
+				<div class="col-sm-4">
+					<button data-dismiss="modal" class="btn btn-primary" type="button">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->

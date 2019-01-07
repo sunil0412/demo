@@ -1,0 +1,72 @@
+
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+<div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback">
+			<form id="inProgressContractAdminForm">
+			<div class="col-sm-12" style="margin-top:10px;margin-bottom:10px;">
+				 <div class="col-md-12 navbar-dashbord">
+					 <div class="page-title">
+						 <h2>In Progress Retainership Agreement List</h2>
+					 </div>
+				 </div>
+			</div>
+				
+				<div class="datatable-scroller">
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="contracttable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr style="background:#323f3f;color:#fff;">
+							
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						
+						</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-12 text-right">
+ 				<div class="form-group">
+  					<input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+ 				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
+

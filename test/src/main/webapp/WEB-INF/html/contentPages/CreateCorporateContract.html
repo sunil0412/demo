@@ -1,0 +1,351 @@
+<style>
+input[type="text"] {
+	color: #6c3f04;
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<!-- <div class="stp_frms">
+	<section>
+		<h2 align="center">New Retainership Agreement</h2>
+		<div class="wizard"> -->
+<div class="row" id="form_area">
+<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-info btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Retainership Agreement Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Agreement Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Agreement Generation</p>
+						</div>
+					</div>
+				</div>
+		
+			<!-- <div class="tab-content">
+				<div class="tab-pane active" role="tabpanel" id="step1">
+					<div class="step1">
+						<div class="row">
+						<div class="scroll_inner_page">
+							<div class="col-lg-12">
+								<div class="showback"> -->
+				<div class="tab-content" id="processTab">
+					<div id="query-type" class="tab-pane fade active in">
+									<form role="form" id="createCorporateContractForm">
+									<div class="col-sm-12" style="padding-bottom:5px; padding-left:0px;">
+									<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>New Retainership Agreement</h2>
+									</div>
+									</div>
+									</div>
+										<h4>Client Details:</h4>
+										<h5>Company Details:</h5>
+										<input name="client_Id" type="hidden" id="Client_Id"/>
+										<div class="col-sm-6">
+										<div class="form-group">
+											<label>Company Name*</label>
+											<label class="control-label"><input type="text" class="form-control"
+													name="company_Name" id="CompanyName" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+										</div>
+										<div class="form-group">
+										<label for="CompanyAddress">Company Address*</label>
+												<label class="control-label"><input type="text" class="form-control"
+													id="Addr_Line2" name="addr_Line2" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+										<div class="col-sm-12"><label><b>Phone Number*</b></label></div>
+											<div class="col-sm-2">
+												<input type="text" class="form-control" style="opacity:0.7;background-color:#eee;"
+													value="+91" id="phstatecode" readonly="readonly" size="2" />
+											</div>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" style="opacity:0.7;background-color:#eee;"
+													name="phone_Land" id="PhoneLand" readonly="readonly"
+													maxlength="10" />
+											</div>
+										</div>
+										</div>
+										<div class="col-sm-12"><h5>Managing Director/CEO:</h5></div>
+										<div class="col-sm-6">
+										<div class="form-group">
+										<label>First Name*</label>
+												<label class="control-label"><input type="text" class="form-control"
+													name="director_Fname" id="DirectorFname"
+													style="opacity:0.7;background-color:#eee;"
+													readonly="readonly" size=50 /></label>
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+										<label>Last Name*</label>
+											<label class="control-label"><input type="text" class="form-control"
+													name="director_Lname" id="DirectorLname"
+													style="opacity:0.7;background-color:#eee;"
+													readonly="readonly" size=50 /></label>
+										</div>
+										</div>
+										
+										<div class="col-sm-12"><h5>Authorized Officer Details:</h5></div>
+										<div class="col-sm-6">
+										<div class="form-group">
+											<label>First Name*</label>
+											<label class="control-label"><input type="text" class="form-control"
+													name="first_Name" id="FirstName" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+											
+										</div>
+										<div class="form-group">
+											<label>E-Mail*</label>
+												<label class="control-label"><input type="text" class="form-control"
+													style="opacity:0.7;background-color:#eee;"
+													name="email_Id" id="EMail" readonly="readonly" size=50 /></label>
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+											<label>Last Name*</label>
+											
+												<label class="control-label"><input type="text" class="form-control"
+													style="opacity:0.7;background-color:#eee;"
+													name="last_Name" id="LastName" readonly="readonly" size=50 /></label>
+											
+										</div>
+										<div class="form-group">
+											<div class="col-sm-12" style="padding-left:0px;"><label><b>Mobile Number*</b></label></div>
+											<div class="col-sm-2" style="padding-left:0px;">
+												<input type="text" class="form-control"
+													style="opacity:0.7;background-color:#eee;"
+													value="+91" id="phcontrycode" readonly="readonly" size="2" />
+											</div>
+											<div class="col-sm-10" style="padding-right:0px;">
+												<input type="text" class="form-control"
+													name="phone_Mobile" id="PhoneNumber" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" maxlength="10" />
+											</div>
+										</div>
+										</div>
+										
+										<div class="col-sm-12"><h4>Agreement Details:</h4></div>
+										
+										<div class="col-sm-6">
+										<div class="form-group">
+										<label>Payment Terms</label>
+											
+												<select id="PaymentTerm" class="form-control"
+													onchange="changeContractTermValue(this.id);"
+													onblur="return onblurCreateContractForm();">
+													<option value="" label="---Select---" />
+												</select> <span id="paymenttermSpan" style="color: red;"></span> <input
+													type="hidden" name="payment_Term" id="hiddenPaymentTerm" />
+											
+										</div>
+										<div class="form-group">
+										<label>Payment Method</label>
+											
+												<select id="PaymentMethod" class="form-control"
+													onchange="changeContractModeValue(this.id);"
+													onblur="return onblurCreateContractForm();">
+													<option value="" label="---Select---" />
+												</select> <input type="hidden" name="payment_Method"
+													id="hiddenPaymentMethod" /> <span id="paymentmethodSpan"
+													style="color: red;"></span>
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+										<label >Agreement Brief Description</label>
+										<textarea name="contract_BriefDescription" class="form-control"
+													id="ContractBriefDescription" maxlength="150" rows="5"
+													cols="98" onblur="return onblurCreateContractForm();"
+													style="resize: none;"></textarea>
+												<span id="contractbriefdescriptionSpan" style="color: red;"></span>
+											
+										</div>
+										</div>
+										
+										<div class="col-sm-12"><h5>Services:</h5></div>
+										<div class="form-group">
+											<table style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+												<tr>
+													<td>
+														<table id="servicetable" class="display"
+															style="cellspacing: 1; width: 100%">
+															<thead>
+																<tr>
+																	<th>SELECT</th>
+																	<th>SERVICE</th>
+																	<th>Others Attribute</th>
+																	<th>RATE</th>
+																	<th>TERM</th>
+																</tr>
+
+															</thead>
+														</table>
+													</td>
+												</tr>
+											</table>
+											<input type="hidden" name="corporate_Service"
+												id="hiddenCorporateService" /> <span
+												id="corporateserviceSpan" style="color: red;"></span>
+										</div>
+										
+										<h5>Agreement Period Details:</h5>
+										<div class="col-sm-6">
+										<div class="form-group">
+										<label>Agreement Start Date</label>
+												<input name="contract_Start_Date" id="startdatepicker"
+													class="form-control" placeholder="DD-MM-YY"
+													onblur="return onblurCreateContractForm();" /> <span
+													id="startdatepickerSpan" style="color: red;"></span>
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+										<label>Agreement End Date</label>
+										<input name="contract_End_Date" id="enddatepicker"
+													class="form-control" placeholder="DD-MM-YY"
+													onblur="return onblurCreateContractForm();" /> <span
+													id="enddatepickerSpan" style="color: red;"></span>
+											
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+											<label>Company Logo</label>
+											
+												<input type="file" name="company_Logo" id="Company_Logo"
+													class="form-control" accept=".jpeg,.jpg,.png" />
+											
+											 <div id="myProgress"  style="display: none">
+												<label id="progressLabel">Uploaded</label>
+											</div> 
+										</div>
+										<span id="browseSpan" style="color: red;"></span>
+										</div>
+				
+										
+										
+										<div class="col-lg-12 text-right">
+											<label class="col-sm-2 control-label"> </label>
+											<!-- <div class="col-sm-13"> -->
+											<input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+												<button id="createCorporateContractButton"
+													class="btn btn-blue" type="button"
+													onclick="validateCreateContractForm();">Next</button>
+													
+													
+											<!-- </div> -->
+										</div>
+
+<!-- <div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b> Create Retainership Agreement </b>  </h1>
+		<p>
+		Dear Corporate Client, <br /> <br />This page contains many fields which you need to enter in order to pace a retainership agreement.<br />There are three categories i.e. Company Details, Managing Director/CEO and Authorized Officer Details. There are other fields which you need to enter according to your agreement needs.
+		</p>
+		</div>
+		</div>
+	</div> -->
+
+									</form>
+									</div>
+									</div>
+							<!-- 	</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<div class="clearfix"></div>
+		</div>
+	<!-- </section> -->
+</div>
+<script>
+$(function() {
+    $("#startdatepicker").datepicker({
+        dateFormat: 'dd-mm-yy', 
+        minDate:  0,
+        onSelect: function(date){
+        	$('#enddatepicker').datepicker('destroy');
+            var date2 = $('#startdatepicker').datepicker('getDate');
+            date2.setDate(date2.getDate()+90);
+            $('#enddatepicker').datepicker({
+                dateFormat: 'dd-mm-yy', 
+                minDate: date2,
+            });
+        }
+    });
+})
+	function getService() {
+		$('#hiddenCorporateService').val("");
+		$("input[type=checkbox]:checked").each(
+				function() {
+					$('#hiddenCorporateService').val(
+							$('#hiddenCorporateService').val() + " "
+									+ $(this).val());
+				});
+	}
+	
+	 $("input:file").change(function(objEvent) {
+		 var objFormData = new FormData();
+		    // GET FILE OBJECT 
+		    var objFile = $(this)[0].files[0];
+		    // APPEND FILE TO POST DATA
+		    objFormData.append('file', objFile);
+		    objFormData.append('clientId', $("#Client_Id").val());
+		    $.ajax({
+		        url: '/LegalBell/uploadCompanyLogo',
+		        type: 'POST',
+		        contentType: false,
+		        data: objFormData,
+		        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+		        processData: false,
+		        success: function(data) {}
+		    });
+		    document.getElementById("myProgress").style.display = "block";
+		   $("#browseSpan").text("Brwose again to change company logo");
+		});
+</script>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	var typContract = "NewContract";
+	localStorage.setItem("typContract", typContract);
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>

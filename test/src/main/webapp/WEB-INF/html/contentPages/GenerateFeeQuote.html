@@ -1,0 +1,634 @@
+ <!-- <script type="text/javascript" src="assets/legalbellscript/estimateEvents.js"></script>  -->
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area" style="min-height: 1032px;">
+				<div class="process">
+				<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Generate</p>
+						</div>
+							<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+</div>
+				<div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in">
+				<form id="createFeeQuoteForm">
+				<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Generate Fee Quote</h2>
+            </div> 
+          </div>
+          
+                	<div class="col-sm-12">
+					<div class="col-sm-6">
+
+						<div class="form-group">
+							<label>Client Name</label>
+							<input type="text" name="clientName" id='clientNameId' readonly="readonly"
+									class='form-control'
+									placeholder="Client Name" style="opacity:0.7;background-color:#eee;"/>
+								<span id="clientNameSpan" style="color: red;"></span>	
+							
+						</div>
+						<div class="form-group">
+							<label>Phone No</label>
+							
+								<input type="text" name="clientPhone" id='clientPhoneId' readonly="readonly"
+									class='form-control' placeholder="Client Phone" style="opacity:0.7;background-color:#eee;"/>
+								<span id="clientPhoneSpan" style="color: red;"></span>	
+							
+						</div>
+						</div>
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label>Email Id</label>
+							<input type="text" name="clientEmail" id='clientEmailId' readonly="readonly"
+									class='form-control'placeholder="Client Email" style="opacity:0.7;background-color:#eee;"/>
+								<span id="clientEmailSpan" style="color: red;"></span>
+						</div>
+						<div class="form-group">
+								<label>Service Id</label>
+								<input type="text" name="serviceId" id='serviceId' readonly="readonly"
+									class='form-control' placeholder="Service Id" style="opacity:0.7;background-color:#eee;"/>
+									 <span id="serviceIdSpan" style="color: red;"></span>
+						</div>
+					</div>
+
+</div>
+			<div class="col-sm-12" style="margin:7px 0px 0px 15px;">
+					
+			<a  href="#" data-toggle="modal" data-target="#rateModal" style="color: #fff; background-color: #34495e; padding: 5px;">Load Rate Chart</a>			
+						
+			</div>
+			<div class="col-sm-12">			
+						<div class="col-sm-6">
+						<div class="form-group">
+						<table id="quoteItems" class="table table-striped custab">
+								
+						</table>
+						</div>
+						</div>
+						<div class="col-sm-6">
+						<div class="form-group">
+						<table id="invoiceItems" class="table table-striped custab">
+								
+						</table>
+						</div>
+						</div>
+						
+							<span id="TaskDetailsSpan" style="color: red;"></span>
+						
+					
+</div>
+				<div class="col-sm-12">
+
+                      <div class="col-sm-6">
+						<!-- <div class="col-lg-12"> -->
+							<div class="col-sm-6" style="padding-left:0px;">
+							    <div class="form-group">
+								<label>Gross Total</label>
+								<input type="TEXT" name='amount' id='grossTotal'
+										class='form-control'placeholder="Gross Total" readonly="readonly" />
+								</div>
+							</div>
+							<div class="col-sm-6" style="padding-right:0px;">
+							<div class='form-group'>
+								<label>Net Total</label>
+								<input type="text" name='totalAmountAfterServiceTax'
+											id='netTotal' class='form-control' value=""
+											placeholder="Net Total" readonly="readonly" />
+                                </div>
+                             </div>
+							<!-- </div> -->
+						</div>
+							<div class="col-sm-6">
+							<!-- <div class="col-sm-12"> -->
+							<div class="col-sm-6" style="padding-left:0px;">
+								<div class="form-group">
+								<label>Less: Discount</label>
+								<input type="text" name='discount' id='discountPer' class='form-control' value="0" placeholder="%"
+											readonly="readonly" />
+											
+								</div>
+								</div>
+								<!-- <div class="col-sm-4">
+								<div class="form-group">
+								<input type="TEXT" name='discountAmount' id='discountAmount'
+											class='form-control' size='10' value=""
+											placeholder="Discount" readonly="readonly" />
+											</div>
+											</div> -->
+								
+								<div class="col-sm-6" style="padding-right:0px;">
+								<div class="form-group">
+								<label>After Discount Total</label>
+								<input type="TEXT" name='totalAmountAfterDiscount'
+											id='afterDiscount' class='form-control' size='10' value=""
+											placeholder="After Discount" readonly="readonly" />
+									
+								</div>
+								</div>
+								<!-- </div> -->
+								</div>
+								
+								<div class="col-sm-6">
+								<!-- <div class="col-sm-12"> -->
+								<div class="col-sm-6" style="padding-left:0px;">
+								<div class='form-group'>
+								<label>Add: Service Tax</label>
+								<input type="TEXT" name='serviceTax' id='percentage'
+											class='form-control' size='' value="" placeholder="%"
+											readonly="readonly" />
+								</div>
+								</div>
+								<div class="col-sm-6" style="padding-right:0px;">
+								<div class='form-group'>
+								<label>After: Service Tax</label>
+								<input type="TEXT" name='serviceTaxAmount' id='serviceTax'
+											class='form-control' size='' value="" placeholder="Tax"
+											readonly="readonly" />
+								</div>	
+							    </div>
+							    
+							    
+								
+						<!-- </div> -->
+						</div>
+										
+				<div class="col-sm-6">
+						<!-- <div class="col-lg-12"> -->
+							<div class="col-sm-6" style="padding-left:0px;">
+							<div class="form-group">
+							<label >Gross Total</label>
+							<input type="TEXT" name='iamount' id='grossTotalI'
+										class='form-control'placeholder="Gross Total" readonly="readonly" />
+							</div>
+							</div>
+							<div class="col-sm-6" style="padding-right:0px;">
+							<div class='form-group'> 
+							<label>Net Total</label>
+							<input type="text" name='itotalAmountAfterServiceTax'
+											id='netTotalI' class='form-control' 
+											placeholder="Net Total" readonly="readonly" />
+                            </div> 
+							</div>
+						<!-- </div> -->
+					</div>
+						<div class="col-sm-6">
+						<!-- <div class="col-lg-12"> -->
+						<div class="col-sm-6" style="padding-left:0px;">
+								<div class="form-group">
+								<label>Less: Discount</label>
+								<input type="text" name='idiscount' id='discountPerI' class='form-control' size='10' value="0" placeholder="%"
+											readonly="readonly" />
+											
+								</div>
+							</div>
+							<!-- <div class="col-sm-4">
+								<div class="form-group">
+							<input type="TEXT" name='idiscountAmount' id='discountAmountI'
+											class='form-control' size='10' value=""
+											placeholder="Discount" readonly="readonly" />
+											</div>
+											</div> -->
+							<div class="col-sm-6" style="padding-right:0px;">	
+								<div class="form-group">
+								<label>After Discount Total</label>
+								<input type="TEXT" name='itotalAmountAfterDiscount'
+											id='afterDiscountI' class='form-control' size='10' value=""
+											placeholder="After Discount" readonly="readonly" />
+									
+								</div>
+								</div>
+								<!-- </div> -->
+						</div>
+						<div class="col-sm-6">	
+						<!-- <div class="col-lg-12">	 -->
+						<div class="col-sm-6" style="padding-left:0px;">
+								<div class='form-group'>
+								<label>Add: Service Tax</label>
+								<input type="TEXT" name='iserviceTax' id='percentageI'
+											class='form-control' size='' value="" placeholder="%"
+											readonly="readonly" />
+								</div>
+						</div>
+						<div class="col-sm-6" style="padding-right:0px;">
+								<div class='form-group'>
+								<label>After: Service Tax</label>
+								<input type="TEXT" name='iserviceTaxAmount' id='serviceTaxI'
+											class='form-control' size='' value="" placeholder="Tax"
+											readonly="readonly" />
+									
+							    </div>
+							    
+							    
+						</div>		
+						<!-- </div> -->
+
+						</div>	
+		</div>
+		
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Special Notes</label>
+								<textarea name="quotaion_Notes" class="form-control"
+										id="quotaion_Notes" maxlength="250" rows="9"onblur="return FeeQuoteSubmit()"></textarea>
+									<span id="quotaion_NotesSpan" style="color: red;"></span>
+							</div>
+</div>
+<div class="col-sm-6">
+							<div class="form-group">
+								<label>Terms and Conditions</label>
+								<textarea name="terms_Condition" class="form-control" id="terms_Condition" maxlength="250" rows="9"onblur="return FeeQuoteSubmit()"></textarea>
+									<span id="terms_ConditionSpan" style="color: red;"></span>
+								
+							</div>
+						</div>
+	</div>
+						
+						<input type="hidden" name="serviceName" id="serviceName" /> 
+						<input type="hidden" name="addressLine1" id="addressLine1" />
+						<input type="hidden" name="addressLine2" id="addressLine2" />
+						<input type="hidden" name="pinCode" id="pincode" /> 
+						<input type="hidden" name="country" id="country" />
+						<input type="hidden" name="state" id="state" /> 
+						<input type="hidden" name="type" id="pageId" />  
+						<input type="hidden" name="createdBy" id="createdBy" />  <br> 
+						<input type="hidden" name="clientId" id="clientId" /> <br>
+						
+					<div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+                        <button class="btn btn-blue" type="button" onclick="redirectToDashBoard()">Cancel</button> <!--  id="cancelEstimateButton" -->
+						<button class="btn btn-blue" type="button" id="submitFeeQuoteButton">Submit</button>
+								
+						</div>
+					  </div>
+					</div>
+					
+					
+				</form>
+				</div>
+		</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>		
+	
+
+<script>
+$(document).ready(function(){
+	var i=1;
+	$(".addCF").click(function(){
+		if($("#sl_No1").val()==i){
+		if($("#task1").val()!="" && $("#qty1").val()!=""){
+		$("#taskDetails").append('<tr><td><input type="text" size="1" value="'+(i+1)+'" name="slNo" class="slNo form-control" readonly="readonly"/><input type="hidden" name="taskId" id="taskId" value="" required /></td><td><input class="task form-control" id="task'+(i+1)+'" name="description" size="8" placeholder="Task Name" onblur="return createQuotationForm();"/></td> <td> <input class="rate form-control" id="rate" name="rate" size="5" placeholder="Rate" onblur="return createQuotationForm();"/> </td><td><input class="qty form-control" name="qty" id="qty'+(i+1)+'" size="8" placeholder="Quantity" onblur="return createQuotationForm();"/></td><td><input class="total form-control" id="total" name="total" size="5" placeholder="Total" onblur="return createQuotationForm();" readonly="readonly"/> </td><td><input type="button" class="remCF" value="Remove" class="btn btn-primary" style="width: 120px;"></td></tr>');
+	    i++;
+		}
+		else {
+		 document.getElementById("TaskDetailsSpan").textContent = "*Please Enter the Task Name or Rate or Qty!!!!";
+		}
+		}
+		else if($('#'+'task'+(i)).val()!="" && $('#'+'qty'+(i)).val()!=""){
+		$("#taskDetails").append('<tr><td><input type="text" size="1" value="'+(i+1)+'" name="slNo" class="slNo form-control" readonly="readonly"/><input type="hidden" name="taskId" id="taskId" value="" required /></td><td><input class="task form-control" id="task'+(i+1)+'" name="description" size="8" placeholder="Task Name" onblur="return createQuotationForm();"/></td> <td> <input class="rate form-control" id="rate" name="rate" size="5" placeholder="Rate" onblur="return createQuotationForm();"/> </td><td><input class="qty form-control" name="qty" id="qty'+(i+1)+'" size="8" placeholder="Quantity" onblur="return createQuotationForm();"/></td><td><input class="total form-control" id="total" name="total" size="5" placeholder="Total" onblur="return createQuotationForm();" readonly="readonly"/> </td><td><input type="button" class="remCF" value="Remove" class="btn btn-primary" style="width: 120px;"></td></tr>');
+		    i++;
+			}
+			else {
+			 document.getElementById("TaskDetailsSpan").textContent = "*Please Enter the Task Name or Rate or Qty!!!!";
+			}
+		
+		});
+    $("#taskDetails").on('click','.remCF',function(){
+    	i--;
+        $(this).parent().parent().remove();
+    });
+});
+
+function createQuotationForm(){
+	 document.getElementById("TaskDetailsSpan").textContent ="";
+	 document.getElementById("quotaion_NotesSpan").textContent ="";
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback">
+			<h4>
+				<i></i>Generate Fee Quote
+			</h4>
+			<div class="col-lg-12">
+				<form id="createFeeQuoteForm">
+					<div class="col-lg-5">
+						<div class="form-group">
+							<label for="customer" class="col-sm-2 col-sm-2 control-label">Client
+								Name</label>
+							<div class="col-sm-10">
+								<input type="text" name='client' id='clientNameTextBoxId'
+									class='clientName form-control' size='10' value=""
+									placeholder="Client Name" onblur="return FeeQuoteSubmit()" />
+									 <span id="clientSpan" style="color: red;"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="customer" class="col-sm-2 col-sm-2 control-label">Client
+								Name</label>
+							<div class="col-sm-10">
+							<input type="text" name="clientName" id='clientNameId' readonly="readonly"
+									class='form-control' size='10' value=""
+									placeholder="Client Name" onblur="return FeeQuoteSubmit()"/>
+								<span id="clientNameSpan" style="color: red;"></span>	
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="customer" class="col-sm-2 col-sm-2 control-label">Phone
+								No</label>
+							<div class="col-sm-10">
+								<input type="text" name="clientPhone" id='clientPhoneId' readonly="readonly"
+									class='form-control' size='10' value=""
+									placeholder="Client Phone" onblur="return FeeQuoteSubmit()"/>
+								<span id="clientPhoneSpan" style="color: red;"></span>	
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="customer" class="col-sm-2 col-sm-2 control-label">Email
+								Id</label>
+							<div class="col-sm-10">
+								<input type="text" name="clientEmail" id='clientEmailId' readonly="readonly"
+									class='form-control' size='10' value=""
+									placeholder="Client Email" onblur="return FeeQuoteSubmit()"/>
+								<span id="clientEmailSpan" style="color: red;"></span>	
+							</div>
+						</div>
+
+					</div>
+
+
+					<div class="col-lg-7">
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label for="case" class="col-sm-2 col-sm-2 control-label">Service
+									Id</label>
+								<div class="col-sm-10">
+									<input type="text" name="serviceId" id='serviceId' readonly="readonly"
+									class='form-control' size='10' value=""
+									placeholder="Service Id" onblur="return FeeQuoteSubmit()"/> <span id="serviceIdSpan" style="color: red;"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<table id="taskDetails" class="table table-hover">
+								<tr>
+									<th colspan="6">Item Details</th>
+								</tr>
+								<tr>
+									<th>Sl No.</th>
+									<th>Item Name <font color='red'>*</font></th>
+									<th>Rate <font color='red'>*</font></th>
+									<th>Service Qty <font color='red'>*</font></th>
+									<th>Total</th>
+									<th colspan="2">Operation</th>
+								</tr>
+		<tr style="display: none;">
+		<td><input type="text" id="ssl_No1" value="0" size="1" readonly="readonly" name='slNo' class="slNos form-control"/> <input type="hidden" name="taskId"
+										id="staskId" value="0" required /></td>
+		<td>
+			<input class="task form-control" size="8" id="sdesc" name="description" value="default"/>
+		</td>
+		<td>
+			<input class="rate form-control" size="5" id="srate" name="rate" value="0"/>
+		</td>
+		<td>
+			<input class="qty form-control" size="8" id="sqty" name="qty" value="0"/>
+		</td>
+		<td>
+			<input class="total form-control" size="5" id="stotal" name="total" value="0"/>
+		</td>
+		<td><input type="button" class="addCF" value="Add More" class="btn btn-primary"></td>
+	</tr>
+		<tr>
+		<td><input type="text" id="sl_No1" value="1" size="1" readonly="readonly" name='slNo' class="slNo form-control"/> <input type="hidden" name="taskId"
+										id="taskId" value="1" required /></td>
+		<td>
+			<input class="task form-control" size="8" id="task1" name="description" onblur="return createQuotationForm();" placeholder="Task Name" />
+		</td>
+		<td>
+			<input class="rate form-control" size="5" id="rate" name="rate" onblur="return createQuotationForm();" placeholder="Rate" />
+		</td>
+		<td>
+			<input class="qty form-control" size="8" id="qty1" name="qty" onblur="return createQuotationForm();" placeholder="Quantity" />
+		</td>
+		<td>
+			<input class="total form-control" size="5" id="total" name="total" onblur="return createQuotationForm();" placeholder="Total" readonly="readonly"/>
+		</td>
+		<td><input type="button" class="addCF" value="Add More" style="width: 120px;"></td>
+	</tr>
+							</table>
+							<span id="TaskDetailsSpan" style="color: red;"></span>
+						</div>
+					</div>
+
+					<div class="col-lg-12">
+						<div class="col-lg-5">
+							<div class="form-group">
+								<label for="Special Notes"
+									class="col-sm-2 col-sm-2 control-label">Special Notes</label>
+								<div class="col-sm-4">
+									<textarea name="quotaion_Notes" style="resize: none; width:285%"
+										id="quotaion_Notes" maxlength="250" rows="6" cols="80" onblur="return FeeQuoteSubmit()"></textarea>
+									<span id="quotaion_NotesSpan" style="color: red;"></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="Terms_Condition"
+									class="col-sm-2 col-sm-2 control-label">Terms and
+									Conditions</label>
+								<div class="col-sm-4">
+									<textarea name="terms_Condition" style="resize: none; width:285%"
+										id="terms_Condition" maxlength="250" rows="6" cols="80" onblur="return FeeQuoteSubmit()"></textarea>
+									<span id="terms_ConditionSpan" style="color: red;"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="form-group">
+								<label for="grossTotal" class="col-sm-2 col-sm-2 control-label">Gross
+									Total</label>
+								<div class="col-sm-3">
+									<input type="TEXT" name='amount' id='grossTotal'
+										class='form-control' size='10' value=""
+										placeholder="Gross Total" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class='form-group'>
+								<label for='discountAmount'
+									class="col-sm-2 col-sm-2 control-label">Less: Discount
+								</label>
+								<div class='col-md-3'>
+									<div class='form-group internal'>
+										<input type="TEXT" name='discount' id='discountPer'
+											class='form-control' size='10' value="0" placeholder="%"
+											readonly="readonly" />
+									</div>
+								</div>
+								<div class='col-md-4'>
+									<div class='form-group internal'>
+										<input type="TEXT" name='discountAmount' id='discountAmount'
+											class='form-control' size='10' value=""
+											placeholder="Discount" readonly="readonly" />
+									</div>
+								</div>
+							</div>
+							<div class='form-group'>
+								<label class='col-sm-2 col-sm-2 control-label'
+									for='afterDiscount'>After Discount Total</label>
+								<div class='col-md-3'>
+									<div class='form-group internal'>
+										<input type="TEXT" name='totalAmountAfterDiscount'
+											id='afterDiscount' class='form-control' size='10' value=""
+											placeholder="After Discount" readonly="readonly" />
+									</div>
+								</div>
+							</div>
+
+							<div class='form-group'>
+								<label class='col-sm-2 col-sm-2 control-label' for='percentage'>Add:
+									Service Tax</label>
+
+								<div class='col-md-3'>
+									<div class='form-group internal'>
+										<input type="TEXT" name='serviceTax' id='percentage'
+											class='form-control' size='' value="" placeholder="%"
+											readonly="readonly" />
+									</div>
+								</div>
+
+								<div class='col-md-4'>
+									<div class='form-group internal'>
+										<input type="TEXT" name='serviceTaxAmount' id='serviceTax'
+											class='form-control' size='' value="" placeholder="Tax"
+											readonly="readonly" />
+									</div>
+								</div>
+							</div>
+
+							<div class='form-group'>
+								<label class='col-sm-2 col-sm-2 control-label' for="netTotal">Net
+									Total</label>
+								<div class='col-md-3'>
+									<div class='form-group internal'>
+										<input type="TEXT" name='totalAmountAfterServiceTax'
+											id='netTotal' class='form-control' size='10' value=""
+											placeholder="Net Total" readonly="readonly" />
+									</div>
+								</div>
+                           </div>
+						</div>
+					</div>
+					<input type="hidden" id="autoSgstclienNameId" /><input
+						type="hidden" name="serviceName" id="serviceName" /> <input
+						type="hidden" name="addressLine1" id="addressLine1" /> <input
+						type="hidden" name="addressLine2" id="addressLine2" /> <input
+						type="hidden" name="pinCode" id="pincode" /> <input type="hidden"
+						name="country" id="country" /> <input type="hidden" name="state"
+						id="state" /> <input type="hidden" name="type" id="pageId" />  <input
+						type="hidden" name="createdBy" id="createdBy" />  <br> 
+						<input
+						type="hidden" name="clientId" id="clientId" /> <br>
+						<input
+						type="hidden" name="serviceId" id="serviceId" /> <br>
+					<div class="col-lg-11">
+						<div class="form-group">
+							<label class="col-sm-2 col-sm-2 control-label"> </label>
+							<div class="col-sm-10">
+								<button class="btn btn-primary pull-left" type="button"
+									id="submitFeeQuoteButton">Submit</button>
+								<button class="btn btn-primary pull-right" type="button"
+									id="cancelEstimateButton">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+</div>
+ -->

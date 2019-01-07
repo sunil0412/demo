@@ -1,0 +1,124 @@
+<div class="col-sm-12">
+	<h4 style="background:#182832; color:#fff;">Task Details:</h4>
+	<form>
+	<div class="col-sm-6">
+			<div class="form-group">
+                 <label>Task ID:</label>
+                 <input type="text"  name="task_Id" id="taskId" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+             <div class="form-group">
+             	<label>Client ID:</label>
+             	<input type="text" name="client_Id" id="clientId" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div> 
+             <div class="form-group">
+             	<label>Case ID:</label>
+                <input  type="text" name="case_Id" id="caseId" readonly="readonly"   class="form-control"  type="number" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+             </div>
+             <div class="col-sm-6">
+             <div class="form-group">
+             <label>Task Name:</label>
+                <input type="text"  name="task_Name" id="taskName" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div> 
+             <div class="form-group">
+             <label>Task Description:</label>
+                <input type="text"  name="task_Description" id="taskDescription" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+             </div>
+    </form> 
+	</div>  
+	
+	
+	
+	
+	
+	
+	
+<div class="row" id="form_area">
+<div id="categorie_area" class="main_area">
+				
+<div class="tab-content" id="processTab">
+<div id="query-type" class="tab-pane fade active in">
+<div class="row">
+			
+	 <form id="taskResponseEditorForm">
+	 		<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Task Response</h2>
+            </div>
+            </div>
+            <input type="hidden" name="task_Id" id="taskId" />
+            <input type="hidden"
+		name="client_Id" id="clientId" />
+		
+            
+            <input type="hidden" name="case_Id" id="caseId" />
+            <input type="hidden" name="task_Name" id="taskName" />
+             <input type="hidden" name="task_Description" id="taskDescription" />
+			 
+				               
+           
+         
+        
+        <!-- <div class="col-sm-12"> -->
+					<div class="form-group">
+						<label for="taskResponse" style="margin-top:5px;">Task Response</label>
+						<div>
+     				<textarea name="task_Response" id="taskResponse" onblur="OnBlurtaskResponse();" rows="6" cols="80" style="resize:none;" maxlength="250"></textarea>
+     </div></div>
+    <!--  </div> -->
+			<div><span id="taskResponseSpan" style="color: red;"></span></div>
+			
+		<div class="col-sm-12" align="right">
+				<div class="form-group">
+		<label class="col-sm-1 col-sm-2 control-label"> </label>
+		<div class="col-sm-10">	
+		<button id="taskResponseEditorButton" class="btn btn-blue" type="button" onclick="ValidateTaskResponse();" >Submit</button>
+          </div></div></div> 
+        </form>
+	</div>
+
+</div>
+</div>
+<div class="clearfix"></div>
+			</div>
+		</div>	
+
+<nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addGenericAttachmentTask" onclick="createGenericAttachmentTask('pageContentLoad','GenericAttachmentTask')" align="center">Add Attachment</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>
+
+
+
+
+
+
+
+
+  <script>
+
+function ValidateTaskResponse(){
+	//var data = CKEDITOR.instances.editor.getData();
+	
+	//document.getElementById("taskResponse").value=data;
+ 	var taskRes = document.getElementById("taskResponse").value;
+ 	if(taskRes == ""){
+ 		document.getElementById("taskResponseSpan").textContent = "*Please Enter Some Task Response";	
+ 	}else{
+ 		ajaxPost("taskResponseEditorForm", "/finalResponseTask");
+ 	}		
+ }
+ 
+function OnBlurtaskResponse(){
+ 	document.getElementById("taskResponseSpan").textContent = "";	
+ }
+</script>
+</html> 
+

@@ -1,0 +1,144 @@
+ <div class="container-2">
+	<div id="page-wrapper">
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+<!-- ------The Menu Icons start Here------ -->
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateConciliationMediation')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Conciliation Mediation Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','ConciliationMediationEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Conciliation Mediation Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Document Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review and Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+<!-- ------The Content area start Here------ -->
+						<form role="form" id="conciliationEditorForm">
+						<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>This is What We Know About Your Conciliation So For</h2>
+									</div>
+								</div>
+						</div>
+					<div class="col-sm-6" style="margin-top:10px;">
+              	 		<div class="col-sm-12">
+								<div class="form-group">
+									<label>Category:</label>
+									 <input type="text" class="form-control" name="conciliation_Category" id="ConciliationCategory" style="opacity:0.7;background-color:#eee;"  readonly/>
+									
+									 <label>Sub-Category:</label>
+									 <input type="text" class="form-control" name="conciliation_SubCategory" id="ConciliationSubCategory" style="opacity:0.7;background-color:#eee;"  readonly/>
+								</div>
+								<div class="form-group">
+									<label>Brief Description:</label>
+									 <textarea class="form-control" name="conciliation_BriefDescription" rows="6" id="conciliationBriefDescription" style="opacity:0.7;background-color:#eee;" readonly/></textarea>
+								</div>
+						</div>
+						</div>
+						<div class="col-sm-6" style="margin-top:10px;">
+              	 		<div class="col-sm-12">
+								<div class="form-group">
+									<label>Adversory name:</label>&nbsp;&nbsp;
+									<input type="text" class="form-control" name="adversory_Name" id="AdversoryName" style="opacity:0.7;background-color:#eee;" readonly/>
+									
+									<label>Adversary Email:</label>&nbsp;&nbsp;
+									<input type="text" class="form-control" name="adversory_Email" id="AdversoryEmail"style="opacity:0.7;background-color:#eee;"  readonly/>
+									
+									<label>Adversary Mobile:</label>
+									<input type="text" class="form-control" name="adversory_Mobile" id="AdversoryMobile"style="opacity:0.7;background-color:#eee;" readonly/>								
+								</div>
+								<div class="form-group">
+									<label>Adversory Full Address:</label>
+									<textarea class="form-control" name="adversory_Address" id="AdversoryAddress" rows="4" style="opacity:0.7;background-color:#eee;" readonly  /></textarea>
+								</div>
+							</div>
+						</div>
+
+
+			<div class="col-sm-12">
+                    	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Give Detailed Information About Your Conciliation</h2>
+            </div> 
+          </div>
+                    </div>
+                    <div class="col-sm-12">
+                	<div class="form-group">
+
+ <textarea id="editor" class="form-control" rows="9"
+										placeholder="Please enter your case related text here...">
+            						</textarea>
+									<span id="myspan" style="color: red;"></span>
+            <input type="hidden" name="conciliation_Details" id="conciliationDetails" onblur="return onBlurCaseEditor()" />
+            <input type="hidden" name="client_Id" id="Client_Id" />
+              <input type="hidden" name="conciliation_Id" id="Conciliation_Id" />
+              					</div>
+</div>
+
+<div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row">
+								
+								<input id="conciliationEditorButton"  type="button" onclick="ValidateConciliationDesc();" class="btn btn-blue" value="Next">
+</div>
+</div>
+</div>
+
+							<script>
+							$("#editor").Editor();
+							</script>
+							
+						</form>
+						
+						<div class="clearfix"></div>
+			
+			</div>
+		</div>
+	</div>
+
+</div>
+						<script>
+						function ValidateConciliationDesc(){
+							//var data = CKEDITOR.instances.editor.getData();
+							var data=$("#editor").Editor("getText");
+							document.getElementById("conciliationDetails").value=data;
+							var caseDesc = document.getElementById("conciliationDetails").value;
+							if(caseDesc == ""){
+								document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Dispute Request";	
+							}else{
+								//$('#loaderModal').show();
+								ajaxPost('conciliationEditorForm','/saveConciliation');
+							}
+						}
+						</script>

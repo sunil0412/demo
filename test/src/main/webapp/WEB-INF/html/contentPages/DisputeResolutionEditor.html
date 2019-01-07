@@ -1,0 +1,177 @@
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle">
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Dispute Resolution Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Dispute Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+<div id="query-details" class="tab-pane fade active in"> 
+              	
+              	<form id="disputeEditorForm">
+                 
+              	<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            		<div class="page-title">
+              		<h2>This is What We Know About Your Dispute So Far</h2>
+            		</div> 
+          			</div>
+          		</div>
+          <div class="col-sm-6" style="margin-top:10px;">
+              	 <div class="col-sm-12">
+                	<div class="form-group">
+                      <label>Category</label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="text" name="dispute_Category" id="DisputeCategory" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                    <!-- </div>  
+                    
+                    <div class="form-group"> -->
+                      <label>Sub-Category</label>
+                      <input type="text" name="dispute_SubCategory" id="DisputeSubCategory" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                    </div>
+                    <div class="form-group">
+                      <label>Brief Description</label>
+                      <p><textarea class="form-control" rows="6" placeholder=""
+                       name="dispute_BriefDescription" id="disputeBriefDescription"
+						style="opacity:0.7;background-color:#eee;"	readonly />
+					</textarea></p>
+                    </div>  
+                </div></div>
+                
+              <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-12">	
+          		<div class="form-group">
+                      <label>Adversory Name</label>
+                      <input type="text" name="adversory_Name" id="AdversoryName" class="form-control"
+						style="opacity:0.7;background-color:#eee;"	readonly />
+                    <!-- </div>  
+                    
+                    <div class="form-group"> -->
+                      <label>Adversary Email</label>
+                     
+                      <input type="text" name="adversory_Email" id="AdversoryEmail" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                   <label>Adversary Mobile</label>
+                   &nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="text" name="adversory_Mobile" id="AdversoryMobile" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                    </div>  
+                    
+                     <div class="form-group">
+                      <label>Adversory Full Address</label>
+                      <p><textarea class="form-control" rows="4" placeholder=""
+                       name="adversory_Address" id="AdversoryAddress"
+						style="opacity:0.7;background-color:#eee;"	readonly />
+</textarea></p>
+                    </div>
+                </div>
+                </div>
+                
+                
+                <div class="col-sm-12">
+                    	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Give Detailed Information About Your Dispute		</h2>
+            </div> 
+          </div>
+                    </div>
+                
+          
+                <div class="col-sm-12">
+                	<div class="form-group">
+                      <!-- <label>Lorem Ipsum is simply dummy text</label> -->
+                      <textarea id="editor" class="form-control" rows="9" placeholder=""
+></textarea>
+                
+                
+                
+                
+                
+                	
+            <script>
+               
+				$("#editor").Editor();
+			
+		 </script>
+									<span id="myspan" style="color: red;"></span>
+            <input type="hidden" name="dispute_Details" id="disputeDetails" onblur="return onBlurCaseEditor()" />
+            <input type="hidden" name="client_Id" id="Client_Id" />
+              <input type="hidden" name="dispute_Id" id="Dispute_Id" />
+										</div>
+										</div>
+                
+                <div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <!--<input type="submit" value="Back" class="btn btn-blue">-->
+                  <input type="button" id="caseEditorButton" onclick="ValidateDisputeDesc();"
+                  value="Next" class="btn btn-blue">
+               <!--    <input type="button" onclick="" value="Back" class="btn btn-blue">
+               --></div>
+            </div>
+              </div>
+           </form>
+           
+                
+              </div>
+              
+             <div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+
+<script>
+
+function ValidateDisputeDesc(){
+	//var data = CKEDITOR.instances.editor.getData();
+	var data=$("#editor").Editor("getText");
+	document.getElementById("disputeDetails").value=data;
+	var caseDesc = document.getElementById("disputeDetails").value;
+	if(caseDesc == ""){
+		document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Dispute Request";	
+	}else{
+		//$('#loaderModal').show();
+		ajaxPost('disputeEditorForm','/saveDispute');
+	}
+}
+</script>

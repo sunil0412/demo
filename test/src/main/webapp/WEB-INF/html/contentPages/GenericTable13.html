@@ -1,0 +1,166 @@
+<script type="text/javascript"> 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+<!-- <div class="col-sm-12">
+<h2 style="color:#fff; background: #333333">Detail</h2>
+</div> -->
+<div class="row" id="form_area">
+<div class="main_area" id="categorie_area">
+<div class="tab-pane fade active in">
+       <form id="adminNewCaseForm">
+         <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Details</h2>
+            </div>
+            </div>
+          
+        </div>
+        <!-- <div class="row" id="legal_advisory"> -->
+        	<div class="col-sm-12" style="margin-top: 7px;">
+        	<div class=" table-responsive">
+            <table class="table table-striped custab" id="genericDataTable" >
+    <thead style="background:#323f3f; color:#fff;">
+
+						<tr>
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+			             	<th>Details</th>
+				            <th>Action</th>
+						</tr>
+					</thead>
+            
+            
+    </table>
+</div>
+           </div>
+           <!-- <div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Counsel List</h2>
+					</div>
+				</div>
+
+			</div> -->
+			<div class="row" >
+        	<div class="col-md-12 navbar-dashbord" style="margin-top:10px;">
+            <div class="page-title">
+             	 <h2>Counsel List</h2>
+            </div>
+            </div>
+          
+        </div>
+			
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12" style="margin-top: 7px;">
+			<div class=" table-responsive">
+				<table class="table table-striped custab" id="genericDataTable1">
+					<thead>
+
+						<tr>
+							<th>ID</th>
+				            <th>Registered On</th>
+				            <th>User Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						</tr>
+					</thead>
+
+
+				</table>
+</div>
+			</div>
+        	
+            <div class="col-md-12 text-right">
+				<div class="form-group">
+
+
+
+					<input type="button" onclick="redirectToDashBoard()" value="Back"
+						class="btn btn-blue"> 
+						
+					<input type="button"
+						id="openCasePopoupButton" value="Next" class="btn btn-blue">
+
+				</div>
+			</div>
+        </form>
+        <span id="newCaseAdminSpan" style="color: red;"></span>
+     
+
+ </div>
+    <div class="clearfix"></div>
+  </div>
+</div> 
+
+<a data-toggle="modal" href="NewCaseAdmin.html#addCaseComment"><button
+		id="popupCaseLink" style="display: none;">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="addCaseComment" class="modal fade">
+					
+						<div class="modal-dialog"> 
+						
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Case Assignment</h4>
+							</div>
+							<div class="modal-body">
+				<form id="popUpCaseComment">
+
+
+				
+						<div class="form-group">
+							<label>Cases:</label>
+							<textarea class="form-control" id="cseIDs" name="cseID"></textarea>
+						</div>
+				
+						<div class="form-group">
+							<label>Counsel:</label>
+							<input class="form-control" type="text"	id="lwyrIDs" name="lwyrIds" />
+						</div>
+				
+						<div class="form-group">
+							<label>Add Comment:</label>
+							<textarea class="form-control" name="commentID" id="commentIDs"></textarea>
+							
+							
+							<label>apply to all</label>
+							<input type="checkbox" name="getcaseComment" id="getcseComment" value="1">
+							
+						</div>
+						<!-- <div class="col-md-12 text-right">
+              					<div class="form-group">
+				<input type="button" id="assignCMDButton" value="Assign" class="btn btn-blue">
+				</div>
+				</div> -->
+				</form>
+			</div>
+
+							<div class="modal-footer">
+								<input type="button" id="assignCMDButton" value="Assign" class="btn btn-blue">
+								<button data-dismiss="modal" class="btn btn-blue"
+									type="button">Cancel</button>
+							</div>
+							</div>
+						</div>
+					
+					
+				</div>

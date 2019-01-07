@@ -1,0 +1,595 @@
+<div class="container-2">
+      <div id="page-wrapper">
+        
+        <div class="row" id="form_area">
+          <div id="categorie_area" class="main_area">
+            <div class="process">
+              <div class="process-row nav nav-tabs">
+                <div class="process-step">
+                  <button type="button" class="btn btn-info btn-circle" data-toggle="tab" href="#query-type"><i class="fa fa-question fa-3x"></i></button>
+                  <p>Select Query Type</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#query-details"><i class="fa fa-file-text-o fa-3x"></i></button>
+                  <p>Query Details</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#document-upload"><i class="fa fa-upload fa-3x"></i></button>
+                  <p>Document Upload</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#downloads"><i class="fa fa-download fa-3x"></i></button>
+                  <p>Review and Downloads</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#payment"><i class="fa fa-check fa-3x"></i></button>
+                  <p>Payment Quote</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content">
+            	
+              <div id="query-type" class="tab-pane fade active in">
+              	
+          
+                <form role="form" id="createQueryForm">
+                <div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>New Tax Advisory Flow</h2>
+            </div> 
+          </div>
+                </div>
+                  <div class="col-md-6">
+                  
+                  <input name="client_Id" type="hidden" id="Client_Id"/>
+				 <input name="query_Id" type="hidden" id="Query_Id"/> 
+				 <input name="advice_For" type="hidden" id="Advice_For"/>
+                    <!-- <div class="form-group">
+                      <label>Type</label>
+                      <select class="form-control" id="querytype"
+								onChange="changeType(this.id)" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								<span id="qryTypeSpan" style="color: red;"></span>
+						</select>
+                    </div>
+<div><input name="query_Type" type="hidden" id="queryType" /></div> -->
+ <div id="selectQueryCategory" class="form-group">
+                      <label>Category</label>
+                      <select class="form-control" id="qryCat" onchange="getQuerySubCategory(this.id,'/getquerysubcategory');" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								<!-- <form:options items="${queryCategoryMap}" />  -->
+							</select>
+							<span id="qryCatSpan" style="color: red;"></span>
+                    </div>
+                    <div><input name="query_Category" type="hidden" id="queryCategory"/></div>
+                    <div id="selectQuerySubCategory" class="form-group">
+                      <label>Sub-Category</label>
+                      <select class="form-control" id="qrySubCat" onchange="QrySubCatValue(this.id);" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+							</select>
+							<span id="querySubCatSpan" style="color: red;"></span>
+                    </div>
+                  
+                  <div><input name="query_SubCategory" type="hidden" id="querySubCategory"/></div>
+                  
+                  <!-- <div id="selectCaseId" class="form-group">
+                      <label>Case ID</label>
+                      <select class="form-control" id="cseId" onchange="getCaseID(this.id);" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								</select>
+							<span id="caseIdSpan" style="color: red;"></span>
+                    </div>
+                    <div><input name="case_Id" type="hidden" id="caseId" /></div> -->
+                  </div>
+                  <div class="col-md-6">
+                    <div id="selectQueryBriefDescription" class="form-group">
+                      <label>Brief Description</label>
+                      <textarea id="QueryBrief"  name="query_BriefDescription" class="form-control"
+                       rows="5" placeholder="" 
+                      onblur="return onBlurCreateQuery()"></textarea>
+						<span id="queryBriefSpan" style="color: red;"></span>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <div class="form-group">
+                  	  <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+                      <input type="button" id="createQueryButton" onclick="ValidateCreateQuery();" value="Next" class="btn btn-blue">
+                      
+                    </div>
+                  </div>
+                </form>
+                
+              </div>
+              
+              <!-- <div id="query-details" class="tab-pane fade"> 
+              	
+              	 <form role="form" id="queryEditorForm">
+                 
+              	<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>This is What We Know About Your Query So For</h2>
+            </div> 
+          </div>
+          
+                	<div class="form-group">
+                      <label>Type</label>
+                      <p><input type="text" name="query_Type" id="queryType" size="18"
+												readonly /></p>
+                    </div>
+	            <div class="form-group">
+                      <label>Category</label>
+                      <p><input type="text" name="query_Category" id="queryCategory"
+												size="15" readonly /</p>
+                    </div>  
+                    
+                    <div class="form-group">
+                      <label>Sub-Category</label>
+                      <p><input type="text" name="query_SubCategory" id="querySubCategory"
+												size="35" readonly /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Brief Description</label>
+                      <p> <textarea class="form-control" name="query_BriefDescription" id="queryBriefDescription"
+												readonly rows="9" placeholder=""></textarea></p>
+
+                    </div>  
+                </div>
+                
+                
+                	<div class="col-sm-12">
+                    	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Give Detailed Information About Your Query</h2>
+            </div> 
+          </div>
+                    </div>
+                
+          
+                <div class="col-sm-12">
+                	<div class="form-group">
+                      <label>Lorem Ipsum is simply dummy text</label>
+                      <textarea id="editor" class="form-control" rows="9" placeholder=""
+></textarea><span id="myspan" style="color: red;"></span> 
+									<input
+										type="hidden" name="advice_For" id="adviceFor"/>
+									<input
+										type="hidden" name="query_Description" id="queryDescription"
+										onblur="return onBlurQueryEditor()" /> <input type="hidden"
+										name="query_Id" id="QueryId" /> <input type="hidden"
+										name="client_Id" id="ClientId" /> <input type="hidden"
+										name="case_Id" id="caseId" />
+                    </div>
+
+                </div>
+                
+                <div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <input type="button" id="queryEditorButton" value="Back" 
+              	  class="btn btn-blue" onclick="ValidateQueryDesc();">
+                  <input type="submit" value="Next" class="btn btn-blue">
+              </div>
+            </div>
+              </div>
+           </form>
+                
+              </div>
+              <div id="document-upload" class="tab-pane fade"> 
+              
+              	<form role="form" id="uploadQryForm">
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Upload Supporting Documents</h2>
+            </div> 
+          </div>
+                    <div class="form-group">
+                    <input type="hidden" name="case_Id" />
+                      <label>Query Id</label>
+                      <input name="query_Id" id="QueryId"
+							class="form-control" placeholder="Query Id" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                      <label>Client Id</label>
+                      <input name="client_Id" id="ClientId"
+							class="form-control" placeholder="Client Id" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                      <label>File upload</label>
+                       <div class="input-group image-preview">
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> don't give a name === doesn't send on POST/GET
+                <span class="input-group-btn">
+                    image-preview-clear button
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    image-preview-input
+                    <div id="fileandbox" class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" accept=".doc,.pdf,.docx">
+                    </div>
+                </span>
+            </div>/input-group image-preview [TO HERE] 
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Document Upload Status</h2>
+            </div> 
+          </div>
+                    
+                    <div class="">
+                    	<table class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>File Name</th>
+            <th>File Size</th>
+            <th>Action</th>
+            <th>Upload Status</th>
+        </tr>
+    </thead>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+    </table>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <div class="form-group">
+                      
+                        
+                        <input type="button" id="uploadQueryButton" onclick="UploadQueryFile();" 
+                        value="Next" class="btn btn-blue">
+                     
+                    </div>
+                  </div>
+                </form>
+              
+                              
+              </div>
+              <div id="downloads" class="tab-pane fade"> 
+              	<form role="form" id="clientDetailsForm">
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Client Details</h2>
+            </div> 
+          </div>
+                    
+                    <div class="form-group">
+                      <label>Customer Type</label>
+                      <p><input type="text" name="client_Type" size="35"
+															readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Name</label>
+                      <p><input type="text" name="name" size="50" readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Mobile</label>
+                      <p><input type="text" name="phone_Mobile" size="35" readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Email Id</label>
+                      <p><input type="text" name="email_Id" size="35" readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group text-right">
+                      
+                        
+                        <input id="queryPDF" type="button" value="Download PDF" class="btn btn-blue">
+                     
+                    </div>
+                    
+                  </div>
+                  </form>
+                  <div class="col-md-6">
+                  <form role="form" id="queryDetails">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Query Details</h2>
+            </div> 
+          </div>
+                    
+                    <div class="form-group">
+                      <label>Query Id</label>
+                      <p><input type="text" name="query_Id" size="35" id="QueryId"
+													readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Query Type</label>
+                      <p><input type="text" name="query_Type" size="35" readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Query Category</label>
+                      <p><input type="text" name="query_Category" size="35"
+													readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Query Sub-Category</label>
+                      <p><input type="text" name="query_SubCategory" size="35"
+													readonly="readonly" /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Query Brief Description</label>
+                      <p> <textarea name="query_BriefDescription" readonly="readonly" class="form-control" rows="9" placeholder=""
+></textarea></p>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label>Query Description</label>
+                      <p><div class="col-sm-12" id="QueryDescription"
+												style="height: 100%; width: 100%"></div></p>
+                    </div>
+                    
+                    <div class="">
+                    <label>File Information</label>
+                    	<table id="uploadedFileDetails" class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+           
+            
+    </table>
+
+                  </div> 
+                  <input type="hidden" name="advice_For" id="AdviceFor" />
+										<input type="hidden" name="client_Id" id="ClientId" /> <input
+											type="hidden" name="case_Id" />
+											
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <div class="form-group">
+                      
+                        <input id="editQueryDetails" type="button" value="Edit"
+						onclick="ajaxPost('queryDetails','/updateQuery');" class="btn btn-blue">
+                        <input type="button" id="showSlaButton" value="Next" class="btn btn-blue">
+                     
+                    </div>
+                  </div>
+                </form>
+              
+              </div>
+              <div id="payment" class="tab-pane fade"> 
+              		<form>
+                  
+                  <div class="col-md-12">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Slachart</h2>
+            </div> 
+          </div>
+                         
+                    <div class="">
+                   
+                    	<table class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Parent ID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+            </tr>
+            
+           
+            
+    </table>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <div class="form-group">
+                      
+                        <input type="submit" value="Edit" class="btn btn-blue">
+                        <input type="submit" value="Next" class="btn btn-blue">
+                     
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+           
+      page-wrapper END
+    </div>
+    
+    
+    <script>
+    function ValidateQueryDesc(){
+	var data=$("#editor").Editor("getText");
+	//var data = CKEDITOR.instances.editor.getData();
+	document.getElementById("queryDescription").value=data;
+	var queryDesc = document.getElementById("queryDescription").value;
+	if(queryDesc == ""){
+		document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Query";	
+	}else{
+		 //$('#loaderModal').show();
+		ajaxPost('queryEditorForm','/saveQuery');
+	}		
+}
+</script>
+
+for upload
+
+<script type="text/javascript">
+function UploadQueryFile(){
+	var Query_Id =$("#QueryId").val();
+	var Client_Id =$("#ClientId").val();
+	 //$('#loaderModal').show();
+	ajaxPost('uploadQryForm','/uploadquerydocument');
+	//getQueryDescriptionInClientpopUp(Query_Id);
+	//getUploadedFileDetailsInQueryReview(Client_Id,Query_Id);
+}
+var fileArray=[];
+var totalFileSize=0;
+$("input:file").change(function(objEvent) {
+	var objFormData = new FormData();
+    // GET FILE OBJECT 
+    var objFile = $(this)[0].files[0];
+    totalFileSize=totalFileSize+objFile.size;
+   if(totalFileSize>5000000){
+	   totalFileSize=totalFileSize-objFile.size;
+ 	   $("#browseSpan").text("File Size Exceeded");
+ 	   $("#fileToUpload").val("");
+    }else{
+    item={}
+    var fname = String(objFile.name.replace(/[^A-Z0-9]+/ig, ""));
+    item["filenames"] = fname.replace(/\s\s+/g, ' ');
+    item["filesizes"] = String(objFile.size);
+    item["filestatus"] = "Uploaded";
+    fileArray.push(item);
+    $('#filetable').dataTable().fnDestroy();
+    $("#filetable").dataTable({
+    	"bProcessing" : true,
+		"sort" : "position",
+		"bStateSave" : false,
+		"iDisplayLength" : 5,
+		"iDisplayStart" : 0,
+		"aaData" : fileArray,
+		"aoColumns" : [ {
+			"mData" : "filenames"
+		}, {
+			"mData" : "filesizes"
+		},{"mData" : null,
+			render : function(
+					data, type,
+					full, meta) {
+				return '<input type="button" name="removeButton" id="'+ data.filenames + '-'+ data.filesizes +'" value="Remove">';
+			}
+		},{"mData" : null,
+			render : function(
+					data, type,
+					full, meta) {
+				
+				return '<div id="count'+ data.filenames +'">'+ data.filestatus +'</div>';
+			}
+		}
+		]
+	});
+    
+    // APPEND FILE TO POST DATA
+    objFormData.append('file', objFile);
+    objFormData.append('clientId', $("#ClientId").val());
+    objFormData.append('queryId', $("#QueryId").val());
+    $.ajax({
+        url: '/LegalBell/uploadQueryFile',
+        type: 'POST',
+        contentType: false,
+        data: objFormData,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {}
+    });
+    $("#browseSpan").text("*Click on Choose File again to upload more files..");
+   }
+});
+
+
+$(document).on('click','#filetable tbody tr td input',function(){
+	var btnID = $(this).attr('id');
+	var fileInfo=btnID.split("-");
+    var filname=String(fileInfo[0]);
+    var lastThree = filname.substr(filname.length - 3);
+    if(lastThree=="pdf" || lastThree=="doc"){
+    	filname = filname.substring(0, filname.length - 3);
+    	filname=filname+"."+lastThree;
+    }else{
+    var lastFour = filname.substr(filname.length - 4);
+    filname = filname.substring(0, filname.length - 4);
+    filname=filname+"."+lastFour;
+    }
+    var objFormData1 = new FormData();
+    objFormData1.append('filename', filname);
+    objFormData1.append('clientId', $("#ClientId").val());
+    objFormData1.append('queryId', $("#QueryId").val());
+    $.ajax({
+        url: '/LegalBell/deleteQueryFile',
+        type: 'POST',
+        contentType: false,
+        data: objFormData1,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {}
+    });
+    $(this).closest('tr').remove();
+    var a = parseInt(btnID)-1;
+    fileArray.splice(a,1);
+    totalFileSize=totalFileSize-fileInfo[1];
+    $("#browseSpan").text("*Click on Choose File again to upload more files..");
+ });
+</script> -->
+<!-- end -->
+
+
+ </div>
+            <div class="clearfix"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+    

@@ -1,0 +1,263 @@
+ <div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+
+<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','UploadContractSupportingFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div class="tab-content" id="processTab">
+<div id="document-upload" class="tab-pane fade active in">
+
+	<form id="uploadContractManagementForm">
+		<div class="col-md-6">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Upload Contract Documents</h2>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Contract Id</label> <input type="text" class="form-control"
+					name="contract_Id" id="ContractId" placeholder=" Contract Id"
+					readonly="readonly" style="opacity:0.7;background-color:#eee;">
+			</div>
+			<div class="form-group">
+				<label>Client Id</label> <input type="text" name="client_Id"
+					id="ClientId" class="form-control" placeholder=" Client Id"
+					readonly="readonly" style="opacity:0.7;background-color:#eee;">
+			</div>
+			<div class="form-group">
+				<label>File upload</label>
+			
+				<div id="fileandbox" class="form-group"></div>
+				<input type="file" name="fileToUpload" id="fileToUpload"
+					class="form-control" accept=".jpg,.jpeg,.png,.docx,.doc,.xls,.xlsx,.pdf,.ppt,.pptx,.zip,.ZIP,.rtf" multiple="multiple">
+
+			</div>
+			<span id="browseSpan" style="color: red;"></span>
+			<div id="fileandbox" class="form-group"></div>
+			<input type="hidden" value="1" id="lastdiv" />
+		</div>
+		
+		<div class="col-md-6">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Document Upload Status</h2>
+				</div>
+			</div>
+
+			<div class="">
+				<table class="table table-striped custab" id="filetable">
+					<thead>
+
+						<th>File Name</th>
+						<th>File Size</th>
+						<th>Action</th>
+						<th>Upload Status</th>
+					</thead>
+
+
+				</table>
+
+			</div>
+		
+		<div class="col-md-12 text-right">
+			<div class="form-group">
+
+
+				<input type="button" value="Next" class="btn btn-blue"
+					onclick="UploadContractFile();">
+
+			</div>
+		</div>
+	</div>
+
+</form>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+	function UploadContractFile() {
+		var Case_Id = $("#ContractId").val();
+		var Client_Id = $("#ClientId").val();
+		//$('#loaderModal').show();
+		ajaxPost('uploadContractManagementForm', '/uploadcontractdocument');
+		getServiceDescriptionInClientpopUp(Client_Id, Case_Id);
+		getUploadedFileDetailsOfService(Client_Id, Case_Id,
+				"ServiceFileHandlerInReview", "Temp");
+	}
+
+	var fileArray = [];
+	var totalFileSize = 0;
+	$("input:file")
+			.change(
+					function(objEvent) {
+						
+						// GET FILE OBJECT
+						var fileobj= null;
+   						fileobj=$((this).files);
+   						for(var i=0; i<fileobj.length; i++){
+						var objFormData = new FormData();
+						
+						var objFile = fileobj[i]; //$(this)[0].files[0];
+						totalFileSize = totalFileSize + objFile.size;
+						if (totalFileSize > 5000000) {
+							totalFileSize = totalFileSize - objFile.size;
+							$("#browseSpan").text("File Size Exceeded");
+							$("#fileToUpload").val("");
+						} else {
+							item = {}
+							var fname = String(objFile.name.replace(
+									/[^A-Z0-9]+/ig, ""));
+							item["filenames"] = fname.replace(/\s\s+/g, ' ');
+							item["filesizes"] = String(objFile.size);
+							item["filestatus"] = "Uploaded";
+							fileArray.push(item);
+							$('#filetable').dataTable().fnDestroy();
+							$("#filetable")
+									.dataTable(
+											{
+												"bProcessing" : true,
+												"sort" : "position",
+												"bStateSave" : false,
+												"iDisplayLength" : 5,
+												"iDisplayStart" : 0,
+												"aaData" : fileArray,
+												"aoColumns" : [
+														{
+															"mData" : null, /* "filenames", */
+															render : function(data, type, full, meta){
+																	 return '<input type="text" class="form-control" value="'+data.filenames+'" style="opacity:0.7;background-color:#eee;" readonly>';
+																}
+														},
+														{
+															"mData" : "filesizes"
+														},
+														{
+															"mData" : null,
+															render : function(
+																	data, type,
+																	full, meta) {
+																return '<input type="button" name="removeButton" id="'+ data.filenames +'" value="Remove">';
+															}
+														},
+														{
+															"mData" : null,
+															render : function(
+																	data, type,
+																	full, meta) {
+
+																return '<div id="count'+ data.filenames +'">'
+																		+ data.filestatus
+																		+ '</div>';
+															}
+														} ]
+											});
+
+							// APPEND FILE TO POST DATA
+							objFormData.append('file', objFile);
+							objFormData
+									.append('clientId', $("#ClientId").val());
+							objFormData.append('serviceId', $("#ContractId")
+									.val());
+							$.ajax({
+								url : '/LegalBell/uploadServiceFile',
+								type : 'POST',
+								contentType : false,
+								data : objFormData,
+								//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+								processData : false,
+								success : function(data) {
+								}
+							});
+							$("#browseSpan")
+									.text(
+											"*Click on Choose File again to upload more files..");
+						}
+   						}
+					});
+
+	$(document).on(
+			'click',
+			'#filetable tbody tr td input',
+			function() {
+				var btnID = $(this).attr('id');
+				var filname = String(btnID);
+				var lastThree = filname.substr(filname.length - 3);
+				if (lastThree == "pdf" || lastThree == "doc") {
+					filname = filname.substring(0, filname.length - 3);
+					filname = filname + "." + lastThree;
+				} else {
+					var lastFour = filname.substr(filname.length - 4);
+					filname = filname.substring(0, filname.length - 4);
+					filname = filname + "." + lastFour;
+				}
+				var objFormData1 = new FormData();
+				objFormData1.append('filename', filname);
+				objFormData1.append('clientId', $("#ClientId").val());
+				objFormData1.append('serviceId', $("#ContractId").val());
+				$.ajax({
+					url : '/LegalBell/deleteServiceFile',
+					type : 'POST',
+					contentType : false,
+					data : objFormData1,
+					//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+					processData : false,
+					success : function(data) {
+					}
+				});
+				$(this).closest('tr').remove();
+				var a = parseInt(btnID) - 1;
+				fileArray.splice(a, 1);
+				totalFileSize = totalFileSize - fileInfo[1];
+				$("#browseSpan").text(
+						"*Click on Choose File again to upload more files..");
+			});
+</script>
+

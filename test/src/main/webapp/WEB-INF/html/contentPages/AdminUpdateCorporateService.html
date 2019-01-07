@@ -1,0 +1,77 @@
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<!-- <div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback">
+			<h4>
+				<i class="fa fa-angle-right">Update Corporate Service Description</i>
+			</h4> -->
+	<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+			<form id="adminUpdateCorporateServiceForm">
+			<div class="col-sm-12">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Update Corporate Service Description</h2>
+            </div>
+            </div>
+        	</div>	
+				<div class="form-group">
+					<label for="ServicesCode">Corporate Service</label>
+					<!-- <div class="col-sm-2"> -->
+						<select id="Services_Code" onchange="getCorporateService(this.id,'updateServiceDescription');" class="form-control" style="width: 30%;">
+							<option value="" label="---Select---" />
+						</select> <span id="corporateServiceSpan" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				<div class="form-group" id="updateServiceTableDiv" style="display: none">
+						<label for="CorporateServiceDescription">Corporate Service Description</label>
+						<div class="col-sm-10">
+							<table class="table-bordered" id="updateServiceDescription" style="width: 50%;">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-sm-12 text-right" id="updateCorporateServiceButtons" style="display: none">
+					<!-- <div class="col-sm-4"> -->
+					<input class="btn btn-blue" type="button" id="CounselDashboard"
+						style="background: #323f3f; color: #fff;" value="Cancel" />
+					<!-- </div> -->
+				<!-- <div class="col-sm-4"> -->
+				<button id="adminUpdateSlaDescriptionButton" class="btn btn-blue" type="button"
+						style="background: #323f3f; color: #fff;"
+						onclick=" ajaxPost('adminUpdateCorporateServiceForm', '/updateServiceDescription')">Update</button>		
+				<!-- </div> -->
+				<!--  <div class="col-sm-4">
+				</div> -->
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	</div>
+</div>
+<script>
+	$(function() {
+		$("#Valid_From").datepicker({
+			dateFormat : 'yy-mm-dd',
+			minDate : '0'
+		});
+		$("#Valid_To").datepicker({
+			dateFormat : 'yy-mm-dd',
+			minDate : '0'
+		});
+	});
+</script>

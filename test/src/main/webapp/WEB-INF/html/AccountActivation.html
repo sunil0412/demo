@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="assets/img/favicon.ico">
+<title>LegalBell</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+</head>
+
+<body role="document">
+<!-- Navbar Start -->
+<div id="pageHeader">
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="#"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="pull-left hidden-xs"><a href="#"><img src="assets/img/logo.png" alt=""></a></li>
+        <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                    	<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                    	<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                       
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+        <li class="login_area pull-right"><!-- <a href="#" class="btn btn-log"> Login</a> --> <a href="#" class="btn btn-log" onclick="loadRegistrationPage();"> Sign Up</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+<!--Header Top Start-->
+<div id="contentPage">
+<div class="container-fluid" id="cont_section"> 
+
+    	<div class="row"> 
+        	
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 main_area">
+            	<div class="col-sm-12">
+                	<div class="headline"><h1>Get Legal Help Online.</h1></div>
+                </div>
+            	<div class="col-sm-12 landing_panel_area">
+                	<div class="row">
+                    	<div class="col-sm-4">
+                        	<div class="landing_panel">
+                	<div class="ico_area"><img src="assets/img/Individual.png" alt=""></div>
+                   			<h2>Individual</h2>
+                            <p>Legal help for Individual Users</p>
+<button id="individualSubmitButton" class="btn btn-primary" type="button" id="IndClientLoginButton" onclick="clientLoginForm();">Login</button>
+							<!-- <div class="btn-more"><a href="#">Read More</a></div> -->
+                   
+                </div>
+                        </div>
+                <div class="col-sm-4">
+                	<div class="landing_panel">
+                	<div class="ico_area"><img src="assets/img/Corporate.png" alt=""></div>
+                   			<h2>Corporate</h2>
+                            <p>Legal help for Corporate Users</p>
+<button id="individualSubmitButton" class="btn btn-primary" type="button" id="CorpClientLoginButton" onclick="clientLoginForm();">Login</button>
+							<!-- <div class="btn-more"><a href="#" class="btn btn-log"> Login</a><a href="#">Read More</a></div> -->
+                   
+                </div>
+                </div>
+                <div class="col-sm-4">
+                	<div class="landing_panel">
+                	<div class="ico_area"><img src="assets/img/Councel.png" alt=""></div>
+                   			<h2>Counsel</h2>
+                            <p>Here to Help you Legally</p>
+<button id="individualSubmitButton" class="btn btn-primary" type="button" id="CouncelLoginButton" onclick="councelLoginForm();">Login</button>
+							<!-- <div class="btn-more"><a href="#">Read More</a></div> -->
+                   
+                </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            
+        </div>
+
+</div>
+</div>
+<div id="footer">
+<div class="container-fluid" id="footer_area"> 
+
+    	<div class="row">
+        	<div class="col-sm-12 text-right">
+            	<p>Powered by <a href="#">Kirat IT Solutions</a>. 2016 © All right reserved.</p>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="forgotModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Forgot Password ?</h4>
+			</div>
+			<form id="forgotPasswordForm">
+				<div class="modal-body">
+					<p>Enter your e-mail address below to reset your password.</p>
+					<input type="hidden" name="user_Identity" placeholder="Email"
+						required="required" autocomplete="off" id="user_Identityf"
+						class="form-control placeholder-no-fix">
+					<input type="text" name="user_Id" placeholder="Email"
+						required="required" autocomplete="off" id="forgotPassword"
+						class="form-control placeholder-no-fix">
+						<span id="forgotPasswordSpan" style="color:red;"></span>
+				</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-theme" type="button">Cancel</button>
+					<button class="btn btn-theme" id="forgotPasswordButton"
+						type="button" onClick="validateForgotPassword();">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<a hidden href="#" data-toggle="modal" data-target="#timerModal" id="showtimer">Session End Popup</a>
+<div class="modal fade" id="timerModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button hidden type="button" id="hideTimer" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Alert</h3>
+        
+      </div>
+      <div class="modal-body">
+       <!-- <div class="loading-clock"></div> -->
+       <div style="float:left; margin:10px;">
+       	<img src="assets/imgs/Warning_sign.png" height="80" width="80" alt=""/>
+       	</div>
+       	<div style="margin:20px 15px;">
+       	<div>your session will be expired in <b><span id="timer">30:00</span></b></div>
+		<div>Please click <b><a id="initializeTimer">here</a></b> to extend your session, or you will be signout by the system.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Bootstrap core JavaScript --> 
+<script src="assets/js/jquery.1.11.3.min.js"></script> 
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/bootstrap.min.js"></script> 
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/Home.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/commonAjax.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/validation.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/query.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/case.js"></script>
+<script type="text/javascript" src="assets/legalbellscript/client.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="assets/dataTableSource/datatables_export_tools.min.css"/>
+ 
+<script type="text/javascript" src="assets/dataTableSource/datatables_export_tools.min.js"></script>
+
+<link href="assets/editor_2/editor.css" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript"
+	src="assets/dataTableSource/jquery.dataTables.js"></script>
+	<script>
+	$(document).ready(function() {
+		var url = window.location.href;
+		$("footer").load("/LegalBell/html/layout/GenericFooter.html");
+		document.body.style.background = "url('assets/img/body_bg.png')";
+		$("#pageHeader").html("");
+		$("#contentPage").html("");
+		//$("#pageHeader").load("/LegalBell/html/layout/BlankHeader.html");
+		$("#contentPage").load("/LegalBell/html/contentPages/ActivationForm.html",
+				function() {
+			
+			var url = window.location.search;
+			url = url.replace("?", '');
+			var arr = url.split('=');
+			$("#ActivationId").val(arr[1]);
+			ajaxPost("NoForm", "/activateAccounts/" + arr[1]);
+		});
+		
+	});
+	</script>
+	<script>
+$(document).on('click',"#redirectLoginPage",function() {
+	//loadGenericPagesOnLogout();
+	window.location.href="http://LegalBell.custoslegisonline.com";
+});
+</script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Dashboard">
+<meta name="keyword"
+	content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<link rel="shortcut icon" type="image/x-icon"
+	href="panel/assets/img/kirat.ico">
+<title>Legal Bell</title>
+<link href="panel/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    Custom CSS
+    <link href="panel/assets/css/style_new_qry.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="panel/assets/css/bootstrap.css" />
+<link rel="stylesheet" href="panel/assets/font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" rel="stylesheet"
+	href="panel/assets/css/style_social.css" />
+<link rel="stylesheet" href="panel/assets/css/style1.css" />
+<link rel="stylesheet" href="panel/assets/css/nx_css.css" />
+<link rel="stylesheet" href="panel/assets/css/style-responsive.css" />
+<link rel="stylesheet" type="text/css"
+	href="panel/assets/js/simpleTicker.css" />
+<link rel="stylesheet" href="panel/assets/css/font-awesome.css" />
+<link rel="stylesheet" href="panel/search/jquery-ui.css" />
+
+
+
+
+
+
+
+
+<script src="panel/search/jquery-1.12.4.js"></script>
+<script src="panel/search/jquery-ui.js"></script>
+
+<script type="text/javascript"
+	src="panel/dataTableSource/jquery-1.10.2.min.js" /></script>
+<script type="text/javascript" src="panel/assets/js/jquery.min1.3.js"></script>
+<script type="text/javascript" src="panel/assets/js/jquery.min.js"></script>
+<link rel="stylesheet" href="panel/assets/css/custom.css" />
+<script src="panel/assets/js/metisMenu.min.js"></script>
+<script src="panel/assets/js/custom.js"></script>
+
+
+<script type="text/javascript" src="panel/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="panel/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script type="text/javascript"
+	src="panel/assets/js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript"
+	src="panel/assets/js/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="panel/assets/js/jquery.sparkline.js"></script>
+<link rel="stylesheet" href="panel/assets/css/jquery-ui.css" />
+<script src="panel/assets/js/jquery-ui.js"></script>
+<script src="panel/assets/js/common-scripts.js"></script>
+<script type="text/javascript" src="panel/assets/js/commonAjax.js"></script>
+<script type="text/javascript" src="panel/assets/js/validation.js"></script>
+<script type="text/javascript" src="panel/olcScript/query.js"></script>
+<script type="text/javascript" src="panel/olcScript/case.js"></script>
+<script type="text/javascript" src="panel/olcScript/client.js"></script>
+
+<link rel="stylesheet" type="text/css" href="panel/dataTableSource/datatables_export_tools.min.css"/>
+ 
+<script type="text/javascript" src="panel/dataTableSource/datatables_export_tools.min.js"></script>
+
+<link href="panel/editor_2/editor.css" type="text/css" rel="stylesheet"/>
+<script src="panel/editor_2/editor.js"></script> 
+
+
+<script type="text/javascript"
+	src="panel/dataTableSource/jquery.dataTables.js"></script>
+<script type="text/javascript">
+	(function($) {
+		$.fn.serializeFormJSON = function() {
+
+			var o = {};
+			var a = this.serializeArray();
+			$.each(a, function() {
+				if (o[this.name]) {
+					if (!o[this.name].push) {
+						o[this.name] = [ o[this.name] ];
+					}
+					o[this.name].push(this.value || '');
+				} else {
+					o[this.name] = this.value || '';
+				}
+			});
+			return o;
+		};
+	})(jQuery);
+
+	function populateForm(jsonObject) {
+		$.each(jsonObject, function(name, val) {
+			var $el = $('[name="' + name + '"]'), type = $el.attr('type');
+
+			switch (type) {
+			case 'checkbox':
+				$el.attr('checked', 'checked');
+				break;
+			case 'radio':
+				$el.filter('[value="' + val + '"]').attr('checked', 'checked');
+				break;
+
+			default:
+				$el.val(val);
+			}
+		});
+	}
+
+	
+
+	$(document).ready(function() {
+		var url = window.location.href;
+		$("footer").load("/LegalBell/html/layout/GenericFooter.html");
+		document.body.style.background = "url('panel/login_images/bg.jpg')";
+		$("#pageHeader").html("");
+		//$("#pageHeader").load("/LegalBell/html/layout/BlankHeader.html");
+		$("#contentPage").load("/LegalBell/html/contentPages/ActivationForm.html",
+				function() {
+			var url = window.location.search;
+			url = url.replace("?", '');
+			var arr = url.split('=');
+			$("#ActivationId").val(arr[1]);
+			ajaxPost("NoForm", "/activateAccounts/" + arr[1]);
+		});
+		
+	});
+
+	function ajaxPost(form, action) {
+		var jsonData = '';
+		if (form != 'NoForm') {
+			jsonData = JSON.stringify($('#' + form).serializeFormJSON());
+		}
+		var result = doAjaxFormPost(jsonData, action);
+		navigate(result);
+	}
+
+	
+
+	function loadContent(url, jsonObject) {
+		$(".modal-backdrop").remove();
+		$("#contentPage").html("");
+		$("#contentPage").load("/LegalBell/html/contentPages/" + url + ".html",
+				function() {
+					populateForm(jsonObject);
+				});
+	}
+	
+	
+	function loadMsgContent(url, jsonObject) {
+		$(".modal-backdrop").remove();
+		$("#contentPage").html("");
+		$("#contentPage").load("/LegalBell/html/contentPages/" + url + ".html",
+				function() {
+					populateMsg(jsonObject);
+				});
+	}
+	
+	function populateMsg(jsonObject) {
+		$.each(jsonObject, function(name, val) {
+			var $el = $('[id="' + name + '"]');
+			$el.html("");
+			$el.html(val);
+		});
+	}
+
+	function loadAjaxErrorPage() {
+		$("#contentPage").html("");
+		$("#sideMenu").html("");
+		$("#pageHeader").html("");
+		$("#contentPage").load("/LegalBell/html/contentPages/AppError.html", function() {
+			document.getElementById("menu-toggle").style.display = "none";
+			document.getElementById("sidebar-wrapper").style.display = "none";
+		});
+	}
+
+	
+</script>
+<script>
+
+// Dropdown Menu Fade    
+jQuery(document).ready(function(){
+    $(".dropdown").hover(
+        function() { $('.dropdown-menu', this).stop().fadeIn("fast");
+        },
+        function() { $('.dropdown-menu', this).stop().fadeOut("fast");
+    });
+});
+
+
+</script>
+
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400,500,600,700,800,900');
+
+ 
+.navbar-brand{
+ 
+height:auto;
+}
+
+.navbar{
+padding-bottom:0px;
+margin-bottom:0px;
+}
+.mga_mnu{
+font-family: 'Encode Sans Semi Condensed', sans-serif;
+background:#f6f1e9;  
+width:100%;
+position:fixed;
+
+    box-shadow: 1px 4px 5px -5px rgba(0, 0, 0, 0.75);
+background-color: rgba(255, 255, 255, 0.3);
+z-index:99999999;
+min-height:68px;
+
+
+}
+.mga_mnu h1{
+font-size:21px;
+padding:0px;
+margin:0px;
+color:#d17d00;
+ 
+ }
+.dropdown-header{
+color:#ffff!important;
+font-size:15px!important;
+border-bottom:1px solid #fff;}
+
+.mga_mnu .navbar-collapse{
+margin-top:8px;
+
+}
+
+.navbar-brand{
+padding:4px;
+}
+
+.mga_mnu .navbar-nav {
+margin-left:160px;
+}
+
+
+
+
+
+
+.mga_mnu .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+color:#000!iportant;
+}
+
+
+
+
+.caret{
+color:#8a5403 ;
+
+}
+.mga_mnu img{ width:144px; }
+.mga_mnu ul li a:hover{
+color#000!important;}
+
+
+
+.navbar-default{
+color: #000;
+background-color: #fff;
+border-color: #aca1a2;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#000; 
+    padding: 0 28px 33px;
+	margin:0 28px;
+	font-size:17px;
+
+	font-weight:500;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret{
+	border-top-color: #8a5403;
+    border-bottom-color: #8a5403;
+}
+.navbar-default .navbar-brand{
+	color:#0000;
+}
+.menu-large {
+  position: static !important;
+}
+.megamenu{
+  padding: 20px 0px;
+  position:absolute;
+  z-index:9999999;
+  top:69px;
+  
+  
+  width:100%;
+  background:url(images/bg_drop.png) no-repeat right top #ececec!important;
+ 
+}
+.megamenu> li > ul {
+  padding: 0;
+  margin: 0;
+}
+.megamenu> li > ul > li {
+  list-style: none;
+}
+.megamenu> li > ul > li > a {
+  display: block;
+  padding: 3px 0px;
+  clear: both;
+  font-size:16px!important;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #000;	border-bottom:1px solid #d0d0d0;
+  white-space: normal;
+}
+.navbar-collapse li a:hover{
+color:#000;
+}
+.megamenu> li ul > li > a:hover,
+.megamenu> li ul > li > a:focus {
+  text-decoration: none;color:#7d561c;
+ 
+ 
+}
+.megamenu.disabled > a,
+.megamenu.disabled > a:hover,
+.megamenu.disabled > a:focus {
+ 
+ 
+}
+.megamenu.disabled > a:hover,
+.megamenu.disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.megamenu.dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .megamenu{
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .megamenu> li {
+    margin-bottom: 30px;
+  }
+  .megamenu> li:last-child {
+    margin-bottom: 0;
+  }
+  .megamenu.dropdown-header {
+    padding: 3px 15px !important;
+
+  }
+  .navbar-nav .open .dropdown-menu .dropdown-header{
+	color:#8a5403;
+  }
+}
+
+
+
+
+
+
+.top_log_bx{
+    float: right;
+    right: 0;
+    margin-top: 9px;
+}
+.sgn_top{  background: #8a5403 none repeat scroll 0 0;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    box-shadow: 1px 4px 5px -5px rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 29px;
+    margin-right: 4px;
+    padding: 6px 42px;
+}
+.sgn_up_top{background: #454039 none repeat scroll 0 0;    box-shadow: 1px 4px 5px -5px rgba(0, 0, 0, 0.45);
+    border-radius: 30px;
+    color: #fff;  font-weight: 500;
+    line-height: 29px;    border: 2px solid #fff;
+    margin-right: 10px;    font-size: 15px;
+    padding: 6px 42px;
+}
+.top_log_bx a:hover{
+color:#fff;
+text-decoration:none;
+}
+
+.footer_stac{
+position:static;
+}
+
+body{
+overflow-x:hidden;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;}
+	
+ 
+ 
+.site-footer{ background: #dfd7ca;
+    box-shadow: 1px 4px 5px 3px rgba(0, 0, 0, 0.75);
+    color: #000;
+    padding: 5px 0;
+	position:fixed;
+	bottom:0px;
+}
+
+.site-footer a{
+color:#8a5403!important;
+
+}
+
+
+</style>
+
+
+
+<style>
+
+.read_btn_nlg{
+ background: #005ea6 none repeat scroll 0 0;
+    border-radius: 40px;
+    color: #fff;
+    display: block;
+    float: none;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px auto 0;
+    padding: 12px;
+    text-align: center;
+    width: 84%;
+
+}
+
+
+.read_btn_nlg:hover{
+background:#004b84;
+color:#fff;
+}
+
+
+.read_btn_nlg a:hover, a:focus{
+color:#fff!important;
+}
+
+
+
+
+
+.new_login_bx{ left: -150px;
+    position: relative;
+}
+
+.new_login_bx h4{
+  color: #000;
+    font-size: 37px;
+    padding-bottom: 55px;
+    padding-top: 60px;
+    text-align: center;
+    width: 100%;}
+#page-content-wrapper{
+background:none;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{  background-color: inherit!important;
+    color: #000!important;
+
+}
+.log_bx_new_a{
+background:rgba(255, 255, 255, 0.7);
+width:100%;
+height:auto; border-radius: 3px;
+overflow:hidden;
+box-shadow:1px 4px 5px -5px rgba(0, 0, 0, 0.75);
+padding:20px;}
+
+.log_bx_new_a img{
+max-width:100%;
+margin-top:6px;
+}
+
+.log_bx_new_a h1{font-size: 25px;
+    font-weight: 400;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+	color:#005ea6;
+}
+
+.log_bx_new_a h2{
+  color: #000!important;
+    font-size: 14px!important;
+    font-weight: normal!important;
+    line-height: 28px!important;
+    margin: 0!important;
+}
+
+.councel h1{
+color:#1dbd9b!important;
+}
+.councel img{
+max-width:inherit;  width: 63px;
+
+}
+.councel .read_btn_nlg{
+background:#1dbd9b!important;
+}
+.councel .read_btn_nlg:hover{
+background:#009676!important;
+
+}
+ .corp h1{
+ color:#de0063!important;
+ }
+  .corp .read_btn_nlg{
+  background:#de0063!important;
+ 
+ }
+  .corp .read_btn_nlg:hover{
+  background:#af004e!important;
+  
+  }
+.new_login_bx {   left: -150px;
+    position: relative;
+ 
+ 
+}
+ 
+
+.new_login_bx .col-md-4{
+ 
+}
+.new_login_bx .col-md-4 img{  
+
+}
+
+.new_login_bx h2{
+    color: #b45f06;
+    font-size: 20px;
+    min-height: 70px;
+}
+.n_b_log{
+  background: #783f04 none repeat scroll 0 0;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 12px;
+    }
+    
+.n_b_log:hover{
+background:#b45f06;
+color:#fff;
+text-decoration:none;
+}
+
+
+
+.footer_log_in{
+   background-color: #fff;
+    bottom: 0;
+    color: #898989;
+    padding: 11px 10px;font-family: 'Ruda', sans-serif;
+    position: fixed;
+    text-align: right;
+    width: 100%;
+}
+.footer_log_in p{
+padding-bottom:0px;
+margin-bottom:0px;
+}
+.footer_log_in a{
+text-decoration:underline;
+color:#428bca;
+text-decoration:none;
+}
+.site-footer{
+text-align:center;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 999px){
+ .new_login_bx .col-md-4{
+  border-right: 1px solid #b45f06;
+    float: left;
+    height: 232px;
+    padding: 30px 0;
+    text-align: center;
+    width: 33%;    
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    
+     
+    body{
+background-size:cover!important;
+background-repeat: repeat-y!important;
+}
+.new_login_bx .col-md-4{
+margin-bottom:10px;
+border-bottom:none!important;
+}
+.new_login_bx h4{
+margin-bottom:0px;
+padding:10px 0px;
+}
+.pro_bdy{
+margin-bottom:50px;
+}
+
+.new_login_bx{
+left:0px;
+}
+
+.new_login_bx h4{
+font-size:22px;
+}
+.log_bx_new_a img {
+    margin-top: 6px;
+    max-width: 27%;
+}
+.log_bx_new_a{
+text-align:center;
+}
+
+.new_login_bx .col-md-4{
+width:100%!important;height:auto;
+}
+ 
+
+
+
+
+
+
+
+
+    
+    
+.new_login_bx{
+width:95%;
+margin:auto;
+}
+ 
+ 
+    .new_login_bx{
+     margin: 13% auto!important;
+     }
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 479px){
+body{
+background-size:cover!important;
+background-repeat: repeat-y!important;
+}
+.new_login_bx .col-md-4{
+margin-bottom:10px;
+border-bottom:none!important;
+}
+.new_login_bx h4{
+margin-bottom:0px;
+}
+.pro_bdy{
+margin-bottom:50px;
+}
+
+.new_login_bx{
+left:0px;
+}
+
+.new_login_bx h4{
+font-size:22px;
+}
+.log_bx_new_a img {
+    margin-top: 6px;
+    max-width: 27%;
+}
+.log_bx_new_a{
+text-align:center;
+}
+
+
+.new_login_bx{
+width:95%;
+margin:auto;
+}
+.new_login_bx .col-md-4{
+border-bottom: 1px solid #b45f06;
+height:auto;
+    
+ 
+}
+
+
+    
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+ 
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+
+.navbar-nav .open .dropdown-menu{
+height:150px;
+overflow-x:auto;
+}
+
+
+.mga_mnu  .read_btn_nlg a:hover, a:focus{
+color:#000!important;
+}
+.navbar-nav .open .dropdown-menu{
+z-index:9999999!important;
+position:relative!important;
+
+}
+ 
+
+
+
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+background:#fff;
+}
+.mga_mnu{
+background:#fff;
+}
+.mga_mnu .navbar-nav{
+margin-left:0px;
+}
+.top_log_bx {
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 9px;
+    right: 0;
+}
+
+.megamenu{
+position:inherit;
+top:0px;
+}
+}
+
+
+
+
+@media only screen and (max-width: 479px){
+.navbar-nav .open .dropdown-menu{
+height:150px;
+overflow-x:auto;
+}
+
+.mga_mnu .read_btn_nlg a:hover, a:focus{
+color:#000!important;
+}
+.navbar-nav .open .dropdown-menu{
+z-index:9999999!important;
+position:relative!important;
+
+}
+ 
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+background:#fff;
+}
+.mga_mnu{
+background:#fff;
+}
+.mga_mnu .navbar-nav{
+margin-left:0px;
+}
+.top_log_bx {
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 9px;
+    right: 0;
+}
+
+.megamenu{
+position:inherit;
+top:0px;
+}
+}
+
+</style>
+
+
+
+
+</head>
+<body>
+
+	<section id="container">
+	
+		<div id="pageHeader"  style="min-height: 0px">
+		
+				<div class="row">
+	<div class="col-lg-12">
+
+	
+	
+	<div class="mga_mnu">
+	
+	
+	<div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> <img src="images/logo.png">    </a>
+        </div>
+        <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+			<li><a href="#">Home</a></li>
+			<li class="dropdown menu-large">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>				
+				<ul class="dropdown-menu megamenu row">
+					<li class="col-sm-4">
+					<h1> heading </h1>
+						<ul>
+			 
+							<li><a href="#">Available glyphs</a></li>
+							<li class="disabled"><a href="#">How to use</a></li>
+							<li><a href="#">Examples</a></li>
+				 
+							<li><a href="#">Example</a></li>
+							<li><a href="#">Aligninment options</a></li>
+							<li><a href="#">Headers</a></li>
+							<li><a href="#">Disabled menu items</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-4">			<h1> heading </h1>
+						<ul>
+						 
+							<li><a href="#">Basic example</a></li>
+							<li><a href="#">Button toolbar</a></li>
+							<li><a href="#">Sizing</a></li>
+							<li><a href="#">Nesting</a></li>
+							<li><a href="#">Vertical variation</a></li>
+					 
+							<li><a href="#">Single button dropdowns</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-4">			<h1> heading </h1>
+						<ul>
+		 
+							<li><a href="#">Basic example</a></li>
+							<li><a href="#">Sizing</a></li>
+							<li><a href="#">Checkboxes and radio addons</a></li>
+			 
+						 
+							<li><a href="#">Tabs</a></li>
+							<li><a href="#">Pills</a></li>
+							<li><a href="#">Justified</a></li>
+						</ul>
+					</li>
+					 
+				</ul>
+
+			</li>
+
+			<li class="dropdown menu-large">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>				
+				<ul class="dropdown-menu megamenu row">
+					<li class="col-sm-4">
+					<h1> heading </h1>
+						<ul>
+			 
+							<li><a href="#">Available glyphs</a></li>
+							<li class="disabled"><a href="#">How to use</a></li>
+							<li><a href="#">Examples</a></li>
+				 
+							<li><a href="#">Example</a></li>
+							<li><a href="#">Aligninment options</a></li>
+							<li><a href="#">Headers</a></li>
+							<li><a href="#">Disabled menu items</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-4">			<h1> heading </h1>
+						<ul>
+						 
+							<li><a href="#">Basic example</a></li>
+							<li><a href="#">Button toolbar</a></li>
+							<li><a href="#">Sizing</a></li>
+							<li><a href="#">Nesting</a></li>
+							<li><a href="#">Vertical variation</a></li>
+					 
+							<li><a href="#">Single button dropdowns</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-4">			<h1> heading </h1>
+						<ul>
+		 
+							<li><a href="#">Basic example</a></li>
+							<li><a href="#">Sizing</a></li>
+							<li><a href="#">Checkboxes and radio addons</a></li>
+			 
+						 
+							<li><a href="#">Tabs</a></li>
+							<li><a href="#">Pills</a></li>
+							<li><a href="#">Justified</a></li>
+						</ul>
+					</li>
+					 
+				</ul>
+
+			</li>
+		</ul>
+		
+		
+		
+		
+			
+	<div class="top_log_bx">
+<a class="sgn_top" href="#"> Login </a> <a class="sgn_up_top" onclick="loadRegistrationPage();"> Sign Up </a>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	</div>
+</div>
+<script>
+$(document).on('click',"#HomePage",function() {
+	loadGenericPagesOnLogout();
+});
+</script>
+		
+		
+		</div>
+		
+		<div id="wrapper">
+		<div style = "display: none" id="sidebar-wrapper"><aside id="sideMenu"></aside></div>
+		<div id="page-content-wrapper">
+		<section id="main-content">
+					   <span style="display: none" href="#menu-toggle"  id="menu-toggle" class="hamburger">
+<img src="panel/assets/img/menu1.png" style="zoom: 110%"><label style="padding-left: 90px; font-size: 18px; text-align: center">MENU</label>
+</span>
+			
+			
+			                 <span></span>
+			<section id="wrap" class="wrapper">
+			   
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="pro_bdy" id="contentPage">
+						
+						
+						
+
+
+ 
+						
+						
+						
+						
+						
+						
+						</div>
+					</div>
+				</div>
+			</section>
+			</section>
+			</div>
+			</div>
+		<footer class="site-footer footer_stac" style="min-height: 0px;">
+		
+		
+		
+		
+		
+		
+		</footer> 
+	</section>
+	<div aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+		id="loaderModal" class="modal fade"
+		style="background: white; opacity: 0.9;">
+		<div class="cssload-container">
+					<div class="cssload-loading">
+						<div class="cssload-ani1"><i></i><i></i><i></i></div>
+						<div class="cssload-ani2"><i></i><i></i><i></i></div>
+						<div class="cssload-ani3"><i></i><i></i><i></i></div>
+						<div class="cssload-ani4"><i></i><i></i><i></i></div>
+					</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+
+<script>
+
+
+
+$(document).on('click',"#Logout",function() {
+	loadGenericPagesOnLogout();
+});
+
+
+</script>
+
+
+
+
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+	<script>
+	$(".hamburger").click(function(){
+  $(this).toggleClass("hamburgerActive");
+});
+</script> 
+
+<script>
+$(document).on('click',"#redirectLoginPage",function() {
+	//loadGenericPagesOnLogout();
+	window.location.href="http://LegalBell.custoslegisonline.com";
+});
+</script>
+
+</html> -->

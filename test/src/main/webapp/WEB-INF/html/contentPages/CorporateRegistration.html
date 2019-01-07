@@ -1,0 +1,330 @@
+<div class="container-2" style="margin-left:23%;    margin-top: 5%; width:50%;"> <!-- class="row" style="margin-left: -35px; margin-top: -100px;" -->
+	<div id="page-wrapper" style="min-height: auto;"> <!-- class="col-lg-10" style="min-height: 778px;"-->
+		<div class="row"> <!-- class="showback" style="margin-top: 80px" -->
+			<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Corporate Registration</h2>
+            </div>
+            </div>
+		</div>
+		<div class="row">
+        	<!-- <div class="col-sm-12"> -->
+			<form id="corporateRegistrationForm"> <!-- style="padding: 20px;" -->
+				<input type="hidden" name="user_Type" value="Corporate" />
+				<a href="javascript:myFirst()" style="color:#000; text-decoration:none;">
+					<h4 style="margin-left:30px;">Company Details:</h4>
+				</a>
+				<div class="col-sm-12" id="myDIVF">
+				<div class="col-md-6" >
+				<div class="form-group">
+					<label>Company Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="company_Name" id="CompanyName" tabindex="1" class="form-control"
+							placeholder="Company Name" required="required"
+							onblur="return validateNotEmpty(this.id,'companyname','corporateSubmitButton')" /> 
+							<span id="companyname" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				
+				<label>Phone Number*</label>
+				<div class="form-group">
+					 <div class="col-sm-1" style="padding-left:0px; width:25%;"> 
+						<input name="" id="phstatecode" tabindex="0" class="form-control"
+							readonly="readonly" placeholder="+ 91" style="padding:0px 6px;"/>
+					 </div>
+				 	<div class="col-sm-3" style="width:75%; padding-right:0px;"> 
+						<input name="phone_Land" id="PhoneLand" class="form-control" tabindex="3"
+							placeholder="Phone Landline" maxlength="10" type="text" required="required"
+							onblur="return validatePhone(this.id,'phone','corporateSubmitButton')" /> 
+							<span id="phone" style="color: red"></span>
+					</div>
+				</div>
+				</div><!-- 111111111111111 -->
+				
+				<div class="col-md-6">
+				<div class="form-group">
+				<label>Industry Type</label>
+					<!-- <div class="col-sm-4"> -->
+						<select id="IndustryType" class="form-control" tabindex="2"
+							onchange="changeIndustryTypeValue(this.id);" onblur="return onblurCorporateRegistrationForm();">
+							<option value="" label="---Select---" />
+						</select> 
+						<input type="hidden" name="industry_Type" id="hiddenIndustryType" />
+						<span id="industrytypeSpan" style="color: red;"></span>	
+					<!-- </div> -->
+				</div>
+				<div class="form-group">
+				<label>Company WebSite*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="web_Site" id="WebSite" class="form-control" tabindex="4"
+							required="required" placeholder="WebSite" onfocusout="mySecond()"
+							onblur="return validateWebsite(this.id,'website','corporateSubmitButton')" /> 
+							<span id="website" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				</div><!-- 111111111111111 -->
+				</div>
+				
+				<a href="javascript:mySecond()" style="color:#000; text-decoration:none;">
+				<h4 style="margin-left:30px;"><i id="one" class="more-less glyphicon glyphicon-plus" style="color:#182832"></i>&nbsp;&nbsp;Managing Director/CEO:&nbsp;&nbsp;<span id="MDC" style="color: red"></span></h4>
+				</a>
+				<div class="col-sm-12" id="myDIVS" style="display:none;">
+				<div class="col-md-6">
+				<div class="form-group">
+					<label>First Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="director_Fname" id="DirectorFname" class="form-control"
+							placeholder="Director First Name" tabindex="5"
+							required="required"
+							onblur="return validateOnlyLetters(this.id,'directorfname','corporateSubmitButton')" />
+						<span id="directorfname" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				<div class="form-group">
+					<label>E-Mail*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="alternate_Email_Id" id="AlternateEmail" class="form-control"
+							required="required" placeholder="E-Mail" tabindex="7" onfocusout="myThird()"
+							onblur="return validateEmail(this.id,'alternateemail','corporateSubmitButton')" /> <span
+							id="alternateemail" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				
+				</div><!-- 222222222222222 -->
+				<div class="col-md-6">
+				<div class="form-group">
+					<label>Last	Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="director_Lname" id="DirectorLname" class="form-control"
+							placeholder="Director Last Name" tabindex="6"
+							required="required"
+							onblur="return validateOnlyLetters(this.id,'directorlname','corporateSubmitButton')" />
+						<span id="directorlname" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				
+				<div class="form-group">
+					
+				</div>
+				</div><!-- 222222222222222 -->
+				</div>
+				
+				<a href="javascript:myThird()" style="color:#000; text-decoration:none;">
+				<h4 style="margin-left:30px;"><i id="two" class="more-less glyphicon glyphicon-plus" style="color:#182832"></i>&nbsp;&nbsp;Authorized Officer Details:&nbsp;&nbsp;<span id="MDCL" style="color: red"></span></h4>
+				</a>
+				<div class="col-sm-12" id="myDIVT" style="display:none;">
+				<div class="col-md-6">
+				<div class="form-group">
+				<label>First Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="first_Name" id="FirstName" class="form-control"
+							placeholder="First Name" required="required"  tabindex="8"
+							onblur="return validateOnlyLetters(this.id,'firstname','corporateSubmitButton')" /> <span
+							id="firstname" style="color: red"></span>
+							<!-- </div>	 -->
+				</div>
+				<label>Mobile Number*</label>
+				<div class="form-group">
+					<div class="col-sm-1" style="padding-left:0px; width:25%;">
+						<input id="phcontrycode" class="form-control" tabindex="0"
+							readonly="readonly" placeholder="+91" />
+					</div>
+					<div class="col-sm-3" style="width:75%; padding-right:0px;">
+						<input name="phone_Mobile" id="PhoneNumber" class="form-control" tabindex="10"
+							placeholder="Mobile Number" maxlength="10" required="required"
+							onblur="return validateMobile(this.id,'mobile','corporateSubmitButton')" /> <span
+							id="mobile" style="color: red"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label style="margin-top:10px;">Password*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="password" id="Password" class="form-control"
+							type="password" required="required" placeholder="Password"
+							maxlength="15" tabindex="12"
+							onfocus="showCorporatePassInfo(this.id,'password')";
+							onblur="return validatePassword(this.id,'password','corporateSubmitButton')" /> 
+							<span id="password" style="color: red;"></span>
+					<!-- </div> -->
+				</div>
+				</div><!-- 333333333333333 -->
+				
+				<div class="col-md-6">
+				<div class="form-group">
+				<label>Last	Name*</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" required="required" tabindex="9"
+								onblur="return validateOnlyLetters(this.id,'lastname','corporateSubmitButton')" /> <span
+								id="lastname" style="color: red"></span>
+					<!-- </div>	 -->
+				</div>
+				<div class="form-group">
+					<label>E-Mail*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="user_Id" id="EMail" class="form-control"
+							required="required" placeholder="E-Mail" tabindex="11"
+							onblur="return validateEmail(this.id,'email','corporateSubmitButton')" /> <span
+							id="email" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				
+				<div class="form-group">
+					<label>Confirm Password*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input id="Repassword" class="form-control"
+							type="password" required="required"
+							placeholder="Confirm Password" tabindex="13"
+							onfocus="showCorporateRePassInfo(this.id,'repassword')";
+							onblur="return validateRePassword(this.id,'repassword','Password','corporateSubmitButton')" />
+						<span id="repassword" style="color: red;"></span>
+					<!-- </div> -->
+				</div>
+				</div><!-- 333333333333333 -->
+				</div>
+				
+				<a href="javascript:myForth()" style="color:#000; text-decoration:none;">
+				<h4 style="margin-left:30px;"><i id="three" class="more-less glyphicon glyphicon-plus" style="color:#182832"></i>&nbsp;&nbsp;Reference Id(If Any):&nbsp;&nbsp;<span id="referenceIdSpan" style="color: red"></span></h4>
+				</a>
+				<div class="col-sm-12" id="myDIVFO" style="display:none;">
+				<div class="col-md-6">
+				<div class="form-group">
+					<label>Reference Id</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="reference_Id" id="ReferenceId" class="form-control"
+							placeholder="Reference Id" required="required" tabindex="14"
+							onblur="return validateReferenceId()" /> <span
+							id="referenceIdSpan" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				</div><!-- 444444444444444 -->
+				
+				<div class="col-md-6">
+					<div class="form-group">
+					
+					<div id="referenceNameDiv" style="display: none"> <!-- class="col-sm-4"  -->
+					<label>Reference Name</label>
+						<input id="ReferenceName" class="form-control" tabindex="15"
+							placeholder="Reference Name" required="required" /> 
+					</div>
+					</div>
+				</div><!-- 444444444444444 -->
+				</div>
+				
+				
+				
+				<div class="col-md-12 text-right"> <!-- class="col-sm-12" -->
+					<div class="form-group"> <!-- class="col-sm-6" -->
+						
+						<button class="btn btn-blue" type="button" id="redirectLoginPage" style="background: #323f3f; color: #fff;">Close</button>
+						<button id="corporateSubmitButton" class="btn btn-blue" style="background: #323f3f; color: #fff;" type="button"  onclick="validateCorporateRegistrationForm();">Register</button>
+						
+					</div>
+				</div>
+				<script>
+$(document).on('click',"#redirectLoginPage",function() {
+	loadGenericPagesOnLogout();
+	//window.location.href="http://45.249.108.159:8080/LegalBell";
+});
+</script>
+	<!-- Information at the end of page -->
+	<!-- <div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b>  Corporate Registration  </b>  </h1>
+		<p>
+		Dear Corporate Client, <br/><br/>There are three parts in this form:<br/><br/>1) In the first part you need to enter the company profile details in the given fields such as name, type, website etc. <br/>2) In the second part you need to enter the details of the Managing Director or the CEO of the company.<br/>3) In the third part the authorized Officer in charge of the case fills up his own details. of the various fields to be filled up by the authorized Officer of the case.<br/><br/> Note: <br/> You will not be allowed to enter any other fields if you do not fill the required fields(* ones). Moreover you need to activate the account via email.<br/><br/> Tips: <br/> 1) Phone Number should be of 10 digits so ignore city/country code.<br/> 2) You should enter proper E-Mail Address else it will not receive. <br/> 3) Passwords should contain atleast 6 charecters, including atleast one upper, one lower character and one number. <br/>4) Both the Password and Confirm Password fields should be the same.
+		</p>
+		</div>
+		</div>
+	</div> -->
+	<!-- Information at the end of page -->
+			</form>
+		 <!-- </div> -->
+       </div>
+	</div>
+
+</div>
+<script>
+function validateReferenceId(){
+	var referenceId=$("#ReferenceId").val();
+	if(referenceId===null){
+	}else{
+	$.ajax({
+			url : '/LegalBell' + '/getNameByReferenceId',
+				method : 'POST',
+				data : {
+				Value : referenceId,
+				       },
+				success : function(response) {
+				document.getElementById("referenceNameDiv").style.display = "block";
+				$("#ReferenceName").val(response.result);
+				}
+	});
+	}
+}
+</script>
+<script>
+function myFirst() {
+    var x = document.getElementById("myDIVF");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+        
+    }
+}
+function mySecond() {
+    var x = document.getElementById("myDIVS");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        $("#one").addClass('more-less glyphicon glyphicon-minus');
+        document.getElementById("DirectorFname").focus();
+    } else {
+        x.style.display = "none";
+        $("#one").removeClass('more-less glyphicon glyphicon-minus').addClass('more-less glyphicon glyphicon-plus');
+    }
+}
+function myThird() {
+    var x = document.getElementById("myDIVT");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        $("#two").addClass('more-less glyphicon glyphicon-minus');
+        document.getElementById("FirstName").focus();
+    } else {
+        x.style.display = "none";
+        $("#two").removeClass('more-less glyphicon glyphicon-minus').addClass('more-less glyphicon glyphicon-plus');
+    }
+}
+function myForth() {
+    var x = document.getElementById("myDIVFO");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        $("#three").addClass('more-less glyphicon glyphicon-minus');
+    } else {
+        x.style.display = "none";
+        $("#three").removeClass('more-less glyphicon glyphicon-minus').addClass('more-less glyphicon glyphicon-plus');
+    }
+}
+
+function showCorporatePassInfo(id,spanId){
+	var password = document.getElementById(id).value;
+	if(password == ''){
+	document.getElementById(spanId).textContent = "*Password must contain at least 6 characters, including UPPER/lowercase and numbers";
+	}
+	else
+	{
+		document.getElementById(spanId).textContent = "";
+	}
+}
+
+function showCorporateRePassInfo(id,spanId){
+	var repassword = document.getElementById(id).value;
+	if(repassword == ''){
+		document.getElementById(spanId).textContent= "*Please enter the same Password. "
+	}else{
+		document.getElementById(spanId).textContent= "";
+	}
+}
+</script>

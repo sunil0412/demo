@@ -1,0 +1,113 @@
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				
+				<div class="col-sm-12">
+				<h4 style="background:#182832; color:#fff;">Query Details:</h4>
+				<div class="col-sm-6">
+	<form id="clientDetailsForm">
+	<div class="form-group">
+                 <label>Client ID:</label>
+                 <input type="text"  name="client_Id" id="clientIda"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+            
+              <div class="form-group">
+              	  <label>Query Category:</label>
+                  <input type="text" name="query_Category" id="queryCategory" readonly="readonly" class="form-control" />
+              </div>
+              <div class="form-group">
+									<label>Query Description</label>
+									<div id="QueryDescription1"></div>
+								</div>
+				</div>
+              <div class="col-sm-6">
+              <div class="form-group">
+                  <label>Query ID:</label>
+                  <input type="text"  name="query_Id" id="queryIda" readonly="readonly" class="form-control" />
+              </div>
+              <div class="form-group">
+                  <label>Query Sub Category:</label>
+                  <input type="text" name="query_SubCategory"id="querySubCategory" readonly="readonly" class="form-control"/>
+              </div>
+              
+              <div class="form-group">
+                  <label>Query Brief:</label>
+                  <textarea name="query_BriefDescription" id="queryBriefDescription" readonly="readonly" class="form-control" ></textarea>
+              </div>
+                
+     </form> 
+	</div>
+	</div>
+	
+<div id="query-details" class="tab-pane fade active in"> 
+<form role="form" id="queryResponseEditorForm">
+	<textarea id="editor" rows="10" cols="80">
+            </textarea>
+            
+     			<nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addGenericAttachment" onclick="createGenericAttachment('pageContentLoad','GenericAttachment')" align="center">Add Attachment</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>       
+            
+            
+	<span id="queryResponseSpan" style="color: red;"></span> <input
+		type="hidden" name="query_Response" id="queryResponse"
+		onblur="OnBlurqueryResponse();" /> <input type="hidden"
+		name="query_Id" id="queryId" />
+		<input type="hidden"
+		name="client_Id" id="clientId"/> 
+		<!-- name="client_Id" id="ClientId"/> -->
+		
+		<div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <input type="button" id="CounselDashboard" value="Back" class="btn btn-blue">
+                  <input type="button" id="queryResponseEditorButton" onclick="ValidateQueryResponse();"
+                  value="Submit" class="btn btn-blue">
+              </div>
+            </div>
+              </div>
+	<!-- <button id="queryResponseEditorButton" class="btn-default btn-primary"
+		type="button" onclick="ValidateQueryResponse();">Submit</button> -->
+	<script>
+                $("#editor").Editor();
+            </script>
+</form>
+
+</div>
+              
+             <div class="clearfix"></div>
+			</div>
+			
+			
+			
+		</div>
+
+
+<script>
+
+function ValidateQueryResponse(){
+	var data=$("#editor").Editor("getText");
+	document.getElementById("queryResponse").value=data;
+ 	var queryRes = document.getElementById("queryResponse").value;
+ 	if(queryRes == ""){
+ 		document.getElementById("queryResponseSpan").textContent = "*Please Enter Some Query Response";	
+ 	}else{
+ 		ajaxPost("queryResponseEditorForm", "/finalResponse");
+ 	}		
+ }
+ 
+function OnBlurqueryResponse(){
+ 	document.getElementById("queryResponseSpan").textContent = "";	
+ }
+
+
+ 
+</script>
+
+

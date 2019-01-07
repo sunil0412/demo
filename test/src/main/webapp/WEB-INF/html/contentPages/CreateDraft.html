@@ -1,0 +1,29 @@
+<form id="DraftingForm">
+<div>
+<input type="text" name="case_Id" id="hiddenCaseId" /> 
+				<input type="text" name="client_Id" id="hiddenClientId" /> 
+				<input type="text" name="assign_By" id="hiddenAssignBy" />
+							<textarea id="DraftEditor" maxlength="150" rows="6" cols="80"
+								onblur="onBlurCreateDraftEditor();">
+								</textarea>
+								
+							<span id="DraftDetailSpan" style="color: red;"></span> <input
+								type="hidden" name="draft_Detail" id="DraftDetail" />
+						</div>
+					</div>
+					<div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+                        	<button class="btn btn-blue" type="button"
+								onclick="redirectToDashBoard()">Back</button>
+							<button class="btn btn-blue" type="button"
+								id="createDraftInfoButton" onclick="createDraftInfo()">Submit</button>
+							
+						</div>
+					</div>
+		</div>
+		</form>
+		
+		<script>
+					$("#DraftEditor").Editor();
+				</script>

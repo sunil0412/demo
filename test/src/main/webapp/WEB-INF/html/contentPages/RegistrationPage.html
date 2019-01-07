@@ -1,0 +1,234 @@
+<style>
+#page-content-wrapper{
+background:none;
+}
+</style>
+
+
+ 
+ 
+ <div class="reg_bx_new">
+ 
+ 
+ 
+ <div class="col-sm-12">
+ <div class="col-sm-6" style="background: rgba(220, 220, 220, 0.3); margin-left:26%; border: 2px solid rgba(110, 111, 114, 0.5); border-radius: 26px; padding: 15px; margin-top: 55px;">
+ <h4 class="pulloutHeadline x-large center-text" style="margin: 17px 0px 0px 106px;">Get Started Now</h4>
+ <h3 style="margin: 0px 0px 18px 106px; "><b>Sign up for free.</b></h3>
+ 
+ <div class="col-sm-12" style="margin: 10px 0px;">
+ <div class="col-sm-2">
+ <img src="images/im_1h.jpg" class="panel-img" style="border-radius: 50%;"  height="80" width="80">
+ </div>
+ <div class="col-sm-10" style="margin: 12px 0px;">
+ <div class="radioGroup">
+	<label class="radioLabel"><input name="accountType" value="Individual" onclick="putRadioValue(this.value,'registrationValue')" type="radio"><span class="radioButton"></span>Individual account</label>
+	<p>SignUp as an Individual to get your Legal Issue Solved Here.</p>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="col-sm-12" style="margin: 10px 0px;">
+ <div class="col-sm-2">
+ <img src="images/im_2h.jpg" class="panel-img" style="border-radius: 50%;"  height="80" width="80">
+ </div>
+ <div class="col-sm-10" style="margin: 12px 0px;">
+ <div class="radioGroup">
+ 	<label class="radioLabel"><input name="accountType" value="Corporate" onclick="putRadioValue(this.value,'registrationValue')" type="radio"><span class="radioButton"></span>Corporate account</label>
+	<p>SignUp as a Corporate to solve Legal Issue of your Company Here.</p>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="col-sm-12" style="margin: 10px 0px;">
+ <div class="col-sm-2">
+ <img src="images/im_3h.jpg" class="panel-img" style="border-radius: 50%;"  height="80" width="80">
+ </div>
+ <div class="col-sm-10" style="margin: 12px 0px;">
+ <div class="radioGroup">
+ 	<label class="radioLabel"><input name="accountType" value="Counsel" onclick="putRadioValue(this.value,'registrationValue')" type="radio"><span class="radioButton"></span>Counsel account</label>
+	<p>We are here to help you.</p>
+ </div>
+ </div>
+ </div>
+ 
+ <div style="text-align:right">
+ 	<input type="hidden" id="registrationValue">
+	<a class="btn btn-large btn-continue" id="registrationType"
+	   style="background: #323f3f; color: #fff; font-family: 'Conv_Raavi', Sans-Serif;
+	   border: #182832 1px solid; padding: 11px 25px 6px; border-radius: 40px;">Continue</a>
+ </div>
+ 
+ </div>
+ </div>
+ 
+ 
+ <!-- <div class="col-md-8" style="margin-top:2%;">
+ <h4 class="pulloutHeadline x-large center-text">Get Started Now</h4>
+ <div class="get-started-panel_reg">
+					<div class="col-md-4">
+					
+					<div class="get-started-panel_reg_img">
+					<img src="images/im_1h.jpg" class="panel-img" style="border-radius: 50%;"></div></div>
+								<div class="col-md-4"><div class="get-started-panel_reg_img"> <img src="images/im_2h.jpg" class="panel-img" style="border-radius: 50%;"></div></div>
+								<div class="col-md-4"><div class="get-started-panel_reg_img"><img src="images/im_3h.jpg" class="panel-img" style="border-radius: 50%;"></div></div>
+					<div class="clearfix"></div>
+					
+				  </div>
+ 
+ </div>
+ 
+ <div class="col-md-4">
+ <div class="right-col_reg">
+							<h3><b>Sign up for free.</b></h3>
+							<p>Choose from two types of accounts:</p>
+<div class="radioGroup">
+								<label class="radioLabel"><input name="accountType" value="Individual" onclick="putRadioValue(this.value,'registrationValue')" type="radio"><span class="radioButton"></span>Individual account</label>
+								<p>SignUp as an Individual to get your Legal Issue Solved Here.</p>
+								<label class="radioLabel"><input name="accountType" value="Corporate" onclick="putRadioValue(this.value,'registrationValue')" type="radio"><span class="radioButton"></span>Corporate account</label>
+								<p>SignUp as a Corporate to solve Legal Issue of your Company Here.</p>
+								<label class="radioLabel"><input name="accountType" value="Counsel" onclick="putRadioValue(this.value,'registrationValue')" type="radio"><span class="radioButton"></span>Counsel account</label>
+								<p>We are here to help you.</p>
+							</div>
+							<input type="hidden" id="registrationValue">
+							<a class="btn btn-large btn-continue" id="registrationType"
+								style="background: #323f3f; color: #fff; font-family: 'Conv_Raavi', Sans-Serif;
+								border: #182832 1px solid; padding: 11px 25px 6px;">Continue</a>
+</div>
+</div> -->
+ 
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="myModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Forgot Password ?</h4>
+			</div>
+			<form id="forgotPasswordForm">
+				<div class="modal-body">
+					<p>Enter your e-mail address below to reset your password.</p>
+					<input type="hidden" name="user_Identity" placeholder="Email"
+						required="required" autocomplete="off" id="user_Identityf"
+						class="form-control placeholder-no-fix">
+					<input type="text" name="user_Id" placeholder="Email"
+						required="required" autocomplete="off" id="forgotPassword"
+						class="form-control placeholder-no-fix">
+						<span id="forgotPasswordSpan" style="color:red;"></span>
+				</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-theme" type="button">Cancel</button>
+					<button class="btn btn-theme" id="forgotPasswordButton"
+						type="button" onClick="validateForgotPassword();">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div></div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="signupModal" class="modal fade">
+	<div class="modal-dialog" style="right: -160px;">
+		<div class="modal-content" align="center" style="width: 800px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Choose Sign Up Type</h4>
+			</div>
+			<div class="modal-body">
+				<button data-dismiss="modal" class="btn btn-default" type="button" id="corporateRegistration" onClick="corporateRegistration();">Corporate</button>
+				<button data-dismiss="modal" class="btn btn-default" type="button" id="individualRegistration" onClick="individualRegistration();">Individual</button>
+				<button data-dismiss="modal" class="btn btn-default" type="button" id="employeeRegistration" onClick="employeeRegistration();">Counsel</button>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="socialInfoModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">SocialInfo</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" id="socialform">
+					<div class="form-group">
+						<label class="control-label-head col-sm-2" for="firstname">First
+							Name:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="sfname"
+								name="sfname" placeholder="First Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label-head col-sm-2" for="lastname">Last
+							Name:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="slname"
+								name="slname" placeholder="Last Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label-head col-sm-2" for="phonenumber">Phone
+							Number:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="sphone"
+								placeholder="Phone Number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label-head col-sm-2" for="email">Email:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="semail"
+								name="semail" placeholder="Enter email">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+						
+						
+						
+						
+						
+						
+						</div>

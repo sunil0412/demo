@@ -1,0 +1,148 @@
+
+<div class="container-2">
+	<div id="page-wrapper">
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<!-- ------The Menu Icons start Here------ -->
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateConciliationMediation')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Conciliation Mediation Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','ConciliationMediationEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Document Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review and Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+				<!-- ------The Content area start Here------ -->
+				<div class="tab-content">
+					<div class="tab-pane fade active in" id="step1">
+						<form role="form" id="createConciliationForm">
+							<input type="hidden" name="client_Id" id="Client_Id" /> <input
+								type="hidden" name="conciliation_Id" id="Conciliation_Id" />
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Conciliation Mediation Advisory Flow</h2>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6" style="margin-top:4%;">
+								<div class="form-group">
+									<label>Category*</label> <select class="form-control"
+										id="ConciliationCat"
+										onchange="getConciliationSubCategory(this.id,'/getcasesubcategory');"
+										onblur="return onBlurCreateConciliation()">
+										<option value="" label="---Select---" />
+									</select> <span id="conciliationCatSpan" style="color: red;"></span>
+
+								</div>
+								<div>
+									<input type="hidden" name="conciliation_Category"
+										id="conciliationCategory" />
+								</div>
+								<div class="form-group">
+									<label>SubCategory*</label> <select class="form-control"
+										id="ConciliationSubCat"
+										onchange="ConciliationSubCatValue(this.id);"
+										onblur="return onBlurCreateConciliation()">
+										<option value="" label="---Select---" />
+									</select> <span id="conciliationSubCatSpan" style="color: red;"></span>
+								</div>
+								<div>
+									<input type="hidden" name="conciliation_SubCategory"
+										id="conciliationSubCategory" />
+								</div>
+								<div class="form-group">
+									<label>Brief Description*</label>
+
+									<p>
+										<textarea class="form-control" rows="8" placeholder=""
+											name="conciliation_BriefDescription" id="ConciliationBrief"
+											onblur="return onBlurCreateConciliation()"></textarea>
+									</p>
+
+									<span id="conciliationBriefSpan" style="color: red;"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h4>Adversary Details</h4>
+								<div class="form-group">
+									<label>Full Name*</label> <input name="adversory_Name"
+										id="AdversoryName" class="form-control"
+										placeholder="Full Name" /> <span id="advNameSpan"
+										style="color: red;"></span>
+								</div>
+								<div class="form-group">
+									<label>Email</label> <input name="adversory_Email"
+										id="AdversoryEmail" class="form-control" placeholder="Email" />
+									<span id="advisorySEmailSpan" style="color: red;"></span>
+								</div>
+								<div class="form-group">
+									<label>Mobile Number</label> <input name="adversory_Mobile"
+										id="AdversoryMobile" class="form-control" maxlength="10" type="number"
+										placeholder="Mobile Number" /> <span id="adversoryMobileSpan"
+										style="color: red;"></span>
+								</div>
+
+								<!-- <div class="col-lg-12"> -->
+									<div class="form-group">
+										<label>Full Address*</label>
+										<p>
+											<textarea class="form-control" rows="5" placeholder=""
+												id="Adversory_Address" name="adversory_Address"
+												onblur="return onBlurCreateCase()"></textarea>
+										</p>
+
+                                   <span id="adversoryAddressSpan" style="color: red;"></span>
+									</div>
+								<!-- </div> -->
+
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+									<input id="createCaseButton" class="btn btn-blue" type="button"
+										onclick="ValidateCreateConciliation();" value="Next">
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<!-- ------The content area ends Here------ -->
+				<div class="clearfix"></div>
+
+			</div>
+		</div>
+	</div>
+
+</div>

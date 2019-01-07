@@ -1,0 +1,245 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+
+<div class="container-2">
+	<div id="page-wrapper">
+		<form id="adminNewDueDiligenceForm">
+			<div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Due Diligence List</h2>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12">
+				<table class="table table-striped custab" id="diligencetable">
+					<thead>
+						<tr>
+							<th style="width: 96px;">Due Diligence ID</th>
+							<th>Client</th>
+							<th style="width: 225px;">Due Diligence Category</th>
+							<th>Due Diligence Description</th>
+							<th style="width: 134px;">Pending Since</th>
+							<th style="width: 105px;">Select Due Diligence</th>
+
+						</tr>
+					</thead>
+
+
+				</table>
+
+			</div>
+			<div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Counsel List</h2>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12">
+				<table class="table table-striped custab" id="lawyertable">
+					<thead>
+
+						<tr>
+							<th>Counsel ID</th>
+							<th>Counsel</th>
+							<th>Query Bucket</th>
+							<th>Case Bucket</th>
+							<th>Select Counsel</th>
+						</tr>
+					</thead>
+
+
+				</table>
+
+			</div>
+
+			<div class="col-md-12 text-right">
+				<div class="form-group">
+
+
+                    <input type="button"
+						id="openCasePopoupButton" value="Next" class="btn btn-blue">
+                    
+					<input type="button" id="AdminDashboard" value="Back"
+						class="btn btn-blue"> 
+				</div>
+			</div>
+
+
+
+			<!-- </div> -->
+		</form>
+		<span id="newCaseAdminSpan" style="color: red;"></span>
+	</div>
+	<!-- page-wrapper END-->
+</div>
+
+
+
+<a data-toggle="modal" href="NewCaseAdmin.html#addCaseComment"><button
+		id="popupCaseLink" style="display: none;">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="addCaseComment" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Case Comment Section</h4>
+			</div>
+			<div class="modal-body">
+				<form id="popUpCaseComment" class="modal-scroller">
+
+
+
+					<div class="form-group">
+						<label for="cseIDs" class="col-sm-2 control-label-head">Cases:</label>
+						<div class="col-sm-10">
+							<textarea id="cseIDs" name="cseID" rows="2" cols="100"
+								style="background: rgba(0, 0, 0, 0); border: none; outline: none; resize: none;"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="lwyrIDs" class="col-sm-2 control-label-head">Counsel:</label>
+						<div class="col-sm-10">
+							<input type="text" id="lwyrIDs" name="lwyrIds" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="commentID" class="col-sm-2 control-label-head">Add
+							Comment:</label>
+						<div class="col-sm-4">
+							<textarea name="commentID" id="commentIDs" rows="7" cols="70"
+								style="resize: none;"></textarea>
+						</div>
+
+						<label for="getcseComment" class="col-sm-1 control-label-head">apply
+							to all</label>
+						<div class="col-sm-2">
+							<input type="checkbox" name="getcaseComment" id="getcseComment"
+								value="1">
+						</div>
+					</div>
+
+					<button id="assignDDButton" class="btn btn-primary" type="button">Assign</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a data-toggle="modal" href="NewCaseAdmin.html#displayassignedCasePopup"><button
+		id="popupAssignedCaseLink" style="display: none;">fzsdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displayassignedCasePopup" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Assigned Case Details</h4>
+			</div>
+			<div class="modal-body">
+
+				<form id="displayAssignedCaseList" class="modal-scroller">
+					<h4 style="text-align: center;">
+						New Case List <br> <br />
+					</h4>
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="showAssignedCseDetailsTable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr>
+											<th>Case ID</th>
+											<th>Case Brief-Description</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a data-toggle="modal"
+	href="NewCaseAdmin.html#displayassignedQueryPopup"><button
+		id="popupAssignedQueryLink" style="display: none;">hujkghgfhg</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displayassignedQueryPopup" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Assigned Query Details</h4>
+			</div>
+			<div class="modal-body">
+
+				<form id="displayAssignedQueryList" class="modal-scroller">
+					<h4 style="text-align: center;">
+						New Case List <br> <br>
+					</h4>
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="showAssignedQryDetailsTable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr>
+											<th>Query ID</th>
+											<th>Query Brief-Description</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+

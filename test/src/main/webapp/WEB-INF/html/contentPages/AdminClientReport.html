@@ -1,0 +1,304 @@
+ <div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						
+						<!-- <div class="process-step">
+							<button type="button" class="btn btn-info btn-circle">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div> -->
+						
+					</div>
+				</div>
+<div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<form>
+			 <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Client Report Table</h2>
+            </div>
+            </div>
+          
+        </div>
+				<h3 style="font-size: 15px!important;">*Enter the number of days of which you want to see the client's report
+			</h3>
+			
+					<div class="col-sm-2">
+						<strong>Days :&nbsp;</strong><input type="number" class="form-control" id="allClientInterval"
+					style="width: 70%!important; display: inline!important;" placeholder="count" onblur="onblurAdminClientReport();" />
+						<span id="adminClientReportSpan" style="color: red"></span>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-2">
+							<button class="btn btn-blue" id="adminClientReportButton"
+								type="button">Submit</button>
+						</div>
+					</div>
+			</form>
+		
+	</div>
+	</div>
+</div>
+
+<div class="col-sm-12">
+        	<div class=" table-responsive">
+            <table class="table table-striped custab" id="genericDataTable" >
+    <thead style="background: #323f3f; color: #fff;">
+
+						<tr>
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						</tr>
+					</thead>
+            
+            
+    </table>
+</div>
+           </div>
+           
+            <div class="col-md-12 text-right">
+              	<div class="form-group">
+             
+              		
+              	  
+                  <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue" style="background: #323f3f; color: #fff;"> <!-- id="adminDashboard" -->
+                  
+             
+            </div>
+              </div>
+              <div class="clearfix"></div>
+              </div>
+              </div>
+              
+              
+<script type="text/javascript">
+function onblurAdminClientReport(){
+	$("#adminClientReportSpan").text("");
+}
+</script>
+
+<!-- <a data-toggle="modal" href="AdminClientReport.html#displaySelectedClientDetails"><button
+		id="displaySelectedClientDetailsInAdminLink" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displaySelectedClientDetails" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Client Details</h4>
+			</div>
+			<div class="modal-body">
+
+
+				<form id="showSelectedClientDetailsForm" class="modal-scroller">
+					
+				<div class="col-sm-12">
+				<table border="1" class="modal_top" style="width: 100%">
+				<thead><tr><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th><th class="col-sm-2 thd"></th><th class="col-sm-4 thd"></th></tr></thead>
+				<tr>
+				<td class="col-sm-2">
+						<label for="clientId" class="control-label-head">Client
+							Id</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="clientId"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="clientType" class="control-label-head">Client Type</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text"
+								id="clientType" readonly="readonly" size=35 /></label>
+						</td>
+				</tr>
+				
+					<tr>
+					<td class="col-sm-2">
+						<label for="firstName" class="control-label-head">First Name</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="firstName"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="middleName" class="control-label-head">Middle Name</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="middleName"
+								readonly="readonly" size=35 /></label>
+						</td>
+					</tr>
+					
+				<tr>
+					<td class="col-sm-2">
+						<label for="lastName" class="control-label-head">Last Name</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="lastName"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="countryId" class="control-label-head">Country</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="countryId"
+								readonly="readonly" size=35 /></label>
+						</td>
+				</tr>
+				<tr>
+					<td class="col-sm-2">
+						<label for="stateId" class="control-label-head">State</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="stateId"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="districtId" class="control-label-head">District</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="districtId"
+								readonly="readonly" size=35 /></label>
+						</td>
+					</tr>
+
+					<tr>
+					<td class="col-sm-2">
+						<label for="addrLine1" class="control-label-head">Primary Address</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><textarea id="addrLine1"
+									readonly="readonly" rows="5" cols="50" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="addrLine2" class="control-label-head">Secondary Address</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><textarea id="addrLine2"
+									readonly="readonly" rows="5" cols="50" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea></label>
+						</td>
+					</tr>
+						
+					<tr>
+					<td class="col-sm-2">
+						<label for="pinCode" class="control-label-head">Pin Code</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="pinCode"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+
+						<label for="currentStatus" class="control-label-head">Current Status</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="currentStatus"
+								readonly="readonly" size=35 /></label>
+						</td>
+					</tr>	
+
+					<tr>
+					<td class="col-sm-2">
+						<label for="panTan" class="control-label-head">Pan Tan</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="panTan"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="phoneLand" class="control-label-head">Phone Land</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="phoneLand"
+								readonly="readonly" size=35 /></label>
+						</td>
+					</tr>
+
+					<tr>
+					<td class="col-sm-2">
+						<label for="phoneMobile" class="control-label-head">Phone Mobile</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="phoneMobile"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="alternatePhone" class="control-label-head">Alternate Phone</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="alternatePhone"
+								readonly="readonly" size=35 /></label>
+						</td>
+					</tr>
+					
+					<tr>
+					<td class="col-sm-2">
+						<label for="emailId" class="control-label-head">Email Id</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="emailId"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="alternateEmail" class="control-label-head">Alternate Email</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="alternateEmail" readonly="readonly"
+								size=35 /></label>
+						</td>
+					</tr>
+
+					<tr>
+					<td class="col-sm-2">
+						<label for="website" class="control-label-head">Website</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="website"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="fax" class="control-label-head">Fax</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="fax" readonly="readonly"
+								size=35 /></label>
+						</td>
+					</tr>
+					
+					<tr>
+					<td class="col-sm-2">
+						<label for="createdDate" class="control-label-head">Created Date</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="createdDate"
+								readonly="readonly" size=35 /></label>
+						</td>
+						<td class="col-sm-2">
+						<label for="profileCompleteness" class="control-label-head">Profile Completeness</label>
+						</td>
+						<td class="col-sm-4">
+							<label class="control-label"><input type="text" id="profileCompleteness" readonly="readonly"
+								size=35 /></label>
+						</td>
+					</tr>
+				</table>
+				</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+ -->

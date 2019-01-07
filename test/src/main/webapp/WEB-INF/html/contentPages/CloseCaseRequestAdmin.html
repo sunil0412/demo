@@ -1,0 +1,181 @@
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+
+<!-- <div class="container-2">
+	<div id="page-wrapper"> -->
+<div class="row" id="form_area">
+<div id="categorie_area" class="main_area">
+<div class="row" id="form_area">
+<div class="col-sm-12">	
+		<form id="closedCaseRequestAdminForm">
+			<div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Close Case Request</h2>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12">
+				<table class="table table-striped custab" id="closecaserequesttable">
+					<thead>
+						<tr>
+						                    <th>ID</th>
+											<th>RAISED ON </th>
+											<th>PENDING SINCE </th>
+											<th>DETAILS</th>
+											<th>ACTION</th>
+											</tr>
+					</thead>
+
+
+				</table>
+
+			</div>
+
+			<div class="col-md-12 text-right">
+				<div class="form-group">
+					<input type="button" id="AdminDashboard" value="Back"
+						class="btn btn-blue" style="background: #323f3f; color: #fff;">
+				</div>
+			</div>
+
+
+
+			<!-- </div> -->
+		</form>
+	</div>
+	</div>
+	</div>
+	<!-- page-wrapper END-->
+</div>
+
+
+
+
+
+
+
+<a data-toggle="modal"
+	href="UpcomingHearing.html#displaySelectedTaskDetails"><button
+		id="displaySelectedTaskDetailsHearingButton" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displaySelectedTaskDetails" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Task Details</h4>
+			</div>
+			<div class="modal-body">
+
+
+				<form id="showSelectedTaskDetailsForm" class="modal-scroller">
+					<br />
+
+					<div class="form-group">
+						<label for="TaskId" class="col-sm-2 control-label-head">Task
+							Id</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="TaskId" readonly="readonly" size="35" /></label>
+						</div>
+
+						<label for="TaskType" class="col-sm-2 control-label-head">Task
+							Type</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="TaskType" readonly="readonly" size="35" /></label>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label for="CaseId" class="col-sm-2 control-label-head">Case
+							Id</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="CaseId" readonly="readonly" size="35" /></label>
+						</div>
+
+						<label for="ClientId" class="col-sm-2 control-label-head">Client
+							Id</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="ClientId" readonly="readonly" size="35" /></label>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<label for="HearingDate" class="col-sm-2 control-label-head">Hearing
+							Date</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="HearingDate" readonly="readonly" size="35" /></label>
+						</div>
+
+						<label for="HearingPlace" class="col-sm-2 control-label-head">Hearing
+							Place</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="HearingPlace" readonly="readonly" size="35" /></label>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<label for="CreatedDate" class="col-sm-2 control-label-head">
+							Created Date</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="CreatedDate" readonly="readonly" size="35" /></label>
+						</div>
+
+						<label for="AssignedLawyer" class="col-sm-2 control-label-head">Assigned
+							Lawyer</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text"
+								id="AssignedLawyer" readonly="readonly" size="35" /></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="HearingDescription"
+							class="col-sm-2 control-label-head">Hearing Comments</label>
+						<div class="col-sm-10">
+							<div id="hearingDescription" style="height: 100%; width: 100%"></div>
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

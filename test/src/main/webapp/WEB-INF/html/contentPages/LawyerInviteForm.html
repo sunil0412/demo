@@ -1,0 +1,170 @@
+<span id="userToken" style="display: none;">123</span>
+<!-- <div class="row" id="form_area">
+			<div id="categorie_area" class="main_area"> -->
+<div class="container-2" style="margin-left:25%; margin-top:10%; width:50%">
+<div id="page-wrapper" style="min-height:307px;">				
+				<!-- <div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in"> -->
+				<div class="row">
+               	<div class="col-md-12 navbar-dashbord">
+               	<div class="page-title">
+               		<h2>Invited Counsel Registration</h2>
+               	</div> 
+               	</div>
+               </div>
+               
+				<form id="inviteLawyerForm">
+				<div class="col-sm-12">
+               
+               
+						<div class="form-group" style="display: none;">
+							<label for="UserCategory" class="col-sm-2 control-label">User
+								Category</label>
+							<div class="col-sm-7">
+								<input name="user_Category" id="UserCategory"
+									class="form-control" />
+							</div>
+						</div>
+						<div class="form-group" style="display: none;">
+							<label for="EMail" class="col-sm-2 control-label">E-Mail</label>
+							<div class="col-sm-7">
+								<input name="email_Id" id="EMail" class="form-control" />
+							</div>
+						</div>
+
+					<div class="col-sm-6" style="margin-top:10px;">
+					<div class="form-group">
+					<label>First Name*</label>
+					<input name="first_Name" id="FirstName" class="form-control" tabindex="1"
+					placeholder="First Name" onblur="return validateOnlyLetters(this.id,'firstname','inviteLawyerSubmitButton')" />
+					<span id="firstname" style="color: red"></span>
+					</div>
+					</div>
+					<div class="col-sm-6" style="margin-top:10px;">
+	               <div class="form-group">
+					<label>Last Name*</label>
+					<input name="last_Name" id="LastName" class="form-control"
+									placeholder="Last Name"  tabindex="2"
+									onblur="return validateOnlyLetters(this.id,'lastname','inviteLawyerSubmitButton')" />
+								<span id="lastname" style="color: red"></span>
+					</div>
+					</div>
+					<div class="col-sm-12">
+					<div class="col-sm-6" style="padding-left:0px;">
+					<label>Mobile Number*</label>
+					<div class="form-group">
+					<div class="col-sm-1" style="padding-left:0px; width:25%">
+					<input name="" id="phcountrycode" tabindex="0" class="form-control" value="+ 91" readonly/>
+					</div>
+					<div class="col-sm-3" style="width:75%; padding-left:0px; padding-right:0px;">
+					<input name="phone_Mobile" id="PhoneNumber" class="form-control"
+								placeholder="Mobile Number" maxlength="10"  tabindex="3"
+								onblur="return validatePhone(this.id,'mobile','inviteLawyerSubmitButton')" /> <span id="mobile"
+								style="color: red"></span>
+					</div>
+					</div>
+					</div></div>
+					
+					<div class="col-sm-6">
+					<div class="form-group">
+					<label>Password*</label>
+					 <input name="Password" id="Password" class="form-control" tabindex="4"
+							type="password" required="required" placeholder="Password"
+							maxlength="15" onblur="return validatePassword(this.id,'password','inviteLawyerSubmitButton')" />
+							<span id="password" style="color: red;"></span>
+					</div>
+					
+					</div>
+	               
+					<div class="col-sm-6">
+					<div class="form-group">
+					<label>Confirm Password*</label>
+					<input name="" id="Repassword" class="form-control" tabindex="5"
+						   type="password" placeholder="Confirm Password"
+						   onblur="return validateRePassword(this.id,'repassword','Password','inviteLawyerSubmitButton')" />
+							<span id="repassword" style="color: red;"></span>
+					</div>
+	               </div>
+						
+
+						
+						
+						<!-- <div class="form-group col-sm-12">
+						<div class="col-sm-2"><label>First Name*</label></div>
+							
+						<div class="col-sm-4">		
+						      <input name="first_Name" id="FirstName" class="form-control"
+							placeholder="First Name" 
+							onblur="return validateOnlyLetters(this.id,'firstname','inviteLawyerSubmitButton')" />
+						<span id="firstname" style="color: red"></span>
+						</div>	
+						
+						<div class="col-sm-2"><label>Last Name*</label></div>
+							
+						<div class="col-sm-4">		
+						       <input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" 
+								onblur="return validateOnlyLetters(this.id,'lastname','inviteLawyerSubmitButton')" />
+							<span id="lastname" style="color: red"></span>
+						</div>	
+						</div>
+						
+						<div class="form-group col-sm-12">
+							<div class="col-sm-2"><label>Mobile Number*</label></div>
+							<div class="col-sm-1">
+						    <input name="" id="phcountrycode" class="form-control" 
+							value="+ 91" readonly/>
+					        </div>
+							<div class="col-sm-3">
+						    <input name="phone_Mobile" id="PhoneNumber" class="form-control"
+							placeholder="Mobile Number" maxlength="10" 
+							onblur="return validatePhone(this.id,'mobile','inviteLawyerSubmitButton')" /> <span id="mobile"
+							style="color: red"></span>
+					       </div>
+						<div class="col-sm-4"></div>
+						</div>
+						
+						
+						
+						<div class="form-group col-sm-12">
+						<label>Password*</label>
+							
+							
+						      <input name="Password" id="Password" class="form-control"
+							  type="password" required="required" placeholder="Password"
+							  maxlength="15"
+							  onblur="return validatePassword(this.id,'password','inviteLawyerSubmitButton')" />
+						      <span id="password" style="color: red;"></span>
+						
+						
+						<label>Confirm Password*</label>
+							
+						
+						       <input name="" id="Repassword" class="form-control"
+							   type="password" 
+							   placeholder="Confirm Password"
+							   onblur="return validateRePassword(this.id,'repassword','Password','inviteLawyerSubmitButton')" />
+						<span id="repassword" style="color: red;"></span>
+						
+						</div> -->
+
+
+					
+					<div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+								<button class="btn btn-blue" type="button" style="background: #323f3f; color: #fff;"
+									id="inviteLawyerSubmitButton"  onclick="validateLawyerInviteRegForm();">Submit</button>
+								
+						</div>
+					  </div>
+					</div>
+					
+				</div>
+				</form>
+				<!-- </div>
+		</div> -->
+				<div class="clearfix"></div>
+			</div>
+		</div>		
+	

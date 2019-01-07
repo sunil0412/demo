@@ -1,0 +1,118 @@
+
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+<div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback">
+			<form id="inReviewContractAdminForm">
+					<div class="col-sm-12" style="margin-top:10px;margin-bottom:10px;">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>In Review Retainership Agreement List</h2>
+									</div>
+								</div>
+					</div>
+				
+				<div class="datatable-scroller">
+					<table style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="contracttable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr style="background:#323f3f;color:#fff;">
+							
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						
+						</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-1 col-sm-2 control-label"> </label>
+					<div class="col-sm-12 text-right">
+					<button id="AdminDashboard" class="btn btn-blue" type="button" 
+					style="background:#323f3f;color:#fff;">Back</button>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
+<!-- <a data-toggle="modal"
+	href="InReviewContractAdmin.html#sendContractRevisedSuggestionModal"><button
+		id="displayTextModalButton" style="display: none;" aria-hidden="true">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="sendContractRevisedSuggestionModal"
+	class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Retainership Agreement Suggestion</h4>
+			</div>
+			<div class="modal-body">
+				<form id="ReviewContractSuggestionForm" class="modal-scroller">
+					<input type="hidden" name=contract_Id id="Contract_Id" /> <input
+						type="hidden" id="EMail" name="email_Id">
+					<div class="form-group">
+						<label for="ContractRevisedSuggestion"
+							class="col-sm-3 control-label-head">Enter Retainership Agreement Suggestion</label>
+						<textarea rows="21" cols="75" name="contract_BriefDescription"
+							maxlength="150" id=contractRevisedSuggestion style="resize: none"
+							onblur="contractRevisedSuggestion()"></textarea>
+					</div>
+					<span id="contractRevisedSuggestionSpan" style="color: red;"></span>
+				</form>
+			</div>
+			<div class="modal-footer">
+			<div class="col-sm-4">
+				<input id="sendContractSuggestionMailButton" class="btn btn-primary"
+					type="button" value="Send Mail" />
+			</div>
+			<div class="col-sm-4">
+				<button data-dismiss="modal" class="btn btn-primary" type="button">Cancel</button>
+			</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<script>
+function contractRevisedSuggestion(){
+	$("#sendContractRevisedSuggestionModal").find('span[id="contractRevisedSuggestionSpan"]').text("");
+}
+</script>

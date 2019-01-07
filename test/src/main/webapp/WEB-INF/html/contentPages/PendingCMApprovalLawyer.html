@@ -1,0 +1,73 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+
+<div class="container-2">
+      <div id="page-wrapper">
+      <form id="lawyerNewQueryForm">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Approval Pending Contract List</h2>
+            </div>
+            </div>
+          
+        </div>
+        <!-- <div class="row" id="legal_advisory"> -->
+        	<div class="col-sm-12">
+            <table class="table table-striped custab" id="cmtable" >
+					<thead>
+									<tr>
+									    <th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+										<!-- <th>ID</th>
+										<th>Client ID</th>
+										<th>Description</th>
+										<th>Pending Since</th>
+										<th>Status</th> -->
+									</tr>
+								</thead>
+
+				</table>
+
+           </div>
+        	<span id="span" style="color: red"></span>
+            <div class="col-md-12 text-right">
+             <div class="form-group">
+             <input type="button" id="CounselDashboard" value="Back" class="btn btn-blue" style="background: #323f3f; color: #fff;">
+             <input type="button" id="ATTContractButton" value="Add Attachment" class="btn btn-blue" style="background: #323f3f; color: #fff;">
+             
+            </div>
+              </div>
+          
+          
+          
+        <!-- </div> -->
+        </form>
+        <span id="newQueryLawyerSpan" style="color: red;"></span>
+      </div>
+      <!-- page-wrapper END-->
+    </div>
+
+
+
+ 
+
+

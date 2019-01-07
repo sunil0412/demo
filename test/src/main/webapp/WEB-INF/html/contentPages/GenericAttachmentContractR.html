@@ -1,0 +1,207 @@
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle" >
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						
+						
+					</div>
+				</div>
+<div id="document-upload" class="tab-pane fade active in"> 
+              
+              	<form role="form" id="uploadContractFormRR">
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Upload Supporting Documents</h2>
+            </div> 
+          </div>
+                    <div class="form-group">
+                      <label>Contract Id</label>
+                      <input name="contract_Id" id="ContractId"
+							class="form-control" placeholder="Contract Id" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                      <label>Client Id</label>
+                      <input name="client_Id" id="ClientId"
+							class="form-control" placeholder="Client Id" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                      <label>File upload</label>
+                       <div class="input-group image-preview">
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input id="fileToUpload" type="file" accept=".jpg,.jpeg,.png,.docx,.doc,.xls,.xlsx,.pdf,.ppt,.pptx,.zip,.ZIP,.rtf" name="input-file-preview"/> <!-- rename it -->
+                    
+                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
+            <span id="browseSpan" style="color: red;"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Document Upload Status</h2>
+            </div> 
+          </div>
+                    
+                    <div class="">
+                    	<table id="filetable" class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>File Name</th>
+            <th>File Size</th>
+            <th>Action</th>
+            <th>Upload Status</th>
+        </tr>
+    </thead>
+            
+            
+            
+    </table>
+
+                    </div>
+                  </div>
+                 
+                </form>
+              
+                              
+              </div>
+             <div class="clearfix"></div>
+			</div>
+		</div>
+	
+			
+              
+              <script type="text/javascript">
+function UploadContractFile(){
+	var Contract_Id =$("#ContractId").val();
+	var Client_Id =$("#ClientId").val();
+	 ////$('#loaderModal').show();
+	ajaxPost('uploadContractForm','/uploadcontractdocument');
+	//getQueryDescriptionInClientpopUp(Query_Id);
+	//getUploadedFileDetailsInQueryReview(Client_Id,Query_Id);
+}
+var fileArray=[];
+var totalFileSize=0;
+$("input:file").change(function(objEvent) {
+	
+    // GET FILE OBJECT 
+    
+   var fileobj= null;
+   	fileobj=$((this).files);
+   	//console.log(fileobj.length);
+   	
+   	for(var i=0; i<fileobj.length; i++){
+   	var objFormData = new FormData();
+   	var objFile = fileobj[i]; //$(this)[0].files[0];
+    totalFileSize=totalFileSize+objFile.size;
+   if(totalFileSize>5000000){
+	   totalFileSize=totalFileSize-objFile.size;
+ 	   $("#browseSpan").text("File Size Exceeded");
+ 	   $("#fileToUpload").val("");
+    }else{
+    item={}
+    var fname = String(objFile.name.replace(/[^A-Z0-9]+/ig, ""));
+    item["filenames"] = fname.replace(/\s\s+/g, ' ');
+    item["filesizes"] = String(objFile.size);
+    item["filestatus"] = "Uploaded";
+    fileArray.push(item);
+    $('#filetable').dataTable().fnDestroy();
+    $("#filetable").dataTable({
+    	"bProcessing" : true,
+		"sort" : "position",
+		"bStateSave" : false,
+		"iDisplayLength" : 5,
+		"iDisplayStart" : 0,
+		"aaData" : fileArray,
+		"aoColumns" : [ {
+			"mData" : "filenames"
+		}, {
+			"mData" : "filesizes"
+		},{"mData" : null,
+			render : function(
+					data, type,
+					full, meta) {
+				return '<input type="button" name="removeButton" id="'+ data.filenames + '-'+ data.filesizes +'" value="Remove">';
+			}
+		},{"mData" : null,
+			render : function(
+					data, type,
+					full, meta) {
+				
+				return '<div id="count'+ data.filenames +'">'+ data.filestatus +'</div>';
+			}
+		}
+		]
+	});
+    
+    // APPEND FILE TO POST DATA
+    objFormData.append('file', objFile);
+    objFormData.append('clientId', $("#ClientId").val());
+    objFormData.append('serviceId', $("#ContractId").val());
+    $.ajax({
+        url: '/LegalBell/uploadAttachmentFile',    /*previously file path to store was --> url: '/LegalBell/uploadQueryFile'  */
+        type: 'POST',
+        contentType: false,
+        data: objFormData,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {}
+    });
+    $("#browseSpan").text("*Click on Choose File again to upload more files..");
+   }
+  }
+});
+
+
+$(document).on('click','#filetable tbody tr td input',function(){
+	var btnID = $(this).attr('id');
+	var fileInfo=btnID.split("-");
+    var filname=String(fileInfo[0]);
+    var lastThree = filname.substr(filname.length - 3);
+    if(lastThree=="pdf" || lastThree=="doc"){
+    	filname = filname.substring(0, filname.length - 3);
+    	filname=filname+"."+lastThree;
+    }else{
+    var lastFour = filname.substr(filname.length - 4);
+    filname = filname.substring(0, filname.length - 4);
+    filname=filname+"."+lastFour;
+    }
+    var objFormData1 = new FormData();
+    objFormData1.append('filename', filname);
+    objFormData1.append('clientId', $("#ClientId").val());
+    objFormData1.append('serviceId', $("#contractId").val());
+    $.ajax({
+        url: '/LegalBell/deleteAttachedFile',
+        type: 'POST',
+        contentType: false,
+        data: objFormData1,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {}
+    });
+    $(this).closest('tr').remove();
+    var a = parseInt(btnID)-1;
+    fileArray.splice(a,1);
+    totalFileSize=totalFileSize-fileInfo[1];
+    $("#browseSpan").text("*Click on Choose File again to upload more files..");
+ });
+</script>
+              

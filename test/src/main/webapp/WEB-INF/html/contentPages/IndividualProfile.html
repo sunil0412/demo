@@ -1,0 +1,230 @@
+<div class="container-fluid" id="cont_section">
+  <div class="row">
+    <div class="container-1" id="user-profil">
+      <ul id="side" class="nav navbar-nav-1 side-nav">
+        <li class="side-user"> <img class="img-circle" src="assets/img/default.png" alt="sumit kumar" id="pro_img" width="100" height="100">
+          <p class="name" id="username"></p>
+        </li>
+        <li id = "ClientDashboard" class="dashboard"> <a class="active" href="#"><img src="assets/imgs/Dashboard-01.png"> Dashboard</a> </li>  
+        <li class="panel"> <a href="javascript:;" data-toggle="collapse" data-target="#charts"><img src="assets/img/sub-menu-ico.png" style="margin-right:12px;">Services<i class="fa fa-caret-down pull-right"></i> </a> <!-- <i class="fa fa-bar-chart-o" ></i> -->
+          <ul class="collapse nav" id="charts">
+            <li id="createLegalAdvisory"><a href="#"><i class="fa fa-angle-double-right"></i>Create Legal Advisory</a> </li>
+            <li id="CreateDR"><a href="#"><i class="fa fa-angle-double-right"></i>Create Litigation Management</a> </li>
+            <li id="CreateContract"><a href="#"><i class="fa fa-angle-double-right"></i>Create Contract</a> </li>
+            <li id="CreateDiligence"><a href="#"><i class="fa fa-angle-double-right"></i>Create Due Diligence</a> </li>
+            <li id=""><a href="#"><i class="fa fa-angle-double-right"></i>Registration</a> </li>
+            <li id=""><a href="#"><i class="fa fa-angle-double-right"></i>Online Video Conference</a> </li>
+            <!-- <li id="CreateCMD"><a href="#"><i class="fa fa-angle-double-right"></i>Online Conciliation/Mediation</a> </li> -->
+            <li id="createTaxAdvisory"><a href="#"><i class="fa fa-angle-double-right"></i>Create Legal Tax Advisory</a> </li>
+          </ul>
+        </li>
+        <li class="panel"> <a href="javascript:;" data-toggle="collapse" data-target="#personalize"> <img src="assets/imgs/Personalisation-01.png" style="margin-right:12px;">Personalization<i class="fa fa-caret-down pull-right"></i> </a>
+          <ul class="collapse nav" id="personalize">
+          <li id="updateIndividualLink"><a href="#"><i class="fa fa-angle-double-right"></i>Update Profile</a> </li>
+          <li id="clientAccountSettingLink"><a href="#"><i class="fa fa-angle-double-right"></i>Accounts Settings</a> </li>
+          <!-- <li id="rosterLinkClient"><a href="#"><i class="fa fa-angle-double-right"></i>Roster</a> </li>
+         --></ul>
+        </li>
+        
+        
+        
+      </ul>
+    </div>
+    <div class="container-2">
+      <div id="page-wrapper">
+        <!-- <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="">
+            	<ul class="">
+                	<li><a href="#"><img src="assets/img/sub-menu-ico.png" alt=""><span class="badge">10</span></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico1.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico2.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico3.png" alt=""><span class="badge">10</span></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico4.png" alt=""><span class="badge">10</span></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico5.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico6.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico7.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico8.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico9.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/img/sub-menu-ico10.png" alt=""><span class="badge">10</span></a></li>
+                    
+                </ul>
+            </div>
+            </div>
+          
+        </div> -->
+        <div id="contentPage">
+        <div class="row" id="services">
+        	<div class="col-md-12 services_area">
+            	<div class="page-title">
+             	 <h2>Services</h2>
+            </div>
+            <ul class="list-inline">
+            	<li >
+                	<div class="circle-tile">  <a href="#"  data-toggle="modal" data-target="#laModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Legal Advisory-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Legal Advisory </div>
+                </div></a>
+                </li>
+                <li>
+                	<div class="circle-tile"> <a href="#" data-toggle="modal" data-target="#disputeResolutionModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Dispute Resolution-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Litigation Management  </div>
+                </div></a>
+                </li>
+                <li>
+                	<div class="circle-tile"> <a href="#" data-toggle="modal" data-target="#contractModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Contract Management-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Contract Management  </div>
+                </div></a>
+                </li>
+                <li>
+                	<div class="circle-tile"> <a href="#" data-toggle="modal" data-target="#diligenceModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Due diligence-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Due Diligence  </div>
+                </div></a>
+                </li>
+                <li>
+                	<div class="circle-tile"> <a href="#">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Registration-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Registration  </div>
+                </div></a>
+                </li>
+                <li>
+                	<div class="circle-tile"> <a href="#">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Online Video Conference-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> ONLINE Video Conference  </div>
+                </div></a>
+                </li>
+              <!-- <li>
+                	<div class="circle-tile"> <a href="#" data-toggle="modal" data-target="#conciliationMediationModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Online Conciliation Mediation-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Online Conciliation /Mediation  </div>
+                </div></a>
+                </li> -->
+                <li>
+                	<div class="circle-tile"> <a href="#" data-toggle="modal" data-target="#taModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Tax Advisory-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Legal Tax Advisory  </div>
+                </div></a>
+                </li>
+                
+            </ul>
+            
+          </div>
+          
+          
+         <div class="col-md-12 services_area">
+            	<div class="page-title">
+             	 <h2> Financials </h2>
+            </div>
+            <ul class="list-inline">
+            	<li>
+                	<div class="circle-tile"><a href="#" data-toggle="modal" data-target="#paymentModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Payments-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> Payment</div>
+                </div></a>
+                </li>
+                
+            </ul>
+            
+          </div>
+          
+          <div class="col-md-12 services_area">
+            	<div class="page-title">
+             	 <h2> Events  </h2>
+            	</div>
+            <ul class="list-inline">
+            	<li>
+                  <div class="circle-tile"> <a href="#" data-toggle="modal" data-target="#hearingModal">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Hearings-01.png" alt=""> </div>
+                  
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description">Hearings</div>
+                </div></a>
+                </li>
+                <li id="rosterLinkClient">
+                	<div class="circle-tile"> <a href="#">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Master-Roster.png" alt=""> </div>
+                  </a>
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description">Roster</div>
+                </div></a>
+                </li>
+                
+                <li id="roster2Client">
+                	<div class="circle-tile"> <a href="#">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Master-Roster.png" alt=""> </div>
+                  </a>
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description">Roster2</div>
+                </div></a>
+                </li>
+               <!--  <li>
+                	<div class="circle-tile"> <a href="#">
+                  <div class="circle-tile-heading dark-blue"> <img src="assets/imgs/Tasks-01.png" alt=""> </div>
+                  </a>
+                  <div class="circle-tile-content">
+                    <div class="circle-tile-description"> TASKS </div>
+                </div>
+                </li> -->
+                
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+      <!-- page-wrapper END-->
+    </div>
+    <!-- container-1 END-->
+  </div>
+</div>
+<script type="text/javascript">
+$(this).hide();
+$("#user-profil").show();
+$("#hide-btn").show();
+$(".container-2").css("width", "82%");
+    //$(document).ready(function(){
+        $(".sidebar-toggle").click(function(){
+            $(this).hide();
+            
+           $("#user-profil").show();
+            
+           $("#hide-btn").show();
+            
+           $(".container-2").css("width", "82%");
+            
+             
+        });
+        
+        $("#hide-btn").click(function(){
+            $(this).hide();
+            
+           $("#user-profil").hide();
+            
+           $(".sidebar-toggle").show();
+            
+           $(".container-2").css("width", "100%");
+            
+             
+        });
+    //});
+</script>

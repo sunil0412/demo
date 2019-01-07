@@ -1,0 +1,126 @@
+
+<div id="categorie_area" class="main_area">
+<!-- <div class="container-2"> -->
+      <div id="page-wrapper">
+      <form id="createTaskDescriptionForm">
+      <input type="hidden" name="lawyerId" id="LawyerId" value="default" required />
+        <div class="row" style=" padding: 0px 15px;">
+        	<div class="col-md-12 navbar-dashbord" style="margin-top:20px;">
+            <div class="page-title">
+             	 <h2>New Task Description</h2>
+            </div>
+            </div>
+          
+        </div>
+        <!-- <div class="row" id="legal_advisory"> -->
+        	<div class="col-sm-12">
+            <table class="table table-striped custab" id="newTask" >
+                         <tr>
+								<th>Sl No.</th>
+								<th style="width: 185px;">Task Description <font
+									color='red'>*</font></th>
+								<th>Rate <font color='red'>*</font></th>
+								<th>Action</th>
+							</tr>
+							<tr style="display: none;">
+							<td><input type="hidden"
+									name="taskdescription" value="null" /></td>
+									<td><input type="hidden"
+									name="taskrate" value="0" /></td>
+							</tr>
+							<tr>
+								<td><input type="text" id="sl_No1" value="1" size="1"
+									readonly="readonly" /></td>
+								<td><input class="form-control" size="8" id="desc1"
+									name="taskdescription" onblur="return createLawyerTaskForm();"
+									placeholder="Input Description" /></td>
+								<td><input class="form-control" size="5" id="rate1"
+									name="taskrate" onblur="return createLawyerTaskForm();"
+									placeholder="Input Rate" /></td>
+								<td><input type="button" class="addCF" value="Add More" style="width: 120px;"></td>
+							</tr>
+            
+            
+           </table>
+           <span id="taskdescriptionspan" style="color: red;"></span>
+           </div>
+        	
+            <div class="col-md-12 text-right">
+              	<div class="form-group">
+             	<input type="button" id="createTaskDescriptionButton" value="Submit" class="btn btn-blue"
+                  onclick="ajaxPost('createTaskDescriptionForm','/createTaskDescription');" 
+                  style="background:#323f3f; color:#fff;">
+                  
+                <input type="button" onclick="redirectToDashBoard()" value="Cancel" 
+                  		style="background:#323f3f; color:#fff;" class="btn btn-blue">
+             
+            </div>
+              </div>
+          
+        <!-- </div> -->
+        </form>
+      </div>
+      <!-- page-wrapper END-->
+    </div>
+
+
+
+
+
+
+
+
+<script>
+	$(document)
+			.ready(
+					function() {
+						var i = 1;
+						$(".addCF")
+								.click(
+										function() {
+											if ($("#sl_No1").val() == i) {
+												if ($("#desc1").val() != ""
+														&& $("#rate1").val() != "") {
+													$("#newTask")
+															.append(
+																	'<tr><td><input type="text" size="1" value="'
+																			+ (i + 1)
+																			+ '" readonly="readonly"/></td><td><input class="form-control" id="desc'
+																			+ (i + 1)
+																			+ '" name="taskdescription" size="8" placeholder="Input Description" onblur="return createLawyerTaskForm();"/></td> <td> <input class="form-control" id="rate'
+																			+ (i + 1)
+																			+ '" name="taskrate" size="5" placeholder="Input Rate" onblur="return createLawyerTaskForm();"/> </td><td><input type="button" class="remCF" value="Remove" style="width: 120px;"></td></tr>');
+													i++;
+												} else {
+													document
+															.getElementById("taskdescriptionspan").textContent = "*Please Enter the Task Name or Rate!!!!";
+												}
+											} else if ($('#' + 'desc' + (i))
+													.val() != ""
+													&& $('#' + 'rate' + (i))
+															.val() != "") {
+												$("#newTask")
+														.append(
+																'<tr><td><input type="text" size="1" value="'
+																		+ (i + 1)
+																		+ '" readonly="readonly"/></td><td><input class="form-control" id="desc'
+																		+ (i + 1)
+																		+ '" name="taskdescription" size="8" placeholder="Input Description" onblur="return createLawyerTaskForm();"/></td> <td> <input class="form-control" id="rate'
+																		+ (i + 1)
+																		+ '" name="taskrate" size="5" placeholder="Input Rate" onblur="return createLawyerTaskForm();"/> </td><td><input type="button" class="remCF" value="Remove" style="width: 120px;"></td></tr>');
+												i++;
+											} else {
+												document
+														.getElementById("taskdescriptionspan").textContent = "*Please Enter the Task Name or Rate!!!!";
+											}
+										});
+						$("#newTask").on('click', '.remCF', function() {
+							i--;
+							$(this).parent().parent().remove();
+						});
+					});
+
+	function createLawyerTaskForm() {
+		document.getElementById("taskdescriptionspan").textContent = "";
+	}
+</script>

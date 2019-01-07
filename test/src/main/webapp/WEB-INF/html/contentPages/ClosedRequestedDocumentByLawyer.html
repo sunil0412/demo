@@ -1,0 +1,172 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+label{background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback wizard">
+			<form id="closedRequestedDocForm">
+				<h4>
+					Closed Requested Documents Table
+					 <br>
+				</h4>
+				<div class="datatable-scroller">
+				<table class="table"
+					style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+					<tr>
+						<td>
+							<table id="closedRequestedDocTable" class="table table-striped custab"
+								style="width: 100%; cellspacing: 1">
+								<thead>
+									<tr><th>ID</th>
+				           				<th>Raised On</th>
+				            			<th>Pending Since</th>
+				            			<th>Details</th>
+				            			<th>Action</th>
+										<!-- <th>Request Id</th>
+										<th>Request To</th>
+										<th>Request Date</th>
+										<th>Request Item</th>
+										<th>Request Type</th>
+										<th>Request Message</th>
+										<th>Response Date</th>
+										<th>Response Message</th>
+										<th>Request Status</th> -->
+									</tr>
+								</thead>
+							</table>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<div class="col-lg-12">
+						<div class="form-group">
+							<div>
+								<button id="CounselDashboard" class="btn btn-primary"
+									type="button">Back</button>
+							</div>
+						</div>
+					</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<!-- <a data-toggle="modal" href="ClosedRequestedDocumentByLawyer.html#displayRequestedClosedModal"><button id="displayRequestedClosedDetailsButton" style="display: none;">sdfsdf</button></a>
+
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displayRequestedClosedModal" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title"> Request Details</h4>
+							</div>
+							<div class="modal-body">
+					
+					
+					<form id="displayRequestedClosedForm" class="modal-scroller">
+				<br />
+					
+				<div class="form-group">
+						<label for="requestId" class="col-sm-2 control-label-head">Request Id</label>
+						<div class="col-sm-3">
+						<label class="control-label"><input type="text" id="requestId" readonly="readonly" size="35"/></label>		
+						</div>
+						
+						<label for="requestItem"
+							class="col-sm-2 control-label-head">Request Item</label>
+						<div class="col-sm-3">
+							<label class="control-label"><input type="text" id="requestItem" readonly="readonly" size="35"/></label>
+						</div>
+					
+					</div>
+			
+					<div class="form-group">
+						<label for="requestType" class="col-sm-2 control-label-head">Request Type</label>
+						<div class="col-sm-3">
+						<label class="control-label"><input type="text" id="requestType" readonly="readonly" size="35"/></label>
+						</div>
+						
+						<label for="requestTo" class="col-sm-2 control-label-head">Request To</label>
+						<div class="col-sm-3">
+						<label class="control-label"><input type="text" id="requestTo" readonly="readonly" size="35"/></label>
+						</div>
+				
+					</div>
+				
+				<div class="form-group">
+						<label for="requestDate" class="col-sm-2 control-label-head">Request Date</label>
+						<div class="col-sm-3">
+						<label class="control-label"><input type="text" id="requestDate" readonly="readonly" size="35"/></label>
+						</div>
+					
+						<label for="responseDate" class="col-sm-2 control-label-head">Response Date</label>
+						<div class="col-sm-3">
+						<label class="control-label"><input type="text" id="responseDate" readonly="readonly" size="35"/></label>
+						</div>		
+				</div>
+			<div class="form-group">
+						<label for="requestMessage" class="col-sm-2 control-label-head">Request Message</label>
+						<div class="col-sm-10">
+						<label class="control-label"><textarea id="requestMessage" readonly="readonly" rows="7" cols="100" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;" rows="7"></textarea></label>
+						</div>
+				</div>
+				
+				<div class="form-group">
+						<label for="responseMessage" class="col-sm-2 control-label-head">Response Message</label>
+						<div class="col-sm-10">
+						<label class="control-label"><textarea id="responseMessage" readonly="readonly" rows="7" cols="100" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;" ></textarea></label>
+						</div>
+				</div>
+                    <div class="form-group">
+                    <label for="uploadedFileDetails" class="col-sm-2 control-label-head">
+						File Informations</label>
+						<div class="col-sm-10">
+							<table class="table-bordered" id="uploadedFileDetailsRequested">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>            
+                    </div>      
+			</form>
+										</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div> -->

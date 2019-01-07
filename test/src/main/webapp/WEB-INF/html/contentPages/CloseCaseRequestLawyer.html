@@ -1,0 +1,193 @@
+<!-- <script type="text/javascript" src="panel/olcScript/estimateEvents.js"></script> -->
+<script type="text/javascript" src="assets/legalbellscript/estimateEvents.js"></script>
+<div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback">
+			<h4>
+				<i></i>Case Closure
+			</h4>
+			<form id="closeCaseRequestLawyerForm">
+			<div>
+				
+					<div class="col-sm-6">
+					<div class="form-group">
+							<label for="customer">Client ID</label> <!-- class="col-sm-2 control-label" -->
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name='client' id='clientNameTextBoxId'
+									class='clientName form-control' size='10' value=""
+									placeholder="Client ID"  /><!-- onblur="return InvoiceSubmit()" --> <span
+									id="clientSpan" style="color: red;"></span>
+							<!-- </div> -->
+						</div>
+                          <div class="form-group">
+							<label for="customer">Case Id</label>
+							<!-- <div class="col-sm-10"> -->
+								<select id="caseID" name="caseID"
+										class='caseID form-control col-md-10'>
+										<option value="">Select</option>
+									</select> <span id="caseIdSpan" style="color: red;"></span>
+							<!-- </div> -->
+						</div>
+						<div class="form-group">
+							<label for="customer">Client Name</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="clientName" id='clientNameId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Client Name" /> 
+							<!-- </div> -->
+						</div>
+						<div class="form-group">
+							<label for="customer">Phone No</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="clientPhone" id='clientPhoneId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Client Phone"/>
+							<!-- </div> -->
+						</div>
+						<div class="form-group">
+							<label for="customer">Email Id</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="clientEmail" id='clientEmailId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Client Email" />
+							<!-- </div> -->
+						</div>
+						</div>
+						<div class="col-sm-6">
+						<div class="form-group">
+							<label for="Case Category">Case Category</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="caseCategory" id='caseCategoryId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Case Category" /> 
+							<!-- </div> -->
+						</div>
+						<div class="form-group">
+							<label for="Case SubCategory">Case SubCategory</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="caseSubCategory" id='caseSubCategoryId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Case SubCategory" /> 
+							<!-- </div> -->
+						</div>
+						<div class="form-group">
+							<label for="CreatedDate">Created On</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="createdDate" id='createdDateId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Created Date"  /> 
+							<!-- </div> -->
+						</div>
+                           <div class="form-group">
+							<label for="AssignDate">Assign On</label>
+							<!-- <div class="col-sm-10"> -->
+								<input type="text" name="assignDate" id='assignDateId'
+									class='form-control' size='10' readonly="readonly"
+									placeholder="Assign Date" /> 
+							<!-- </div> -->
+						</div>
+						<div id="RequestMsgDiv" style="display:none">
+						 <div class="form-group">
+						 <label for="RequestMsg">Request Close Message</label>
+							<!-- <div class="col-sm-10"> -->
+						 <textarea rows="6" cols="69" name="requestMsg" id="RequestMsg" style="resize:none"></textarea>
+						<!--  </div> -->
+						</div>
+						 <div class="form-group">
+							<div class="col-sm-12" align="right" style="margin-bottom: 10px;">
+								<button class="btn btn-blue" type="button"
+									id="CounselDashboard" style="background:#323f3f;color:#fff;">Cancel</button>
+								<button class="btn btn-blue" type="button" style="background:#323f3f;color:#fff;"
+									id="submitRequestFromLawyerButton" onclick="validateCloseCaseRequestLawyer();">Submit</button>
+							</div>
+						</div>
+						</div>
+						 <span id="requestMsgSpan" style="color: red"></span>
+						<div class="form-group" id="cancelButtonDiv" style="display:none">
+							<div class="col-sm-12 text-right">
+								<button class="btn btn-blue" type="button" style="background:#323f3f;color:#fff;"
+									id="CounselDashboard">Cancel</button>
+							</div>
+						</div>
+
+						</div>
+                        </div>
+                   
+					<div class="form-group">
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="invoicestatuslawyertable" class="table table-striped custab"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr style="background:#323f3f;color:#fff;">
+											<!-- <th>INVOICE ID</th>
+											<th>ORDER ID</th>
+											<th>PAYMENT STATUS</th> -->
+											<th>ID</th>
+											<th>RAISED ON </th>
+											<th>PENDING SINCE </th>
+											<th>DETAILS</th>
+											<th>ACTION</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+                <div class="form-group">
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="taskstatuslawyertable" class="table table-striped custab"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr style="background:#323f3f;color:#fff;">
+											<!-- <th>TASK ID</th>
+											<th>ASSIGN TO</th>
+											<th>TASK DESCRIPTION</th>
+											<th>TASK STATUS</th> -->
+											<th>ID</th>
+											<th>RAISED ON </th>
+											<th>PENDING SINCE </th>
+											<th>DETAILS</th>
+											<th>ACTION</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<input type="hidden" id="autoSgstclienNameId" /> <input
+						type="hidden" name="addressLine1" id="addressLine1" /> <input
+						type="hidden" name="addressLine2" id="addressLine2" /> <input
+						type="hidden" name="pinCode" id="pincode" /> <input type="hidden"
+						name="country" id="country" /> <input type="hidden" name="state"
+						id="state" /> <input type="hidden" name="type" id="pageId" /> <input
+						type="hidden" name="lawyerId" id="lawer" /> <br>
+						 <input
+						type="hidden" name="service" id="service" /> <br> <input
+						type="hidden" name="clientId" id="clientId" />
+				 </form>
+			  </div>
+
+					
+					</div>
+					</div>
+		</div>
+<script type="text/javascript">
+function validateCloseCaseRequestLawyer(){
+ if (document.getElementById("caseID").value == "") {
+		document.getElementById("caseIdSpan").textContent = "*Please Choose Atleast One Case.";
+	}else if (document.getElementById("RequestMsg").value == "") {
+		document.getElementById("requestMsgSpan").textContent = "*Please Enter Case Close Message.";
+	}else {
+		ajaxPost('closeCaseRequestLawyerForm', '/closeCaseRequestByLawyer');
+	}
+}
+</script>

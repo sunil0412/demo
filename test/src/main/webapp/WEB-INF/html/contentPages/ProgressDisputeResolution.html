@@ -1,0 +1,76 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+
+<div class="container-2">
+      <div id="page-wrapper">
+      <form id="progressCaseForm">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>In Progress Dispute Resolution List</h2>
+            </div>
+            </div>
+          
+        </div>
+        <!-- <div class="row" id="legal_advisory"> -->
+        	<div class="col-sm-12">
+            <table class="table table-striped custab" id="casetable" >
+    <thead>
+
+						<tr>
+							<th>Dispute ID</th>
+							<th>Dispute Resolution Category</th>
+							<th>Dispute Resolution Sub-Category</th>
+							<th>Dispute Resolution Details</th>
+							<th>Created On</th>
+							<th>Assigned To</th>
+							<th>Assigned Date</th>
+							<th>Next Hearing</th>
+							<th>Case Status</th>
+							<th>Pending Since</th>
+						</tr>
+	</thead>
+            
+            
+    </table>
+
+           </div>
+        	
+            <div class="col-md-12 text-right">
+              	<div class="form-group">
+             
+              		
+              	  
+                  <input type="button" id="ClientDashboard" value="Back" class="btn btn-blue">
+                  
+             
+            </div>
+              </div>
+          
+          
+          
+        <!-- </div> -->
+        </form>
+      </div>
+      <!-- page-wrapper END-->
+    </div>
+
+
+

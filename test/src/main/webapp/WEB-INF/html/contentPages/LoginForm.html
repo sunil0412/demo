@@ -1,0 +1,122 @@
+<script>
+$('#user_Id').keypress(function(event){
+	  if(event.keyCode == 13){
+	    $('#loginBtn').click();
+	  }
+	});
+
+$('#password').keypress(function(event){
+	 if(event.keyCode == 13){
+	    $('#loginBtn').click();
+	  }
+	});
+</script>
+
+<div class="container-fluid" id="cont_section1"> 
+
+    	<div class="row"> 
+        	
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">  <!-- main_area -->
+            	<div class="login_panel">
+                	<div class="ico_area"><a href="#"><img src="assets/img/login_logo.png" alt=""></a></div>
+                   <form id="loginForm" class="logni_bg">
+            <div class="form-group">
+               <div class="col-md-12 input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input class="form-control" type="text" placeholder="User Id" id="user_Id" name="user_Id" onBlur="return validateLoginUser(this.id,'userIdSpan','loginBtn');">
+                </div>
+                <span id="userIdSpan" style="color: red;"></span>
+            </div>
+            <div class="form-group">
+               
+                <div class="col-md-12 input-group "> <!-- class="col-md-12 input-group mrg20B" -->
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> </span>
+                    <input class="form-control" type="password" id="password" placeholder="Password" name="password" onBlur="return onblurLoginForm();">
+                </div>
+                <span id="passwordSpan" style="color: red;"></span> 
+                <!-- <label><a data-toggle="modal" href="Home.html#forgotModal" onclick="checkUserIdentity();"> Forgot Password?</a></label> -->
+                
+            </div>
+			<div class="form-group text-right"> <!-- class="form-group text-center" -->
+              <div class="row"> 
+              	  <input type="button" value="LogIn" id="loginBtn" class="login" style="background: rgba(17,19,22,0.0); border-style: none;" onclick="validateLoginForm();"> <!-- class="btn btn-log" -->
+              </div>
+            </div>
+            <input type="hidden" name="user_Identity" id="user_Identity">
+                <div class="clearfix"></div>
+               <!-- <center> -->
+                <!-- <p>Don't have an account yet?</p> -->
+                  <p>
+                	<a href="#" onclick="loadRegistrationPage();">Create an account</a>
+                	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                	<a data-toggle="modal" href="Home.html#forgotModal" onclick="checkUserIdentity();"> Forgot Password?</a>
+                 </p>
+               <!-- </center> -->
+            </form>
+                </div>
+          </div>
+            <div class="col-sm-2"></div>
+            
+        </div>
+
+<div id="footer">
+<div class="container-fluid" id="footer_area" style="height: 30px; line-height: 36px;"> 
+<span id="userToken" style="display:none;">123</span>
+    	<div class="row">
+        	<div class="col-sm-12 text-right">
+            	<p style="font-size: 11px;">Powered by <a href="#">Kirat IT Solutions</a>. 2016 © All right reserved.</p>
+            </div>
+        </div>
+</div>
+</div>
+
+</div>
+
+<!-- <div class="container-fluid" id="cont_section"> 
+
+    	<div class="row"> 
+        	
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 main_area">
+            	<div class="login_panel">
+                	<div class="ico_area"><img src="assets/img/login_panel_ico.png" alt=""></div>
+                   <form id="loginForm" >
+            <div class="form-group">
+               
+                <div class="col-md-12 input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input class="form-control" type="text" placeholder="User Id"id="user_Id" name="user_Id" onBlur="return onblurLoginForm();">
+                    <span id="userIdSpan" style="color: red;"></span> 
+                </div>
+            </div>
+            <div class="form-group">
+               
+                <div class="col-md-12 input-group mrg20B">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> </span>
+                    <input class="form-control" type="password" id="password"
+                    name="password" onBlur="return onblurLoginForm();">
+                    <span id="passwordSpan" style="color: red;"></span> 
+                </div>
+                <label><a href="#"> Forgot Password?</a></label>
+                
+            </div>
+			<div class="form-group text-center">
+              <div class="row"> 
+              	  <input type="button" value="LogIn" class="btn btn-log" onclick="validateLoginForm();">
+              </div>
+            </div>
+            <input type="hidden" name="user_Identity" id="user_Identity">
+                <div class="clearfix"></div>
+               <center>
+                <p>Don't have an account yet?</p><p><a href="#">Create an account</a></p>
+               </center>
+            </form>
+                </div>
+          </div>
+            <div class="col-sm-2"></div>
+            
+        </div>
+
+</div>
+ -->

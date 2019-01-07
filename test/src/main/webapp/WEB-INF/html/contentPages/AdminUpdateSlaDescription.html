@@ -1,0 +1,79 @@
+
+
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				
+				<div class="tab-content" id="processTab">
+
+					<div id="query-type" class="tab-pane fade active in">
+							<form role="form" id="adminUpdateSlaDescriptionForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Update Sla Description</h2>
+									</div>
+								</div>
+							</div>
+						<div class="form-group" style="margin-top:40px;">
+					<label for="Sla" class="col-sm-2 control-label">Sla Hours</label>
+					<div class="col-sm-4">
+						<select id="Sla" onchange="getSlaDescription(this.id,'updateSlaDescription');" class="form-control">
+							<option value="" label="---Select---" />
+						</select> <span id="contractIdSpan" style="color: red"></span>
+					</div>
+					<div class="col-sm-6"></div>
+				   </div>
+					  
+					  <div class="form-group">
+						<label for="SlaDescription" class="col-sm-2 control-label">Sla Description</label>
+						<div class="col-sm-10">
+							<table class="table table-striped custab" id="updateSlaDescription">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					 <div class="col-sm-12" id="updateSlaDivButtons" style="display: none">
+					  	<div class="text-right">
+								<div class="form-group">
+
+
+									<input type="button" id="adminUpdateSlaDescriptionButton"
+										onclick=" ajaxPost('adminUpdateSlaDescriptionForm', '/updateSlaDescription')" value="Update"
+										class="btn btn-blue">
+									<input type="button" id="CounselDashboard"
+										 value="Cancel" class="btn btn-blue">	
+
+								</div>
+							</div>
+						</div>
+						</form>
+
+					</div> 
+							
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<script>
+	$(function() {
+		$("#Valid_From").datepicker({
+			dateFormat : 'yy-mm-dd',
+			minDate : '0'
+		});
+		$("#Valid_To").datepicker({
+			dateFormat : 'yy-mm-dd',
+			minDate : '0'
+		});
+	});
+</script>

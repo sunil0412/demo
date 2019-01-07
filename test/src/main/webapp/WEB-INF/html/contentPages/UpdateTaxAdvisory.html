@@ -1,0 +1,116 @@
+<div class="container-2">
+      <div id="page-wrapper">
+        
+        <div class="row" id="form_area">
+          <div id="categorie_area" class="main_area">
+            <div class="process">
+              <div class="process-row nav nav-tabs">
+                <div class="process-step">
+                  <button type="button" class="btn btn-info btn-circle" data-toggle="tab" href="#query-type"><i class="fa fa-question fa-3x"></i></button>
+                  <p>Select Query Type</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#query-details"><i class="fa fa-file-text-o fa-3x"></i></button>
+                  <p>Query Details</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#document-upload"><i class="fa fa-upload fa-3x"></i></button>
+                  <p>Document Upload</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#downloads"><i class="fa fa-download fa-3x"></i></button>
+                  <p>Review and Downloads</p>
+                </div>
+                <div class="process-step">
+                  <button type="button" class="btn btn-default btn-circle" data-toggle="tab" href="#payment"><i class="fa fa-check fa-3x"></i></button>
+                  <p>Payment Selection</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content">
+            	
+              <div id="query-type" class="tab-pane fade active in">
+              	
+          
+                <form role="form" id="createQueryForm">
+                <div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>New Tax Advisory Flow</h2>
+            </div> 
+          </div>
+                </div>
+                  <div class="col-md-6">
+                  
+                  <input name="client_Id" type="hidden" id="Client_Id"/>
+				 <input name="query_Id" type="hidden" id="Query_Id"/> 
+				 <input name="advice_For" type="hidden" id="Advice_For"/>
+                    <div class="form-group"  style="display: none;">
+                      <label>Type</label>
+                      <select class="form-control" id="querytype"
+								onChange="changeType(this.id)" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								<span id="qryTypeSpan" style="color: red;"></span>
+						</select>
+                    </div>
+					<div style="display: none;"><input name="query_Type" type="hidden" id="queryType" /></div>
+ 					<div id="selectQueryCategory" class="form-group">
+                      <label>Category</label>
+                      <select class="form-control" id="qryCat" onchange="getQuerySubCategory(this.id,'/getquerysubcategory');" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								<!-- <form:options items="${queryCategoryMap}" />  -->
+							</select>
+							<span id="qryCatSpan" style="color: red;"></span>
+                    </div>
+                    <div><input name="query_Category" type="hidden" id="queryCategory"/></div>
+                    <div id="selectQuerySubCategory" class="form-group">
+                      <label>Sub-Category</label>
+                      <select class="form-control" id="qrySubCat" onchange="QrySubCatValue(this.id);" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+							</select>
+							<span id="querySubCatSpan" style="color: red;"></span>
+                    </div>
+                  
+                  <div><input name="query_SubCategory" type="hidden" id="querySubCategory"/></div>
+                  
+                  <div id="selectCaseId" class="form-group"  style="display: none;">
+                      <label>Case ID</label>
+                      <select class="form-control" id="cseId" onchange="getCaseID(this.id);" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								</select>
+							<span id="caseIdSpan" style="color: red;"></span>
+                    </div>
+                    <div  style="display: none;"><input name="case_Id" type="hidden" id="caseId" /></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="selectQueryBriefDescription" class="form-group">
+                      <label>Brief Description</label>
+                      <textarea id="QueryBrief"  name="query_BriefDescription" class="form-control"
+                       rows="9" placeholder="" 
+                      onblur="return onBlurCreateQuery()"></textarea>
+						<span id="queryBriefSpan" style="color: red;"></span>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <div class="form-group">
+                      
+                        
+                        <input type="button" id="createQueryButton" onclick="ValidateCreateQuery();" value="Next" class="btn btn-blue">
+                     
+                    </div>
+                  </div>
+                </form>
+                
+              </div>
+              
+              
+
+
+ </div>
+            <div class="clearfix"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+    

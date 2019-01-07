@@ -1,0 +1,346 @@
+
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<!-- <div class="stp_frms">
+	<section>
+		<h2 align="center">Update Retainership Agreement</h2>
+		<div class="wizard"> -->
+		<div class="row" id="form_area">
+		<div id="categorie_area" class="main_area" style="height: 804px;">
+				
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Select Retainership Agreement</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Update</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Generation</p>
+						</div>
+					</div>
+				</div>
+		
+			<!-- <div class="wizard-inner">
+				<div class="connecting-line"></div>
+				<ul class="nav nav-tabs" role="tablist">
+
+					<li class="disabled"><a> <span class="round-tab"> <i
+								class="fa fa-check-square-o"></i>
+						</span>
+					</a>
+						<p>Select Retainership Agreement</p></li>
+					<li class="active"><a> <span class="round-tab"> <i
+								class="fa fa-pencil-square-o"></i>
+						</span>
+					</a>
+					<p>Update Retainership Agreement</p></li>
+					<li class="disabled"><a> <span class="round-tab"> <i
+								class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
+						</span>
+					</a>
+					<p>Retainership Agreement Review</p></li>
+					<li class="disabled"><a> <span class="round-tab"> <i
+								class="fa fa-download" aria-hidden="true"></i>
+						</span>
+					</a>
+						<p>Retainership Agreement Generation</p></li>
+				</ul>
+			</div> -->
+
+			<!-- <div class="tab-content">
+				<div class="tab-pane active" role="tabpanel" id="step1">
+					<div class="step1">
+
+						<div class="row">
+							<div class="scroll_inner_page">
+								<div class="col-lg-12">
+									<div class="showback">
+
+										<h4>
+											<i class="fa fa-angle-right"></i>Retainership Agreement
+										</h4>
+
+ -->					<div class="tab-content" id="processTab">
+							<div id="query-type" class="tab-pane fade active in">
+										<form id="updateCorporateContractForm">
+										<div class="col-sm-12" style="padding-bottom:5px; padding-left:0px;">
+											<div class="col-md-12 navbar-dashbord">
+												<div class="page-title">
+													<h2>Update Retainership Agreement</h2>
+												</div>
+											</div>
+										</div>
+										<h4>
+											Retainership Agreement
+										</h4>
+										
+										
+										<div class="col-sm-6">
+										<div class="form-group">
+												 <label for="ContractId">Agreement Id</label>
+												 <input type="text" name="contract_Id" class="form-control" id="ContractId" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4">
+													<label class="control-label"><input type="text"
+														name="contract_Id" id="ContractId" readonly="readonly"
+														size=50 /></label>
+												 </div> -->
+												<label for="ClientId">Client</label> 
+												 <!-- <label class="control-label"><input type="text" id="Client" readonly="readonly" /></label> -->
+												 <input type="text" class="form-control" id="Client" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+													<input type="hidden" name="client_Id" id="Client_Id" readonly="readonly" />
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group" id="hiddenTextDiv" style="display: none">
+												 <label for="PaymentTerm">Payment Terms</label>
+												 <input type="text" name="payment_Term" class="form-control" id="hiddenPaymentTerm" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4"> 
+													<label class="control-label"><input type="text"
+														name="payment_Term" id="hiddenPaymentTerm"
+														readonly="readonly" size=50 /></label>
+												 </div> -->
+												<label for="PaymentMethod">Payment Method</label>
+												<input type="text" name="payment_Method" class="form-control" id="hiddenPaymentMethod" style="opacity:0.7;background-color:#eee;" readonly="readonly"/>
+												<!-- <div class="col-sm-4">
+													<label class="control-label"><input type="text"
+														name="payment_Method" readonly="readonly"
+														id="hiddenPaymentMethod" size=50 /></label>
+												 </div> -->
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group" id="dropDownDiv"
+												style="display: none">
+												<label for="PaymentTerm">Payment Terms</label>
+												
+												<!-- <div class="col-sm-4"> -->
+													<select id="PaymentTerm" class="form-control"
+														onchange="changeUpdateContractTermValue(this.id);"
+														onblur="return onblurCreateContractForm();">
+														<option value="" label="---Select---" />
+													</select> <span id="paymenttermSpan" style="color: red;"></span>
+												<!-- </div> -->
+												<label for="PaymentMethod">Payment Method</label>
+												<!-- <div class="col-sm-4"> -->
+													<select id="PaymentMethod" class="form-control"
+														onchange="changeContractModeValue(this.id);"
+														onblur="return onblurCreateContractForm();">
+														<option value="" label="---Select---" />
+													</select> <span id="paymentmethodSpan" style="color: red;"></span>
+												<!-- </div> -->
+											</div>
+										</div>
+											<div id="selectedServiceTableDiv" style="display: block">
+												<table style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+													<tr>
+														<td>
+															<table id="selectedservicetable" class="display" style="cellspacing: 1; width: 100%;">
+																<thead style="background:#323f3f; color:#fff;">
+																	<tr>
+																		<th>SELECT</th>
+																		<th>SERVICE</th>
+																		<th>Others Attribute</th>
+																		<th>RATE</th>
+																		<th>TERM</th>
+																	</tr>
+
+																</thead>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</div>
+											
+											<div class="col-sm-12 text-right" id="addServiceButtonDiv"
+												style="display: block">
+												
+													<input type="button" class="btn btn-blue" style="background:#323f3f; color:#fff;"
+														id="addServiceButton" value="Add Service" />
+												
+											</div>
+											
+											<div id="addServiceTableDiv" style="display: none">
+												<table
+													style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+													<tr>
+														<td>
+															<table id="servicetable" class="display"
+																style="cellspacing: 1; width: 100%">
+																<thead style="background:#323f3f; color:#fff;">
+																	<tr>
+																		<th>SELECT</th>
+																		<th>SERVICE</th>
+																		<th>Others Attribute</th>
+																		<th>RATE</th>
+																		<th>TERM</th>
+																	</tr>
+
+																</thead>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</div>
+											<input type="hidden" name="corporate_Service"
+												id="hiddenCorporateService" />
+											<div class="col-sm-6">
+											<h5>Agreement Description:</h5>
+											
+											<div class="form-group">
+												<div class="col-sm-12" style="padding-left:0px;">
+												<label>Brief Description</label>
+													<label class="control-label"><textarea
+															name="contract_BriefDescription" style="resize: none;" 
+															id="ContractBriefDescription" maxlength="150" rows="5"
+															cols="54" readonly="readonly"></textarea></label>
+												</div>
+											</div>
+											</div>
+											<div class="col-sm-6">
+											<h5>Agreement Period Details:</h5>
+											<div class="form-group">
+											<label for="ContractStartDate">Agreement Start Date</label>
+												<!-- <div class="col-sm-4"> -->
+													<input name="contract_Start_Date" class="form-control"
+													
+														id="startdatepicker" placeholder="DD-MM-YY" />
+												<!-- </div> -->
+											</div>
+											<div class="form-group">
+											<label for="ContractEndDate">Agreement End Date </label>
+												<!-- <div class="col-sm-4"> -->
+													<input name="contract_End_Date" class="form-control"
+														
+														id="enddatepicker" placeholder="DD-MM-YY" />
+												<!-- </div> -->
+											</div>
+											</div>
+											
+											<!-- <div class="form-group">
+												<label for="ContractStartDate"
+													class="col-sm-2 control-label">Agreement Start Date
+												</label>
+												<div class="col-sm-4">
+													<input name="contract_Start_Date" class="form-control"
+														id="startdatepicker" placeholder="DD-MM-YY" />
+												</div>
+												<label for="ContractEndDate" class="col-sm-2 control-label">Agreement
+													End Date </label>
+												<div class="col-sm-4">
+													<input name="contract_End_Date" class="form-control"
+														id="enddatepicker" placeholder="DD-MM-YY" />
+												</div>
+											</div> -->
+
+
+											<div class="col-lg-12 text-right">
+												<div class="form-group">
+													<label class="col-sm-2 control-label"> </label>
+													<div class="col-sm-12">
+														<button id="updateCorporateContractButton"
+															class="btn btn-blue" type="button"
+															onclick="ajaxPost('updateCorporateContractForm','/updatecontractdetails')">Next</button>
+													</div>
+												</div>
+											</div>
+											<!-- <div id="slideout">
+												<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+												<div id="slideout_inner">
+													<div id="mrova-form">
+														<h1>
+															<b> Update Retainership Agreement </b>
+														</h1>
+														<p>
+															<br />Dear Corporate Client, <br /> <br />This page
+															contains many fields in which Agreement ID and Client ID
+															can't be edited. <br />Data entered previously will be
+															shown in the fields, you can edit the as required and
+															click on Update to update the Agreement information.
+
+														</p>
+													</div>
+												</div>
+											</div> -->
+											
+										</form>
+										</div>
+										</div>
+									<!-- </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	<!-- </section> -->
+</div>
+<script>
+	$(function() {
+		$("#startdatepicker").datepicker({
+			dateFormat : 'dd-mm-yy',
+			minDate : 0,
+			onSelect : function(date) {
+				$('#enddatepicker').datepicker('destroy');
+				var date2 = $('#startdatepicker').datepicker('getDate');
+				date2.setDate(date2.getDate() + 90);
+				$('#enddatepicker').datepicker({
+					dateFormat : 'dd-mm-yy',
+					minDate : date2,
+				});
+			}
+		});
+	})
+	function getService() {
+		$('#hiddenCorporateService').val("");
+		$("input[type=checkbox]:checked").each(
+				function() {
+					$('#hiddenCorporateService').val(
+							$('#hiddenCorporateService').val() + " "
+									+ $(this).val());
+				});
+	}
+</script>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>

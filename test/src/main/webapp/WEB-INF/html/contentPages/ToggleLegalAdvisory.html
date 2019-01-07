@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	/* border: 1px solid #ccc; */
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+</style>
+
+</head>
+<body>
+
+
+
+	<div id="CreateLegalAdvisory" class="tabcontent"
+		style="display: block;">
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button"
+								class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Legal Advisory Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content" id="processTab">
+
+					<div id="query-type" class="tab-pane fade active in">
+						<form role="form" id="createQueryForm">
+							<!-- <input name="form_State" value="0" type="text" id="Form_State"/>
+							 -->
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Legal Advisory Flow</h2>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<input name="client_Id" type="hidden" id="Client_Id" /> <input
+									name="query_Id" type="hidden" id="Query_Id" /> <input
+									name="advice_For" type="hidden" id="Advice_For" />
+								<div>
+									<input name="query_Type" type="hidden" id="queryType" />
+								</div>
+								<div id="selectQueryCategory" class="form-group">
+									<label>Category</label> <select class="form-control"
+										id="qryCat"
+										onchange="getQuerySubCategory(this.id,'/getquerysubcategory');"
+										onblur="return onBlurCreateQuery()">
+										<option value="" label="---Select---" />
+										<form:options items="${queryCategoryMap}" />
+									</select> <span id="qryCatSpan" style="color: red;"></span>
+								</div>
+								<div>
+									<input name="query_Category" type="hidden" id="queryCategory" />
+								</div>
+								<div id="selectQuerySubCategory" class="form-group">
+									<label>Sub-Category</label> <select class="form-control"
+									id="qrySubCat" onchange="QrySubCatValue(this.id);"
+										onblur="return onBlurCreateQuery()" >
+										<option value="" label="---Select---" />
+									</select> <span id="querySubCatSpan" style="color: red;"></span>
+								</div>
+								<div>
+									<input name="query_SubCategory" type="hidden"
+										id="querySubCategory" />
+								</div>
+								<div>
+									<label><input type="checkbox" id="notsure" value="Others" onclick="notSure(this.value,'qryCat','queryCategory','qrySubCat','querySubCategory')">I am not sure</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div id="selectQueryBriefDescription" class="form-group">
+									<label>Brief Description</label>
+									<textarea id="QueryBrief" name="query_BriefDescription"
+										class="form-control" rows="5" maxlength="150" placeholder=""
+										onblur="return onBlurCreateQuery()"></textarea>
+									<span id="queryBriefSpan" style="color: red;"></span>
+								</div>
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+								<input type="button"
+										onclick="redirectToDashBoard()" value="Back"
+										class="btn btn-blue">
+									<input type="button" id="createQueryButton"
+										onclick="ValidateCreateQuery();" value="Next"
+										class="btn btn-blue"> 
+
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<div id="LegalAdvisoryEditor" class="tabcontent">
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button"
+								class="btn btn-default btn-circle">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Legal Advisory Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+				<div id="query-details" class="tab-pane fade active in">
+
+					<form role="form" id="queryEditorForm">
+
+						<div class="col-sm-12">
+							<div class="col-md-12 navbar-dashbord">
+								<div class="page-title">
+									<h2>This is What We Know About Your Query So Far</h2>
+								</div>
+							</div>
+
+							<div class="row mrg20T">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Category</label> <input type="text"
+											name="query_Category" class="form-control" id="queryCategory"
+											style="opacity: 0.7; background-color: #eee;" readonly />
+									</div>
+
+									<div class="form-group">
+										<label>Sub-Category</label> <input type="text"
+											name="query_SubCategory" class="form-control"
+											id="querySubCategory"
+											style="opacity: 0.7; background-color: #eee;" readonly />
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Brief Description</label>
+										<p>
+											<textarea class="form-control" rows="5" placeholder=""
+												name="query_BriefDescription" id="queryBriefDescription"
+												style="opacity: 0.7; background-color: #eee;" readonly />
+											</textarea>
+										</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+
+						<div class="col-sm-12">
+							<div class="col-md-12 navbar-dashbord">
+								<div class="page-title">
+									<h2>Give Detailed Information About Your Query</h2>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-sm-12">
+							<div class="form-group">
+
+								<textarea id="editor" class="form-control" rows="9"
+									placeholder=""></textarea>
+
+
+
+
+
+
+								<script>
+									$("#editor").Editor();
+								</script>
+								<span id="myspan" style="color: red;"></span> <input
+									type="hidden" name="advice_For" id="adviceFor" /> <input
+									type="hidden" name="query_Description" id="queryDescription"
+									onblur="return onBlurQueryEditor()" /> <input type="hidden"
+									name="query_Id" id="QueryId" /> <input type="hidden"
+									name="client_Id" id="ClientId" /> <input type="hidden"
+									name="case_Id" id="caseId" /> 
+							</div>
+						</div>
+
+						<div class="col-md-12 text-right">
+							<div class="form-group">
+								<div class="row">
+								<input type="button"
+										onclick="openPreviousTab('CreateLegalAdvisory')"
+										value="Back" class="btn btn-blue">
+									<input type="button" id="queryEditorButton"
+										onclick="ValidateQueryDesc();" value="Next"
+										class="btn btn-blue"> 
+								</div>
+							</div>
+						</div>
+					</form>
+
+
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+
+		<script>
+			function ValidateQueryDesc() {
+				var data = $("#editor").Editor("getText");
+				document.getElementById("queryDescription").value = data;
+				var queryDesc = document.getElementById("queryDescription").value;
+				if (queryDesc == "") {
+					document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Query";
+				} else {
+					ajaxPost('queryEditorForm', '/saveQuery');
+				}
+			}
+		</script>
+
+	</div>
+
+	<div id="UploadLegalAdvisoryFile" class="tabcontent">
+
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button"
+								class="btn btn-default btn-circle"
+								<!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Legal Advisory Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+				<div id="document-upload" class="tab-pane fade active in">
+
+					<form role="form" id="uploadQryForm" enctype="multipart/form-data">
+						<div class="col-md-6">
+							<div class="col-md-12 navbar-dashbord">
+								<div class="page-title">
+									<h2>Upload Supporting Documents</h2>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Query Id</label> <input name="query_Id" id="QueryId"
+									class="form-control" placeholder="Query Id" readonly="readonly"
+									style="opacity: 0.7; background-color: #eee;" />
+							</div>
+							<div class="form-group">
+								<label>Client Id</label> <input name="client_Id" id="ClientId"
+									class="form-control" placeholder="Client Id"
+									readonly="readonly"
+									style="opacity: 0.7; background-color: #eee;" />
+							</div>
+							<div class="form-group">
+								<label>File upload</label>
+								<div class="input-group image-preview">
+									<input type="text" class="form-control image-preview-filename"
+										disabled="disabled">
+									<!-- don't give a name === doesn't send on POST/GET -->
+									<span class="input-group-btn"> <!-- image-preview-clear button -->
+										<button type="button"
+											class="btn btn-default image-preview-clear"
+											style="display: none;">
+											<span class="glyphicon glyphicon-remove"></span> Clear
+										</button> <!-- image-preview-input -->
+										<div class="btn btn-default image-preview-input">
+											<span class="glyphicon glyphicon-folder-open"></span> <span
+												class="image-preview-input-title">Browse</span> <input
+												id="fileToUpload" type="file"
+												accept=".jpg,.jpeg,.png,.docx,.doc,.pdf,.xlsx" multiple="multiple"
+												name="input-file-preview" />
+											<!-- rename it -->
+
+										</div>
+									</span>
+								</div>
+								<!-- /input-group image-preview [TO HERE]-->
+								<span id="browseSpan" multiple="multiple" style="color: red;"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-12 navbar-dashbord">
+								<div class="page-title">
+									<h2>Document Upload Status</h2>
+								</div>
+							</div>
+
+							<div class="col-sm-12">
+								<table id="filetable" class="table table-striped custab">
+									<thead>
+										<tr>
+											<th>File Name</th>
+											<th>File Size</th>
+											<th>Action</th>
+											<th>Upload Status</th>
+										</tr>
+									</thead>
+
+								</table>
+
+							</div>
+						</div>
+						 <input name="advice_For" type="hidden" id="Advice_For" />
+						<div class="col-md-12 text-right">
+						
+							<div class="form-group">
+							<input type="button"
+									onclick="openPreviousTab('LegalAdvisoryEditor')" value="Back"
+									class="btn btn-blue">
+								<input type="button" id="uploadQueryButton"
+									onclick="UploadQueryFile();" value="Next" class="btn btn-blue">
+								
+
+							</div>
+						</div>
+					</form>
+
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+
+
+		<script type="text/javascript">
+function UploadQueryFile(){
+	var Query_Id =$("#QueryId").val();
+	var Client_Id =$("#ClientId").val();
+	 ////$('#loaderModal').show();
+	ajaxPost('uploadQryForm','/uploadquerydocument');
+	//getQueryDescriptionInClientpopUp(Query_Id);
+	//getUploadedFileDetailsInQueryReview(Client_Id,Query_Id);
+}
+var fileArray=[];
+var totalFileSize=0;
+$("input:file").change(function(objEvent) {
+	
+    // GET FILE OBJECT
+    var fileobj= null;
+   	fileobj=$((this).files);
+   	//console.log(fileobj.length);
+   	
+   	for(var i=0; i<fileobj.length; i++){
+   	var objFormData = new FormData();
+   	var objFile = fileobj[i]; //$(this)[0].files[0];
+    console.log(objFile);
+    totalFileSize=totalFileSize+objFile.size;
+   if(totalFileSize>5000000){
+	   totalFileSize=totalFileSize-objFile.size;
+ 	   $("#browseSpan").text("File Size Exceeded");
+ 	   $("#fileToUpload").val("");
+    }else{
+    item={}
+    var fname = String(objFile.name.replace(/[^A-Z0-9]+/ig, ""));
+    item["filenames"] = fname.replace(/\s\s+/g, ' ');
+    item["filesizes"] = String(objFile.size);
+    item["filestatus"] = "Uploaded";
+    fileArray.push(item);
+    $('#filetable').dataTable().fnDestroy();
+    $("#filetable").dataTable({
+    	/* "autoWidth": false, */
+    	"bProcessing" : true,
+		"sort" : "position",
+		"bStateSave" : false,
+		"iDisplayLength" : 5,
+		"iDisplayStart" : 0,
+		"aaData" : fileArray,
+		"aoColumns" : [ {
+			/* "width": "60%", */
+			"mData" : null, /* "filenames", */
+			render : function(data, type, full, meta){
+					 return '<input type="text" class="form-control" value="'+data.filenames+'" style="opacity:0.7;background-color:#eee;" readonly>';
+				}
+			}, {
+			/* "width": "10%", */
+			"mData" : "filesizes"
+		},{
+			/* "width": "20%", */
+			"mData" : null,
+			render : function(
+					data, type,
+					full, meta) {
+				return '<input type="button" name="removeButton" id="'+ data.filenames + '-'+ data.filesizes +'" value="Remove">';
+			}
+		},{
+			/* "width": "10%", */
+			"mData" : null,
+			render : function(
+					data, type,
+					full, meta) {
+				
+				return '<div id="count'+ data.filenames +'">'+ data.filestatus +'</div>';
+			}
+		}
+		]
+	});
+    
+    // APPEND FILE TO POST DATA
+    objFormData.append('file', objFile);
+    objFormData.append('clientId', $("#ClientId").val());
+    objFormData.append('queryId', $("#QueryId").val());
+    $.ajax({
+        url: '/LegalBell/uploadQueryFile',
+        type: 'POST',
+        contentType: false,
+        data: objFormData,
+        async : false,
+		cache : false,
+		processData : false,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {}
+    });
+    $("#browseSpan").text("*Click on Choose File again to upload more files..");
+   }
+  }
+});
+
+
+$(document).on('click','#filetable tbody tr td input',function(){
+	alert("Hi");
+	var btnID = $(this).attr('id');
+	alert(btnID);
+	var fileInfo=btnID.split("-");
+    var filname=String(fileInfo[0]);
+    var lastThree = filname.substr(filname.length - 3);
+    if(lastThree=="pdf" || lastThree=="doc"){
+    	filname = filname.substring(0, filname.length - 3);
+    	filname=filname+"."+lastThree;
+    }else{
+    var lastFour = filname.substr(filname.length - 4);
+    filname = filname.substring(0, filname.length - 4);
+    filname=filname+"."+lastFour;
+    }
+    var objFormData1 = new FormData();
+    objFormData1.append('filename', filname);
+    objFormData1.append('clientId', $("#ClientId").val());
+    objFormData1.append('queryId', $("#QueryId").val());
+    $.ajax({
+        url: '/LegalBell/deleteQueryFile',
+        type: 'POST',
+        contentType: false,
+        async : false,
+		cache : false,
+		processData : false,
+        data: objFormData1,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {}
+    });
+    $(this).closest('tr').remove();
+    var a = parseInt(btnID)-1;
+    fileArray.splice(a,1);
+    totalFileSize=totalFileSize-fileInfo[1];
+    $("#browseSpan").text("*Click on Choose File again to upload more files..");
+ });
+</script>
+
+	</div>
+
+
+
+
+
+
+	<div id="LegalAdvisoryReview" class="tabcontent">
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button"
+								class="btn btn-default btn-circle"
+								<!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Legal Advisory Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div id="downloads" class="tab-pane fade active in">
+					<!-- <form role="form" id="clientDetailsForm"> -->
+					<div class="col-md-6" style="margin-top: 12px;">
+						<div class="col-md-12 navbar-dashbord">
+							<div class="page-title">
+								<h2>Client Details</h2>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label>Customer Type</label>
+							<p>
+								<input class="form-control" type="text" name="client_Type"
+									readonly="readonly" />
+							</p>
+
+						</div>
+						<div class="form-group">
+							<label>Name</label>
+							<p>
+								<input class="form-control" type="text" name="name"
+									readonly="readonly" />
+							</p>
+
+						</div>
+						<div class="form-group">
+							<label>Mobile</label>
+							<p>
+								<input class="form-control" type="text" name="phone_Mobile"
+									readonly="readonly" />
+							</p>
+						</div>
+						<div class="form-group">
+							<label>Email Id</label>
+							<p>
+								<input class="form-control" type="text" name="email_Id"
+									readonly="readonly" />
+							</p>
+						</div>
+
+						<div class="col-md-12 text-right"></div>
+
+					</div>
+					<!-- </form> -->
+					<div class="col-md-6">
+						<form role="form" id="queryDetails">
+							<!-- <div class="col-md-6"> -->
+							<div class="col-md-12 navbar-dashbord">
+								<div class="page-title">
+									<h2>Query Details</h2>
+								</div>
+							</div>
+
+							<div id="queryDetails" class="form-group">
+								<label>Query Id</label>
+								<p>
+									<input class="form-control" type="text" name="query_Id"
+										id="QueryId" readonly="readonly"
+										style="opacity: 0.7; background-color: #eee;" />
+								</p>
+							</div>
+							<div class="form-group">
+								<label>Query Category</label>
+								<p>
+									<input class="form-control" type="text" name="query_Category"
+										readonly="readonly"
+										style="opacity: 0.7; background-color: #eee;" />
+								</p>
+							</div>
+							<div class="form-group">
+								<label>Query Sub-Category</label>
+								<p>
+									<input class="form-control" type="text"
+										name="query_SubCategory" readonly="readonly"
+										style="opacity: 0.7; background-color: #eee;" />
+								</p>
+							</div>
+							<div class="form-group">
+								<label>Query Brief Description</label>
+								<p>
+								<div id="query_BriefDescription" style="opacity: 0.7;"></div>
+								</p>
+							</div>
+
+							<div class="form-group">
+								<label>Query Description</label>
+								<p>
+								<div id="QueryDescription" style="opacity: 0.7;"></div>
+								</p>
+							</div>
+
+							<div class="">
+								<label>File Information</label>
+								<table class="table table-striped custab"
+									id="uploadedFileDetails">
+									<thead>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+
+
+							</div>
+							<input type="hidden" name="advice_For" id="AdviceFor" /> <input
+								type="hidden" name="client_Id" id="ClientId" /> <input
+								type="hidden" name="case_Id" /> 
+
+							<!-- </div> -->
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+									
+									<input type="button" id="queryPDF" value="Download PDF"
+										class="btn btn-blue">
+									
+									<input type="button"
+										onclick="openPreviousTab('UploadLegalAdvisoryFile')" value="Back"
+										class="btn btn-blue">
+										<input type="button"value="Submit" id="showSlaButton" id="showSlaButton"
+										class="btn btn-blue"> 
+
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+<script>
+function deleteUploadedfilesPdfOfQuery(id,thisid){
+	
+	var ID = id.split("||");
+	var filname=String(ID[0]);
+	var clientId=String(ID[1]);
+	var queryId=String(ID[2]);
+	var folder=String(ID[3]);
+	//alert(folder);
+	
+    var objFormData = new FormData();
+    objFormData.append('filename', filname);
+    objFormData.append('clientId',clientId);
+    objFormData.append('queryId', queryId);
+    objFormData.append('fileLocation', folder);
+   
+    $.ajax({
+        url: '/LegalBell/deleteQueryFileFromReview',
+        type: 'POST',
+        contentType: false,
+        data: objFormData,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {
+       
+        }
+    });
+    
+    var index=$(thisid).closest('tr').index();
+   // alert(index);
+    $(thisid).closest('tr').remove();
+    $("#filetable tr:eq("+index+")").remove();
+    fileArray.splice(index-1, 1);
+    
+}
+</script>
+
+
+	</div>
+<div id="LARateChart" class="tabcontent">
+
+
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Legal Advisory Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+
+<script type="text/javascript">
+//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+	
+	
+	
+	
+	</script>
+<div id="payment" class="tab-pane fade active in">
+						<form  role="form" id="rateChartForm">
+
+							<div class="col-md-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Fee Chart</h2>
+									</div>
+								</div>
+
+								<div class="">
+
+									<table id="slatable" class="table table-striped custab">
+										<thead>
+
+											<tr>
+												<th>SELECT</th>
+												<th>TYPE</th> <!-- SLA -->
+												<th>Others Attribute</th>
+												<th>RATE</th>
+											</tr>
+										</thead>
+
+										
+	
+
+
+									</table>
+
+								</div>
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+									<input type="button" onclick="openPreviousTab('LegalAdvisoryReview')" value="Back"
+										class="btn btn-blue">
+									<input type="button"  id="paymentGatewayButton" value="pay" class="btn btn-blue">
+
+								</div>
+							</div>
+						</form>
+					</div>
+
+<div class="clearfix"></div>
+			</div>
+		</div>
+	
+
+
+
+</div>
+	
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				
+				<div class="col-sm-12">
+				<h4 style="background:#182832; color:#fff;">Notice Details:</h4>
+				
+	<form id="clientDetailsForm">
+	<div class="col-sm-6">
+	<div class="form-group">
+                 <label>Client ID:</label>
+                 <input type="text"  name="client_Id" id="clientIda"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/>
+             </div>
+            
+               <div class="form-group">
+				<label>Legal Notice Description</label>
+				<div id="LegalNoticeDescription1"></div>
+				</div>
+				</div>
+				
+              <div class="col-sm-6">
+              <div class="form-group">
+                  <label>Notice ID:</label>
+                  <input type="text"  name="notice_Id" id="noticeIda" readonly="readonly" class="form-control" />
+              </div>
+              
+              <div class="form-group">
+                  <label>Notice Brief:</label>
+                  <textarea name="notice_BriefDescription" id="noticeBriefDescription" readonly="readonly" class="form-control" ></textarea>
+              </div>
+            </div>    
+     </form> 
+	</div>
+	</div>
+	
+<div id="notice-details" class="tab-pane fade active in"> 
+<form role="form" id="noticeResponseEditorForm">
+	<textarea id="editor" rows="10" cols="80" onblur="return OnBlurnoticeResponse()">
+            </textarea>
+            
+     			<nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addGenericAttachment" onclick="createGenericAttachmentLegalNotice('pageContentLoad','GenericAttachmentLegalNotice')" align="center">Add Attachment</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>       
+            
+            
+	<span id="noticeResponseSpan" style="color: red;"  ></span> 
+	<input type="hidden" name="notice_Response" id="noticeResponse" /> 
+	<input type="hidden" name="notice_Id" id="noticeId" />
+	<input type="hidden"name="client_Id" id="clientId"/> 
+		
+		<div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <input type="button" id="CounselDashboard" value="Back" class="btn btn-blue">
+                  <input type="button" id="legalNoticeResponseEditorButton" onclick="ValidateLegalNoticeResponse()"
+                  value="Submit" class="btn btn-blue">
+              </div>
+            </div>
+              </div>
+	
+	<script>
+                $("#editor").Editor();
+            </script>
+</form>
+
+</div>
+              
+             <div class="clearfix"></div>
+			</div>
+			
+			
+			
+		</div>
+
+
+<script>
+
+function ValidateLegalNoticeResponse(){
+	var data=$("#editor").Editor("getText");
+	document.getElementById("noticeResponse").value=data;
+ 	var queryRes = document.getElementById("noticeResponse").value;
+ 	if(queryRes == ""){
+ 		document.getElementById("noticeResponseSpan").textContent = "*Please Enter Some Notice Response";	
+ 	}else{
+ 		ajaxPost("noticeResponseEditorForm", "/finalLegalNoticeResponse");
+ 	}		
+ }
+ 
+function OnBlurnoticeResponse(){
+ 	document.getElementById("noticeResponseSpan").textContent = "";	
+ }
+
+
+ 
+</script>
+
+

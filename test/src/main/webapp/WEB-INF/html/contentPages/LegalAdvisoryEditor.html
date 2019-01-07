@@ -1,0 +1,148 @@
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Legal Advisory Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Documents</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Payment</p>
+						</div>
+					</div>
+				</div>
+<div id="query-details" class="tab-pane fade active in"> 
+              	
+              	<form role="form" id="queryEditorForm">
+                 
+              	<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>This is What We Know About Your Query So Far</h2>
+            </div> 
+          </div>
+          
+                	<div class="row mrg20T">
+                		<div class="col-sm-6">
+                 <div class="form-group"> 
+                      <label>Category</label>
+                      <input type="text" name="query_Category" class="form-control" id="queryCategory" style="opacity:0.7;background-color:#eee;"
+												readonly/>
+                     </div>  
+                    
+                    <div class="form-group">
+                      <label>Sub-Category</label>
+                      <input type="text" name="query_SubCategory" class="form-control" id="querySubCategory" style="opacity:0.7;background-color:#eee;"
+												 readonly/>
+                    </div>
+                	</div>
+                	<div class="col-sm-6">
+                		<div class="form-group">
+                      <label>Brief Description</label>
+                      <p><textarea class="form-control" rows="5" placeholder=""
+                       name="query_BriefDescription" id="queryBriefDescription" style="opacity:0.7;background-color:#eee;"
+												readonly/>
+						</textarea></p>
+                    </div>  
+                	</div>
+                    
+                	</div>
+                </div>
+                
+                
+                
+                <div class="col-sm-12">
+                    	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Give Detailed Information About Your Query</h2>
+            </div> 
+          </div>
+                    </div>
+                
+          
+                <div class="col-sm-12">
+                	<div class="form-group">
+                      
+                      <textarea id="editor" class="form-control" rows="9" placeholder=""
+></textarea>
+                
+                
+                
+                
+                
+                	
+            <script>
+               
+				$("#editor").Editor();
+			
+		 </script>
+									<span id="myspan" style="color: red;"></span> 
+									<input
+										type="hidden" name="advice_For" id="adviceFor"/>
+									<input
+										type="hidden" name="query_Description" id="queryDescription"
+										onblur="return onBlurQueryEditor()" /> <input type="hidden"
+										name="query_Id" id="QueryId" /> <input type="hidden"
+										name="client_Id" id="ClientId" /> <input type="hidden"
+										name="case_Id" id="caseId" />
+										</div>
+										</div>
+                
+                <div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <input type="button" id="queryEditorButton" onclick="ValidateQueryDesc();"
+                  value="Next" class="btn btn-blue">
+              <!--     <input type="button" onclick="" value="Back" class="btn btn-blue">
+               --></div>
+            </div>
+              </div>
+           </form>
+           
+                
+              </div>
+              
+             <div class="clearfix"></div>
+			</div>
+		</div>
+	
+
+<script>
+function ValidateQueryDesc(){
+	var data=$("#editor").Editor("getText");
+	document.getElementById("queryDescription").value=data;
+	var queryDesc = document.getElementById("queryDescription").value;
+	if(queryDesc == ""){
+		document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Query";	
+	}else{
+		ajaxPost('queryEditorForm','/saveQuery');
+	}		
+}
+</script>

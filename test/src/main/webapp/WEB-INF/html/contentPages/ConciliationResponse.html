@@ -1,0 +1,124 @@
+<style>
+.showback ul {
+	padding: 0px 0px 0px 0px;
+}
+
+.showback ul li {
+	padding: 0px 0px;
+}
+
+/* .btn {
+	color: #000;
+	background: #f2f2f2 repeat scroll 0 0 !important;
+	border: 0px solid #f2f2f2 !important;
+	box-shadow: 0 2px 0 0 #f2f2f2 !important;
+} */
+
+.btn:hover, .btn:focus {
+	color: #8c8c8c;
+	background-color: #def0f3;
+	border: 0px solid #666666 !important;
+	box-shadow: 0 2px 0 0 #666666 !important;
+}
+
+.dropdown-menu {
+	background: #def0f3;
+}
+</style>
+<!-- <h1>Conciliation/Mediation Response</h1> -->
+<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+		<form id="conciliationResponseEditorForm">
+		<div class="col-sm-12">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Conciliation/Mediation Response</h2>
+            </div>
+            </div>
+        </div>	
+<div class="col-sm-12">
+<label for="ResponseFor" class="col-sm-2 control-label">Response For*</label>
+		<div class="col-sm-2">
+    <select id="ResponseFor" required="required" class="form-control" onblur="return OnBlurconciliationResponse()" onchange="setResponseFor()">
+			<option value="" label="---Select---" />
+			<option value="Mediation" label="Mediation" />
+			<option value="Dispute" label="Dispute" />
+	</select>
+</div>
+<div class="col-sm-12">
+	<textarea id="editor"  cols="80">
+            </textarea>
+            
+            <nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addGenericAttachmentConciliation" onclick="createGenericAttachmentConciliation('pageContentLoad','GenericAttachmentConciliation')" align="center">Add Attachment</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>
+	<span id="conciliationResponseSpan" style="color: red;"></span> <input type="hidden" name="response_For" id="response_For" />
+	</div>
+	<input
+		type="hidden" name="conciliation_Response" id="conciliationResponse"
+		onblur="OnBlurconciliationResponse();" /> <input type="hidden"
+		name="conciliation_Id" id="conciliationId" /><input type="hidden"
+		name="conciliation_Category" id="conciliationCategory" />
+		<input type="hidden"
+		name="client_Id" id="clientId" />
+	
+	<div class="col-md-12 text-right">
+	<div class="form-group">
+	<div class="row"> 
+	<button id="conciliationResponseEditorButton" class="btn btn-blue"  style="background: #323f3f; color: #fff;"
+		type="button" onclick="ValidateConciliationResponse();">Submit</button>  <!-- class="btn-default btn-primary" -->
+	</div>
+	</div>
+	</div>
+	</div>
+		<script>
+          // Replace the <textarea id="editor1"> with a CKEditor
+          // instance, using default configuration.
+          //CKEDITOR.replace( 'editor' );
+           $("#editor").Editor();
+         </script>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+function ValidateConciliationResponse(){
+	//var data = CKEDITOR.instances.editor.getData();
+	var data=$("#editor").Editor("getText");
+	document.getElementById("conciliationResponse").value=data;
+ 	var queryRes = document.getElementById("conciliationResponse").value;
+ 	var response_For = document.getElementById("response_For").value;
+ 	if(queryRes == ""){
+ 		document.getElementById("conciliationResponseSpan").textContent = "*Please Enter Some Contract Response";	
+ 	}else if(response_For == ""){
+ 		document.getElementById("conciliationResponseSpan").textContent = "*Please Choose at Least One Conciliation Response For";	
+ 	}else{
+ 		ajaxPost("conciliationResponseEditorForm", "/conciliationResponseByLawyer");
+ 	}		
+ }
+ 
+function OnBlurconciliationResponse(){
+ 	document.getElementById("conciliationResponseSpan").textContent = "";	
+ }
+function setResponseFor(){
+	var responseFor = document.getElementById("ResponseFor").value;
+	//alert(responseFor);
+ 	document.getElementById("response_For").value=responseFor;
+ }
+</script>
+
+
+
+

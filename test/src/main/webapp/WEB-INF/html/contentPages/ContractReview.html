@@ -1,0 +1,321 @@
+<style>
+input[type="text"] {
+    color: #6c3f04;
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+
+<!-- <div class="stp_frms">
+	<section>
+		<h2 align="center">New Retainership Agreement</h2>
+		<div class="wizard"> -->
+		
+		<div class="row" id="form_area">
+		<div id="categorie_area" class="main_area" style="height: 1271px;">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Retainership Agreement Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Agreement Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+							onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Agreement Generation</p>
+						</div>
+					</div>
+				</div>
+			
+								
+							<div class="tab-content" id="processTab">
+							<div id="query-type" class="tab-pane fade active in">
+									<form id=contractReviewForm>
+									<div class="col-sm-12" style="padding-bottom:5px; padding-left:0px;">
+									<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>New Retainership Agreement</h2>
+									</div>
+									</div>
+									</div>
+									<h4>Client Details:</h4>
+									<h5>Company Details:</h5>
+									
+									<div class="col-sm-6">
+									<input name="client_Id" type="hidden"/>
+									<div class="form-group">
+										<label for="CompanyName">Company Name:</label>
+											<label class="control-label"><input type="text" class="form-control"
+													name="company_Name" id="CompanyName" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+										<!-- <div class="col-sm-4"> 
+										<label class="control-label"><input type="text" name="company_Name"
+														id="CompanyName" readonly="readonly" size="50" /></label>
+										 </div> -->
+									</div>
+									<div class="form-group">
+										<label for="Addr_Line2">Company Address:</label>
+										<label class="control-label"><input type="text" class="form-control"
+													id="Addr_Line2" name="addr_Line2" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+										<!-- <div class="col-sm-4"> 
+										<label class="control-label"><input type="text" type="text"
+														id="Addr_Line2" name="addr_Line2" readonly="readonly"
+														size="50" /></label>
+										</div> -->
+									</div>
+									</div>
+									<div class="col-sm-6">
+									<div class="form-group">
+										<div class="col-sm-12" style="padding-left:0px;"><label for="PhoneLandNumber">Phone Number:</label></div>
+											<div class="col-sm-2">
+												<input type="text" class="form-control" style="opacity:0.7;background-color:#eee;"
+													value="+91" id="phstatecode" readonly="readonly" size="2" />
+											</div>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" style="opacity:0.7;background-color:#eee;"
+													name="phone_Land" id="PhoneLand" readonly="readonly"
+													maxlength="10" />
+											</div>
+											
+											<!-- <div class="col-sm-1" style="padding-left:0px;">
+												<input type="text" class="control-label"
+													value="+91" id="phstatecode" readonly="readonly" size="2" />
+											</div>
+											<div class="col-sm-10" style="padding-right:0px;">
+												<input type="text" class="control-label"
+													name="phone_Land" id="PhoneLand" readonly="readonly"
+													maxlength="10" />
+											</div> -->
+									</div>
+									</div>
+									<div class="col-sm-12"><h5>Managing Director/CEO:</h5></div>
+									<div class="col-sm-12">
+									<div class="col-sm-4" style="padding-left:0px;">
+									<div class="form-group">
+									<label for="DirectorFname">First Name:</label>
+									<label class="control-label"><input type="text" class="form-control"
+													name="director_Fname" id="DirectorFname"
+													style="opacity:0.7;background-color:#eee;"
+													readonly="readonly" size=50 /></label>
+												<!-- <div class="col-sm-2">
+													<label class="control-label"><input type="text" name="director_Fname"
+														id="DirectorFname" readonly="readonly" size="50" /></label>
+												 </div> -->
+									</div>
+									</div>
+									<div class="col-sm-4">
+									<div class="form-group">
+									<label for="DirectorMname">Middle Name:</label>
+									<label class="control-label"><input type="text" class="form-control"
+													name="director_Mname" id="DirectorMname"
+													style="opacity:0.7;background-color:#eee;"
+													readonly="readonly" size=50 /></label>
+												<!-- <div class="col-sm-2">
+													<label class="control-label"><input type="text" name="director_Mname"
+														id="DirectorMname" readonly="readonly" size="50" /></label>
+												</div> -->
+									</div>
+									</div>
+									<div class="col-sm-4" style="padding-right:0px;">
+									<div class="form-group">
+									<label for="DirectorLname">Last Name:</label>
+									<label class="control-label"><input type="text" class="form-control"
+											name="director_Lname" id="DirectorLname"
+											style="opacity:0.7;background-color:#eee;"
+											readonly="readonly" size=50 /></label>
+												<!-- <div class="col-sm-2">
+													<label class="control-label"><input type="text" name="director_Lname"
+														id="DirectorLname" readonly="readonly" size="50" /></label>
+												</div> -->
+									</div>
+									</div>
+									</div>
+									
+									<div class="col-sm-12"><h5>Authorized Officer Details:</h5></div>
+									<div class="col-sm-4" style="padding-left:0px;">
+									<div class="form-group">
+									<label>First Name:</label>
+									<label class="control-label"><input type="text" class="form-control"
+										   name="first_Name" readonly="readonly"
+										   style="opacity:0.7;background-color:#eee;" size=50 /></label>
+												<!-- <div class="col-sm-2">
+													<label class="control-label"><input type="text" name="first_Name"
+														size="50" readonly="readonly"/></label>
+												 </div> -->
+									
+									</div>
+									</div>
+									<div class="col-sm-4">
+									<div class="form-group">
+									<label>Middle Name:</label>
+									<label class="control-label"><input type="text" class="form-control"
+													name="middle_Name" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+												<!-- <div class="col-sm-2">
+													<label class="control-label"><input type="text" name="middle_Name"
+														size="50" readonly="readonly" /></label>
+												</div> -->
+									</div>
+									</div>
+									<div class="col-sm-4" style="padding-right:0px;">
+									<div class="form-group">
+									<label>Last Name:</label>
+									<label class="control-label"><input type="text" class="form-control"
+													style="opacity:0.7;background-color:#eee;"
+													name="last_Name" readonly="readonly" size=50 /></label>	
+												<!-- <div class="col-sm-2"> 
+													<label class="control-label"><input type="text" name="last_Name"
+														size="50" readonly="readonly"/></label>
+												</div> -->
+									</div>
+									</div>
+									
+									<div class="col-sm-4">
+									<div class="form-group">
+										<div class="col-sm-12" style="padding-left:0px;"><label for="PhoneNumber"><b>Mobile Number*</b></label></div>
+											<div class="col-sm-2" style="padding-left:0px; padding-right:0px;">
+												<input type="text" class="form-control"
+													style="opacity:0.7;background-color:#eee;"
+													value="+91" id="phcontrycode" readonly="readonly" size="2" />
+											</div>
+											<div class="col-sm-10" style="padding-right:0px;">
+												<input type="text" class="form-control"
+													name="phone_Mobile" id="PhoneNumber" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" maxlength="10" />
+											</div>
+											<!-- <div class="col-sm-1" style="padding-left:0px;">
+												<input type="text" class="control-label"
+													value="+91" id="phcontrycode" readonly="readonly" size="2" />
+											</div>
+											<div class="col-sm-10" style="padding-right:0px;">
+												<input type="text" class="control-label"
+													name="phone_Mobile" id="PhoneNumber" readonly="readonly"
+													maxlength="10" />
+											</div> -->
+									</div>
+									</div>
+									
+									<div class="col-sm-4">
+									<div class="form-group">
+									<label for="EMail">E-Mail*</label>
+									<label class="control-label"><input type="text" class="form-control"
+													name="email_Id" id="EMail" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+												<!-- <div class="col-sm-4">
+													<label class="control-label"><input type="text" name="email_Id"
+														id="EMail" readonly="readonly" size="50" /></label>
+												</div> -->
+									</div>
+									</div>
+									
+									<div class="col-sm-12"><h4>Agreement Details:</h4></div>
+									<div class="form-group">
+											<div class="col-sm-12"><label for="ContractBriefDescription">Agreement Brief Description</label></div>
+											<div class="col-sm-12"> 
+												<label><textarea name="contract_BriefDescription"
+														readonly="readonly" id="ContractBriefDescription"
+														style="opacity:0.7;background-color:#eee;"
+														maxlength="150" rows="4" cols="56" style="resize: none;"></textarea></label>
+											</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-12"><label for="CorporateServices">Services</label></div>
+										<div class="col-sm-12">
+											<table class="table-bordered" id="contractServiceDetails">
+											<thead>
+											</thead>
+											<tbody>
+											</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="PaymentTerm">Payment Terms</label>
+											<label class="control-label"><input type="text" class="form-control"
+													name="payment_Term" id="hiddenPaymentTerm" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+											<!-- <div class="col-sm-4">
+												<label class="control-label"><input type="text" name="payment_Term"
+													id="hiddenPaymentTerm" readonly="readonly" size="50" /></label>
+											 </div> -->
+										</div>
+										</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="PaymentMethod">Payment Method</label>
+											<label class="control-label"><input type="text" class="form-control"
+													name="payment_Method" id="hiddenPaymentMethod" readonly="readonly"
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+											<!-- <div class="col-sm-4">
+												<label class="control-label"><input type="text" name="payment_Method"
+													id="hiddenPaymentMethod" readonly="readonly" size="50" /></label>
+											 </div> -->
+										</div>
+									</div>
+										<input type="hidden" id="CorporateService" readonly="readonly"
+											name="corporate_Service" class="form-control" />
+
+										<div class="col-sm-12"><h5>Agreement Period Details:</h5></div>
+										<div class="col-sm-6">
+										<div class="form-group">
+											<label for="ContractStartDate">Agreement Start Date </label>
+											<label class="control-label"><input type="text" class="form-control" placeholder="DD-MM-YY"
+													name="contract_Start_Date" id="startdatepicker" readonly="readonly" 
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+											<!-- <div class="col-sm-4"> 
+												<label class="control-label"><input type="text" name="contract_Start_Date" 
+													id="startdatepicker" placeholder="DD-MM-YY" size="50"
+													readonly="readonly" /></label>
+											 </div> -->
+										</div>
+										</div>
+										<div class="col-sm-6">
+										<div class="form-group">
+											<label for="ContractEndDate">Agreement End Date </label>
+											<label class="control-label"><input type="text" class="form-control" placeholder="DD-MM-YY"
+													name="contract_End_Date" id="enddatepicker" readonly="readonly" 
+													style="opacity:0.7;background-color:#eee;" size=50 /></label>
+											<!-- <div class="col-sm-4">
+												<label class="control-label"><input type="text" name="contract_End_Date" 
+													id="enddatepicker" placeholder="DD-MM-YY" size="50"
+													readonly="readonly" /></label>
+											</div> -->
+										</div>
+										</div>
+										<div class="col-sm-12 text-right">
+												<input id="corporateContractEditButton"
+													class="btn btn-blue" type="button" value="Edit" />
+												<input id="contractSubmitButton" class="btn btn-blue"
+													type="button" value="Submit"
+													onclick="ajaxPost('contractReviewForm','/saveContract');" />
+										</div>
+										
+									</form>
+									</div>
+									</div>
+								<!-- </div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	<!-- </section> -->
+</div>

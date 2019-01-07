@@ -1,0 +1,466 @@
+
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+<div class="container-2">
+	<div id="page-wrapper">
+		<form id="adminNewQueryForm">
+			<div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Query List</h2>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12">
+				<table class="table table-striped custab" id="querytable">
+					<thead>
+
+						<tr>
+							<th style="width: 100px;">Query ID</th>
+							<th>Client</th>
+							<th>Query Description</th>
+							<th>SLA</th>
+							<th style="width: 180px;">Pending Since</th>
+							<th style="width: 120px;">Select Query</th>
+
+						</tr>
+					</thead>
+
+
+				</table>
+
+			</div>
+			<div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Counsel List</h2>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12">
+				<table class="table table-striped custab" id="lawyertable">
+					<thead>
+
+						<tr>
+							<th>Counsel ID</th>
+							<th>Counsel</th>
+							<th>Query Bucket</th>
+							<th>Case Bucket</th>
+							<th>Select Counsel</th>
+						</tr>
+					</thead>
+
+
+				</table>
+
+			</div>
+
+			<div class="col-md-12 text-right">
+				<div class="form-group">
+
+
+
+					<input type="button" id="AdminDashboard" value="Back"
+						class="btn btn-blue"> <input type="button"
+						id="openPopoupButton" value="Next" class="btn btn-blue">
+
+				</div>
+			</div>
+
+
+
+			<!-- </div> -->
+		</form>
+		<span id="newQueryAdminSpan" style="color: red;"></span>
+	</div>
+	<!-- page-wrapper END-->
+</div>
+<a data-toggle="modal" href="NewQueryAdmin.html#addQueryComment"><button
+		id="popupQueryLink" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="addQueryComment" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Query Comment Section</h4>
+			</div>
+			<div class="modal-body">
+				<form id="popUpQueryComment" class="modal-scroller">
+
+					<div class="form-group">
+						<label for="qryID" class="col-sm-2 control-label-head">Queries:</label>
+						<div class="col-sm-10">
+							<textarea readonly="readonly" id="qryIDs" name="qryID" rows="2"
+								cols="100"
+								style="background: rgba(0, 0, 0, 0); border: none; outline: none; resize: none;"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="lwyrIDs" class="col-sm-2 control-label-head">Counsel:</label>
+						<div class="col-sm-9">
+							<input type="text" id="lwyrIDs" readonly="readonly"
+								name="lwyrIds">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="commentID" class="col-sm-2 control-label-head">Add
+							Comment:</label>
+						<div class="col-sm-4">
+							<textarea name="commentID" id="commentIDs" rows="7" cols="70"
+								style="resize: none;"></textarea>
+						</div>
+
+						<label for="getqryComment" class="col-sm-1 control-label-head">Apply
+							to all</label>
+						<div class="col-sm-2">
+							<input type="checkbox" name="getqueryComment" id="getqryComment"
+								value="1">
+						</div>
+					</div>
+					<button id="assignQueryButton" class="btn btn-primary"
+						type="button">Assign</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<a data-toggle="modal" href="NewQueryAdmin.html#displayassignedCsePopup"><button
+		id="popupAssignedCaseListLink" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displayassignedCsePopup" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Assigned Case Details</h4>
+			</div>
+			<div class="modal-body">
+
+
+				<form id="displayAssignedCaseList" class="modal-scroller">
+					<h4 style="text-align: center;">
+						New Case List <br> <br>
+					</h4>
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="showAssignedCaseDetailsTable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr>
+											<th>Case ID</th>
+											<th>Case Brief-Description</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a data-toggle="modal" href="NewQueryAdmin.html#displayassignedQryPopup"><button
+		id="popupAssignedQueryListLink" style="display: none;">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displayassignedQryPopup" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Assigned Query Details</h4>
+			</div>
+			<div class="modal-body">
+
+				<form id="displayAssignedQueryList" class="modal-scroller">
+					<h4 style="text-align: center;">
+						New Query List <br> <br>
+					</h4>
+					<table
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td>
+								<table id="showAssignedQueryDetailsTable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr>
+											<th>Query ID</th>
+											<th>Query Brief-Description</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--  <style>
+	input[type="text"]
+	{
+	background : rgba(0,0,0,0);
+	border:none;
+	outline:none;
+	}	
+</style> 
+
+				<div class="row">
+				<div class="scroll_inner_page">
+					<div class="col-lg-12">
+						<div class="showback wizard">
+							<form id="adminNewQueryForm">
+								<h4>
+									Query List
+									 <br>
+								</h4>
+								<div class="datatable-scroller">
+								<table class="table"
+									style="width:100%;border: 3px; background: rgb(243, 244, 248);">
+									<tr>
+										<td>
+											<table id="querytable" class="display" style="cellspacing:1;
+												width:100%">
+												<thead>
+													<tr>
+														<th style="width: 100px;">Query ID</th>
+														<th >Client </th>
+														<th>Query Description</th>
+														<th>SLA</th>
+														<th style="width: 180px;">Pending Since</th>
+														<th style="width: 120px;">Select Query</th>
+														 
+													</tr>
+												</thead>
+											</table>
+										</td>
+									</tr>
+								</table>						 
+						</div>
+
+
+							<h4>
+							Counsel List
+								<br>
+								</h4>
+								<div class="datatable-scroller">
+								<table class="table"
+									style="width:100%;border: 3px; background: rgb(243, 244, 248);">
+									<tr>
+										<td>
+											<table id="lawyertable" class="display" style="cellspacing:1;
+												width:100%">
+												<thead>
+													<tr>
+														<th>Counsel ID</th>
+														<th>Counsel</th>
+														<th>Query Bucket</th>
+														<th>Case Bucket</th>
+														<th>Select Counsel</th>
+													</tr>
+												</thead>
+											</table>
+										</td>
+									</tr>
+								</table>
+								</div>
+								<div class="form-group">
+					<label class="col-sm-1 col-sm-2 control-label"> </label>
+					<div class="col-sm-10">
+					<button id="AdminDashboard" class="btn btn-primary" type="button">Back</button>
+					<button class="btn btn-primary" type="button" id="openPopoupButton">Next</button>
+					</div>
+				</div>
+							</form>
+				<span id="newQueryAdminSpan" style="color: red;"></span>			
+						</div>
+					</div>
+					</div>
+				</div>
+				<a data-toggle="modal" href="NewQueryAdmin.html#addQueryComment"><button id="popupQueryLink" style="display: none;">sdfsdf</button></a>
+				
+ 				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="addQueryComment" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Query Comment Section</h4>
+							</div>
+							<div class="modal-body">
+							 <form id="popUpQueryComment" class="modal-scroller">
+									
+								<div class="form-group">
+									<label for="qryID" class="col-sm-2 control-label-head">Queries:</label>
+									<div class="col-sm-10">
+									<textarea readonly="readonly" id ="qryIDs" name="qryID" rows="2" cols="100"
+									style="background :rgba(0,0,0,0); border:none; outline:none; resize:none;"></textarea>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="lwyrIDs" class="col-sm-2 control-label-head">Counsel:</label>
+									<div class="col-sm-9">
+									<input type="text" id="lwyrIDs" readonly="readonly" name="lwyrIds">
+									</div>
+								</div>
+									
+								<div class="form-group">
+									<label for="commentID" class="col-sm-2 control-label-head">Add Comment:</label>
+									<div class="col-sm-4">
+									<textarea  name="commentID" id="commentIDs" rows="7" cols="70" style="resize:none;"></textarea>	
+									</div>
+									
+									<label for="getqryComment" class="col-sm-1 control-label-head">Apply to all</label>
+									<div class="col-sm-2">
+									<input type="checkbox" name="getqueryComment" id="getqryComment" value="1">	
+									</div>
+								</div>
+						 <button id="assignQueryButton" class="btn btn-primary" type="button" >Assign</button>
+							</form>
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+<a data-toggle="modal" href="NewQueryAdmin.html#displayassignedCsePopup"><button id="popupAssignedCaseListLink" style="display: none;">sdfsdf</button></a>
+
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displayassignedCsePopup" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Assigned Case Details</h4>
+							</div>
+							<div class="modal-body">
+	
+	
+	                   <form id="displayAssignedCaseList" class="modal-scroller">
+								<h4 style="text-align: center;">
+									New Case List
+									<br> <br>
+								</h4>
+								<table 
+									style=" width :100%;border: 3px; background: rgb(243, 244, 248);">
+									<tr>
+										<td>
+											<table id="showAssignedCaseDetailsTable" class="display" style ="cellspacing:1;
+												width: 100%">
+												<thead>
+													<tr>
+														<th>Case ID</th>
+														<th>Case Brief-Description</th>	
+													</tr>
+												</thead>
+											</table>
+										</td>
+									</tr>
+								</table>						
+						</form>
+						
+						
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>					
+ 
+<a data-toggle="modal" href="NewQueryAdmin.html#displayassignedQryPopup"><button id="popupAssignedQueryListLink" style="display: none;">sdfsdf</button></a>
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="displayassignedQryPopup" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Assigned Query Details</h4>
+							</div>
+							<div class="modal-body">
+							
+	               <form id="displayAssignedQueryList" class="modal-scroller">
+								<h4 style="text-align: center;">
+									New Query List
+									<br> <br>
+								</h4>
+								<table 
+									style=" width :100%;border: 3px; background: rgb(243, 244, 248);">
+									<tr>
+										<td>
+											<table id="showAssignedQueryDetailsTable" class="display" style ="cellspacing:1;
+												width: 100%">
+												<thead>
+													<tr>
+														<th>Query ID</th>
+														<th>Query Brief-Description</th>	
+													</tr>
+												</thead>
+											</table>
+										</td>
+									</tr>
+								</table>						
+						      </form>
+						
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>	 		 -->		

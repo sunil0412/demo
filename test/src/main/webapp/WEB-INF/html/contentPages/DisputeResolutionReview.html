@@ -1,0 +1,175 @@
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Dispute Resolution Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Dispute Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div id="downloads" class="tab-pane fade active in">
+						<form role="form" id="clientDetailsForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Client Details</h2>
+									</div>
+								</div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Customer Type</label>
+									<p><input type="text" name="client_Type" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Name</label>
+									<p><input type="text" name="name"  readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Mobile</label>
+									<p><input type="text" name="phone_Mobile"  readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Email Id</label>
+									<p><input type="text" name="email_Id" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div></div>
+								
+							</div>
+							</form>
+							<form role="form" id="disputeDetails">
+							<div class="col-md-6">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Dispute Details</h2>
+									</div>
+								</div>
+
+								<div id="queryDetails" class="form-group">
+									<label>Id</label>
+									<p><input type="text" name="dispute_Id"  id="DisputeId" style="opacity:0.7;background-color:#eee;"
+										class="form-control" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Category</label>
+									<p><input type="text" name="dispute_Category" class="form-control" readonly="readonly" 
+									style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Sub-Category</label>
+									<p><input type="text" name="dispute_SubCategory" 
+									style="opacity:0.7;background-color:#eee;"	class="form-control" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Dispute Brief Description</label>
+									<p><div class="col-sm-12" id="dispute_Brief"></div> </p>
+								</div>
+								</div>
+								<div class="col-md-6">
+									<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Dispute Description</h2>
+									</div>
+									</div>
+								
+								<div id="DisputeDescription" class="form-group">
+									<label>Adversory Name</label>
+									<p><input type="text" name="adversory_Name" id="adversoryName" readonly="readonly"
+										style="opacity:0.7;background-color:#eee;" class="form-control" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Email</label>
+									<p><input type="text" name="adversory_Email" id="AdversoryEmail" class="form-control" readonly="readonly"
+									style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Mobile</label>
+									<p><input type="text" name="adversory_Mobile" id="adversoryMobile" class="form-control" readonly="readonly"
+										style="opacity:0.7;background-color:#eee;" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Address</label>
+									<p><input type="text" name="adversory_Address" id="adversoryAddress" class="form-control" readonly="readonly"
+										style="opacity:0.7;background-color:#eee;" readonly="readonly" /></p>
+								</div>
+								
+								
+
+
+
+								<div class="">
+									<label>File Information</label>
+									<table class="table table-striped custab" id="CaseFileHandlerInReview">
+													<thead>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+									
+
+								</div>
+								<div> <input type="hidden" name="client_Id" id="ClientId"/>
+							</div> 
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+									 <input id="editQueryDetails" type="button" value="Edit"
+												onclick="ajaxPost('disputeDetails','/updateDispute');" value="Edit" class="btn btn-blue">
+									 
+									 <input type="button" value="Download PDF" onclick="getCasePdf('ClientId','DisputeId')" class="btn btn-blue">
+									 <!--  <input type="button" onclick="" value="Back" class="btn btn-blue">
+									  --><input type="button" value="Submit" onclick="ajaxPost('disputeDetails','/finalSaveDispute');" class="btn btn-blue">
+								</div>
+							</div>
+							</div>
+						</form>
+
+					
+					<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+
+			

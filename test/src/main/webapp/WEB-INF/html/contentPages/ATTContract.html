@@ -1,0 +1,18 @@
+<input type="hidden"
+		name="contract_Id" id="contractId" /><input type="hidden"
+		name="contract_Category" id="contractCategory" />
+		<input type="hidden"
+		name="client_Id" id="clientId" />
+<nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addGenericAttachmentContract" onclick="createGenericAttachmentContract('pageContentLoad','GenericAttachmentContract')" align="center">Add Attachment</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>
+				<button id="pendingContractManagementApprovalLawyer" onclick="loadDataInTable(this.id,'','pendingContractLawyer')"  class="btn btn-blue"
+	style="background: #323f3f; color: #fff; border: #182832 1px solid;"
+		type="button" >Submit</button>

@@ -1,0 +1,218 @@
+
+    <div class="stp_frms">
+    	<section>
+		<h2 align="center"> New Tax Advisory Flow</h2>
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li  class="active">
+                        <a>
+                            <span class="round-tab">
+                                <i class="fa fa-question"></i> 
+                            </span>
+							
+							
+                        </a>
+						
+						<p> Select Query Type </p>
+                    </li>
+
+                    <li  class="disabled">
+                        <a>
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-list-alt"></i>
+                            </span>
+                        </a>
+						
+											<p> Query Details </p>
+                    </li>
+                    <li  class="disabled">
+                        <a >
+                            <span class="round-tab">
+                     <i class="fa fa-upload" aria-hidden="true"></i>
+                            </span>
+                        </a>
+						
+									<p> 
+Document Upload </p>
+                    </li>
+
+                    <li class="disabled">
+                        <a >
+                            <span class="round-tab">
+           <i class="fa fa-download" aria-hidden="true"></i>
+                            </span>
+                        </a>
+						
+											<p> 
+Review and Download </p>
+                    </li>
+					
+					
+					
+					    <li class="disabled">
+                        <a >
+                            <span class="round-tab">
+                   <i class="fa fa-money" aria-hidden="true"></i>
+                            </span>
+                        </a>
+						
+											<p> 
+
+Payment Selection </p>
+                    </li>
+					
+					
+					
+					
+					
+					
+					
+                </ul>
+            </div>
+
+             <form role="form" id="createQueryForm">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+                        <div class="step1">  
+
+		 <div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback">
+			<div class="col-lg-12">
+
+			<div class="col-lg-6">
+			
+				<input name="client_Id" type="hidden" id="Client_Id"/>
+				 <input name="query_Id" type="hidden" id="Query_Id"/> 
+				 <input name="advice_For" type="hidden" id="Advice_For"/>
+				<!-- <div class="col-lg-11"> -->
+				<br>
+					<div class="form-group">
+						<label for="querytype" class="col-sm-3 control-label"><b>
+							Type</b></label>
+						<div class="col-sm-9">
+							<select class="form-control" id="querytype"
+								onChange="changeType(this.id)" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+						</select>
+						<span id="qryTypeSpan" style="color: red;"></span>	
+						</div>
+					</div>
+					<div><input name="query_Type" type="hidden" id="queryType" /></div>
+					<br>
+					<div id="selectQueryCategory" style="display: block"
+						class="form-group">
+						<label for="queryCategory" class="col-sm-3 control-label">
+							<b>Category</b></label>
+						<div class="col-sm-9">
+							<select class="form-control" id="qryCat" onchange="getQuerySubCategory(this.id,'/getquerysubcategory');" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								<!-- <form:options items="${queryCategoryMap}" />  -->
+							</select>
+						<span id="qryCatSpan" style="color: red;"></span>	
+						</div>
+					</div>
+					<div><input name="query_Category" type="hidden" id="queryCategory"/></div>
+					<br>
+					<div id="selectQuerySubCategory" style="display: block"
+						class="form-group">
+						<label for="querySubCategory"
+							class="col-sm-3 control-label"><b>SubCategory</b></label>
+						<div class="col-sm-9">
+							<select class="form-control" id="qrySubCat" onchange="QrySubCatValue(this.id);" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+							</select>
+						<span id="querySubCatSpan" style="color: red;"></span>
+						</div>
+					</div>
+					<div><input name="query_SubCategory" type="hidden" id="querySubCategory"/></div>
+					<br>
+					<div id="selectCaseId" style="display: none" class="form-group">
+						<label for="CaseId" class="col-sm-3 control-label"><b>Case
+							Id</b></label>
+						<div class="col-sm-9">
+							<select class="form-control" id="cseId" onchange="getCaseID(this.id);" onblur="return onBlurCreateQuery()">
+								<option value="" label="---Select---" />
+								</select>
+						<span id="caseIdSpan" style="color: red;"></span>	
+						</div>
+					</div>
+					<div><input name="case_Id" type="hidden" id="caseId" /></div>
+				<br>
+				
+				</div>
+				
+				
+				
+							<div class="col-lg-6">
+				
+					<div id="selectQueryBriefDescription" style="display: block"
+						class="form-group">
+						<label for="QueryBriefDescription"
+							class="col-sm-12  control-label"><b>Brief Description</b></label>
+						<div class="col-sm-12">
+							<textarea name="query_BriefDescription"  style="resize: none;"
+								id="QueryBrief" maxlength="150" rows="10" cols="50" onblur="return onBlurCreateQuery()"></textarea>
+						<span id="queryBriefSpan" style="color: red;"></span>	
+						</div>
+					</div>	</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="col-lg-12">
+					<div class="form-group">
+						<label class="col-sm-5 control-label"> </label>
+						<div class="col-sm-12">
+						<button type="button" class="btn btn-primary next-step" id="createQueryButton" onclick="ValidateCreateQuery();">Next</button>
+					
+						</div>
+					</div>
+				</div>
+ 
+
+			</div>
+			</div>
+			</div>
+			
+			
+                        <ul class="list-inline pull-right">
+                        </ul>
+                        </div>
+                    </div>
+                  
+                    </div>
+                    </div>
+			</div>
+	
+	<div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b>  Create Query  </b>  </h1>
+		<p>
+		Dear Individual/Corporate Client, <br/> You can submit your query on this page. There are different  fields which you need to fill up in order to query.<br/><br/>1) Your Query Type: General for General Queries. Case Specific to query about a case which is already filled.You need to enter case ID field for this.<br/>2) Query Category: Should mention your category of query, which may be civil, corporate, criminal etc.<br/>3) There is a subcategory which will change according to the category chosen. Different Categories have different subcategories. So choose wisely.<br/>4) CaseID(optional): If u have chosen query type as Case Specific then this option will appear and will give you options on case IDs already filled by you.<br/>5) Query Brief: In this part you can give a brief description about your query if you want to add any more data.
+		
+		
+		</p>
+		</div>
+		</div>
+	</div>
+			
+			
+			</form>
+			</div>
+			</section>
+			
+		</div>
+
+ 				
+                        

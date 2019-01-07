@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- <link rel="icon" href="assets/img/favicon.ico"> -->
+<title>LegalBell</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/theme.css">
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+<script src="assets/js/jquery.1.11.3.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/ie-emulation-modes-warning.js"></script>
+<script type="text/javascript">
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+
+$(document).ready(function() {
+	var pgResponse = [];
+	pgResponse.push(getUrlParameter('ResponseCode'));
+	pgResponse.push(getUrlParameter('ResponseMessage'));
+	pgResponse.push(getUrlParameter('DateCreated'));
+	pgResponse.push(getUrlParameter('PaymentID'));
+	pgResponse.push(getUrlParameter('MerchantRefNo'));
+	pgResponse.push(getUrlParameter('Amount'));
+	pgResponse.push(getUrlParameter('TransactionID'));
+	console.log(pgResponse);
+	if (pgResponse[0] != "0") {
+							$("#contentPage1").html('<h1 style="color: white" align="center">Payment Failed</h1>');
+							window.opener.$("#contentPage").html(
+									'<div class="col-lg-12"><div class="message_bx"><div class="col-lg-3"><i class="fa fa-envelope" aria-hidden="true"></i></div><div class="col-lg-9"><h3 id="code">Payment Failed !!</h3><hr><p id="message" style="font-size: 16px;"> Payment through Paytm is not successful.</p></div></div></div>');
+						}
+		
+	else{
+			if(pgResponse[4].startsWith("CLO_LA")== true || pgResponse[4].startsWith("CLO_TA")== true){
+				$.ajax({
+					method : 'POST',
+					url : '/LegalBell' + '/confirmPayment/' + pgResponse[4],
+					success : function(response) {
+						console.log(response);
+						var url = response.result.viewName;
+						window.opener.$("#contentPage")
+								.html("");
+						window.opener
+								.$("#contentPage")
+								.load(
+										"/LegalBell/html/contentPages/"
+												+ url
+												+ ".html",
+										function() {
+											populateMsg1(response.result.model.command,pgResponse);
+										});
+					},
+					error : function(response) {
+						console.log(response);
+						loadAjaxErrorPage1();
+					}
+				});
+			}
+			else if(pgResponse[4].startsWith("INV")== true){
+				
+			$.ajax({
+	 		method : 'POST',
+	 		url : '/LegalBell' + '/makeCasePayment/' + pgResponse[4],
+	 		success : function(response) {
+	 			var url = response.result.viewName;
+	 			window.opener.$("#contentPage").html("");
+	 			window.opener.$("#contentPage").load("/LegalBell/html/contentPages/" + url + ".html",
+	 					function() {
+	 						populateMsg1(response.result.model.command, pgResponse);
+	 						window.close();
+	 					});
+	 		},
+	 		error : function(response) {
+	 			console.log(response);
+	 			loadAjaxErrorPage1();
+	 		}
+	 	});
+			}
+			
+	}
+		 
+		});
+		
+
+	function populateMsg1(jsonObject, data) {
+		$.each(jsonObject, function(name, val) {
+			var $el = window.opener.$('[id="' + name + '"]');
+			$el.html("");
+			$el.html(val);
+		});
+			window.opener.$("#orderDetails").html("");
+			window.opener.$("#orderDetails").load(
+					"/LegalBell/html/contentPages/PGResponse.html",
+					function() {
+						console.log(data);
+						window.opener.$('#TransactionID').val(data[6]);
+						window.opener.$('#PaymentID').val(data[3]);
+						window.opener.$('#MerchantRefNo').val(data[4]);
+						window.opener.$('#Amount').val(data[5]);
+						window.opener.$('#DateCreated').val(data[2]);
+						window.opener.$('#ResponseMessage').val(data[1]);
+						window.close();
+					});
+		
+	}
+	
+	
+	function loadAjaxErrorPage1() {
+		$("#contentPageHome").html("");
+		$("#pageHeader").html("");
+		$("#contentPageHome").load("/LegalBell/html/contentPages/ServiceError.html", function() {
+			});
+	}
+
+
+	
+
+	</script>
+	
+	</head>
+<body role="document">
+<!-- Navbar Start -->
+<div id="pageHeader">
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="#"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="pull-left hidden-xs"><a href="#"><img src="assets/img/logo.png" alt=""></a></li>
+        <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                    	<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                    	<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                       
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+        <li class="login_area pull-right"><!-- <a href="#" class="btn btn-log"> Login</a> --> <a href="#" class="btn btn-log" onclick="loadRegistrationPage();"> Sign Up</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
+ 
+
+
+
+
+<div id="contentPage1">
+
+</div>
+
+
+
+<div id="footer">
+<div class="container-fluid" id="footer_area"> 
+<span id="userToken" style="display:none;">123</span>
+    	<div class="row">
+        	<div class="col-sm-12 text-right">
+            	<p>Powered by <a href="#">Kirat IT Solutions</a>. 2016 © All right reserved.</p>
+            </div>
+        </div>
+</div>
+</div>
+
+<div aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+		id="loaderModal" class="modal fade"
+		style="background: white; opacity: 0.9;">
+		<div class="cssload-container">
+					<div class="cssload-loading">
+						<div class="cssload-ani1"><i></i><i></i><i></i></div>
+						<div class="cssload-ani2"><i></i><i></i><i></i></div>
+						<div class="cssload-ani3"><i></i><i></i><i></i></div>
+						<div class="cssload-ani4"><i></i><i></i><i></i></div>
+					</div>
+		</div>
+	</div>
+
+ 
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap core JavaScript --> 
+ 
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+
+	
+</body>
+</html>

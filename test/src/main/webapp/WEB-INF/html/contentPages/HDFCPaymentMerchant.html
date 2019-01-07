@@ -1,0 +1,743 @@
+
+<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+		
+
+		<div class="tab-content" id="processTab">
+			<!-- <div class="container-2">
+      <div id="page-wrapper"> -->
+			<form id="hdfcForm">
+				<div class="row">
+					<div class="col-md-12 navbar-dashbord">
+						<div class="page-title">
+							<h2>Merchant Check Out Page</h2>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-12">
+					<div id="IndividualLink" style="display: none;">
+						<input type="button" value="update your profile"
+							class="btn btn-blue" id="updateIndividualLinkInPopUp">
+					</div>
+					<div id="CorporateLink" style="display: none;">
+						<input type="button" value="update your profile"
+							class="btn btn-blue" id="updateCorporateLinkInPopUp">
+					</div>
+					<input type="hidden" id="custosmerType" name="custosmerType">
+					<table class="table table-striped custab"
+						style="width: 90%; max-width: 100%; margin-top: 20px; margin-bottom: 20px; margin-left: 50px;">
+
+						
+
+						<tbody>
+							<tr style="display: none;">
+								<td>1</td>
+								<td><label>AccountId</label></td>
+								<td><input type="text" id="accountId" name="accountId"></td>
+							</tr>
+							<tr style="display: none;">
+								<td>2</td>
+								<td><label>Channel</label></td>
+								<td><input type="text" id="channel" name="channel" readonly></td>
+							</tr>
+							
+								<td><label>Currency</label></td>
+								<td><input type="text" id="currency" name="currency"
+									readonly class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+								<!-- <td>2</td> -->
+								<td><label>ReferenceNumber</label></td>
+								<td><input type="text" name="referenceNumber"
+									id="referenceNumber" readonly class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+								<!-- <td>3</td> -->
+								<td><label>Amount</label></td>
+								<td><input type="text" name="amount" id="amount" readonly
+									class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+							</tr>
+							<tr style="display: none;">
+								<td>5</td>
+								<td><label>ReturnUrl</label></td>
+								<td><input type="text" id="returnUrl" name="returnUrl"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>6</td>
+								<td><label>Mode</label></td>
+								<td><input type="text" name="mode" id="mode"></td>
+							</tr>
+							<tr style="display: none;">
+								<td>7</td>
+								<td><label>Algo</label></td>
+								<td><input type="text" name="algo" id="algo" readonly>
+								</td>
+							</tr>
+							
+							<tr>
+								
+								<td><label>Name</label></td>
+								<td><input type="text" name="name" id="name" readonly
+									class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+								<!-- <td>5</td> -->
+								<td><label>Address</label></td>
+								<td><input type="text" name="address" id="address" readonly
+									class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+								<!-- <td>6</td> -->
+								<td><label>City</label></td>
+								<td><input type="text" name="city" id="city" readonly
+									class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+							</tr>
+							<!-- <tr>
+					
+				</tr> 
+				<tr>
+					
+				</tr>-->
+							<tr style="display: none;">
+								<td>13</td>
+								<td><label>State</label></td>
+								<td><input type="text" name="state" id="state" readonly>
+								</td>
+							</tr>
+							<tr>
+								<!-- <td>7</td> -->
+								<td><label>PostalCode</label></td>
+								<td><input type="text" name="postalCode" id="postalCode"
+									readonly class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+								<!-- <td>8</td> -->
+								<td><label>Phone</label></td>
+								<td><input type="text" name="phone" id="phone" readonly
+									class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+								<!-- <td>9</td> -->
+								<td><label>Email</label></td>
+								<td><input type="text" name="email" id="email" readonly
+									class="form-control"
+									style="opacity: 0.7; background-color: #eee;"></td>
+							</tr>
+							<tr style="display: none;">
+								<td>15</td>
+								<td><label>Country</label></td>
+								<td><input type="text" name="country" id="country" readonly>
+								</td>
+							</tr>
+							<!-- <tr>
+					
+				</tr> 
+				<tr>
+					
+				</tr>-->
+							<tr style="display: none;">
+								<td>17</td>
+								<td><label>ShipName</label></td>
+								<td><input type="text" name="shipName" id="shipName"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>18</td>
+								<td><label>ShipAddress</label></td>
+								<td><input type="text" name="shipAddress" id="shipAddress"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>19</td>
+								<td><label>ShipCity</label></td>
+								<td><input type="text" name="shipCity" id="shipCity"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>20</td>
+								<td><label>ShipState</label></td>
+								<td><input type="text" name="shipState" id="shipState"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>21</td>
+								<td><label>ShipCountry</label></td>
+								<td><input type="text" name="shipCountry" id="shipCountry"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>22</td>
+								<td><label>ShipPhone</label></td>
+								<td><input type="text" name="shipPhone" id="shipPhone"
+									readonly></td>
+							</tr>
+							<tr style="display: none;">
+								<td>23</td>
+								<td><label>ShipPostalCode</label></td>
+								<td><input type="text" name="shipPostalCode"
+									id="shipPostalCode" readonly></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td align="right"><input value="CheckOut" type="button"
+									class="btn btn-blue" onclick="validatemerchant();"></td>
+								<span id="merchantSpan" style="color: red;"></span>
+							</tr>
+						</tbody>
+
+					</table>
+
+				</div>
+
+
+
+
+			</form>
+			<!-- </div>
+      page-wrapper END
+    </div> -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+
+
+<script>
+	document.getElementById("CorporateLink").style.display = "none";
+	document.getElementById("IndividualLink").style.display = "none";
+	function validatemerchant() {
+		if (document.getElementById("address").value == ""
+				|| document.getElementById("city").value == ""
+				|| document.getElementById("postalCode").value == "") {
+			document.getElementById("merchantSpan").textContent = "*Please update your address details first then proceed to pay.";
+			if ($("#custosmerType").val() == "Individual") {
+				document.getElementById("CorporateLink").style.display = "none";
+				document.getElementById("IndividualLink").style.display = "block";
+			} else {
+				document.getElementById("CorporateLink").style.display = "block";
+				document.getElementById("IndividualLink").style.display = "none";
+			}
+
+		} else {
+			ajaxPost('hdfcForm', '/payToHDFC');
+		}
+	}
+</script>
+
+
+
+
+
+
+<!-- <script>
+	function validatemerchant(){
+		if (document.getElementById("address").value == "" || document.getElementById("city").value == "" || document.getElementById("postalCode").value == "") {
+			document.getElementById("merchantSpan").textContent = "*Please update your address details first then proceed to pay.";	
+		}else{
+			ajaxPost('hdfcForm','/payToHDFC');
+		}
+	}
+	</script>
+	 -->
+
+ <a data-toggle="modal" href="HDFCPaymentMerchant.html#updateProfileIndividual"><button
+		id="hiddenUpdateProfilePopUp" style="display: none;">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="updateProfileIndividual" class="modal fade">
+	<div class="modal-dialog" style="width: 727px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" align="center">Update Profile</h4>
+			</div>
+			<div class="modal-body" align="center" style="min-height: 715px;">
+				<form id="updateIndividualForm">
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="ClientId">Client Id</label>
+							
+							
+							<input name="client_Id" id="ClientId" class="form-control"
+								readonly placeholder="Client Id" />
+							
+
+						</div>
+						<div class="form-group">
+							<label for="ClientType">Client Type</label>
+							
+							
+							<input name="client_Type" id="ClientType" class="form-control"
+								readonly placeholder="Client Type" />
+							
+
+						</div>
+
+						<div class="form-group">
+							<label for="FirstName">First Name</label>
+							
+							<input name="first_Name" id="FirstName" class="form-control"
+								placeholder="First Name" />
+							
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+						<div class="form-group">
+							<label for="MiddleName">Middle Name</label>
+							
+							<input name="middle_Name" id="MiddleName" class="form-control"
+								placeholder="Middle Name" />
+							
+						</div>
+						<div class="form-group">
+							<label for="lastName">Last Name</label>
+							
+							<input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" />
+							
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+
+						<div class="form-group">
+							<label for="CountryId">Country</label>
+							
+							<select class="form-control" required="required" id="CountryId"
+								onchange="changeStateList(this.id,'/getStateList');">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="country_Id" id="hiddenCountry" />
+							
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+						<div class="form-group">
+							<label for="StateId">State</label>
+							
+							
+							<select class="form-control" required="required" id="StateId"
+								onchange="changeDistrictList(this.id,'/getDistrictList');">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="state_Id" id="hiddenState" />
+							
+							<span id="stateHidden" style="display: none">${hiddenStateMap}</span>
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+						<div class="form-group">
+							<label for="DistrictId">District</label>
+							
+							<select class="form-control" required="required" id="DistrictId"
+								onchange="changeDistrictValue(this.id);">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="district_Id" id="hiddenDistrict" />
+							
+						</div>
+						<div class="form-group">
+							<label for="AddrLine1">Primary Address</label>
+							
+							<input name="addr_Line1" id="AddrLine1" class="form-control"
+								placeholder="Primary Address" />
+							
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+
+						<div class="form-group">
+							<label for="AddrLine2">Secondary Address/City</label>
+							
+							<input name="addr_Line2" id="AddrLine2" class="form-control"
+								placeholder="Secondary Address" />
+							
+						</div>
+					</div>
+
+
+					<div class="col-md-6">
+
+						<div class="form-group">
+							<label for="EMail">E-Mail</label>
+							
+							<input name="email_Id" id="E-Mail" class="form-control" readonly
+								placeholder="E-Mail" />
+							
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+						<div class="form-group">
+							<label for="AlternameEMail">Alternate E-Mail</label>
+							
+							<input name="alternate_Email_Id" id="AlternateEMail"
+								class="form-control" placeholder="Atername E-Mail" />
+							
+						</div>
+						<div class="form-group">
+							<label for="PhoneNumber">Mobile Number</label>
+							
+							<input name="phone_Mobile" id="PhoneNumber" class="form-control"
+								readonly placeholder="Phone Number" />
+							
+
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+						<div class="form-group">
+							<label for="PhoneLand">Phone Number</label>
+							
+							<input name="phone_Land" id="PhoneLand" class="form-control"
+								placeholder="Phone Number" maxlength="10" type="text" />
+							
+
+							<div style="color: red; font-style: bold;"></div>
+						</div>
+						<div class="form-group">
+							<label for="AternatePhoneNumber">Alternate Phone Number</label>
+							
+							<input name="alternate_Phone" id="AlternatePhoneNumber"
+								class="form-control" placeholder="Alternate Phone Number"
+								maxlength="10" type="number" />
+							
+						</div>
+						<div class="form-group">
+							<label for="WebSite">Web_Site</label>
+							
+							<input name="web_Site" class="form-control" id="WebSite"
+								placeholder=" WebSite Name" />
+							
+						</div>
+						<div class="form-group">
+							<label for="Fax-no">Fax</label>
+							
+							<input name="fax" class="form-control" id="Fax-no"
+								placeholder="Fax" maxlength="15" type="number" />
+							
+						</div>
+						<div class="form-group">
+							<label for="PanTan">PAN TAN</label>
+						
+							<input name="pan_Tan" class="form-control" id="PanTan"
+								placeholder="Pan Tan" />
+							
+						</div>
+						<div class="form-group">
+							<label for="PinCode">PIN Code</label>
+							
+							<input name="pin_Code" class="form-control" id="PinCode"
+								placeholder="Pin Code" maxlength="6" />
+							
+							<div style="color: red; font-style: bold;"></div>
+
+						</div>
+					</div>
+
+
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<input id="updateIndividualClientButton" type="button"
+					value="Update" class="btn btn-blue" data-dismiss="modal"
+					onclick="ajaxPost('updateIndividualForm','/detailsClientInPopup');">
+
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+<!--Corporate Update profile popup  -->
+
+<a data-toggle="modal" href="HDFCPaymentMerchant.html#updateProfileCorporate"><button
+		id="hiddenUpdateProfileCorporate" style="display: none;">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="updateProfileCorporate" class="modal fade">
+	<div class="modal-dialog" style="width: 727px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" align="center">Update Profile</h4>
+			</div>
+			<div class="modal-body" align="center" style="min-height: 1025px;">
+			<form id="updateCorporateForm">
+				
+        			<div class="col-md-6">
+					<div class="form-group">
+						<label for="ClientId">Client Id</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="client_Id" id="ClientId" class="form-control"
+								placeholder="Client Id" readonly />
+						<!-- </div> -->
+						</div>
+					</div>
+					<div class="col-md-6">
+					<div class="form-group">
+						<label for="ClientType">Client  Type</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="client_Type" id="ClientType" class="form-control"
+								placeholder="Client Type" readonly="readonly" />
+						<!-- </div> -->
+						</div>
+					</div>
+					
+					<div class="col-md-12"><h5><u>Company Details:</u></h5></div>
+					
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="CompanyName">Company Name</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="company_Name" id="CompanyName" class="form-control"
+								placeholder="Company Name" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="PhoneNumber">Company Phone Number</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="phone_Land" id="PhoneNumber" class="form-control"
+								placeholder="Phone Number"  maxlength="10" type="text"/>
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+						<label for="WebSite">Web_Site</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="web_Site" class="form-control" id="WebSite"
+								placeholder=" WebSite Name" />
+						<!-- </div> -->
+					</div>
+					</div>
+					
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="IndustryType">Industry Type</label>
+						<!-- <div class="col-sm-4"> -->
+							<select id="IndustryType" class="form-control"
+								onchange="changeIndustryTypeValue(this.id);">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="industry_Type"
+								id="hiddenIndustryType" /> <span id="industrytypeSpan"
+								style="color: red;"></span>
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="Fax-no">Company Fax</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="fax" class="form-control" id="Fax-no"
+								placeholder="Fax" maxlength="10" type="number"/>
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="AddrLine2">Company Address</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="addr_Line2" id="AddrLine2" class="form-control"
+								placeholder="Company Address" />
+						<!-- </div> -->
+					</div>
+					</div>
+					
+					<div class="col-md-12"><h5><u>Managing Director/CEO:</u></h5></div>
+					
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="DirectorFname">First Name*</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="director_Fname" id="DirectorFname"
+								class="form-control" placeholder="Director First Name" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="DirectorLname">Last Name*</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="director_Lname" id="DirectorLname"
+								class="form-control" placeholder="Director Last Name" />
+						<!-- </div> -->
+					</div>
+					</div>
+					
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="DirectorMname">Middle Name*</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="director_Mname" id="DirectorMname"
+								class="form-control" placeholder="Director Middle Name" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="AlternameEMail">E-Mail</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="alternate_Email_Id" id="AlternateEMail"
+								class="form-control" placeholder="Atername E-Mail" />
+						<!-- </div> -->
+					</div>
+					</div>
+					
+					<div class="col-md-12"><h5><u>Authorized Officer Details:</u></h5></div>
+					
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="FirstName">First Name</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="first_Name" id="FirstName" class="form-control"
+								placeholder="First Name" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="LastName">Last Name</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="EMail">E-Mail</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="email_Id" id="E-Mail" class="form-control"
+								placeholder="E-Mail" readonly />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="PanTan">PAN TAN</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="pan_Tan" class="form-control" id="PanTan"
+								placeholder="Pan Tan" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="StateId1">State</label>
+						<!-- <div class="col-sm-4"> -->
+							<select class="form-control" id="StateId1"
+								onchange="changeDistrictList1(this.id,'/getDistrictList');">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="state_Id" id="hiddenState1" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="AddrLine1">Primary Address</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="addr_Line1" id="AddrLine1" class="form-control"
+								placeholder="Address" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+								<label for="AddrLine2">Secondary Address/City</label> <!--  class="col-md-8 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="addr_Line2" id="AddrLine2" class="form-control"
+										placeholder="Secondary Address" />
+								<!-- </div> -->
+							</div>
+					</div>
+					
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="MiddleName">Middle Name</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="middle_Name" id="MiddleName" class="form-control"
+								placeholder="Middle Name" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="MobileNumber">Mobile Number</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="phone_Mobile" id="MobileNumber" class="form-control"
+								placeholder="Mobile Number" readonly />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="AternatePhoneNumber">Alternate Phone Number</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="alternate_Phone" id="AlternatePhoneNumber"
+								class="form-control" placeholder="Alternate Phone Number" maxlength="10" type="number" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="CountryId1">Country </label>
+						<!-- <div class="col-sm-4"> -->
+							<select class="form-control" id="CountryId1"
+								onchange="changeStateList1(this.id,'/getStateList');">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="country_Id" id="hiddenCountry1" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="DistrictId1">District</label>
+						<!-- <div class="col-sm-4"> -->
+							<select class="form-control" name="" required="required"
+								id="DistrictId1" onchange="changeDistrictValue1(this.id);">
+								<option value="" label="---Select---" />
+							</select> <input type="hidden" name="district_Id" id="hiddenDistrict1" />
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+					<label for="PinCode">Pin Code</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="pin_Code" class="form-control" id="PinCode"
+								placeholder="Pin Code" maxlength="6" />
+						<!-- </div> -->
+					</div>
+					
+					</div>
+					
+				</form>	
+
+			</div>
+			<div class="modal-footer">
+				<input id="updateIndividualClientButton" type="button"
+					value="Update" class="btn btn-blue" data-dismiss="modal"
+					onclick="ajaxPost('updateCorporateForm','/detailsClientInPopup');">
+
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<a data-toggle="modal" href="HDFCPaymentMerchant.html#Message"><button
+		id="hiddenMessagePopup" style="display: none;">sdfsdf</button></a>
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="Message" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" align="center">Message</h4>
+			</div>
+			<div class="modal-body" align="center">
+				<div class="row" id="form_area">
+					<div id="categorie_area" class="main_area"
+						style="min-height: 275px;">
+
+						<div id="document-upload" class="tab-pane fade active in">
+							<div class="row">
+
+								<div class="col-lg-10">
+									<div> <!--  class="message_bx" -->
+										<div class="col-lg-3">
+											<img src="assets/img/Envelopee.png" height="140" width="120">
+										</div>
+										<!-- <i class="fa fa-envelope"></i> -->
+										<div class="col-lg-9">
+
+											<h3 id="code"></h3>
+											
+
+											<p id="message" style="font-size: 16px;"></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+						$(".modal-open").css("overflow-y", "scroll");
+					</script>
+
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+				</div>
+		</div>
+	</div>

@@ -1,0 +1,85 @@
+<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+<!-- <h1>Case Filing</h1> -->
+		<form id="caseFilingForm">
+		<div class="col-sm-12">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Case Filing</h2>
+            </div>
+            </div>
+        </div>
+	<div class="col-lg-12">
+		<div class="col-lg-6">
+					<div class="form-group">
+						<label for="Case Number"><b>Case Number*</b></label> <!--  class="col-sm-3 control-label" -->
+						<!-- <div class="col-sm-6"> -->
+							<input name="case_Number" id="CaseNumber" class="form-control"
+									 placeholder="Case Number" />
+							<span id="caseNumberSpan" style="color: red;"></span>	
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+						<label for="Case Name"><b>Case Name*</b></label>
+						<!-- <div class="col-sm-6"> -->
+							<input name="case_Name" id="CaseName" class="form-control"
+									 placeholder="Case Name" />
+							<span id="caseNameSpan" style="color: red;"></span>	
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+						<label for="Court Name"><b>Court Name*</b></label>
+						<!-- <div class="col-sm-6"> -->
+							<input name="court_Name" id="CourtName" class="form-control"
+									 placeholder="Court Name" />
+							<span id="courtNameSpan" style="color: red;"></span>	
+						<!-- </div> -->
+					</div>
+					</div>
+		</div>
+		
+		
+		
+				<div class="col-lg-12 text-right">
+					<div class="form-group">
+						<label class="col-sm-2 control-label"> </label>
+						
+							<input type ="Button" onclick="loadDataInTable('progressDisputeResolutionLawyer','','progressDRLawyer')"
+								value="Cancel" class="btn btn-blue">
+							<button id="createCaseFileButton" class="btn btn-blue"
+								style="background: #323f3f; color: #fff;"
+								type="button" onclick="ValidateCreateCaseFile();">Next</button>
+					
+					</div>
+				</div>
+		<input name="dispute_Id" id="DisputeId" class="form-control"
+									 type="hidden"/>
+</form>
+<script>
+
+function ValidateCreateCaseFile(){
+	var caseno = document.getElementById("CaseNumber").value;
+ 	var casename = document.getElementById("CaseName").value;
+ 	var court = document.getElementById("CourtName").value;
+ 	if(caseno == ""){
+ 		document.getElementById("caseNumberSpan").textContent = "*Please Enter Case Number";	
+ 	}else if(casename == ""){
+ 		document.getElementById("caseNameSpan").textContent = "*Please enter Case Name";	
+ 	}else if(court == ""){
+ 		document.getElementById("courtNameSpan").textContent = "*Please enter Court Name";	
+ 	}else{
+ 		ajaxPost("caseFilingForm", "/caseFiledByLawyer");
+ 	}		
+ }
+ 
+function OnBlurCaseFiling(){
+ 	document.getElementById("caseNumberSpan").textContent = "";	
+ 	document.getElementById("caseNameSpan").textContent = "";	
+ 	document.getElementById("courtNameSpan").textContent = "";	
+ }
+
+</script>
+

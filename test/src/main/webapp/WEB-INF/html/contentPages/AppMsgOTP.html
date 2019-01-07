@@ -1,0 +1,33 @@
+<div class="row">
+
+					<div class="col-lg-12">
+						<div class="message_bx">
+<div class="col-lg-3"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+<div class="col-lg-9">
+<p id="receipient"></p>
+<p id="email"></p>
+<h3 id="code"></h2>
+<hr>
+
+<p id="message" style="font-size: 16px;"></p>
+
+</div>
+</div>
+					</div>
+				</div>
+				
+				<script>
+$(document).on('click',"#redirectLoginPage",function() {
+	//loadGenericPagesOnLogout();
+	window.location.href="http://legalbell.custoslegisonline.com";
+});
+
+$(document).on('click', "#sendOTP", function() {
+	var otpinfo = [];
+	var receipient = $("#receipient").text();
+	var email = $("#email").text();
+	otpinfo.push(receipient);
+	otpinfo.push(email);
+	ajaxPost("NoForm", "/sendOTP/" + otpinfo);
+	});
+</script>

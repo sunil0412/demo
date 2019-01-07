@@ -1,0 +1,256 @@
+<script type="text/javascript" src="assets/legalbellscript/estimateEvents.js"></script> 
+
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+
+	
+</script>
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+				<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Generate</p>
+						</div>
+							<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+</div>
+				<div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in">
+				<form id="createInvoiceForm">
+				<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Generate Invoice</h2>
+            </div> 
+          </div>
+          
+                	
+					<div class="col-sm-6">
+					
+					
+					<div class="form-group">
+							<label>Client ID</label>
+							<input type="text" name='client' id='clientNameTextBoxId'
+									class='clientName form-control' size='10' value=""
+									placeholder="Client Name" onblur="return InvoiceSubmit()" /> <span
+									id="clientSpan" style="color: red;"></span>	
+							
+						</div>
+
+						<div class="form-group">
+							<label>Client Name</label>
+							<input type="text" name="clientName" id='clientNameId' readonly="readonly"
+									class='form-control' 
+									placeholder="Client Name" /> <span
+									id="clientNameSpan" style="color: red;"></span>	
+							
+						</div>
+						<div class="form-group">
+							<label>Client Phone</label>
+							
+								<input type="text" name="clientPhone" id='clientPhoneId' readonly="readonly"
+									class='form-control' 
+									placeholder="Client Phone" /> <span
+									id="clientPhoneSpan" style="color: red;"></span>	
+							
+						</div>
+						<div class="form-group">
+							<label>Client Email Id</label>
+							<input type="text" name="clientEmail" id='clientEmailId' readonly="readonly"
+									class='form-control' 
+									placeholder="Client Email"  /> <span
+									id="clientEmailSpan" style="color: red;"></span>
+						</div>
+
+					</div>
+
+
+					<div class="col-sm-6">
+						<div class="form-group">
+								<label>Case Id</label>
+								<select id="caseID" name="caseID"
+										class='caseID form-control col-md-10'
+										onblur="return InvoiceSubmit()">
+										<option value="">Select</option>
+									</select> <span id="caseIdSpan" style="color: red;"></span>
+						</div>
+						<div class="form-group">
+								<label>Draft Id</label>
+								<select id="draftID" name="draftID"
+										class='draftID form-control col-md-10'
+										onblur="return InvoiceSubmit()">
+										<option value="">Select</option>
+									</select> <span id="draftIdSpan" style="color: red;"></span>
+						</div>
+						
+						
+						
+						
+						
+						<div class="form-group">
+						<table id="taskDetails" class="table table-striped custab">
+								<thead>
+												<tr>
+													<th>Sl.No</th>
+													<th>Task Name</th>
+													<th>Task Rate</th>
+													<th>Quantity</th>
+													<th>Total</th>
+													<th>Operation</th>
+												</tr>
+											</thead>
+		
+							 </table>
+							</div>
+							<span id="TaskDetailsSpan" style="color: red;"></span>
+						
+					</div>
+</div>
+					<div class="col-sm-12">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label>Special Notes</label>
+								<textarea name="quotaion_Notes"
+										 id="quotaion_Notes"
+										maxlength="250" rows="9"
+										onblur="return InvoiceSubmit()" style="margin: 0px 0px 10px; width: 436px; height: 100px;"></textarea>
+									<span id="quotaion_NotesSpan" style="color: red;"></span>
+							</div>
+
+							<div class="form-group">
+								<label>Terms and Conditions</label>
+								<textarea name="terms_Condition"
+										 id="terms_Condition"
+										maxlength="250" rows="9" 
+										onblur="return InvoiceSubmit()" style="margin: 0px 0px 10px; width: 436px; height: 100px;"></textarea>
+									<span id="terms_ConditionSpan" style="color: red;"></span>
+								
+							</div>
+						</div>
+						<div class="col-sm-6">
+							    <div class="form-group">
+								<label>Due Date*</label>
+								<input type="text" name="invoice_Due_Date" id="Invoice_Due_Date"
+									class="form-control" placeholder="DD-MM-YY" onblur="return InvoiceSubmit()"/>
+									<span id="dueDateSpan" style="color: red;"></span>
+								</div>
+								
+								<div class="form-group">
+								<label for="grossTotal" class="col-sm-2 col-sm-2 control-label">Gross
+									Total</label>
+								<input type="TEXT" name='amount' id='grossTotal'
+										class='form-control'placeholder="Gross Total" readonly="readonly" />
+								</div>
+								
+								<div class="form-group">
+								<label>Less: Discount</label>
+								<input type="text" name='discount' id='discountPer' class='form-control' size='10' value="0" placeholder="%"
+											readonly="readonly" />
+											<input type="TEXT" name='discountAmount' id='discountAmount'
+											class='form-control' size='10' value=""
+											placeholder="Discount" readonly="readonly" />
+								</div>
+								
+								<div class="form-group">
+								<label>After Discount Total</label>
+								<input type="text" name='totalAmountAfterDiscount'
+											id='afterDiscount' class='form-control' size='10' value=""
+											placeholder="After Discount" readonly="readonly" />
+									
+								</div>
+								
+								<div class='form-group'>
+								<label>Add: Service Tax</label>
+								<input type="TEXT" name='serviceTax' id='percentage'
+											class='form-control' size='' value="" placeholder="%"
+											readonly="readonly" />
+								<input type="TEXT" name='serviceTaxAmount' id='serviceTax'
+											class='form-control' size='' value="" placeholder="Tax"
+											readonly="readonly" />
+									
+							    </div>
+							    
+							    <div class='form-group'>
+								<label>Net Total</label>
+								<input type="TEXT" name='totalAmountAfterServiceTax'
+											id='netTotal' class='form-control' size='10' value=""
+											placeholder="Net Total" readonly="readonly" />
+                                </div>
+								
+						</div>
+
+						</div>	
+						<input type="hidden" id="autoSgstclienNameId" /> <input
+						type="hidden" name="addressLine1" id="addressLine1" /> <input
+						type="hidden" name="addressLine2" id="addressLine2" /> <input
+						type="hidden" name="pinCode" id="pincode" /> <input type="hidden"
+						name="country" id="country" /> <input type="hidden" name="state"
+						id="state" /> <input type="hidden" name="type" id="pageId" /> <input
+						type="hidden" name="lawerId" id="lawer" /> <br> <input
+						type="hidden" name="clientId" id="clientId" /> <br> <input
+						type="hidden" name="orderId" id="orderId" /> <br> 
+						<input
+						type="hidden" name="service" id="service" /> <br> 
+						<input
+						type="hidden" name="case" id="case" />
+						<input
+						type="hidden" name="draft" id="draft" /><br>
+						
+						
+					<div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+                        		<button class="btn btn-blue" type="button" 
+									onclick="redirectToDashBoard()">Cancel</button> <!-- id="cancelInvoiceButton" -->
+								<button class="btn btn-blue" type="button"
+									id="submitInvoiceButton">Submit</button>
+						</div>
+					  </div>
+					</div>
+					
+					
+				</form>
+				</div>
+		</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>		
+	
+
+ <script>
+	$(function() {
+		$("#Invoice_Due_Date").datepicker({
+			dateFormat : 'dd-mm-yy',
+			minDate : '+1m'
+		});
+	});
+</script> 

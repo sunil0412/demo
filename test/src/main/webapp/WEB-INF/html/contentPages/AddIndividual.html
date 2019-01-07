@@ -1,0 +1,139 @@
+
+<div class="row" style="margin-left: -5px; margin-top: -73px;">
+<div id="categorie_area" class="main_area">
+	<div class="page-wrapper">
+		<div class="showback" style="margin-top: 80px">
+		
+		
+			
+		<div class="row" id="form_area">
+        <div class="col-sm-12">
+			<form id="addIndividualForm">
+				<input type="hidden" name="user_Type" value="Individual" />
+				<div class="row" style="margin-left:10px; margin-right:10px;">
+				<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+				<h2>Add Individual</h2>
+				</div>
+				</div>
+				</div>
+				<div class="col-sm-6">
+				<div class="form-group" style="margin-top:10px;">
+					<label for="FirstName">First Name*</label>
+					
+						<input name="first_Name" id="FirstName" class="form-control"
+							placeholder="First Name" required
+							onblur="return validateOnlyLetters(this.id,'firstname','individualSubmitButton')" /> <span id="firstname"
+							style="color: red"></span>
+					
+				</div>
+				</div>
+				<div class="col-sm-6">
+				<div class="form-group" style="margin-top:10px;">
+						<label for="LastName">Last Name*</label>
+						
+							<input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" required
+								onblur="return validateOnlyLetters(this.id,'lastname','individualSubmitButton')" /> <span id="lastname"
+								style="color: red"></span>
+						
+				</div>
+				</div>
+				
+				<div class="col-sm-6">
+				<div class="form-group">
+					<label for="EMail">E-Mail*</label>
+					
+						<input name="user_Id" id="EMail" class="form-control"
+							required placeholder="E-Mail"
+							onblur="return validateEmail(this.id,'email','individualSubmitButton')" /> <span id="email"
+							style="color: red"></span>
+					
+					</div>
+				</div>
+				<div class="col-sm-6">
+				<div class="form-group">
+					<label for="PhoneNumber">Mobile Number*</label>
+					<div class="col-sm-12" style="padding-left:0px; padding-right:0px;">
+					<div class="col-sm-2" style="padding-left:0px;">
+						<input name="" id="phcontrycode" class="form-control" readonly
+							placeholder="+ 91" />
+					</div>
+					<div class="col-sm-10" style="padding-right:0px;">
+						<input name="phone_Mobile" id="PhoneNumber" class="form-control"
+							placeholder="Mobile Number" maxlength="10" required
+							onblur="return validatePhone(this.id,'mobile','individualSubmitButton')" /> <span id="mobile"
+							style="color: red"></span>
+					</div>
+					</div>
+				</div>
+				</div>
+				
+				
+					
+				<div class="form-group" style="display: none;">
+					<label for="Password" class="col-sm-2 control-label">Password*</label>
+					<div class="col-sm-4">
+						<input name="password" id="Password" name="Password" value="Welcome@123"
+							class="form-control" type="password" required
+							placeholder="Password" maxlength="15"
+							onblur="return validatePassword(this.id,'password','individualSubmitButton')" /> <span id="password"
+							style="color: red;"></span>
+					</div>
+					<label for="RePassword" class="col-sm-2 control-label">Confirm
+						Password*</label>
+					<div class="col-sm-4">
+						<input name="" id="Repassword" class="form-control" value="Welcome@123"
+							type="password" required
+							placeholder="Confirm Password" onblur="return validateRePassword(this.id,'repassword','Password','individualSubmitButton')" />
+						<span id="repassword" style="color: red;"></span>
+					</div>
+				</div>
+				<!-- <div class="col-sm-12">
+					<div class="col-sm-6">
+					<div class="col-sm-2">
+						<button class="btn btn-primary" type="button" id="redirectLoginPage">Close</button>
+					</div>
+						
+						
+					</div> -->
+				
+					<div class="col-md-12 text-right">
+						<div class="form-group">
+						<div class="row">
+						  <button class="btn btn-blue" type="button" id="redirectLoginPage">Close</button> 
+						  <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+						  <button id="individualSubmitButton" class="btn btn-blue" type="button"  onclick="validateAddIndividual();">Add</button>
+						</div>
+					  </div>
+					</div>
+				<!-- </div> -->
+				<script>
+				
+$(document).on('click',"#redirectLoginPage",function() {
+	loadGenericPagesOnLogout();
+	//window.location.href="http://45.249.108.159:8080/LegalBell";
+});
+</script>
+
+	<!-- <div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b>Individual Registration</b>  </h1>
+		<p>
+		Dear Client, <br/><br/> You need to enter your First Name, Last Name, E-Mail address, Mobile Number, Password and Confirm Password in the fields given. <br/><br/> Note: <br/> You will not be allowed to enter any other fields if you do not fill the required fields(* ones). Moreover you need to activate the account via email.<br/><br/> Tips: <br/> 1) Phone Number should be of 10 digits so ignore city/country code.<br/>2) You should enter proper E-Mail Address else it will not receive. <br/> 3) Passwords should contain atleast 6 charecters, including atleast one upper, one lower character and one number. <br/>4) Both the Password and Confirm Password fields should be the same.
+		
+		</p>
+		</div>
+		</div>
+	</div> -->
+		
+			</form>
+
+		</div>
+	</div>
+	</div>
+</div></div>
+
+

@@ -1,0 +1,99 @@
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<!-- <div class="process">
+				<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Generate</p>
+						</div>
+							
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div> -->
+<div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in">
+ <div class="row">
+	<div class="col-sm-12">
+	<!-- <div class="col-sm-12"> -->
+	<div class="col-md-12 navbar-dashbord">
+	 <div class="page-title">
+              <h2>Comment Details</h2>
+            </div> 
+        </div>
+    <!--  </div> -->
+			<form id="GenericCommentForm">
+			<input type="hidden" name="case_Id" id="CSE_ID" /> 
+			<input type="hidden" name="comment_By" id="Comment_BY" />
+			<div class="col-sm-6">
+			<div class="form-group">
+				<label>Comment Type</label>
+						<select id="commentType" class="form-control"
+								onchange="sendCmntTypeInHidden(this.id);"
+								onblur="onBlurCreateComment();">
+								<option value="" label="---Select---" />
+							</select> <span id="commentTypeSpan" style="color: red;"></span>
+			</div> </div>
+			<input name="comment_Type" type="hidden" id="hiddenCommentType" />
+			<div class="col-sm-6">
+			<div class="form-group">
+						<label>Comment Category</label>
+						<select id="commentCat" class="form-control"
+								onchange="getCmntCatInHidden(this.id);"
+								onblur="onBlurCreateComment();">
+								<option value="" label="---Select---" />
+							</select> <span id="commentCatSpan" style="color: red;"></span>
+			</div>
+			<input name="comment_Category" type="hidden" id="hiddenCommentCategory" />
+			</div>
+			</div>
+			<div class="col-sm-12">	
+			<div class="form-group">
+						<h4>Give Your Comment</h4>
+						<div>
+							<textarea id="CommentEditor" maxlength="150" rows="6" cols="80"
+								onblur="onBlurCreateComment();">
+								</textarea>
+							<span id="commentTextSpan" style="color: red;"></span> <input
+								type="hidden" name="comment_Text" id="CommentText" />
+						</div>
+					</div>
+					<div class="form-group" style="height: 367px; overflow-y: auto; padding: 0 19px;">
+						<h4>
+							<i></i>Comment History
+						</h4>
+						<label></label>
+						<div id="CommentHistory" style="height: 100%; width: 100%"></div>
+
+					</div>
+</div>
+					 <div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+                        	<button class="btn btn-blue" type="button"
+								onclick="redirectToDashBoard()">Back</button>
+							<button class="btn btn-blue" type="button"
+								id="commentDetailsButton">Submit</button>
+								
+						</div>
+					</div>
+		</div>
+
+				<script>
+					$("#CommentEditor").Editor();
+				</script>
+			</form>
+
+		</div>
+</div>
+</div>
+<div class="clearfix"></div>
+			</div>
+		</div>	
+

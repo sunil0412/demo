@@ -1,0 +1,92 @@
+<style>
+.showback ul {
+	padding: 0px 0px 0px 0px;
+}
+
+.showback ul li {
+	padding: 0px 0px;
+}
+
+/* .btn {
+	color: #000;
+	background: #f2f2f2 repeat scroll 0 0 !important;
+	border: 0px solid #f2f2f2 !important;
+	box-shadow: 0 2px 0 0 #f2f2f2 !important;
+} */
+
+.btn:hover, .btn:focus {
+	color: #8c8c8c;
+	background-color: #def0f3;
+	border: 0px solid #666666 !important;
+	box-shadow: 0 2px 0 0 #666666 !important;
+}
+
+.dropdown-menu {
+	background: #def0f3;
+}
+</style>
+<!-- <h1>Drfat A Contract</h1> -->
+<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+	<form id="contractResponseEditorForm">
+			<div class="col-sm-12">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Draft A Contract</h2>
+            </div>
+            </div>
+        	</div>	
+	<textarea id="editor" rows="10" cols="80">
+            </textarea>
+	<span id="contractResponseSpan" style="color: red;"></span> <input
+		type="hidden" name="contract_Response" id="contractResponse"
+		onblur="OnBlurcontractResponse();" /> <input type="hidden"
+		name="contract_Id" id="contractId" /><input type="hidden"
+		name="contract_Category" id="contractCategory" />
+		<input type="hidden"
+		name="client_Id" id="clientId" />
+	<div class="col-sm-12 text-right">
+	<button id="contractResponseEditorButton" class="btn btn-blue"
+	style="background: #323f3f; color: #fff; border: #182832 1px solid;"
+		type="button" onclick="ValidateContractResponse();">Submit</button>
+	</div>
+		<nav>
+				<div class="col-sm-12">
+				<div class="inner_tabs">
+				<ul class="nav nav-tabs" style="margin-top: 30px;">
+				<li class="col-sm-6 active"><a data-toggle="tab" id="addGenericAttachmentContract" onclick="createGenericAttachmentContract('pageContentLoad','GenericAttachmentContract')" align="center">Add Attachment</a></li>
+				</ul>
+				<div class="col-sm-12" id="pageContentLoad"></div>
+				</div>
+				</div>
+				</nav>
+	
+			<script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                //CKEDITOR.replace( 'editor' );
+                $("#editor").Editor();
+            </script>
+</form>
+<script>
+
+function ValidateContractResponse(){
+	//var data = CKEDITOR.instances.editor.getData();
+	var data=$("#editor").Editor("getText");
+	document.getElementById("contractResponse").value=data;
+ 	var queryRes = document.getElementById("contractResponse").value;
+ 	if(queryRes == ""){
+ 		document.getElementById("contractResponseSpan").textContent = "*Please Enter Some Contract Response";	
+ 	}else{
+ 		ajaxPost("contractResponseEditorForm", "/finalResponseContract");
+ 	}		
+ }
+ 
+function OnBlurqueryResponse(){
+ 	document.getElementById("queryResponseSpan").textContent = "";	
+ }
+</script>
+

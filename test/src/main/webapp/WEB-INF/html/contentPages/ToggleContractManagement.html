@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	/* border: 1px solid #ccc; */
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+</style>
+</head>
+<body>
+
+
+
+	<div id="CreateContractManagement" class="tabcontent"
+		style="display: block;">
+		
+ <div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','UploadContractFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content" id="processTab">
+
+					<div id="query-type" class="tab-pane fade active in">
+							<form role="form" id="createContractForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Contract Flow</h2>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+			    		 	<input type="hidden" name="servicefor" value="Contract Management" id="Service_Name" />
+			                <input type="hidden" name="client_Id" id="Client_Id" />
+			                <input type="hidden" name="contract_Id" id="Contract_Id" />
+								<div class="form-group">
+									<label>Nature of Contract</label> <select class="form-control" id="ContractCat"
+										onchange="setSelectedValue(this.id,'contractCategory');" 
+										onblur="return onBlurCreateContract()">
+										<option value="" label="---Select---" />
+									</select> <span id="contractCatSpan" style="color: red;"></span>
+								</div>
+								<div>
+									<input type="hidden" name="contract_Category" id="contractCategory" />
+								</div>
+								</div>
+								
+								
+							
+							<div class="col-md-6">
+								<div id="selectQueryBriefDescription" class="form-group">
+									<label>Brief Description</label>
+									<textarea name="contract_BriefDescription" id="ContractBrief"
+										class="form-control" rows="6" maxlength="150" placeholder=""
+										onblur="return onBlurCreateContract()"></textarea>
+									<span id="contractBriefSpan" style="color: red;"></span>
+								</div>
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+                                    <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+									<input type="button" id="createContractButton"
+										onclick="ValidateCreateContract();" value="Next"
+										class="btn btn-blue">
+									
+								</div>
+							</div>
+						</form>
+
+					</div> 
+					
+					
+					
+					
+					
+					
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+	</div>
+
+
+
+	<div id="ContractEditor" class="tabcontent">
+	<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+
+<div class="process">
+	<div class="process-row nav nav-tabs">
+		<div class="process-step">
+			<button type="button" class="btn btn-default btn-circle"
+				onclick="loadprocess('processTab','CreateContract')">
+				<i class="fa fa-question fa-3x"></i>
+			</button>
+			<p>Brief</p>
+		</div>
+		<div class="process-step">
+			<button type="button" class="btn btn-info btn-circle"
+				onclick="loadprocess('processTab','ContractEditor')">
+				<i class="fa fa-file-text-o fa-3x"></i>
+			</button>
+			<p>Details</p>
+		</div>
+		<div class="process-step">
+			<button type="button" class="btn btn-default btn-circle"
+				onclick="loadprocess('processTab','UploadContractFile')">
+				<i class="fa fa-upload fa-3x"></i>
+			</button>
+			<p>Upload</p>
+		</div>
+		<div class="process-step">
+			<button type="button" class="btn btn-default btn-circle"
+				onclick="loadprocess('processTab','ContractManagementReview')">
+				<i class="fa fa-download fa-3x"></i>
+			</button>
+			<p>Review</p>
+		</div>
+		<div class="process-step">
+			<button type="button" class="btn btn-default btn-circle"
+				onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+				<i class="fa fa-check fa-3x"></i>
+			</button>
+			<p>Status</p>
+		</div>
+	</div>
+</div>
+
+<div class="tab-content" id="processTab">
+<div id="query-details" class="tab-pane fade active in">
+	<form role="form" id="contractEditorForm">
+		<div class="col-sm-12">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>This is what we know about your Contract so far</h2>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+			<div class="form-group">
+				<label>Category</label>
+				<input type="text" name="contract_Category" class="form-control" style="opacity:0.7;background-color:#eee;"	id="ContractCategory" readonly />
+			</div>
+			</div>
+
+			<div class="col-sm-6">
+			<div class="form-group">
+				<label>Brief Description</label>
+				<textarea name="contract_BriefDescription" id="contractBriefDescription"
+							class="form-control" rows="5" placeholder="" style="opacity:0.7;background-color:#eee;"
+										readonly/>
+               </textarea>
+				
+			</div>
+			</div>
+		</div>
+
+
+		<div class="col-sm-12">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Give Detailed Information About Your Contract</h2>
+                </div>
+                </div>
+					<textarea id="editor" rows="10" cols="80"
+						placeholder="Please enter your case related text here...">
+                                      </textarea>
+                                      
+                     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                /* CKEDITOR.replace( 'editor' ); */
+                 /* CKEDITOR.replace( 'editor', { customConfig : 'myconfig.js' } ); */
+                 $("#editor").Editor();
+            </script>                 
+					<span id="myspan" style="color: red;"></span> <input type="hidden"
+						name="contract_Details" id="contractDetails"
+						onblur="return onBlurCaseEditor()" /> <input type="hidden"
+						name="client_Id" id="Client_Id" /> <input type="hidden"
+						name="contract_Id" id="Contract_Id" /> <br /> <br />
+				</div>
+			
+
+
+		<div class="col-md-12 text-right">
+			<div class="form-group">
+				<div class="row">
+                 <input type="button"onclick="openPreviousTab('CreateContractManagement')" value="Back" class="btn btn-blue">
+					<input type="button" id="
+						contractEditorButton" onclick=
+						"ValidateContractDesc();" value="Next" class="btn btn-blue">
+				 
+				 </div>
+			</div>
+		</div>
+		
+	</form>
+
+</div>
+</div>
+
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+
+function ValidateContractDesc(){
+	//var data = CKEDITOR.instances.editor.getData();
+	var data=$("#editor").Editor("getText");
+	document.getElementById("contractDetails").value=data;
+	var caseDesc = document.getElementById("contractDetails").value;
+	if(caseDesc == ""){
+		document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Contract";	
+	}else{
+		////$('#loaderModal').show();
+		ajaxPost('contractEditorForm','/saveServiceCM');
+	}
+}
+</script>
+	
+
+	</div>
+
+	<div id="UploadContractFile" class="tabcontent">
+ <div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+
+<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','UploadContractFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div class="tab-content" id="processTab">
+<div id="document-upload" class="tab-pane fade active in">
+
+	<form id="uploadContractManagementForm">
+		<div class="col-md-6">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Upload Contract Documents</h2>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Contract Id</label> <input type="text" class="form-control"
+					name="contract_Id" id="ContractId" placeholder=" Contract Id"
+					readonly="readonly" style="opacity:0.7;background-color:#eee;"/>
+			</div>
+			<div class="form-group">
+				<label>Client Id</label> <input type="text" name="client_Id"
+					id="ClientId" class="form-control" placeholder=" Client Id"
+					readonly="readonly" style="opacity:0.7;background-color:#eee;"/>
+			</div>
+			<div class="form-group">
+				<label>File upload</label>
+				<!-- <div class="input-group image-preview">
+										<input type="text" class="form-control image-preview-filename"
+											disabled="disabled">
+										don't give a name === doesn't send on POST/GET
+										<span class="input-group-btn"> image-preview-clear button
+											<button type="button"
+												class="btn btn-default image-preview-clear"
+												style="display: none;">
+												<span class="glyphicon glyphicon-remove"></span> Clear
+											</button> image-preview-input
+											<div class="btn btn-default image-preview-input">
+												<span class="glyphicon glyphicon-folder-open"></span> <span
+													class="image-preview-input-title">Browse</span> <input
+													type="file" accept="image/png, image/jpeg, image/gif"
+													name="input-file-preview" />
+												
+											</div>
+										</span>
+									</div> -->
+				<div id="fileandbox" class="form-group"></div>
+				<input type="file" multiple="multiple" name="fileToUpload1" id="fileToUpload1"
+					class="form-control" accept=".jpg,.jpeg,.png,.docx,.doc,.pdf,.xlsx">
+
+			</div>
+			<span id="browseSpan" style="color: red;"></span>
+			<div id="fileandbox" class="form-group"></div>
+			<input type="hidden" value="1" id="lastdiv" />
+		</div>
+		
+		
+		<div class="col-md-6">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Document Upload Status</h2>
+				</div>
+			</div>
+
+			<div class="">
+				<table class="table table-striped custab" id="filetable1">
+					<thead>
+
+						<th>File Name</th>
+						<th>File Size</th>
+						<th>Action</th>
+						<th>Upload Status</th>
+					</thead>
+
+
+				</table>
+
+			</div>
+		
+		<div class="col-md-12 text-right">
+			<div class="form-group">
+
+                 <input type="button"onclick="openPreviousTab('CreateContractManagement')" value="Back" class="btn btn-blue">
+				<input type="button" value="Next" class="btn btn-blue"
+					onclick="UploadContractFile();">
+                
+			</div>
+		</div>
+	</div>
+
+</form>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+	function UploadContractFile() {
+		
+		var Case_Id = $("#ContractId").val();
+		var Client_Id = $("#ClientId").val();
+		//$('#loaderModal').show();
+		ajaxPost('uploadContractManagementForm', '/uploadcontractdocument');
+		getServiceDescriptionInClientpopUp(Client_Id, Case_Id);
+		getUploadedFileDetailsOfService(Client_Id, Case_Id,
+				"ServiceFileHandlerInReview", "Temp");
+	}
+
+	var fileArray = [];
+	var totalFileSize = 0;
+	$("#fileToUpload1")
+			.change(
+					function(objEvent) {
+						//var objFormData = new FormData();
+						// GET FILE OBJECT
+						 var fileobj= null;
+   						 fileobj=$((this).files);
+   						for(var i=0; i<fileobj.length; i++){
+   						var objFormData = new FormData();
+   						   	
+						var objFile = fileobj[i]; //$(this)[0].files[0];
+						totalFileSize = totalFileSize + objFile.size;
+						if (totalFileSize > 5000000) {
+							totalFileSize = totalFileSize - objFile.size;
+							$("#browseSpan").text("File Size Exceeded");
+							$("#fileToUpload1").val("");
+						} else {
+							item = {}
+							var fname = String(objFile.name.replace(
+									/[^A-Z0-9]+/ig, ""));
+							item["filenames"] = fname.replace(/\s\s+/g, ' ');
+							item["filesizes"] = String(objFile.size);
+							item["filestatus"] = "Uploaded";
+							fileArray.push(item);
+							$('#filetable1').dataTable().fnDestroy();
+							$("#filetable1")
+									.dataTable(
+											{
+												"bProcessing" : true,
+												"sort" : "position",
+												"bStateSave" : false,
+												"iDisplayLength" : 5,
+												"iDisplayStart" : 0,
+												"aaData" : fileArray,
+												"aoColumns" : [
+														{
+															"mData" : null, /* "filenames", */
+															render : function(data, type, full, meta){
+																	 return '<input type="text" class="form-control" value="'+data.filenames+'" style="opacity:0.7;background-color:#eee;" readonly>';
+																}
+														},
+														{
+															"mData" : "filesizes"
+														},
+														{
+															"mData" : null,
+															render : function(
+																	data, type,
+																	full, meta) {
+																return '<input type="button" name="removeButton" id="'+ data.filenames +'" value="Remove">';
+															}
+														},
+														{
+															"mData" : null,
+															render : function(
+																	data, type,
+																	full, meta) {
+
+																return '<div id="count'+ data.filenames +'">'
+																		+ data.filestatus
+																		+ '</div>';
+															}
+														} ]
+											});
+
+							// APPEND FILE TO POST DATA
+							objFormData.append('file', objFile);
+							objFormData.append('clientId', $("#ClientId").val());
+							objFormData.append('serviceId', $("#ContractId").val());
+							$.ajax({
+								url : '/LegalBell/uploadServiceFile',
+								type : 'POST',
+								contentType : false,
+								data : objFormData,
+								//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+								processData : false,
+								success : function(data) {
+								}
+							});
+							$("#browseSpan")
+									.text(
+											"*Click on Choose File again to upload more files..");
+						}
+   					  }
+					});
+
+	$(document).on(
+			'click',
+			'#filetable1 tbody tr td input',
+			function() {
+				var btnID = $(this).attr('id');
+				var filname = String(btnID);
+				var lastThree = filname.substr(filname.length - 3);
+				if (lastThree == "pdf" || lastThree == "doc") {
+					filname = filname.substring(0, filname.length - 3);
+					filname = filname + "." + lastThree;
+				} else {
+					var lastFour = filname.substr(filname.length - 4);
+					filname = filname.substring(0, filname.length - 4);
+					filname = filname + "." + lastFour;
+				}
+				var objFormData1 = new FormData();
+				objFormData1.append('filename', filname);
+				objFormData1.append('clientId', $("#ClientId").val());
+				objFormData1.append('serviceId', $("#ContractId").val());
+				$.ajax({
+					url : '/LegalBell/deleteServiceFile',
+					type : 'POST',
+					contentType : false,
+					data : objFormData1,
+					//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+					processData : false,
+					success : function(data) {
+					}
+				});
+				$(this).closest('tr').remove();
+				var a = parseInt(btnID) - 1;
+				fileArray.splice(a, 1);
+				totalFileSize = totalFileSize - fileInfo[1];
+				$("#browseSpan").text(
+						"*Click on Choose File again to upload more files..");
+			});
+</script>
+
+
+
+		
+
+	</div>
+
+
+
+
+
+
+	<div id="UploadContractSupportingFile" class="tabcontent">
+	 <div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+
+<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','UploadContractSupportingFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div class="tab-content" id="processTab">
+<div id="document-upload" class="tab-pane fade active in">
+
+	<form id="uploadContractManagementSupportingForm">
+		<div class="col-md-6">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Upload Contract Documents</h2>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Contract Id</label> <input type="text" class="form-control"
+					name="contract_Id" id="ContractId" placeholder=" Contract Id"
+					readonly="readonly" style="opacity:0.7;background-color:#eee;">
+			</div>
+			<div class="form-group">
+				<label>Client Id</label> <input type="text" name="client_Id"
+					id="ClientId" class="form-control" placeholder=" Client Id"
+					readonly="readonly" style="opacity:0.7;background-color:#eee;">
+			</div>
+			<div class="form-group">
+				<label>File upload</label>
+			
+				<div id="fileandbox" class="form-group"></div>
+				<input type="file" name="fileToUpload2" id="fileToUpload2"
+					class="form-control" accept=".jpg,.jpeg,.png,.docx,.doc,.pdf,.xlsx" multiple="multiple">
+
+			</div>
+			<span id="browseSpan2" style="color: red;"></span>
+			<div id="fileandbox" class="form-group"></div>
+			<input type="hidden" value="1" id="lastdiv" />
+		</div>
+		
+		<div class="col-md-6">
+			<div class="col-md-12 navbar-dashbord">
+				<div class="page-title">
+					<h2>Document Upload Status</h2>
+				</div>
+			</div>
+
+			<div class="">
+				<table class="table table-striped custab" id="filetable2">
+					<thead>
+
+						<th>File Name</th>
+						<th>File Size</th>
+						<th>Action</th>
+						<th>Upload Status</th>
+					</thead>
+
+
+				</table>
+
+			</div>
+		
+		<div class="col-md-12 text-right">
+			<div class="form-group">
+
+                <input type="button"onclick="openPreviousTab('ContractEditor')" value="Back" class="btn btn-blue">
+				<input type="button" value="Next" class="btn btn-blue"
+					onclick="UploadContractSupportingFile();">
+					
+
+			</div>
+		</div>
+	</div>
+
+</form>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+	function UploadContractSupportingFile() {
+		var Case_Id = $("#ContractId").val();
+		var Client_Id = $("#ClientId").val();
+		//$('#loaderModal').show();
+		ajaxPost('uploadContractManagementSupportingForm', '/uploadcontractdocument');
+		getServiceDescriptionInClientpopUp(Client_Id, Case_Id);
+		getUploadedFileDetailsOfService(Client_Id, Case_Id,
+				"ServiceFileHandlerInReview", "Temp");
+	}
+
+	//var fileArray = [];
+	//var totalFileSize = 0;
+	$("#fileToUpload2")
+			.change(
+					function(objEvent) {
+					
+						// GET FILE OBJECT
+						var fileobj= null;
+   						fileobj=$((this).files);
+   						for(var i=0; i<fileobj.length; i++){
+   						var objFormData = new FormData();
+						
+						var objFile = fileobj[i]; //$(this)[0].files[0];
+						totalFileSize = totalFileSize + objFile.size;
+						if (totalFileSize > 5000000) {
+							totalFileSize = totalFileSize - objFile.size;
+							$("#browseSpan2").text("File Size Exceeded");
+							$("#fileToUpload2").val("");
+						} else {
+							item = {}
+							var fname = String(objFile.name.replace(
+									/[^A-Z0-9]+/ig, ""));
+							item["filenames"] = fname.replace(/\s\s+/g, ' ');
+							item["filesizes"] = String(objFile.size);
+							item["filestatus"] = "Uploaded";
+							fileArray.push(item);
+							$('#filetable2').dataTable().fnDestroy();
+							$("#filetable2")
+									.dataTable(
+											{
+												"bProcessing" : true,
+												"sort" : "position",
+												"bStateSave" : false,
+												"iDisplayLength" : 5,
+												"iDisplayStart" : 0,
+												"aaData" : fileArray,
+												"aoColumns" : [
+														{
+															"mData" : null, /* "filenames", */
+															render : function(data, type, full, meta){
+																	 return '<input type="text" class="form-control" value="'+data.filenames+'" style="opacity:0.7;background-color:#eee;" readonly>';
+																}
+														},
+														{
+															"mData" : "filesizes"
+														},
+														{
+															"mData" : null,
+															render : function(
+																	data, type,
+																	full, meta) {
+																return '<input type="button" name="removeButton" id="'+ data.filenames +'" value="Remove">';
+															}
+														},
+														{
+															"mData" : null,
+															render : function(
+																	data, type,
+																	full, meta) {
+
+																return '<div id="count'+ data.filenames +'">'
+																		+ data.filestatus
+																		+ '</div>';
+															}
+														} ]
+											});
+
+							// APPEND FILE TO POST DATA
+							objFormData.append('file', objFile);
+							objFormData.append('clientId', $("#ClientId").val());
+							objFormData.append('serviceId', $("#ContractId")
+									.val());
+							$.ajax({
+								url : '/LegalBell/uploadServiceFile',
+								type : 'POST',
+								contentType : false,
+								data : objFormData,
+								//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+								processData : false,
+								success : function(data) {
+								}
+							});
+							$("#browseSpan2")
+									.text(
+											"*Click on Choose File again to upload more files..");
+						}
+   						}
+					});
+
+	$(document).on(
+			'click',
+			'#filetable2 tbody tr td input',
+			function() {
+				var btnID = $(this).attr('id');
+				var filname = String(btnID);
+				var lastThree = filname.substr(filname.length - 3);
+				if (lastThree == "pdf" || lastThree == "doc") {
+					filname = filname.substring(0, filname.length - 3);
+					filname = filname + "." + lastThree;
+				} else {
+					var lastFour = filname.substr(filname.length - 4);
+					filname = filname.substring(0, filname.length - 4);
+					filname = filname + "." + lastFour;
+				}
+				var objFormData1 = new FormData();
+				objFormData1.append('filename', filname);
+				objFormData1.append('clientId', $("#ClientId").val());
+				objFormData1.append('serviceId', $("#ContractId").val());
+				$.ajax({
+					url : '/LegalBell/deleteServiceFile',
+					type : 'POST',
+					contentType : false,
+					data : objFormData1,
+					//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+					processData : false,
+					success : function(data) {
+					}
+				});
+				$(this).closest('tr').remove();
+				var a = parseInt(btnID) - 1;
+				fileArray.splice(a, 1);
+				totalFileSize = totalFileSize - fileInfo[1];
+				$("#browseSpan2").text(
+						"*Click on Choose File again to upload more files..");
+			});
+</script>
+
+	
+
+	</div>
+	
+
+	<div id="ContractManagementReview" class="tabcontent">
+	 <div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+
+<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','UploadContractFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+
+<div class="tab-content" id="processTab">
+
+<div id="downloads" class="tab-pane fade active in">
+<div class="col-sm-6">
+						<form id="clientDetailsForm">
+							<div id="clientDetails" class="col-md-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Client Details</h2>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Customer Type</label>
+									<p><input type="text" name="client_Type"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Name</label>
+									<p><input type="text"  name="name"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Mobile</label>
+									<p><input  type="text" name="phone_Mobile" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Email Id</label>
+								<p><input type="text"  name="email_Id"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								
+							
+							   <!-- <div class="form-group text-right">
+							 <input type="button" value="Download PDF" class="btn btn-blue" onclick="getContractManagementPdf('ClientId','ContractId')" >
+                              </div> -->
+                              </div>
+                             </form>  
+                             </div>
+                             <div class="col-sm-6">
+						    <form  id="contractDetailsForm">
+							<div id="contractDetails" class="col-md-12">
+							 	<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Contract Details</h2>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Contract Id</label>
+									<p><input type="text"  name="contract_Id"  id="ContractId" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Diligence Category</label>
+									<p><input type="text" name="contract_Category" id="con_Cat" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Contract BriefDescription</label>
+									<div id="contract_BriefDescription" style="opacity:0.7;"></div>
+								</div>	
+								
+								<div class="form-group">
+									<label>Contract Description</label>
+									<div  id="ServiceDescription" style="opacity:0.7;"></div>
+								</div>
+								
+
+								<div class="">
+									<label>File Information</label>
+									<table class="table table-striped custab" id="ServiceFileHandlerInReview">
+										<thead>
+                                       </thead>
+
+										<tbody>
+										</tbody>
+
+
+									</table>
+
+								</div>
+								<input type="hidden" name="client_Id" id="ClientId"/>
+							
+						
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+								    
+									<input type="button" value="Download PDF" class="btn btn-blue" onclick="getContractManagementPdf('ClientId','ContractId')" >
+									<input type="button" onclick="openPreviousTabFromContractReview($('#con_Cat').val())" value="Back" class="btn btn-blue">
+									<input type="submit" value="Submit" class="btn btn-blue" onclick="ajaxPost('contractDetailsForm','/finalSaveContractManagement');">
+                                    
+								</div>
+							</div>
+							</div>
+						</form>
+						</div>
+					</div>
+					</div>
+
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+	
+<script>
+function deleteUploadedfilesPdfOfService(id,thisid){
+
+	var ID = id.split("||");
+	var filname=String(ID[0]);
+	var clientId=String(ID[1]);
+	var serviceId=String(ID[2]);
+	var folder=String(ID[3]);
+	//alert(folder);
+    var objFormData = new FormData();
+    objFormData.append('filename', filname);
+    objFormData.append('clientId',clientId);
+    objFormData.append('serviceId', serviceId);
+    objFormData.append('fileLocation', folder);
+   
+    $.ajax({
+        url: '/LegalBell/deleteServiceFileFromReview',
+        type: 'POST',
+        contentType: false,
+        data: objFormData,
+        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+        processData: false,
+        success: function(data) {
+       
+        }
+    });
+   
+    var index=$(thisid).closest('tr').index();
+    //alert(index);
+    $(thisid).closest('tr').remove();
+    if($("#con_Cat").val()=="Draft"){
+    	//alert("Draft");
+    	$("#filetable2 tr:eq("+index+")").remove();
+    		
+    }else
+    	{
+    	//alert("Review");
+    	$("#filetable1 tr:eq("+index+")").remove();
+    	
+    	}
+    fileArray.splice(index-1, 1);
+}
+
+</script>
+	</div>
+	
+	
+	
+<div id="ContractManagementFeeQuote" class="tabcontent">
+	
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','UploadContractFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content" id="processTab">
+					<div class="row">
+						<p id="service_id" hidden></p>
+						<p id="service_name" hidden></p>
+						<div class="col-lg-12">
+							<div class="message_bx">
+								<div class="col-lg-3">
+									<img src="assets/img/Envelopee.png" height="140" width="120">
+								</div>
+								<div class="col-lg-9">
+
+									<h3 id="code"></h3>
+									<hr>
+
+									<p id="message" style="font-size: 16px;"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+	</div>	
+	
+
+
+</body>
+</html>

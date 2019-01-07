@@ -1,0 +1,187 @@
+<script type="text/javascript" src="assets/legalbellscript/estimateEvents.js"></script>
+
+
+
+<div class="row">
+<div id="categorie_area" class="main_area">
+<!-- <div class="scroll_inner_page"> -->
+	<div class="col-lg-12">
+		<div class="showback">
+			
+			<div class="col-sm-12">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>File Management</h2>
+					</div>
+				</div>
+			</div>
+		<!-- ------------------------------------------------------	 -->	
+			<div class="col-sm-6">
+			<div class="form-group">
+			<label for="customer">Client Id</label> <!--  class="col-sm-2 control-label" -->
+			<input type="text" name='client' id='clientNameTextBoxId'
+					class='clientName form-control' size='10' value=""
+					placeholder="Client Name" onblur="return ManageFileLinkSubmit()" /> <span
+					id="clientSpan" style="color: red;"></span>
+			</div>
+			<div class="form-group">
+			     <label for="customer">Phone No</label>
+				
+				<input type="text" name="clientPhone" id='clientPhoneId' readonly="readonly"
+					class='form-control' size='10' value=""
+					placeholder="Client Phone" onblur="return ManageFileLinkSubmit()" /> <span
+					id="clientPhoneSpan" style="color: red;"></span>
+					
+			</div>
+			<div class="form-group">
+			<label for="item">Item Type</label>
+				
+				<select id="itemID" name="itemID"
+						class='itemID form-control col-md-10'
+						onblur="" disabled="disabled">
+						<option value="">Select</option>
+						<option value="Query">Query</option>
+						<option value="LegalNotice">LegalNotice</option>
+						<option value="Case">Case</option>
+						</select> <span id="itemIdSpan" style="color: red;"></span>
+				
+			</div>
+			<div class="form-group">
+			<div id="caseDiv" style="display: none;">
+				<label for="case">Case Id</label>
+				<select id="caseID" name="caseID"
+						class='caseID form-control col-md-10'
+						onblur="">
+				<option value="">Select</option>
+				</select> <span id="caseIdSpan" style="color: red;"></span>
+								
+			</div>
+			</div>
+			<div class="form-group">
+			<div id="noticeDiv" style="display: none;">
+				<label for="noticeID">Legal Notice Id</label>
+				<select id="noticeID" name="noticeID"
+						class='noticeID form-control col-md-10'
+						onblur="">
+				<option value="">Select</option>
+				</select> <span id="noticeIdSpan" style="color: red;"></span>
+								
+			</div>
+			</div>
+			</div>
+		<!-- ------------------------------------------------------	 -->
+			
+			<div class="col-sm-6">
+			<div class="form-group">
+				<label for="customer">Client Name</label>
+				
+				<input type="text" name="clientName" id='clientNameId' readonly="readonly"
+					   class='form-control' size='10' value=""
+						placeholder="Client Name" onblur="return ManageFileLinkSubmit()" /> <span
+						id="clientNameSpan" style="color: red;"></span>
+				
+			</div>
+			<div class="form-group">
+				<label for="customer">Email Id</label>
+				
+				<input type="text" name="clientEmail" id='clientEmailId' readonly="readonly"
+						class='form-control' size='10' value=""
+						placeholder="Client Email" onblur="return ManageFileLinkSubmit()" /> <span
+						id="clientEmailSpan" style="color: red;"></span>
+					
+			</div>
+			<div class="form-group">
+			<div id="queryDiv" style="display: none;">
+				<label for="query">Query Id</label>
+								
+				<select id="queryID" name="queryID"
+						class='queryID form-control col-md-10'
+						onblur="">
+				<option value="">Select</option>
+				</select> <span id="queryIdSpan" style="color: red;"></span>
+				
+			</div>
+			</div>
+			<div class="form-group">
+			<label for="uploadedFileDetails">File Informations</label>
+				<div class="col-sm-10" style="height: 200px; overflow-y: auto; padding: 0 19px;">
+					<table class="table-bordered" id="fileDetails">
+						<thead>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>            
+			</div>
+			</div>
+		<!-- ------------------------------------------------------	 -->	
+			<div>
+				<!-- <div class="col-lg-5"> -->
+				<form id="requestForm">
+					<div class="col-lg-12">
+					<h4>Request Management</h4>
+					</div>
+					<div class="col-sm-6">
+					<div class="form-group" style="display: block;">
+								<label for="requestType">Request Type</label>
+								
+								<input type="text" name="request_Type" id="requestType" readonly="readonly" class="form-control" onblur="return ManageFileLinkSubmit()"/>	
+									 <span id="requestTypeSpan" style="color: red;"></span>
+								
+							</div>
+					</div>
+					<div class="col-sm-6">
+					<div class="form-group" style="display: block;">
+								<label for="requestItem">Item Id</label>
+								
+								<input type="text" name="request_Item" id="requestItem" readonly="readonly" class="form-control" onblur="return ManageFileLinkSubmit()" />	
+									 <span id="requestItemSpan" style="color: red;"></span>
+								
+							</div>
+					</div>
+					
+					<div class="col-lg-12">
+						<div class="form-group">
+						<div class="col-lg-12" style="padding-left:0px;">
+								<label for="requestMessage">Message</label>
+						</div>
+								<div class="col-sm-6" style="padding-left:0px;">
+									<textarea name="request_Message"
+										style="resize: none;" id="requestMessage"
+										maxlength="249" rows="6" cols="65"
+										onblur="return ManageFileLinkSubmit()"></textarea>
+									<span id="requestMessageSpan" style="color: red;"></span>
+								</div>
+							</div>
+							
+					<input type="hidden" name="request_From" id="lawer" /> <br> 
+					<input type="hidden" name="request_To" id="clientId" />
+
+						<div class="form-group">
+							<div class="col-sm-12">
+							<button class="btn btn-blue" type="button" 
+									id="submitRequestFromLawyerButton" style="background: #323f3f;color: #fff;"
+									onclick="validateRequestSubmit();">Submit</button>
+							<button class="btn btn-blue" type="button" style="background: #323f3f;color: #fff;"
+									id="CounselDashboard">Cancel</button>
+							</div>
+						</div>
+					</div>
+						</form>
+					<!-- </div> -->
+
+					</div>
+					<input type="hidden" id="autoSgstclienNameId" /> <input
+						type="hidden" name="addressLine1" id="addressLine1" /> <input
+						type="hidden" name="addressLine2" id="addressLine2" /> <input
+						type="hidden" name="pinCode" id="pincode" /> <input type="hidden"
+						name="country" id="country" /> <input type="hidden" name="state"
+						id="state" /> <input type="hidden" name="hidden" id="pageId" /> <input
+						type="hidden" name="lawerId" id="lawer" /> <br> <input
+						type="hidden" name="clientId" id="clientId" /><br>
+						
+			</div>
+
+		</div>
+	</div>
+</div>

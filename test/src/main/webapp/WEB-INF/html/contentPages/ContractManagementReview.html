@@ -1,0 +1,148 @@
+ <div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+
+<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateContract')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Brief</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','UploadContractFile')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementReview')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','ContractManagementFeeQuote')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+
+<div class="tab-content" id="processTab">
+
+<div id="downloads" class="tab-pane fade active in">
+<div class="col-sm-6">
+						<form id="clientDetailsForm">
+							<div id="clientDetails" class="col-md-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Client Details</h2>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Customer Type</label>
+									<p><input type="text" name="client_Type"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Name</label>
+									<p><input type="text"  name="name"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Mobile</label>
+									<p><input  type="text" name="phone_Mobile" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Email Id</label>
+								<p><input type="text"  name="email_Id"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								
+							
+							   <!-- <div class="form-group text-right">
+							 <input type="button" value="Download PDF" class="btn btn-blue" onclick="getContractManagementPdf('ClientId','ContractId')" >
+                              </div> -->
+                              </div>
+                             </form>  
+                             </div>
+                             <div class="col-sm-6">
+						    <form  id="contractDetails">
+							<div id="contractDetails" class="col-md-12">
+							 	<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Contract Details</h2>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Contract Id</label>
+									<p><input type="text"  name="contract_Id"  id="ContractId" readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Diligence Category</label>
+									<p><input type="text" name="contract_Category"  readonly="readonly" class="form-control" style="opacity:0.7;background-color:#eee;"/></p>
+								</div>
+								<div class="form-group">
+									<label>Contract BriefDescription</label>
+									<div id="contract_BriefDescription" style="opacity:0.7;"></div>
+								</div>	
+								
+								<div class="form-group">
+									<label>Contract Description</label>
+									<div  id="ServiceDescription" style="opacity:0.7;"></div>
+								</div>
+								
+
+								<div class="">
+									<label>File Information</label>
+									<table class="table table-striped custab" id="ServiceFileHandlerInReview">
+										<thead>
+                                       </thead>
+
+										<tbody>
+										</tbody>
+
+
+									</table>
+
+								</div>
+								<input type="hidden" name="client_Id" id="ClientId"/>
+							
+						
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+									<input type="button" value="Download PDF" class="btn btn-blue" onclick="getContractManagementPdf('ClientId','ContractId')" >
+									<!-- <input type="button" onclick="" value="Back" class="btn btn-blue">
+									 --><input type="submit" value="Edit" class="btn btn-blue" onclick="ajaxPost('contractDetails','/updateContractManagement');">
+									<input type="submit" value="Submit" class="btn btn-blue" onclick="ajaxPost('contractDetails','/finalSaveContractManagement');">
+
+								</div>
+							</div>
+							</div>
+						</form>
+						</div>
+					</div>
+					</div>
+
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>

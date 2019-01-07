@@ -1,0 +1,82 @@
+
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				
+				<div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in">
+				<form id="inviteLawyerForm">
+				<div class="col-sm-12">
+               <div class="col-md-12 navbar-dashbord">
+               <div class="page-title">
+               <h2>Invite Counsel</h2>
+               </div> 
+               </div>
+          
+                	
+					
+
+						<div class="form-group col-sm-12" id="usercatdiv" style="padding-top:10px;" >
+						<div class="col-sm-2"><label>User Category</label></div>
+						<div class="col-sm-4">
+						               <select class="form-control" id="UserCategory" onchange="changeLawyerTypeValue(this.id)">
+											<option value="" label="--- Select ---" />
+											<option value="Internal" label="Internal" />
+											<option value="External" label="External" />
+										</select>
+										<span id="usercategory" style="color: red"></span>
+										<input type="hidden" name="user_Category" id="hiddenLawyerType"/>
+						</div>
+					
+						<div class="col-sm-2"><label>Email Id*</label></div>
+						<div class="col-sm-4">
+							<input name="user_Id" id="EMail_Id" class="form-control"
+							required placeholder="E-Mail"
+							onblur="return validateEmail(this.id,'email','inviteSubmitButton')" />
+							<span id="email" style="color: red"></span>
+						    </div>
+						</div>
+						
+						<div class="form-group col-sm-12">
+						<div class="col-sm-2"><label>First Name*</label></div>
+							
+						<div class="col-sm-4">		
+						       <input name="first_Name" id="FirstName"
+								class="form-control" placeholder="First Name"
+								required onblur="return validateOnlyLetters(this.id,'firstname','inviteSubmitButton')" />
+								<span id="firstname" style="color: red"></span>
+						</div>	
+						
+						<div class="col-sm-2"><label>Last Name*</label></div>
+							
+						<div class="col-sm-4">		
+						        <input name="last_Name" id="LastName"
+								class="form-control" placeholder="Last Name"
+								required onblur="return validateOnlyLetters(this.id,'lastname','inviteSubmitButton')" />
+								<span id="lastname" style="color: red"></span>
+						</div>	
+						</div>
+						
+						
+					
+
+
+					
+					<div class="col-md-12 text-right">
+              	      <div class="form-group">
+                        <div class="row"> 
+								<button class="btn btn-blue" type="button"
+									id="inviteSubmitButton"  onclick="validateInviteLawyerForm();">Invite</button>
+								<button class="btn btn-blue" type="button"
+									id="AdminDashboard">Back</button>
+						</div>
+					  </div>
+					</div>
+					
+				</div>
+				</form>
+				</div>
+		</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>		
+	

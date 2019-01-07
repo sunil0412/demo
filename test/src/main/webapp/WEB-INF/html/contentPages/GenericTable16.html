@@ -1,0 +1,78 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+<!-- <div class="col-sm-12">
+<h2 style="color:#fff; background: #333333">Detail</h2>
+</div>
+ -->
+ <div class="row" id="form_area">
+<div id="categorie_area" class="main_area">
+<div class="tab-pane fade active in"> 
+      <form role="form" id="lawyerNewCaseForm" style="margin-top:10px; margin-left:5px;">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Report Table</h2>
+            </div>
+            </div>
+          
+        </div>
+        <!-- <div class="row" id="legal_advisory"> -->
+        	<div class="col-sm-12" style="margin-top: 7px;">
+        	<div class=" table-responsive">
+            <table class="table table-striped custab" id="genericDataTable" >
+    <thead style="background:#323f3f; color:#fff;">
+
+						<tr>
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						</tr>
+					</thead>
+            
+            
+    </table>
+</div>
+           </div>
+        	
+            <div class="col-md-12 text-right" style="margin-top:10px;">
+              	<div class="form-group">
+             
+              		<div class="row"> 
+              		<input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue" style="background: #323f3f;
+    				color: #fff; border: #182832 1px solid;"/>
+              	  <input type="button" id="activateCMButton" value="Activate" class="btn btn-blue" style="background: #323f3f;
+    				color: #fff; border: #182832 1px solid;" />
+                  
+                 
+             </div>
+            </div>
+              </div>
+          
+          
+          
+        <!-- </div> -->
+        </form>
+        <span id="newCaseLawyerSpan" style="color: red;"></span>
+  </div>
+ <div class="clearfix"></div>
+ </div></div>
+

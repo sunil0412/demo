@@ -1,0 +1,168 @@
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+
+	
+</script>
+<!-- <div class="row">
+	<div class="scroll_inner_page">
+		<div class="col-lg-12">
+			<div class="showback"> -->
+	<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+					<!-- <div class="col-sm-12">
+					<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Client Segmentation</h2>
+					</div>
+					</div>
+					</div> -->
+				<form id="clientSegmentationForm">
+				<div class="col-sm-12">
+        			<div class="col-md-12 navbar-dashbord">
+           	 			<div class="page-title">
+             	 		<h2>Client Segmentation</h2>
+            			</div>
+            		</div>
+        		</div>
+        			
+				<div class="col-md-6">
+				<div class="form-group">
+				<label for="ClientType">Client Type*</label>
+						<!-- <div class="col-sm-2"> -->
+							<select id="ClientType" required="required" class="form-control" onblur="return onblurClientSegmentationForm()" onchange="setClientType(this.id)">
+								<option value="" label="---Select---" />
+								<option value="Individual" label="Individual" />
+								<option value="Corporate" label="Corporate" />
+							</select> 
+							<span id="clientTypeSpan" style="color: red"></span> <input
+								name="client_Type" type="hidden" id="hiddenClientType" />
+						<!-- </div> -->
+				</div>
+				</div>
+				<div class="col-md-12">
+				<label for="Interval">Interval :</label>
+				</div>
+				<div class="col-md-12">
+				<div class="col-md-6" style="padding-left:0px;">
+				<div class="form-group">
+				<label for="StartDate">Start Date</label>
+						<!-- <div class="col-sm-3"> -->
+							<input name="start_Date" id="StartDate" class="form-control"
+								placeholder="DD-MM-YYYY" onblur="return onblurClientSegmentationForm()"/>
+						<!-- </div> -->
+						<span id="startDateSpan" style="color: red"></span>
+				</div>
+				</div>
+				<div class="col-md-6" style="padding-right:0px;">
+				<div class="form-group">
+				<label for="EndDate">End Date</label>
+						<!-- <div class="col-sm-3"> -->
+							<input name="end_Date" id="EndDate" class="form-control"
+								placeholder="DD-MM-YYYY" onblur="return onblurClientSegmentationForm()"/>
+						<!-- </div> -->
+						<span id="endDateSpan" style="color: red"></span>
+				</div>
+				</div>
+				</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+									<input type="button" onclick="validateClientSegmentation()" 
+									 value="Search" class="btn btn-blue" style="background:#323f3f; color:#fff;">
+									<input type="button" id="CounselDashboard"
+									 value="Cancel"	class="btn btn-blue" style="background:#323f3f; color:#fff;">
+								</div>
+							</div>
+				
+					
+					<div class="datatable-scroller">
+					<table class="table"
+						style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+						<tr>
+							<td style="background:#323f3f; color:#fff;">
+								<table id="clientSegmentTable" class="display"
+									style="cellspacing: 1; width: 100%">
+									<thead>
+										<tr>
+											<th>Client Name</th>
+											<th>Client Type</th>
+											<th>Cleared Amount</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				 </div>
+				 <div class="col-md-6">
+				 <div class="form-group">
+						<label for="Scheme">Choose Scheme</label>
+						<!-- <div class="col-sm-4"> -->
+							<select id="scheme" required="required" onblur="return onblurAdminAddSchemeForm();"
+								onchange="getSchemeDetails(this.id);" class="form-control">
+								<option value="" label="---Select---" />
+							</select> 
+							<span id="schemeSpan" style="color: red"></span> <input
+								name="scheme_Description" type="hidden" id="hiddenScheme" />
+						<!-- </div> -->
+						<!-- <div class="col-sm-3">
+							<button class="btn btn-primary" type="button"
+								 id="segmentClientButton">Segment Now</button>
+						</div> -->
+					</div>
+					</div>
+						<div class="col-md-12 text-right">
+								<div class="form-group">
+									<input type="button" id="segmentClientButton"
+									 value="Segment Now" class="btn btn-blue"
+									 style="background:#323f3f; color:#fff;">
+									 <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+								</div>
+						</div>
+					
+					<span id="clientSegmnetSpan" style="color: red"></span>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function() {
+		$("#StartDate").datepicker({
+			dateFormat : 'dd-mm-yy',
+		});
+		$("#EndDate").datepicker({
+			dateFormat : 'dd-mm-yy',
+			maxDate : '0'
+		});
+	});
+	
+	function setClientType(id){
+		var type=document.getElementById(id).value;
+		$("#hiddenClientType").val(type);
+	}
+</script>

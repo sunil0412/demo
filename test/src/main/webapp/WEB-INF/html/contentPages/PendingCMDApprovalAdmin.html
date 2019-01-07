@@ -1,0 +1,251 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	};
+</script>
+
+<!-- <div class="container-2">
+	<div id="page-wrapper"> -->
+	<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+	<div class="row" id="form_area">
+    <div class="col-sm-12">
+        
+		<form id="lawyerNewQueryForm">
+			<div class="row">
+				<div class="col-md-12 navbar-dashbord">
+					<div class="page-title">
+						<h2>Approval Pending Conciliation List</h2>
+					</div>
+				</div>
+
+			</div>
+			<!-- <div class="row" id="legal_advisory"> -->
+			<div class="col-sm-12">
+				<table class="table table-striped custab" id="cmdtable">
+					<thead style="background: #323f3f;color: #fff;">
+									<tr>
+									<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+										
+										
+									</tr>
+								</thead>
+
+
+				</table>
+
+			</div>
+             <span id="span" style="color: red"></span>
+			<div class="col-md-12 text-right">
+				<div class="form-group">
+                     <input type="button" id="ATTContractButton" value="Add Attachment"
+                      class="btn btn-blue" style="background: #323f3f; color: #fff;">
+                     <input type="button" id="approveCMDButton" value="Approve"
+                     		style="background: #323f3f;color: #fff;" class="btn btn-blue">
+					<input type="button" id="AdminDashboard" value="Back"
+						   style="background: #323f3f;color: #fff;" class="btn btn-blue">
+
+
+				</div>
+			</div>
+
+
+
+			<!-- </div> -->
+		</form>
+		</div></div></div></div>
+<!-- 	</div>
+	
+</div> -->
+<!-- page-wrapper END-->
+
+
+ <a data-toggle="modal" href="SolvedContractmanagementAdmin.html#displayReviewCMDDetails"><button
+		id="displaySelectedCMDDetailsLinkReviewQueryAdminLink" style="display: none;">sdfsdf</button></a>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1" id="displayReviewCMDDetails" class="modal fade">
+	<div class="modal-dialog" style="width: 848px; margin: 30px auto; margin-top: 110px;">
+		<div class="modal-content"> <!-- class="modal-dialog modal-lg" -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Conciliation Details</h4>
+			</div>
+			<div class="modal-body">
+			<div class=" table-responsive">
+
+				<form id="showConciliationResponseForm"> <!-- class="modal-scroller" -->
+				<input type="text" id="editedResponse" name="editedResponse"
+								readonly="readonly" size=35 style="display:none;"/>
+					<br />
+					
+					
+					
+					<div class="col-sm-12">
+						<table border="1" class="table table-striped custab" style="width: 100%">
+						<thead>    
+        				<tr>
+            			<th>Label</th>
+            			<th>Value</th>
+            			<th>Label</th>
+            			<th>Value</th>
+            			</tr>
+    					</thead>
+						<tr>
+						<td>
+						<label for="queryId" class="control-label-head">Conciliation
+							Id</label>
+						</td>
+						<td>
+							<label><input type="text" id="conciliationIdR" name="conciliation_Id"
+								readonly="readonly" /></label>
+						</td>
+						<td>
+						<label for="clientId" class="control-label-head">Client
+							Id</label>
+							</td>
+						<td>
+							<label><input type="text" id="clientIdR" name="client_Id"
+								readonly="readonly" /></label>
+						</td>
+						</tr>
+					<tr>
+						<td>
+						<label for="queryCategory" class="control-label-head">Conciliation
+							Category</label>
+						</td>
+						<td>
+							<label><input type="text" id="conciliationCategoryR"
+								readonly="readonly" /></label>
+						</td>
+						<td>
+						<label for="queryStatus" class="control-label-head">
+							Status</label>
+						</td>
+						<td>
+							<label><input type="text" id="conciliationStatusR"
+								readonly="readonly"/></label>
+						</td>
+					</tr>
+
+					
+
+					<tr>
+						<td>
+						<label for="assignedLawyer" class="control-label-head">Assigned
+							Counsel</label>
+						</td>
+						<td>
+							<label><input type="text" id="assignedLawyerR"
+								readonly="readonly"/></label>
+						</td>
+						<td>
+						<label for="assignedBy" class="control-label-head">Assigned
+							By</label>
+						</td>
+						<td class="col-sm-4">
+							<label><input type="text" id="assignedByR"
+								readonly="readonly" /></label>
+						</td>
+					</tr>
+
+
+					
+					</table>
+					<table border="1" class="table table-striped custab" style="width: 100%">
+					<thead>
+    				<tr>
+            		<th>Label</th>
+            		<th>Value</th>
+            		</tr>
+    				</thead>
+						<tr>
+						<td>
+						<label for="queryBriefDescription" class="control-label-head">
+							BriefDescription</label>
+						</td>
+						<td>
+							<label><textarea id="conciliationBriefDescriptionR" 
+									readonly="readonly" rows="5" cols="77" style="border: none; background-color: inherit; border: none; overflow: auto; outline: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; resize: none;"></textarea></label>
+						</td>
+						</tr>
+						
+						
+						<tr>
+						<td>
+						<label for="QueryDescription" class="control-label-head">
+							Description</label>
+						</td>
+						<td>
+							<div id="ConciliationDescriptionR" style="height: 100%; width: 100%"></div>
+						</td>
+						</tr>
+					
+					 <tr>
+					<td>
+                    <label for="uploadedFileDetails" class="control-label-head">
+						File Informations</label>
+						</td>
+						<td>
+							<table border="1" class="table table-striped custab" id="uploadedFileDetailsR" style="width: 100%">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+                    
+                   <tr>
+						<td>
+						<label for="queryResponse" class="control-label-head">
+							Response</label>
+						</td>
+						<td>
+						<textarea id="editor" rows="10" cols="80" placeholder="Please enter your case related text here...">
+						</textarea>
+						<script>$("#editor").Editor();</script>
+					<br />
+				<button  class="btn btn-blue" type="button" id ="editResponseButton" onclick="getEditorText()"
+						 style="background: #323f3f;color: #fff; margin-left:90%;">Save</button>
+				</td>
+				</tr>
+				</table>
+				</div>
+				</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+ <script>
+function getEditorText(){
+	var data=$("#editor").Editor("getText");
+	//var data = CKEDITOR.instances.editor.getData();
+	document.getElementById("editedResponse").value=data;
+	
+		 //$('#loaderModal').show();
+		ajaxPost('showConciliationResponseForm','/updateresponsecmd');
+			
+}
+</script>

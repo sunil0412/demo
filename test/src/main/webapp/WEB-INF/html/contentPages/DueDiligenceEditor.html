@@ -1,0 +1,139 @@
+<!-- <div class="container-2">
+	<div id="page-wrapper"> -->
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Create Due Diligence</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Due Diligence Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+<div id="query-details" class="tab-pane fade active in"> 
+              	
+              	<form role="form" id="diligenceEditorForm">
+                 
+              	<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>This is What We Know About Your Diligence So For</h2>
+            </div> 
+          </div>
+          
+                	<div class="col-sm-6">
+	            	<div class="form-group">
+                      <label>Category</label>
+                      <p><input type="text" class="form-control" name="diligence_Category" id="DiligenceCategory""
+							style="opacity:0.7;background-color:#eee;" readonly /></p>
+                    </div>  
+                    
+                    <div class="form-group">
+                      <label>Organisation</label>
+                      <p><input type="text" class="form-control" name="organisation_Name" id="organisationName"
+							style="opacity:0.7;background-color:#eee;" readonly /></p>
+                    </div>
+                    </div>
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Brief Description</label>
+                      <p><textarea class="form-control" rows="5" placeholder=""
+                       name="diligence_BriefDescription" id="diligenceBriefDescription" style="opacity:0.7;background-color:#eee;" readonly>
+						</textarea></p>
+                    </div> 
+                    </div> 
+                
+                 </div>
+                <div class="col-sm-12">
+                  <div class="col-md-12 navbar-dashbord">
+            		<div class="page-title">
+                	<h2>Give detailed information about your Diligence</h2>
+               		</div> 
+          		  </div>
+               </div>
+               
+                <div class="col-sm-12">
+                	<div class="form-group">
+					<textarea id="editor" rows="10" cols="80"
+						placeholder="Please enter your case related text here..."></textarea>
+           
+            <script>
+               
+				$("#editor").Editor();
+			
+		 </script>
+			<span id="myspan" style="color: red;"></span>
+            <input type="hidden" name="diligence_Details" id="diligenceDetails" onblur="return onBlurCaseEditor()" />
+            <input type="hidden" name="client_Id" id="Client_Id" />
+              <input type="hidden" name="diligence_Id" id="Diligence_Id" />
+          </div>
+		  </div>
+                <div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <!--<input type="submit" value="Back" class="btn btn-blue">-->
+                  <input type="button" id="diligenceEditorButton" onclick="ValidateDiligenceDesc();"
+                  value="Next" class="btn btn-blue">
+               <!--    <input type="button" onclick="" value="Back" class="btn btn-blue">
+               --></div>
+            </div>
+              </div>
+           </form>
+                
+              </div>
+              
+             <div class="clearfix"></div>
+			</div>
+		</div>
+	<!-- </div>
+
+</div>	 -->
+
+    <script>
+
+function ValidateDiligenceDesc(){
+	//var data = CKEDITOR.instances.editor.getData();
+	var data=$("#editor").Editor("getText");
+	document.getElementById("diligenceDetails").value=data;
+	var caseDesc = document.getElementById("diligenceDetails").value;
+	if(caseDesc == ""){
+		document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Due Diligence";	
+	}else{
+		//$('#loaderModal').show();
+		ajaxPost('diligenceEditorForm','/saveServiceDD');
+	}
+}
+</script>
+		 

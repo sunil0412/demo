@@ -1,0 +1,171 @@
+<div class="container-2" style="margin-left:25%; margin-top:7%; width:50%;">
+      <div id="page-wrapper" style="min-height: 400px;">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Counsel Registration</h2>
+            </div>
+            </div>
+          
+        </div>
+        <div class="row">
+        	<div class="col-sm-12">
+			<form id="employeeRegistrationForm" style="padding: 25px;">
+			
+			<div class="col-sm-12" style="padding:0px;">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="UserType" class="control-label">User Type </label>
+					<!-- <div class="col-sm-4"> -->
+						<select class="form-control" name="user_Type" tabindex="1" required="required"
+							id="UserType" onchange="changeUserCategory();"
+							 onblur="return onblurEmployeeRegistrationForm();">
+							<option value="">Select</option>
+							<option value="Admin">Lead Counsel</option>
+							<option value="Lawyer">Counsel</option>
+						</select>
+						<span id="userTypeSpan" style="color:red;"></span>
+					<!-- </div> -->
+					</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group" id="usercatdiv" style="display: none">
+					<label for="UserCategory">User Category </label>
+					<!-- <div class="col-sm-4"> -->
+						<select class="form-control" name="user_Category"
+							required="required" id="UserCategory"
+							onblur="return onblurEmployeeRegistrationForm();">
+							<option value="">Select</option>
+							<option value="Internal">Internal</option>
+							<option value="External">External</option>
+						</select>
+						<span id="userCategorySpan" style="color:red;"></span>
+					<!-- </div> -->
+				</div>
+			</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="FirstName" class="control-label">First Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="first_Name" id="FirstName" class="form-control"
+							placeholder="First Name" required="required" tabindex="2"
+							onblur="return validateOnlyLetters(this.id,'firstname','employeeSubmitButton')" /> <span id="firstname"
+							style="color: red"></span>
+					<!-- </div> -->
+					</div>
+					
+					<div class="form-group">
+					<label for="EMail" class="control-label">E-Mail*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="user_Id" id="EMail" class="form-control"
+							required="required" placeholder="E-Mail" tabindex="4"
+							onblur="return validateEmail(this.id,'email','employeeSubmitButton')" /> <span id="email"
+							style="color: red"></span>
+					<!-- </div> -->
+				</div>
+				
+				<div class="form-group">
+					<label for="Password" class="control-label">Password*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="password" id="Password" name="Password"
+							class="form-control" type="password" required="required"
+							placeholder="Password" maxlength="15" tabindex="6"
+							onfocus="showEmployeePassInfo(this.id,'password')";
+							onblur="return validatePassword(this.id,'password','employeeSubmitButton')" /> 
+							<span id="password" style="color: red;"></span>
+					<!-- </div> -->
+					</div>
+				
+				</div>
+				
+				<div class="col-md-6">
+				<div class="form-group">
+					<label for="LastName" class="control-label">Last Name*</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" required="required" tabindex="3"
+								onblur="return validateOnlyLetters(this.id,'lastname','employeeSubmitButton')" /> <span id="lastname"
+								style="color: red"></span>
+						<!-- </div> -->
+				</div>
+				
+				<label for="PhoneNumber" class="control-label">Mobile Number*</label>
+				<div class="form-group">
+					<div class="col-sm-1" style="padding-left:0px; width:25%;">
+						<input name="" id="phcontrycode" class="form-control" readonly
+							tabindex="0" placeholder="+ 91" />
+					</div>
+					<div class="col-sm-3" style="width:75%; padding-right:0px;">
+						<input name="phone_Mobile" id="PhoneNumber" class="form-control"
+							placeholder="Mobile Number" maxlength="10" type="text" required="required" tabindex="5"
+							onblur="return validateMobile(this.id,'mobile','employeeSubmitButton')" /> <span id="mobile"
+							style="color: red"></span>
+					</div>
+				</div>
+				
+				
+					<div class="form-group">
+					<label for="RePassword" class="control-label">Confirm Password*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="" id="Repassword" class="form-control"
+							type="password" required="required" tabindex="7"
+							onfocus="showEmployeeRePassInfo(this.id,'repassword')";
+							placeholder="Confirm Password" onblur="return validateRePassword(this.id,'repassword','Password','employeeSubmitButton')" />
+						<span id="repassword" style="color: red;"></span>
+					<!-- </div> -->
+				</div>
+				</div>
+				<div class="col-sm-12 text-right">
+					<div class="form-group">
+							<button class="btn btn-blue" type="button" id="redirectLoginPage" style="background: #323f3f; color: #fff;">Close</button>
+							<button id="employeeSubmitButton" class="btn btn-blue" type="button" onclick="validateEmployeeRegistration();" style="background: #323f3f; color: #fff;" >Register</button>
+						</div>
+				</div>
+<script>
+$(document).on('click',"#redirectLoginPage",function() {
+	loadGenericPagesOnLogout();
+	//window.location.href="http://45.249.108.159:8080/LegalBell";
+});
+
+function showEmployeePassInfo(id,spanId){
+	var password = document.getElementById(id).value;
+	if(password == ''){
+	document.getElementById(spanId).textContent = "*Password must contain at least 6 characters, including UPPER/lowercase and numbers";
+	}
+	else
+	{
+		document.getElementById(spanId).textContent = "";
+	}
+}
+
+function showEmployeeRePassInfo(id,spanId){
+	var repassword = document.getElementById(id).value;
+	if(repassword == ''){
+		document.getElementById(spanId).textContent= "*Please enter the same Password. "
+	}else{
+		document.getElementById(spanId).textContent= "";
+	}
+}
+</script>
+	
+	<!-- <div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b>  Employee Registration  </b>  </h1>
+		<p>
+		Dear Employee, <br/><br/> You need to enter the type of account you need to setup(Councel/Inhouse/External), type of industry from dropdown, First Name, Last Name, E-Mail address, Mobile Number, Password and Confirm Password in the fields given. <br/><br/> Note: <br/> You will not be allowed to enter any other fields if you do not fill the required fields(* ones). You have to activate the account via email. However there are External Councels who are assigned on an invitation basis.<br/><br/> Tips: <br/> 1) Phone Number should be of 10 digits so ignore city/country code.<br/>2) You should enter proper E-Mail Address else it will not receive. <br/> 3) Passwords should contain atleast 6 charecters, including atleast one upper, one lower character and one number. <br/>4) Both the Password and Confirm Password fields should be the same.
+		
+		
+		</p>
+		</div>
+		</div>
+	</div>		 -->	
+				
+
+			</form>
+		</div>
+	</div>
+</div></div>

@@ -1,0 +1,200 @@
+ <!-- <div class="container-2">
+      <div id="page-wrapper"> -->
+<div class="row" id="form_area">
+	<div id="categorie_area" class="main_area">
+        
+        <div class="row" id="form_area">
+        <div class="col-sm-12">
+       <form id="updateIndividualForm">
+		<div class="col-sm-12">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Update Profile</h2>
+            </div>
+            </div>
+        </div>	
+				<div class="col-md-6" style="padding-top:5px;">
+							<div class="form-group">
+								<label for="ClientId">Client Id</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="client_Id" id="ClientId" class="form-control"
+										readonly placeholder="Client Id" />
+								<!-- </div> -->
+
+							</div>
+							<div class="form-group">
+								<label for="ClientType">Client Type</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="client_Type" id="ClientType" class="form-control"
+										readonly placeholder="Client Type" />
+								<!-- </div> -->
+
+							</div>
+
+							<div class="form-group">
+								<label for="FirstName">First Name</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="first_Name" id="FirstName" class="form-control"
+										placeholder="First Name" />
+								<!-- </div> -->
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+							<div class="form-group">
+								<label for="MiddleName">Middle Name</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="middle_Name" id="MiddleName" class="form-control"
+										placeholder="Middle Name" />
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="lastName">Last Name</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="last_Name" id="LastName" class="form-control"
+										placeholder="Last Name" />
+								<!-- </div> -->
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+
+							<div class="form-group">
+								<label for="CountryId">Country</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<select class="form-control" required="required" id="CountryId"
+										onchange="changeStateList(this.id,'/getStateList');">
+										<option value="" label="---Select---" />
+									</select> <input type="hidden" name="country_Id" id="hiddenCountry" />
+								<!-- </div> -->
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+							<div class="form-group">
+								<label for="StateId">State</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<select class="form-control" required="required" id="StateId"
+										onchange="changeDistrictList(this.id,'/getDistrictList');">
+										<option value="" label="---Select---" />
+									</select> <input type="hidden" name="state_Id" id="hiddenState" />
+								<!-- </div> -->
+								<span id="stateHidden" style="display: none">${hiddenStateMap}</span>
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+							<div class="form-group">
+								<label for="DistrictId">District</label> <!--  class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<select class="form-control" required="required"
+										id="DistrictId" onchange="changeDistrictValue(this.id);">
+										<option value="" label="---Select---" />
+									</select> <input type="hidden" name="district_Id" id="hiddenDistrict" />
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="AddrLine1">Primary Address</label> <!-- class="col-md-6 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="addr_Line1" id="AddrLine1" class="form-control"
+										placeholder="Primary Address" />
+								<!-- </div> -->
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+
+							<div class="form-group">
+								<label for="AddrLine2">Secondary Address/City</label> <!--  class="col-md-8 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="addr_Line2" id="AddrLine2" class="form-control"
+										placeholder="Secondary Address" />
+								<!-- </div> -->
+							</div>
+						</div>
+
+
+						<div class="col-md-6" style="padding-top:5px;">
+
+							<div class="form-group">
+								<label for="EMail">E-Mail</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="email_Id" id="E-Mail" class="form-control"
+										readonly placeholder="E-Mail" />
+								<!-- </div> -->
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+							<div class="form-group">
+								<label for="AlternameEMail">Alternate E-Mail</label> <!-- class="col-md-6 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="alternate_Email_Id" id="AlternateEMail"
+										class="form-control" placeholder="Atername E-Mail" />
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="PhoneNumber">Mobile Number</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="phone_Mobile" id="PhoneNumber"
+										class="form-control" readonly placeholder="Phone Number" />
+								<!-- </div> -->
+
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+							<div class="form-group">
+								<label for="PhoneLand">Phone Number</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="phone_Land" id="PhoneLand" class="form-control"
+										placeholder="Phone Number" maxlength="10" type="text"/>
+								<!-- </div> -->
+
+								<div style="color: red; font-style: bold;"></div>
+							</div>
+							<div class="form-group">
+								<label for="AternatePhoneNumber">Alternate Phone Number</label> <!-- class="col-md-8 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="alternate_Phone" id="AlternatePhoneNumber"
+										class="form-control" placeholder="Alternate Phone Number" maxlength="10" type="number" />
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="WebSite">Web_Site</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="web_Site" class="form-control" id="WebSite"
+										placeholder=" WebSite Name" />
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="Fax-no">Fax</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="fax" class="form-control" id="Fax-no"
+										placeholder="Fax" maxlength="15" type="number"/>
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="PanTan">PAN TAN</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="pan_Tan" class="form-control" id="PanTan"
+										placeholder="Pan Tan" />
+								<!-- </div> -->
+							</div>
+							<div class="form-group">
+								<label for="PinCode">PIN Code</label> <!-- class="col-md-5 control-label" -->
+								<!-- <div class="col-md-7"> -->
+									<input name="pin_Code" class="form-control" id="PinCode"
+										placeholder="Pin Code" maxlength="6" />
+								<!-- </div> -->
+								<div style="color: red; font-style: bold;"></div>
+
+							</div>
+						</div>
+				
+					<div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <input type="submit" value="Cancel" id="ClientDashboard" class="btn btn-blue">
+              	  <input id="updateIndividualClientButton" type="button" value="Update" class="btn btn-blue" onclick="ajaxPost('updateIndividualForm','/detailsClient');">
+              </div>
+            </div>
+              </div>
+					
+
+				</form>
+        	
+          
+          </div>
+          
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <!-- page-wrapper END-->
+    </div>

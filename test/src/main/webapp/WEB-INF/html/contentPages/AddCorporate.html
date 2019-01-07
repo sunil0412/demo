@@ -1,0 +1,247 @@
+<div class="row" style="margin-left: -35px; margin-top: -100px;">
+
+	<div class="col-lg-12">
+		<div class="showback" style="margin-top: 105px">
+			<div id="categorie_area" class="main_area" style="min-height: 767px;">
+			<form id="addCorporateForm" style="padding: 20px;">
+			<div class="row" style="margin-left:20px;">
+			<div class="col-md-12 navbar-dashbord" style="width: 97%;">
+			<div class="page-title">
+				<h2>Add Corporate</h2>
+			</div>
+			</div>
+			</div>
+			<div class="col-md-12">
+			<h5>Company Details:</h5>
+			</div>
+			<input type="hidden" name="user_Type" value="Corporate" />
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="CompanyName">Company Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="company_Name" id="CompanyName" class="form-control"
+							placeholder="Company Name" required="required"
+							onblur="return validateNotEmpty(this.id,'companyname','corporateSubmitButton')" /> <span
+							id="companyname" style="color: red"></span>
+					<!-- </div> -->
+					<label for="IndustryType">Industry Type</label>
+					<!-- <div class="col-sm-4"> -->
+						<select id="IndustryType" class="form-control"
+							onchange="changeIndustryTypeValue(this.id);" onblur="return onblurCorporateRegistrationForm();">
+							<option value="" label="---Select---" />
+						</select> 
+						<input type="hidden" name="industry_Type"
+							id="hiddenIndustryType" />
+						<span id="industrytypeSpan" style="color: red;"></span>	
+					<!-- </div> -->
+				</div>
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="PhoneLandNumber">Phone Number*</label>
+					<div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
+					<div class="col-sm-2" style="padding-left:0px;">
+						<input name="" id="phstatecode" class="form-control"
+							readonly="readonly" placeholder="+ 91" />
+					</div>
+					<div class="col-sm-10" style="padding-left:0px;padding-right:0px;">
+						<input name="phone_Land" id="PhoneLand" class="form-control"
+							placeholder="Phone Landline" maxlength="10" required="required"
+							onblur="return validatePhone(this.id,'phone','corporateSubmitButton')" /> 
+							<span id="phone" style="color: red"></span>
+					</div>
+					</div>
+					</div>
+					<div class="form-group">
+					<label for="WebSite">Company WebSite*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="web_Site" id="WebSite" class="form-control"
+							required="required" placeholder="WebSite"
+							onblur="return validateWebsite(this.id,'website','corporateSubmitButton')" /> <span
+							id="website" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+			</div>
+			<div class="col-md-12">
+			<h5>Managing Director/CEO:</h5>
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="DirectorFname">First Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="director_Fname" id="DirectorFname"
+							class="form-control" placeholder="Director First Name"
+							required="required"
+							onblur="return validateOnlyLetters(this.id,'directorfname','corporateSubmitButton')" />
+						<span id="directorfname" style="color: red"></span>
+					<!-- </div> -->
+					<label for="DirectorLname">Last	Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="director_Lname" id="DirectorLname"
+							class="form-control" placeholder="Director Last Name"
+							required="required"
+							onblur="return validateOnlyLetters(this.id,'directorlname','corporateSubmitButton')" />
+						<span id="directorlname" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="Alternate_Email">E-Mail*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="alternate_Email_Id" id="AlternateEmail"
+							class="form-control" required="required" placeholder="E-Mail"
+							onblur="return validateEmail(this.id,'alternateemail','corporateSubmitButton')" /> <span
+							id="alternateemail" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+			</div>
+			<div class="col-md-12">
+			<h5>Authorized Officer Details:</h5>
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="FirstName">First Name*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="first_Name" id="FirstName" class="form-control"
+							placeholder="First Name" required="required"
+							onblur="return validateOnlyLetters(this.id,'firstname','corporateSubmitButton')" /> <span
+							id="firstname" style="color: red"></span>
+					<!-- </div> -->
+						<label for="LastName">Last Name*</label>
+						<!-- <div class="col-sm-4"> -->
+							<input name="last_Name" id="LastName" class="form-control"
+								placeholder="Last Name" required="required"
+								onblur="return validateOnlyLetters(this.id,'lastname','corporateSubmitButton')" /> <span
+								id="lastname" style="color: red"></span>
+					<!-- </div> -->
+				</div>
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="EMail">E-Mail*</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="user_Id" id="EMail" class="form-control"
+							required="required" placeholder="E-Mail"
+							onblur="return validateEmail(this.id,'email','corporateSubmitButton')" /> <span
+							id="email" style="color: red"></span>
+					<!-- </div> -->
+					<label for="PhoneNumber">Mobile Number*</label>
+					<div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
+					<div class="col-lg-2" style="padding-left:0px;">
+						<input id="phcontrycode" class="form-control"
+							readonly="readonly" placeholder="+91" />
+					</div>
+					<div class="col-sm-10" style="padding-left:0px;padding-right:0px;">
+						<input name="phone_Mobile" id="PhoneNumber" class="form-control"
+							placeholder="Mobile Number" maxlength="10" required="required"
+							onblur="return validateMobile(this.id,'mobile','corporateSubmitButton')" /> 
+							<span id="mobile" style="color: red"></span>
+					</div>
+					</div>
+				</div>
+			</div>	
+			<div class="col-md-12">
+			<h5>Reference Id(If Any):</h5>	
+			</div>
+			<div class="col-md-6">
+			<div class="form-group">
+					<label for="ReferenceId" class="col-sm-5 control-label" >Reference
+						Id</label>
+					<!-- <div class="col-sm-4"> -->
+						<input name="reference_Id" id="ReferenceId" class="form-control"
+							placeholder="Reference Id" required="required"
+							onblur="return validateReferenceId()" /> <span
+							id="referenceIdSpan" style="color: red"></span>
+					<!-- </div> -->
+					<label for="ReferenceId" class="col-sm-2 control-label" ></label>
+					<div class="col-sm-4" id="referenceNameDiv" style="display: none">
+						<input id="ReferenceName" class="form-control" readonly="readonly"
+							placeholder="Reference Name" required="required" /> 
+					</div>
+					</div>
+			</div>
+			
+			<div class="col-md-6">
+			
+			</div>
+				
+				
+				<div class="form-group" style="display: none;">
+					<label for="Password" class="col-sm-2 control-label">Password*</label>
+					<div class="col-sm-4">
+						<input name="password" id="Password" class="form-control" value="Welcome@123"
+							type="password" required="required" placeholder="Password"
+							maxlength="15"
+							onblur="return validatePassword(this.id,'password','corporateSubmitButton')" /> <span
+							id="password" style="color: red;"></span>
+					</div>
+					<label for="RePassword" class="col-sm-2 control-label">Confirm
+						Password*</label>
+					<div class="col-sm-4">
+						<input id="Repassword" class="form-control" value="Welcome@123"
+							type="password" required="required"
+							placeholder="Confirm Password"
+							onblur="return validateRePassword(this.id,'repassword','Password','corporateSubmitButton')" />
+						<span id="repassword" style="color: red;"></span>
+					</div>
+				</div>
+				
+				
+				
+				    <div class="col-md-12 text-right">
+						<div class="form-group">
+						<button id="corporateSubmitButton" class="btn btn-blue" type="button"  onclick="validateAddCorporate();" style="background: #323f3f; 
+						color: #fff; font-family: 'Conv_Raavi', Sans-Serif; border: #182832 1px solid; padding: 11px 25px 6px;">Add</button>
+						
+						<button class="btn btn-blue" type="button" id="redirectLoginPage" style="background: #323f3f; 
+						color: #fff; font-family: 'Conv_Raavi', Sans-Serif; border: #182832 1px solid; padding: 11px 25px 6px;">Close</button>
+						
+						<input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+						</div>
+					</div>
+				
+<script>
+$(document).on('click',"#redirectLoginPage",function() {
+	loadGenericPagesOnLogout();
+	//window.location.href="http://45.249.108.159:8080/LegalBell";
+});
+</script>
+	
+	<!-- <div id="slideout">
+		<img src="panel/assets/img/needhelp.jpg" alt="Feedback">
+		<div id="slideout_inner">
+		<div id="mrova-form">
+		<h1>  <b>  Corporate Registration  </b>  </h1>
+		<p>
+		Dear Corporate Client, <br/><br/>There are three parts in this form:<br/><br/>1) In the first part you need to enter the company profile details in the given fields such as name, type, website etc. <br/>2) In the second part you need to enter the details of the Managing Director or the CEO of the company.<br/>3) In the third part the authorized Officer in charge of the case fills up his own details. of the various fields to be filled up by the authorized Officer of the case.<br/><br/> Note: <br/> You will not be allowed to enter any other fields if you do not fill the required fields(* ones). Moreover you need to activate the account via email.<br/><br/> Tips: <br/> 1) Phone Number should be of 10 digits so ignore city/country code.<br/> 2) You should enter proper E-Mail Address else it will not receive. <br/> 3) Passwords should contain atleast 6 charecters, including atleast one upper, one lower character and one number. <br/>4) Both the Password and Confirm Password fields should be the same.
+		</p>
+		</div>
+		</div>
+	</div> -->
+	
+			</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script>
+function validateReferenceId(){
+	var referenceId=$("#ReferenceId").val();
+	if(referenceId===null){
+	}else{
+	$.ajax({
+			url : '/LegalBell' + '/getNameByReferenceId',
+				method : 'POST',
+				data : {
+				Value : referenceId,
+				       },
+				success : function(response) {
+				document.getElementById("referenceNameDiv").style.display = "block";
+				$("#ReferenceName").val(response.result);
+				}
+	});
+	}
+}
+</script>

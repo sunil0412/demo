@@ -1,0 +1,98 @@
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				
+				<div class="tab-content" id="processTab">
+
+					<div id="query-type" class="tab-pane fade active in">
+							<form role="form" id="adminRemoveSlaDescriptionForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Remove Sla Description</h2>
+									</div>
+								</div>
+							</div>
+							<div class="form-group" style="margin-top:40px;">
+					        <label for="Sla" class="col-sm-2 control-label">Sla Hours</label>
+					        <div class="col-sm-4">
+						    <select id="Sla" onchange="getSlaDescription(this.id,'removeSlaDescription');" class="form-control">
+							<option value="" label="---Select---" />
+						    </select> <span id="contractIdSpan" style="color: red"></span>
+						   </div>
+						   <div class="col-sm-6"></div>
+				           </div>
+						   <div class="form-group">
+						   <label for="SlaDescription" class="col-sm-2 control-label">Sla Description</label>
+						   <div class="col-sm-10">
+						   <table class="table table-striped custab" id="removeSlaDescription">
+								<thead>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-sm-12" id="removeSlaDivButtons" style="display: none">
+				     <div class="text-right">
+								<div class="form-group">
+
+
+									<input type="button" id="adminRemoveSlaDescriptionButton" value="Remove"
+										class="btn btn-blue">
+									<input type="button" id="CounselDashboard"
+										 value="Cancel" class="btn btn-blue">	
+
+								</div>
+							</div>
+							</div>
+						</form>
+
+					</div> 
+							
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<a data-toggle="modal" href="AdminRemoveSlaDescription.html#removeSlaModal"><button id="removeSlaPopupButton" style="display: none;"></button></a>				
+					
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="removeSlaModal" class="modal fade">
+					
+						<div class="modal-dialog modal-lg"> 
+						
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Manage SLA</h4>
+							</div>
+							<div class="modal-body" align="center">
+						    
+					        <h3>Are you sure you want to remove this item?</h3>
+					        </div>
+					
+					
+							
+							<div class="modal-footer">
+								    <button data-dismiss="modal" id="removeSlaButton" class="btn btn-blue"
+									type="button">Yes</button>
+									<button data-dismiss="modal" class="btn btn-blue"
+									type="button">No</button>
+							</div>
+							</div>
+							</div>
+						</div>
+					
+					
+				</div>
+
+
+
+

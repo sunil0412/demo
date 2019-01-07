@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	/* border: 1px solid #ccc; */
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+</style>
+</head>
+<body>
+
+
+
+	<div id="CreateDisputeResolution" class="tabcontent"
+		style="display: block;">
+	
+<div class="container-2">
+	<div id="page-wrapper">
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<!-- ------The Menu Icons start Here------ -->
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateConciliationMediation')">
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p> Litigation Management Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','ConciliationMediationEditor')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p> Litigation Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review and Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+				<!-- ------The Content area start Here------ -->
+				<div class="tab-content">
+					<div class="tab-pane fade active in" id="step1">
+						<form role="form" id="createDisputeForm">
+							<input type="hidden" name="client_Id" id="Client_Id" />
+			<input type="hidden" name="dispute_Id" id="Dispute_Id" />
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2> Litigation Management Flow</h2>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6" style="margin-top:55px;">
+								<div class="form-group">
+									<label>Category*</label> 
+									<select class="form-control" id="DisputeCat"
+								 onchange="getDisputeSubCategory(this.id,'/getcasesubcategory');uncheck('disputeCategory');" onblur="return onBlurCreateCase()">
+								<option value="" label="---Select---" />
+							</select> <span id="disputeCatSpan" style="color: red;"></span>
+
+								</div>
+								<div><input type="hidden" name="dispute_Category" id="disputeCategory" /></div>
+								<div class="form-group">
+									<label>SubCategory*</label>
+									<select class="form-control" id="DisputeSubCat"
+								 onchange="DisputeSubCatValue(this.id);uncheck('disputeSubCategory');" onblur="return onBlurCreateCase()">
+								<option value="" label="---Select---" />
+							</select> <span id="disputeSubCatSpan" style="color: red;"></span>
+								</div>
+								<div><input type="hidden" name="dispute_SubCategory" id="disputeSubCategory"/></div>
+					          <div class="form-group">
+<label>Case Type</label><select class="form-control" id="CaseReq"
+onchange="setSelectedValue(this.id,'caseRequest');" onblur="return onBlurCreateCase()">
+<option value="" label="---Select---" />
+<option value="New Case" label="New Case" />
+<option value="Already Filed Case" label="Already Filed Case" />
+</select>
+<span id="casereqSpan" style="color: red;"></span>	
+</div>
+<div><input type="hidden" name="case_Request" id="caseRequest" /></div>
+					         
+					         <div>
+									<label><input type="checkbox" id="notsure" value="Others" onclick="notSure(this.value,'DisputeCat','disputeCategory','DisputeSubCat','disputeSubCategory')">I am not sure</label>
+								</div>	
+								<div class="form-group">
+									<label>Brief Description*</label>
+
+									<p>
+										<textarea class="form-control" rows="5" maxlength="150" placeholder=""
+											name="dispute_BriefDescription" id="DisputeBrief"
+											onblur="return onBlurCreateCase()"></textarea>
+									</p>
+
+									<span id="disputeBriefSpan" style="color: red;"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="col-lg-12">
+									<h2>Adversary Details</h2>
+								</div>
+								<div class="form-group">
+									<label>Full Name*</label>
+									 <input  name="adversory_Name" id="AdversoryName" class="form-control"
+										placeholder="Full Name" onblur="return onBlurCreateCase()"/>
+										 <span id="advNameSpan" style="color: red;"></span>
+								</div>
+								<div class="form-group">
+									<label>Email</label> 
+									<input name="adversory_Email" id="AdversoryEmail" class="form-control" placeholder="Email" onchange="validateEmailNotMandatory(this.id,'advisorySEmailSpan','createCaseButton')"/>
+									<span id="advisorySEmailSpan" style="color: red;"></span>
+								</div>
+								<div class="form-group">
+									<label>Mobile Number</label> 
+									<input name="adversory_Mobile" id="AdversoryMobile" class="form-control" maxlength="10" type="text"
+										placeholder="Mobile Number" onchange="validateMobileNotMandatory(this.id,'adversoryMobileSpan','createCaseButton')"/>
+										 <span id="adversoryMobileSpan" style="color: red;"></span>	</div>
+
+								<!-- <div class="col-lg-12">
+								 -->	<div class="form-group">
+										<label>Full Address*</label>
+										<p>
+											<textarea class="form-control" rows="5" placeholder=""
+												name="adversory_Address" id="Adversory_Address"
+											onblur="return onBlurCreateCase()"></textarea>
+										</p>
+
+
+
+
+										<span id="adversoryAddressSpan" style="color: red;"></span>
+									</div>
+								<!-- </div> -->
+
+							</div>
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+								    <input type="button" onclick="redirectToDashBoard()" value="Back" class="btn btn-blue">
+									<input id="createCaseButton" class="btn btn-blue" type="button"
+										onclick="ValidateCreateCase();" value="Next">
+									
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<!-- ------The content area ends Here------ -->
+				<div class="clearfix"></div>
+
+			</div>
+		</div>
+	</div>
+
+</div>	
+	</div>
+
+
+
+	<div id="DisputeResolutionEditor" class="tabcontent">
+	<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle">
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Litigation Management Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Litigation Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+<div id="query-details" class="tab-pane fade active in"> 
+              	
+              	<form id="disputeEditorForm">
+                 
+              	<div class="col-sm-12">
+                	<div class="col-md-12 navbar-dashbord">
+            		<div class="page-title">
+              		<h2>This is What We Know About Your Litigation So Far</h2>
+            		</div> 
+          			</div>
+          		</div>
+          <div class="col-sm-6" style="margin-top:10px;">
+              	 <div class="col-sm-12">
+                	<div class="form-group">
+                      <label>Category</label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="text" name="dispute_Category" id="DisputeCategory" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                    <!-- </div>  
+                    
+                    <div class="form-group"> -->
+                      <label>Sub-Category</label>
+                      <input type="text" name="dispute_SubCategory" id="DisputeSubCategory" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                    </div>
+                    								
+<div class="form-group">
+                      <label>Case Type</label>
+                      <p><input type="text" class="form-control" name="case_Request" id="CaseRequest""
+							style="opacity:0.7;background-color:#eee;" readonly /></p>
+                    </div>
+                    <div class="form-group">
+                      <label>Brief Description</label>
+                      <p><textarea class="form-control" rows="6" placeholder=""
+                       name="dispute_BriefDescription" id="disputeBriefDescription"
+						style="opacity:0.7;background-color:#eee;"	readonly />
+					</textarea></p>
+                    </div>  
+                </div></div>
+                
+              <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-12">	
+          		<div class="form-group">
+                      <label>Adversory Name</label>
+                      <input type="text" name="adversory_Name" id="AdversoryName" class="form-control"
+						style="opacity:0.7;background-color:#eee;"	readonly />
+                    <!-- </div>  
+                    
+                    <div class="form-group"> -->
+                      <label>Adversary Email</label>
+                     
+                      <input type="text" name="adversory_Email" id="AdversoryEmail" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                   <label>Adversary Mobile</label>
+                   &nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="text" name="adversory_Mobile" id="AdversoryMobile" class="form-control"
+						style="opacity:0.7;background-color:#eee;" readonly />
+                    </div>  
+                    
+                     <div class="form-group">
+                      <label>Adversory Full Address</label>
+                      <p><textarea class="form-control" rows="4" placeholder=""
+                       name="adversory_Address" id="AdversoryAddress"
+						style="opacity:0.7;background-color:#eee;"	readonly />
+</textarea></p>
+                    </div>
+                </div>
+                </div>
+                
+                
+                <div class="col-sm-12">
+                    	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Give Detailed Information About Your Litigation</h2>
+            </div> 
+          </div>
+                    </div>
+                
+          
+                <div class="col-sm-12">
+                	<div class="form-group">
+                      <!-- <label>Lorem Ipsum is simply dummy text</label> -->
+                      <textarea id="editor" class="form-control" rows="9" placeholder=""
+></textarea>
+                
+                
+                
+                
+                
+                	
+            <script>
+               
+				$("#editor").Editor();
+			
+		 </script>
+									<span id="myspan" style="color: red;"></span>
+            <input type="hidden" name="dispute_Details" id="disputeDetails" onblur="return onBlurCaseEditor()" />
+            <input type="hidden" name="client_Id" id="Client_Id" />
+              <input type="hidden" name="dispute_Id" id="Dispute_Id" />
+										</div>
+										</div>
+                
+                <div class="col-md-12 text-right">
+              	<div class="form-group">
+              <div class="row"> 
+              	  <!--<input type="submit" value="Back" class="btn btn-blue">-->
+              	  <input type="button"onclick="openPreviousTab('CreateDisputeResolution')" value="Back" class="btn btn-blue">
+                  <input type="button" id="caseEditorButton" onclick="ValidateDisputeDesc();"
+                  value="Next" class="btn btn-blue">
+				  
+               </div>
+            </div>
+              </div>
+           </form>
+           
+                
+              </div>
+              
+             <div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+
+<script>
+
+function ValidateDisputeDesc(){
+	//var data = CKEDITOR.instances.editor.getData();
+	var data=$("#editor").Editor("getText");
+	document.getElementById("disputeDetails").value=data;
+	var caseDesc = document.getElementById("disputeDetails").value;
+	if(caseDesc == ""){
+		document.getElementById("myspan").textContent = "*Please Enter Some Details About Your Litigation Request";	
+	}else{
+		//$('#loaderModal').show();
+		ajaxPost('disputeEditorForm','/saveDispute');
+	}
+}
+</script>
+	
+
+	</div>
+
+	
+	
+	
+<div id="UploadDisputeFile" class="tabcontent">
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle">
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Litigation Management Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Litigation Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+<div id="document-upload" class="tab-pane fade active in"> 
+              
+              	<form role="form" id="uploadDisputeForm">
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Upload Supporting Documents</h2>
+            </div> 
+          </div>
+                    <div class="form-group">
+                      <label>Litigation Management Id</label>
+                      <input name="dispute_Id" id="DisputeId"
+							class="form-control" placeholder="Query Id" readonly="readonly" style="opacity:0.7;background-color:#eee;" />
+                    </div>
+                    <div class="form-group">
+                      <label>Client Id</label>
+                      <input  name="client_Id" id="ClientId" 
+							class="form-control" placeholder="Client Id" readonly="readonly" style="opacity:0.7;background-color:#eee;" />
+                    </div>
+                    <div  id="fileandbox" class="form-group">
+                      <label>File upload</label>
+                       <div class="input-group image-preview">
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input id="fileToUpload" type="file" multiple="multiple" accept=".jpg,.jpeg,.png,.docx,.doc,.pdf" name="input-file-preview"/> <!-- rename it -->
+                    
+                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
+            <span id="browseSpan" style="color: red;"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+              <h2>Document Upload Status</h2>
+            </div> 
+          </div>
+                    
+                    <div class="">
+                    	<table id="filetable" class="table table-striped custab">
+    <thead>
+    
+        <tr>
+            <th>File Name</th>
+            <th>File Size</th>
+            <th>Action</th>
+            <th>Upload Status</th>
+        </tr>
+    </thead>
+            
+            
+            
+    </table>
+
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <div class="form-group">
+                      
+                        <input type="button"onclick="openPreviousTab('DisputeResolutionEditor')" value="Back" class="btn btn-blue">
+                        <input type="button" onclick="UploadDisputeFile();" value="Next" class="btn btn-blue">
+						 
+                     
+                    </div>
+                  </div>
+                </form>
+              
+                              
+              </div>
+             <div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+			
+              
+             <script type="text/javascript">
+					function UploadDisputeFile() {
+						var Case_Id = $("#DisputeId").val();
+						var Client_Id = $("#ClientId").val();
+						//$('#loaderModal').show();
+						ajaxPost('uploadDisputeForm', '/uploaddisputedocument');
+						/* getCaseDescriptionInClientpopUp(Client_Id, Case_Id);
+						getUploadedFileDetailsOfCase(Client_Id, Case_Id,
+								"CaseFileHandlerInReview","Temp"); */
+					}
+
+					var fileArray = [];
+					var totalFileSize = 0;
+					$("input:file")
+							.change(
+									function(objEvent) {
+										//var objFormData = new FormData();
+										// GET FILE OBJECT 
+										var fileobj= null;
+   										fileobj=$((this).files);
+   										//console.log(fileobj.length);
+   	
+   										for(var i=0; i<fileobj.length; i++){
+   										var objFormData = new FormData();
+										var objFile = fileobj[i]; // $(this)[0].files[0];
+										totalFileSize = totalFileSize
+												+ objFile.size;
+										if (totalFileSize > 5000000) {
+											totalFileSize = totalFileSize
+													- objFile.size;
+											$("#browseSpan").text(
+													"File Size Exceeded");
+											$("#fileToUpload").val("");
+										} else {
+											item = {}
+											var fname = String(objFile.name
+													.replace(/[^A-Z0-9]+/ig, ""));
+											item["filenames"] = fname.replace(
+													/\s\s+/g, ' ');
+											item["filesizes"] = String(objFile.size);
+											item["filestatus"] = "Uploaded";
+											fileArray.push(item);
+											$('#filetable').dataTable()
+													.fnDestroy();
+											$("#filetable")
+													.dataTable(
+															{
+																"bProcessing" : true,
+																"sort" : "position",
+																"bStateSave" : false,
+																"iDisplayLength" : 5,
+																"iDisplayStart" : 0,
+																"aaData" : fileArray,
+																"aoColumns" : [
+																		{
+																			"mData" : null, /* "filenames" */
+																			render : function(data, type, full, meta){
+																				return '<input type="text" class="form-control" value="'+ data.filenames +'" style="opacity:0.7;background-color:#eee;" readonly>'
+																			}
+																		},
+																		{
+																			"mData" : "filesizes"
+																		},
+																		{
+																			"mData" : null,
+																			render : function(
+																					data,
+																					type,
+																					full,
+																					meta) {
+																				return '<input type="button" name="removeButton" id="'+ data.filenames +'" value="Remove">';
+																			}
+																		},
+																		{
+																			"mData" : null,
+																			render : function(
+																					data,
+																					type,
+																					full,
+																					meta) {
+
+																				return '<div id="count'+ data.filenames +'">'
+																						+ data.filestatus
+																						+ '</div>';
+																			}
+																		} ]
+															});
+
+											// APPEND FILE TO POST DATA
+											objFormData.append('file', objFile);
+											objFormData.append('clientId', $(
+													"#ClientId").val());
+											objFormData.append('caseId', $(
+													"#DisputeId").val());
+											$
+													.ajax({
+														url : '/LegalBell/uploadCaseFile',
+														type : 'POST',
+														contentType : false,
+														data : objFormData,
+														//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+														processData : false,
+														success : function(data) {
+														}
+													});
+											$("#browseSpan")
+													.text(
+															"*Click on Choose File again to upload more files..");
+										}
+   									}
+									});
+
+					$(document)
+							.on(
+									'click',
+									'#filetable tbody tr td input',
+									function() {
+										var btnID = $(this).attr('id');
+										var filname = String(btnID);
+										var lastThree = filname
+												.substr(filname.length - 3);
+										if (lastThree == "pdf"
+												|| lastThree == "doc") {
+											filname = filname.substring(0,
+													filname.length - 3);
+											filname = filname + "." + lastThree;
+										} else {
+											var lastFour = filname
+													.substr(filname.length - 4);
+											filname = filname.substring(0,
+													filname.length - 4);
+											filname = filname + "." + lastFour;
+										}
+										var objFormData1 = new FormData();
+										objFormData1
+												.append('filename', filname);
+										objFormData1.append('clientId', $(
+												"#ClientId").val());
+										objFormData1.append('caseId', $(
+												"#DisputeId").val());
+										$.ajax({
+											url : '/LegalBell/deleteCaseFile',
+											type : 'POST',
+											contentType : false,
+											data : objFormData1,
+											//JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+											processData : false,
+											success : function(data) {
+											}
+										});
+										$(this).closest('tr').remove();
+										var a = parseInt(btnID) - 1;
+										fileArray.splice(a, 1);
+										totalFileSize = totalFileSize
+												- fileInfo[1];
+										$("#browseSpan")
+												.text(
+														"*Click on Choose File again to upload more files..");
+									});
+				</script>
+              
+
+	</div>
+
+
+
+
+
+
+	<div id="DisputeResolutionReview" class="tabcontent">
+	<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button" class="btn btn-default btn-circle"
+								 <!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Litigation Management Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Litigation Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								 onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Status</p>
+						</div>
+					</div>
+				</div>
+
+
+<div id="downloads" class="tab-pane fade active in">
+						<form role="form" id="clientDetailsForm">
+							<div class="col-sm-12">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Client Details</h2>
+									</div>
+								</div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Customer Type</label>
+									<p><input type="text" name="client_Type" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Name</label>
+									<p><input type="text" name="name"  readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+									
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Mobile</label>
+									<p><input type="text" name="phone_Mobile"  readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div></div>
+								<div class="col-sm-3">
+								<div class="form-group">
+									<label>Email Id</label>
+									<p><input type="text" name="email_Id" readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div></div>
+								
+							</div>
+							</form>
+							<form role="form" id="disputeDetailsForm">
+							<div class="col-md-6">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Litigation Details</h2>
+									</div>
+								</div>
+
+								<div id="queryDetails" class="form-group">
+									<label>Id</label>
+									<p><input type="text" name="dispute_Id"  id="DisputeId" style="opacity:0.7;background-color:#eee;"
+										class="form-control" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Category</label>
+									<p><input type="text" name="dispute_Category" class="form-control" readonly="readonly" 
+									style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Sub-Category</label>
+									<p><input type="text" name="dispute_SubCategory" 
+									style="opacity:0.7;background-color:#eee;"	class="form-control" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Case Type</label>
+									<p><input type="text" name="case_Request" class="form-control"
+									readonly="readonly" style="opacity:0.7;background-color:#eee;" /></p>
+								</div>	
+								<div class="form-group">
+									<label>Litigation Brief Description</label>
+									<p><div class="col-sm-12" id="dispute_Brief"></div> </p>
+								</div>
+								</div>
+								<div class="col-md-6">
+									<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Litigation Description</h2>
+									</div>
+									</div>
+								
+								<div id="DisputeDescription" class="form-group">
+									<label>Adversory Name</label>
+									<p><input type="text" name="adversory_Name" id="adversoryName" readonly="readonly"
+										style="opacity:0.7;background-color:#eee;" class="form-control" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Email</label>
+									<p><input type="text" name="adversory_Email" id="AdversoryEmail" class="form-control" readonly="readonly"
+									style="opacity:0.7;background-color:#eee;" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Mobile</label>
+									<p><input type="text" name="adversory_Mobile" id="adversoryMobile" class="form-control" readonly="readonly"
+										style="opacity:0.7;background-color:#eee;" readonly="readonly" /></p>
+								</div>
+								<div class="form-group">
+									<label>Adversory Address</label>
+									<p><input type="text" name="adversory_Address" id="adversoryAddress" class="form-control" readonly="readonly"
+										style="opacity:0.7;background-color:#eee;" readonly="readonly" /></p>
+								</div>
+								
+								
+
+
+
+								<div class="">
+									<label>File Information</label>
+									<table class="table table-striped custab" id="CaseFileHandlerInReview">
+													<thead>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+									
+
+								</div>
+								<div> <input type="hidden" name="client_Id" id="ClientId"/>
+							</div> 
+							<div class="col-md-12 text-right">
+								<div class="form-group">
+
+									
+									 <input type="button" value="Download PDF" onclick="getCasePdf('ClientId','DisputeId')" class="btn btn-blue">
+									 <input type="button"onclick="openPreviousTab('UploadDisputeFile')" value="Back" class="btn btn-blue">
+									 <input type="button" value="Submit" onclick="ajaxPost('disputeDetailsForm','/finalSaveDispute');" class="btn btn-blue">
+									 
+                     
+								</div>
+							</div>
+							</div>
+						</form>
+
+					
+					<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>	
+</div>
+	<script>
+	function deleteUploadedfilesPdfOfCase(id,thisid){
+		
+		var ID = id.split("||");
+		var filname=String(ID[0]);
+		var clientId=String(ID[1]);
+		var caseId=String(ID[2]);
+		var folder=String(ID[3]);
+		//alert(folder);
+	    var objFormData = new FormData();
+	    objFormData.append('filename', filname);
+	    objFormData.append('clientId',clientId);
+	    objFormData.append('caseId', caseId);
+	    objFormData.append('fileLocation', folder);
+	   
+	    $.ajax({
+	        url: '/LegalBell/deleteCaseFileFromReview',
+	        type: 'POST',
+	        contentType: false,
+	        data: objFormData,
+	        //JQUERY CONVERT THE FILES ARRAYS INTO STRINGS.SO processData:false
+	        processData: false,
+	        success: function(data) {
+	       
+	        }
+	    });
+	   
+	    var index=$(thisid).closest('tr').index();
+	    //alert(index);
+	    $(thisid).closest('tr').remove();
+	    $("#filetable tr:eq("+index+")").remove();
+	    fileArray.splice(index-1, 1);
+	}
+	</script>						
+
+	</div>
+	
+	
+	
+	<div id="DisputeResolutionFeeQuote" class="tabcontent">
+		
+<div class="container-2">
+	<div id="page-wrapper">
+
+		<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<div class="process">
+					<div class="process-row nav nav-tabs">
+						<div class="process-step">
+							<button id="createLegalAdvisory" type="button"
+								class="btn btn-default btn-circle"
+								<!-- onclick="loadprocess('processTab','CreateLegalAdvisory1')" -->
+								<i class="fa fa-question fa-3x"></i>
+							</button>
+							<p>Litigation Management Request</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory2')">
+								<i class="fa fa-file-text-o fa-3x"></i>
+							</button>
+							<p>Litigation Details</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory3')">
+								<i class="fa fa-upload fa-3x"></i>
+							</button>
+							<p>Upload Document</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-default btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory4')">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Review And Download</p>
+						</div>
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle"
+								onclick="loadprocess('processTab','CreateLegalAdvisory5')">
+								<i class="fa fa-check fa-3x"></i>
+							</button>
+							<p>Fee Quote</p>
+						</div>
+					</div>
+				</div>
+				
+				
+<div class="row">
+<p id="service_id" hidden></p>
+<p id="service_name" hidden></p>
+					<div class="col-lg-12">
+						<div class="message_bx">
+<div class="col-lg-3"><img src="assets/img/Envelopee.png" height="140" width="120"></div>
+<div class="col-lg-9">
+
+<h3 id="code">
+</h3>
+<hr>
+
+<p id="message" style="font-size: 16px;">
+</p>
+</div>
+</div>
+					</div>
+				</div>			
+			
+				
+				
+				
+				
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+	</div>
+
+	
+
+
+</body>
+</html>

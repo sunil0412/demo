@@ -1,0 +1,164 @@
+<style>
+input[type="text"] {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+</style>
+<!-- <div class="row">
+	<div class="scroll_inner_page">
+		<div class="col-lg-12">
+			<div class="showback">
+				<h4>
+					<i class="fa fa-angle-right">Add New Corporate Service
+						Description</i>
+				</h4> -->
+	<div class="row" id="form_area">
+		<div id="categorie_area" class="main_area" style="height: 475px;">
+			<div class="tab-content" id="processTab">
+				<div id="query-type" class="tab-pane fade active in">
+				<form id="adminAddCorporateServiceForm">
+				<div class="col-sm-12" style="padding-bottom:10px;">
+								<div class="col-md-12 navbar-dashbord">
+									<div class="page-title">
+										<h2>Create Corporate Service</h2>
+									</div>
+								</div>
+							</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="ServicesCategory">Service
+							Category</label>
+						<!-- <div class="col-sm-4"> -->
+							<select id="Services_Category"
+								onchange="getServiceSubCategory(this.id);" class="form-control"
+								onblur="return onblurAdminAddServiceForm();">
+								<option value="" label="---Select---" />
+							</select> <span id="corporateServiceSpan" style="color: red"></span>
+						<!-- </div> -->
+					</div>
+					<div class="form-group">
+						<label for="Services_Code">Corporate Service*</label>
+						<!-- <div class="col-sm-4"> -->
+							<input id="Services_Code" class="form-control"
+								readonly="readonly" onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<input type="hidden" id="hiddenServicesCode" name="services_Code" />
+						<span id="services_CodeSpan" style="color: red"></span>
+					</div>
+					<div class="form-group">
+						<label>Discount</label> <!-- <label><input type="text" name="transaction_Properties" value="Discount"></label> -->
+						<!-- <div class="col-sm-4"> -->
+							<input name="rate" type="number" id="Rate_Discount"
+								class="form-control" placeholder="Discount"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=rate_DiscountSpan style="color: red"></span>
+					</div>
+					<div class="form-group">
+						<label>Cess</label><!-- <label><input type="text" name="transaction_Properties" value="Cess"></label> -->
+						<!-- <div class="col-sm-4"> -->
+							<input name="rate" type="number" id="Rate_Cess"
+								class="form-control" placeholder="Cess"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=rate_CessSpan style="color: red"></span>
+					</div>
+					<div class="form-group">
+						<label for="ValidFrom">Valid From*</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="valid_From" id="Valid_From" class="form-control"
+								placeholder="DD-MM-YYYY"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=valid_FromSpan style="color: red"></span> 
+					</div>
+				</div>
+				<div class="col-sm-6">
+				<div class="form-group">
+						<input type="hidden" id="hiddenServicesCategory" /> 
+						<label for="ServicesCode">Service Sub Category</label>
+						<!-- <div class="col-sm-4"> -->
+							<select id="Services_SubCategory"
+								onchange="setNewServicesName(this.id);" class="form-control"
+								onblur="return onblurAdminAddServiceForm();">
+								<option value="" label="---Select---" />
+							</select> <span id="corporateServiceSpan" style="color: red"></span>
+						<!-- </div> -->
+				</div>
+				<div class="form-group">
+						<label>BaseRate</label><!-- <label><input type="text" name="transaction_Properties" value="BaseRate"></label> -->
+						<!-- <div class="col-sm-4"> -->
+							<input name="rate" type="number" id="Rate_BaseRate"
+								class="form-control" placeholder="Base Rate"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=rate_BaseRateSpan style="color: red"></span>
+				</div>
+				<div class="form-group">
+						<label>ServiceTax</label><!-- <label><input type="text"
+							name="transaction_Properties" value="ServiceTax"></label> -->
+						<!-- <div class="col-sm-4"> -->
+							<input name="rate" type="number" id="Rate_ServiceTax"
+								class="form-control" placeholder="Service Tax"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=rate_ServiceTaxSpan style="color: red"></span>
+				</div>
+				<div class="form-group">
+						<label>Loyality</label><!-- <label><input type="text" name="transaction_Properties" value="Loyality"></label> -->
+						<!-- <div class="col-sm-4"> -->
+							<input name="rate" type="number" id="Rate_Loyality"
+								class="form-control" placeholder="Loyality"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=rate_LoyalitySpan style="color: red"></span>
+				</div>
+				<div class="form-group">
+						<label for="ValidTo">Valid To*</label>
+						<!-- <div class="col-sm-2"> -->
+							<input name="valid_To" id="Valid_To" class="form-control"
+								placeholder="DD-MM-YYYY"
+								onblur="return onblurAdminAddServiceForm();" />
+						<!-- </div> -->
+						<span id=valid_ToSpan style="color: red"></span>
+				</div>
+				</div>
+					
+					<div class="col-sm-12 text-right">
+					<div class="form-group">
+						<button id="adminAddServiceButton" class="btn btn-blue"
+								type="button" onclick="validateAdminAddService()">ADD</button>
+						<input class="btn btn-blue" type="button"
+								id="CounselDashboard" value="Cancel" />
+						
+					</div>
+					</div>
+				</form>
+				</div>
+				</div>
+				</div>
+				</div>
+			<!-- </div>
+		</div>
+	</div>
+</div> -->
+<script>
+	$(function() {
+		$("#Valid_From").datepicker({
+			dateFormat : 'dd-mm-yy',
+			minDate : '0'
+		});
+		$("#Valid_To").datepicker({
+			dateFormat : 'dd-mm-yy',
+			minDate : '0'
+		});
+	});
+	function setNewServicesName(id) {
+		var category = $("#hiddenServicesCategory").val();
+		var subCategory = document.getElementById(id).value;
+		var newService = (category + "-" + subCategory);
+		$("#Services_Code").val(newService);
+		loadExistingServicesList(newService);
+	}
+</script>

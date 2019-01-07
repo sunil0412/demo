@@ -1,0 +1,114 @@
+<script type="text/javascript">
+	jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+</script>
+
+<div class="row" id="form_area">
+			<div id="categorie_area" class="main_area">
+				<!-- <div class="process">
+					<div class="process-row nav nav-tabs">
+						
+						<div class="process-step">
+							<button type="button" class="btn btn-info btn-circle">
+								<i class="fa fa-download fa-3x"></i>
+							</button>
+							<p>Details</p>
+						</div>
+						
+					</div>
+				</div> -->
+<div id="document-upload" class="tab-pane fade active in"> 
+      <form role="form" id="newQueryForm">
+        <div class="row">
+        	<div class="col-md-12 navbar-dashbord">
+            <div class="page-title">
+             	 <h2>Query Report Table</h2>
+            </div>
+            </div>
+          
+        </div>
+       <div class="col-sm-12">
+	<h3>Select any tab below to see the corresponding query report</h3>
+		<div class="col-lg-12">
+		<div class="inner_tabs">
+	
+	<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" id="adminNewQueryReport">New Query Report</a></li>
+  <li><a data-toggle="tab" id="adminProgressQueryReport">Progress Query Report</a></li>
+  <li><a data-toggle="tab" id="adminSolvedQueryReport">Solved Query Report</a></li>
+</ul>
+	</div>
+		</div>
+		<div id="reportTab">
+			<form>
+             
+            <div id="loadQueryReport" class="col-sm-12">
+				
+				<h3 style="font-size: 15px!important; ">*Enter the number of days of which you want to see the query report
+				</h3>
+				<div class="col-sm-2">
+					<strong>Days :&nbsp;</strong><input type="number" class="form-control" id="newQueryInterval"
+					style="width: 70%!important; display: inline!important;" placeholder="count" onblur="onblurAdminQueryReport();"/> 
+						<span id="newQueryReportSpan" style="color: red"></span>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-1">
+						<button class="btn btn-blue" id="newQueryReportButton"
+							type="button" style="float: left">Submit</button>
+					</div>
+				</div>
+				</div>
+			</form>
+	</div>
+	</div>
+        	<div class="col-sm-12">
+        	<div class=" table-responsive">
+            <table class="table table-striped custab" id="genericDataTable" >
+    <thead style="background: #323f3f; color: #fff;">
+
+						<tr>
+							<th>ID</th>
+				            <th>Raised On</th>
+				            <th>Pending Since</th>
+				            <th>Details</th>
+				            <th>Action</th>
+						</tr>
+					</thead>
+            
+            
+    </table>
+</div>
+           </div>
+        	
+        	
+        	
+        	
+        	
+            <div class="col-md-12 text-right">
+              <div class="form-group">
+             	<input type="button" onclick="redirectToDashBoard()" value="Back"  style="background: #323f3f; color: #fff;" class="btn btn-blue"> <!-- id="adminDashboard" -->
+              </div>
+            </div>
+          
+          
+          
+        <!-- </div> -->
+        </form>
+      
+</div>
+             <div class="clearfix"></div>
+			</div>
+		</div>

@@ -1,0 +1,72 @@
+<script type="text/javascript">
+	//Plug-in to fetch page data 
+	 jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
+		return {
+			"iStart" : oSettings._iDisplayStart,
+			"iEnd" : oSettings.fnDisplayEnd(),
+			"iLength" : oSettings._iDisplayLength,
+			"iTotal" : oSettings.fnRecordsTotal(),
+			"iFilteredTotal" : oSettings.fnRecordsDisplay(),
+			"iPage" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+			"iTotalPages" : oSettings._iDisplayLength === -1 ? 0 : Math
+					.ceil(oSettings.fnRecordsDisplay()
+							/ oSettings._iDisplayLength)
+		};
+	}; 
+
+	
+</script>
+
+<div class="row">
+<div class="scroll_inner_page">
+	<div class="col-lg-12">
+		<div class="showback wizard">
+			<form id="requestedDocForm">
+				<h4>
+					Requested Document Table
+					 <br>
+				</h4>
+				<div class="datatable-scroller">
+				<table class="table"
+					style="width: 100%; border: 3px; background: rgb(243, 244, 248);">
+					<tr>
+						<td>
+							<table id="requestedDocTable" class="table table-striped custab"
+								style="width: 100%; cellspacing: 1">
+								<thead style="background: #323f3f; color: #fff;">
+									<tr>
+										<th>ID</th>
+				           				<th>Raised On</th>
+				            			<th>Pending Since</th>
+				            			<th>Details</th>
+				            			<th>Action</th>
+										<!-- <th>Request Id</th>
+										<th>Request by</th>
+										<th>Request To</th>
+										<th>Request Item</th>
+										<th>Request Type</th>
+										<th>Request Message</th>
+										<th>Created Date</th>
+										<th>Pending Since</th> -->
+									</tr>
+								</thead>
+							</table>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<div class="col-lg-12 text-right">
+						<div class="form-group">
+							<div>
+								<button id="" class="btn btn-blue"
+								style="background: #323f3f; color: #fff;"
+								onclick="redirectToDashBoard()" type="button">Back</button>
+							</div>
+						</div>
+					</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
