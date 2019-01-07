@@ -22,7 +22,7 @@ public class TestController {
 	
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public @ResponseBody String showExternalServices(@PathVariable("service") String service) {
+	public @ResponseBody String showExternalServices() {
 		//ModelMap model = new ModelMap();
 		//model.addAttribute("service", service);
 		return "Hi";
